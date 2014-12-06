@@ -16,4 +16,3 @@ towns with crazy names like "[Belchertown](http://www.belchertown.org)", and
 [Boston](http://www.cityofboston.gov). I am now based in
 [Arlington](http://www.arlingtonma.gov), Massachusetts writing software and
 songs.
-
