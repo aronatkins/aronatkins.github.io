@@ -6,3 +6,4 @@ versions = JSON.parse(open('https://pages.github.com/versions.json').read)
 
 gem 'github-pages', versions['github-pages']
 gem 'html-proofer', '1.5.4'
+gem 'highline', '1.6.21'
