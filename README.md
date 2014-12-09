@@ -84,6 +84,7 @@ jekyll new --force .
 The following directory and its contents are Copyright Aron Atkins. You may
 not reuse anything therein without my permission.
 * _posts/
+
 All other directories are MIT Licensed. Feel free to use/adapt the HTML/CSS as
 you please. A link back to
 (https://github.com/aronatkins)[https://github.com/aronatkins] would be
