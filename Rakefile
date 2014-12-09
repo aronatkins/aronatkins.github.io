@@ -10,7 +10,7 @@ end
  
 desc 'Start server with --auto.'
 task :serve do
-  jekyll 'serve'
+  jekyll 'serve --drafts'
 end
  
 desc 'Remove all built files.'
@@ -49,18 +49,40 @@ task :post do
     'layout' => 'post',
     'categories' => nil
   }
-  article = options.to_yaml
-  article << "---"
+  make_article('_posts', 'article', filename, options)
+end
 
-  path = "_posts/#{filename}"
+task :draft do
+  title = ask("Title: ")
+
+  under_title = title.downcase.tr(',.!?.:;',' ').strip.tr_s(' ','-')
+  filename = "#{under_title}.markdown"
+  filename = ask("Filename: ") { |q| q.default = filename }
+
+  # A little annoying. Wanted to have a nil 'date' placeholder in the YAML,
+  # but Jekyll couldn't handle an empty date specification.
+  options = {
+    'title' => title.to_s,
+    'layout' => 'post',
+    'categories' => nil
+  }
+  make_article('_drafts', 'draft article', filename, options)
+end
+
+def make_article(directory, thing, filename, options)
+  article = options.to_yaml
+  article << "---\n\n"
+
+  path = "#{directory}/#{filename}"
   unless File.exist?(path)
     File.open(path, "w") do |file| 
       file.write article
     end
     
-    puts "A new article was created at #{path}."
+    puts "A new #{thing} was created at #{path}."
     # TODO: push path to an editor.
   else
-    puts "There was an error creating the article, #{path} already exists."
+    puts "There was an error creating the #{thing}, #{path} already exists."
   end
 end
+
