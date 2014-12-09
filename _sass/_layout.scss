@@ -174,7 +174,10 @@
     list-style: none;
 
     > li {
-        margin-bottom: $spacing-unit;
+          line-height: 1.75em;
+          .post-meta {
+              font-family: Monaco, "Courier New", monospace;
+          }
     }
 }
 
