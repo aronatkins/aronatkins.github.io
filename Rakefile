@@ -47,7 +47,7 @@ task :post do
     'title' => title.to_s,
     'date' => date.to_s,
     'layout' => 'post',
-    'categories' => nil
+    'tags' => nil
   }
   make_article('_posts', 'article', filename, options)
 end
@@ -64,7 +64,7 @@ task :draft do
   options = {
     'title' => title.to_s,
     'layout' => 'post',
-    'categories' => nil
+    'tags' => nil
   }
   make_article('_drafts', 'draft article', filename, options)
 end
