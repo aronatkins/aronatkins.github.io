@@ -1,8 +1,8 @@
 ---
 layout: post
-title:  "Hello, world"
-date:   2014-12-06 13:28:18
-categories: first
+title: "Hello, world"
+date: 2014-12-06
+tags: first
 ---
 Hello, world.
 

@@ -2,7 +2,7 @@
 title: Knowing Everything Too Young
 date: 2014-12-09
 layout: post
-categories: family poetry
+tags: family poetry
 ---
 
 [*Knowing Everything Too Young*](http://aronatkins.github.io/too-young/) is a
