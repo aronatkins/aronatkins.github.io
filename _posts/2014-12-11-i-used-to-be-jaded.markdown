@@ -20,3 +20,8 @@ remix/live album
 [*Sister in the Corner*](http://gweep.net/~jaded/sister-in-the-corner.shtml),
 from 1998. Both are now available for download from the
 [jaded](http://gweep.net/~jaded) site.
+
+[My SoundCloud page](https://soundcloud.com/aronatkins) also has the complete
+[*Breathe*](https://soundcloud.com/aronatkins/sets/jaded-breathe) and
+[*Sister in the Corner*](https://soundcloud.com/aronatkins/sets/jaded-sister-in-the-corner)
+albums.
