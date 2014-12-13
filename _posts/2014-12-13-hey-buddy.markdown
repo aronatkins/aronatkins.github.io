@@ -1,0 +1,95 @@
+---
+title: Hey, Buddy!
+layout: post
+tags: engineering codereview
+---
+
+Thanks to [github](https://github.com) and their easy-to-use
+[pull request](https://help.github.com/articles/using-pull-requests/) UI,
+pre-commit code reviews have become much more common in the industry. For me,
+lightweight peer reviews are a requirement in any well-run development shop.
+Github certainly did not invent this style of review, but they have certainly
+help popularize the practice. Thanks, Github!
+
+I have helped establish code reviewing throughout my career ever since seeing
+its positive effect at my first job, working on formal verification tools at
+[Chrysalis Symbolic Design](http://www.prnewswire.com/news-releases/avant-to-acquire-chrysalis-symbolic-design-inc-formal-verification-market-leader-74406487.html).
+
+We did a few full formal code reviews at Chrysalis. They ended up being far
+too heavy and time-consuming. Mostly, we used lighter-weight techniques;
+handing around branches, textual diffs, and over-the-shoulder inspection. The
+tooling was primitive, but the value of these reviews was immeasurable. We
+were working on a product where the original developer was no longer part of
+the company; we were all learning a foreign code base with each change.
+
+As we explored the code, we gradually learned how the parts fit. The buddy
+reviews helped validate our findings, but more importantly, helped spread that
+knowledge around the group.
+
+The teaching aspect of code reviews proved far more valuable than critique.
+Yes, there is a chance that an expert will catch a fundamental flaw, but more
+important is the opportunity for non-experts to ask, "Why?" Buddy reviews help
+educate a team and let everyone become less reliant on "experts".
+
+I left Chrysalis having seen the power of buddy reviews and have helped
+promote adoption ever since.
+
+If you aren't yet using peer reviews, don't fret. Just ask someone else to
+look at your code. Easy, right? Code review doesn't always start with adoption
+by an entire organization. At [Brightcove](http://brightcove.com), I started
+with just one other developer. We started sharing code and it spread from
+there, organically at first and then finally was adopted by the entire group.
+
+What follows are some simple guidelines that I brought to
+[Brightcove](http://brightcove.com); we used a similar philosophy at
+[Carbon Design Systems](http://www.carbondesignsystems.com) and
+[iPhrase](http://www.crunchbase.com/organization/iphrase-systems).
+
+> ## Buddy Reviews
+>
+> All checkins must be reviewed and approved by a peer prior to commit. The
+> intent is to educate each other on different parts of our system and improve
+> the quality of our code.
+>
+> ### WHO can be a buddy?
+>
+> Anyone who is able to understand and critique your changes. This usually
+> means another engineer. Vary your reviewer from commit to commit -- try and
+> broaden the number of people understanding any one subsystem.
+> 
+> ### WHEN to buddy?
+>
+> Before the commit. Every time, every change. A good time for review is while
+> tests are running, although if there are failures, you will have to have
+> your changes re-reviewed.
+>
+> There is no excuse to skip the buddy review. If you are alone in the office
+> or working remotely, you still need someone to review your changes. If you
+> are working against a tight deadline, your changes still need review.
+>
+> Buddy reviews do not always need to be face-to-face (though preferred).
+> Email diffs or pointers to changed source files and discuss your
+> modifications over the phone, IM, etc. Of course, if your commit can wait
+> until the next day (most can), wait for a face-to-face review.
+>
+> ### WHAT should a buddy ask?
+>
+> 1. Do I understand the problem this change is solving?
+> 2. Is this the best/an appropriate solution?
+> 3. What cases are not handled?
+> 4. What impact could this change have on customers, other subsystems, optimizations, etc.
+> 5. Will this code behave differently with other OS, compiler, etc?
+> 6. What is the potential performance (compile/runtime) impact?
+> 7. Is the code clearly written/readable?
+> 8. Is it appropriately commented/documented?
+> 9. How has this change been tested?
+> 10. Has there been sufficient testing?
+> 11. Are there unit tests?
+
+Some other thoughts on buddy reviews to get you started:
+
+* [http://blog.codinghorror.com/code-reviews-just-do-it/](http://blog.codinghorror.com/code-reviews-just-do-it/)
+* [http://blog.codinghorror.com/whos-your-coding-buddy/](http://blog.codinghorror.com/whos-your-coding-buddy/)
+* [http://engineering.slideshare.net/2011/11/the-buddy-system-an-alternative-to-pair-programming/](http://engineering.slideshare.net/2011/11/the-buddy-system-an-alternative-to-pair-programming/)
+* [http://marekblotny.blogspot.com/2009/03/coding-buddy-interesting-approach-to.html](http://marekblotny.blogspot.com/2009/03/coding-buddy-interesting-approach-to.html)
+* [http://www.excella.com/blog/peer-review-vs-group-review-which-is-best-for-a-code-review/](http://www.excella.com/blog/peer-review-vs-group-review-which-is-best-for-a-code-review/)
