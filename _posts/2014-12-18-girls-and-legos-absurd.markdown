@@ -8,8 +8,9 @@ tags: toys lego friends
 I have had a distaste for the
 [Lego Friends](http://www.lego.com/en-us/friends) collections ever since I
 first encountered them. They've created a specialty brand of Lego toys that
-caters to the Disney Princess set. What I don't understand is why they
-couldn't have added more gender balance to their existing sets.
+caters to the Disney Princess set and promotes pastels and flower gardens as
+the way to a girl's imagination. I don't understand why they couldn't have
+simply added more gender balance to their existing sets.
 
 This [webcomic](http://seasonaldepressioncomic.com/2014/12/06/lego-friends/)
 made the [rounds](http://www.marco.org/2014/12/17/lego-friends) this week and
