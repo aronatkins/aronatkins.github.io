@@ -18,7 +18,7 @@ set.
 
 We captured an iPhone recording of my performance.
 
-[![Growing Up: Live](http://img.youtube.com/vi/qJp5Jx1y18o/0.jpg)](https://www.youtube.com/watch?v=qJp5Jx1y18o).
+[![Growing Up: Live](http://img.youtube.com/vi/qJp5Jx1y18o/0.jpg)](https://www.youtube.com/watch?v=qJp5Jx1y18o)
 
 Thanks so much to all of The Rusty Shovels for letting me crash their party
 and serenade Jason with his birthday song.
