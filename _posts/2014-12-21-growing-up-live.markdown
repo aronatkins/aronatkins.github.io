@@ -2,7 +2,7 @@
 title: 'Growing Up: Live'
 date: '2014-12-21 00:01'
 layout: post
-tags: birthday song jaded tintern
+tags: birthday song jaded tintern music
 ---
 
 Last night was

@@ -2,7 +2,7 @@
 title: Happy Birthday, Jason Macierowski!
 date: '2014-12-21'
 layout: post
-tags: birthday song jaded tintern
+tags: birthday song jaded tintern music
 ---
 
 I have started to form this habit of writing songs for birthdays. My friend
