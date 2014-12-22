@@ -1,5 +1,6 @@
 ---
 title: Happy Birthday, Jason Macierowski!
+date: '2014-12-21'
 layout: post
 tags: birthday song jaded tintern
 ---
