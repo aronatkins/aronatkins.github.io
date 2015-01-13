@@ -1,8 +1,22 @@
 require 'html/proofer'
 require 'highline/import'
 
+require 'json'
+require 'open-uri'
+require 'github-pages'
+
 task :default => :server
- 
+
+desc 'Check github-pages version'
+task :version do
+  latest = JSON.parse(open('https://pages.github.com/versions.json').read)['github-pages']
+  if (GitHubPages::VERSION).to_s != latest
+    puts "You have github-pages #{GitHubPages::VERSION} but the latest is #{latest}. Update your Gemfile."
+  else
+    puts "github-pages #{GitHubPages::VERSION} is up-to-date."
+  end
+end
+
 desc 'Build site with Jekyll.'
 task :build do
   jekyll 'build'
