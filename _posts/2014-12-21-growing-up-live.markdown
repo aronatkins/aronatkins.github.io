@@ -11,7 +11,7 @@ We had a fun night in Worcester at [Ralph's](http://www.ralphsrockdiner.com)
 listening to good music and catching up with old friends.
 
 I jumped on-stage and performed
-'[Growing Up](http://aronatkins.github.io/2014/12/21/happy-birthday-jason-macierowski.html)'
+'[Growing Up](/2014/12/21/happy-birthday-jason-macierowski.html)'
 before Jason's band
 [The Rusty Shovels](https://www.facebook.com/therustyshovels) played their
 set.
