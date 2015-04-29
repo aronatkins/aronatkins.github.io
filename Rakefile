@@ -53,7 +53,7 @@ task :post do
   date = ask("Date: ") { |q| q.default = date }
   title = ask("Title: ")
 
-  under_title = title.downcase.tr(',.!?.:;',' ').strip.tr_s(' ','-')
+  under_title = title.downcase.tr('/,.!?.:;',' ').strip.tr_s(' ','-')
   filename = "#{date}-#{under_title}.markdown"
   filename = ask("Filename: ") { |q| q.default = filename }
 
