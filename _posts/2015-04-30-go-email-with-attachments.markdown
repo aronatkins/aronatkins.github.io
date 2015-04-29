@@ -57,7 +57,7 @@ func main() {
 
 Here is the resulting message:
 
-```
+```nohighlight
 Date: Wed, 29 Apr 2015 16:33:56 -0400
 Content-Type: multipart/mixed; boundary=21ee3da964c7bf70def62adb9ee1a061747003c026e363e47231258c48f1
 From: alice@foobar.com
