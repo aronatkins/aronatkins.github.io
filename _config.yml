@@ -9,3 +9,7 @@ url: "http://aronatkins.github.io" # the base hostname & protocol for your site
 
 # Build settings
 markdown: kramdown
+
+kramdown:
+  input: GFM
+  hard_wrap: false
