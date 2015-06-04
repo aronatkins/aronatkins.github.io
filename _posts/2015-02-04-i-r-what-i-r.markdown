@@ -2,7 +2,7 @@
 title: I R what I R
 date: '2015-02-04'
 layout: post
-tags: rstudio
+tags: rstudio engineering
 ---
 
 I am two days late in posting about it, but as of
