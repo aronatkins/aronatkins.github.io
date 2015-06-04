@@ -28,12 +28,15 @@ site, replacing any existing install.
 To use this script, download it to your own machine, make it executable, and
 run it. Use it every day!
 
-```bash
+```nohighlight
 # Mark executable after downloading.
 $ chmod +x install-rstudio-daily.sh
 # Every day!
 $ ./install-rstudio-daily.sh
 Downloading daily build from: https://s3.amazonaws.com:443/rstudio-dailybuilds/RStudio-0.99.579.dmg
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100 57.5M  100 57.5M    0     0  3374k      0  0:00:17  0:00:17 --:--:-- 3561k
 Installed RStudio-0.99.579 to /Applications
 ```
 
