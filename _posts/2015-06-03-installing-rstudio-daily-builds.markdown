@@ -25,4 +25,16 @@ and embedded below (the embed will not appear in RSS or in non-Javascript
 viewers). It fetches the latest daily RStudio IDE build from our download
 site, replacing any existing install.
 
+To use this script, download it to your own machine, make it executable, and
+run it. Use it every day!
+
+```bash
+# Mark executable after downloading.
+$ chmod +x install-rstudio-daily.sh
+# Every day!
+$ ./install-rstudio-daily.sh
+Downloading daily build from: https://s3.amazonaws.com:443/rstudio-dailybuilds/RStudio-0.99.579.dmg
+Installed RStudio-0.99.579 to /Applications
+```
+
 <script src="https://gist.github.com/aronatkins/ac3934e08d2961285bef.js"></script>
