@@ -33,11 +33,14 @@ run it. Use it every day!
 $ chmod +x install-rstudio-daily.sh
 # Every day!
 $ ./install-rstudio-daily.sh
-Downloading daily build from: https://s3.amazonaws.com:443/rstudio-dailybuilds/RStudio-0.99.579.dmg
+Discovering daily build from: http://www.rstudio.org/download/latest/daily/desktop/mac/RStudio-latest.dmg
+Downloading daily build from: http://s3.amazonaws.com/rstudio-dailybuilds/RStudio-0.99.585.dmg
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
-100 57.5M  100 57.5M    0     0  3374k      0  0:00:17  0:00:17 --:--:-- 3561k
-Installed RStudio-0.99.579 to /Applications
+100 57.5M  100 57.5M    0     0  5558k      0  0:00:10  0:00:10 --:--:-- 6493k
+Installed RStudio-0.99.585 to /Applications
 ```
+
+> **Update** The script has been simplified based on an [RStudio support article](https://support.rstudio.com/hc/en-us/articles/203842428-Getting-the-newest-RStudio-builds). The sample output and the [Gist](https://gist.github.com/aronatkins/ac3934e08d2961285bef) have been updated with these changes.
 
 <script src="https://gist.github.com/aronatkins/ac3934e08d2961285bef.js"></script>
