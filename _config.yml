@@ -1,4 +1,5 @@
 # Site settings
+name: "Aron Atkins"
 title: "Aron Atkins"
 email: aron.atkins@gmail.com
 description: > # this means to ignore newlines until "baseurl:"
@@ -13,3 +14,6 @@ markdown: kramdown
 kramdown:
   input: GFM
   hard_wrap: false
+
+gems:
+  - jekyll-feed
