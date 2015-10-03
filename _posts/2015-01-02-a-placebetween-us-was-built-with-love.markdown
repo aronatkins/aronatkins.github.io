@@ -5,9 +5,9 @@ layout: post
 tags: spotstory a.placebetween.us
 ---
 
-<img style="margin: 0px 10px 0px 0px" height="61"
-src="{{site.url}}/assets/a-placebetween-us-logo.gif"
-width="251" align="left"> Eight years ago, [Matthew](http://matthewbellantoni.com) and I were busy
+<img style="margin: 0px 10px 0px 0px" height="61" alt="a.placebetween.us"
+src="{{site.url}}/assets/a-placebetween-us-logo.gif" width="251" align="left">
+Eight years ago, [Matthew](http://matthewbellantoni.com) and I were busy
 bootstrapping spotstory. We lived in different towns near Boston and were
 often looking for places to meet. For months we said, "You know, there really
 should be a website where you can give it two addresses, and it will find all
