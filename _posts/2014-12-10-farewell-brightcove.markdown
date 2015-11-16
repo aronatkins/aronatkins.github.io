@@ -4,7 +4,7 @@ title: "Farewell, Brightcove"
 date: 2014-12-10
 tags: brightcove
 ---
-Today is one week after my last day at Brightcove. My seven-and-a-half year
+Today is two weeks after my last day at Brightcove. My seven-and-a-half year
 journey was filled with growth, challenges, scale, and a wonderful team.
 
 As is customary, I sent a departure letter to a number of my colleagues. To
