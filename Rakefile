@@ -19,12 +19,12 @@ end
 
 desc 'Build site with Jekyll.'
 task :build do
-  jekyll 'build --config _config.yml,_config_dev.yml'
+  jekyll 'build --future --config _config.yml,_config_dev.yml --profile'
 end
  
 desc 'Start server with --auto.'
 task :serve do
-  jekyll 'serve --drafts --config _config.yml,_config_dev.yml'
+  jekyll 'serve --drafts --future --config _config.yml,_config_dev.yml --profile'
 end
  
 desc 'Remove all built files.'
