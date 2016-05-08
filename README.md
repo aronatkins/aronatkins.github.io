@@ -9,13 +9,13 @@ Some notes from setting this all up.
 
 ### install rbenv & ruby-build
 ```
-cd ~/dev/git
-git clone https://github.com/sstephenson/rbenv.git
-ln -s ~/dev/git/rbenv ~/.rbenv
-
-git clone https://github.com/sstephenson/ruby-build.git
+git clone https://github.com/sstephenson/rbenv.git ~/.rbenv
 mkdir -p ~/.rbenv/plugins
-ln -s ~/dev/git/ruby-build ~/.rbenv/plugins/ruby-build
+cd ~/.rbenv/plugins
+git clone https://github.com/sstephenson/ruby-build.git
+git clone git://github.com/parkr/ruby-build-github.git
+git clone https://github.com/sstephenson/rbenv-gem-rehash
+git clone https://github.com/jf/rbenv-gemset
 ```
 
 ### Add the following to ~/.bash_profile
