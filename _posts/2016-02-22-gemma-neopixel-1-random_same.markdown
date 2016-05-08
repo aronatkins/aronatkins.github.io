@@ -2,7 +2,7 @@
 title: 'Gemma+NeoPixel 1: random_same'
 date: '2016-02-22'
 layout: post
-tags: 
+tags: arduino gemma code neopixel adafruit
 ---
 
 This post is the first in a planned series of articles about my experiments

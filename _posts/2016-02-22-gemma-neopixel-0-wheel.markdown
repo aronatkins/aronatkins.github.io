@@ -2,7 +2,7 @@
 title: 'Gemma+NeoPixel 0: Wheel'
 date: '2016-02-22'
 layout: post
-tags: 
+tags: arduino gemma code neopixel adafruit
 style: |
     table { border-collapse: collapse; }
     th,td { text-align: right; }
