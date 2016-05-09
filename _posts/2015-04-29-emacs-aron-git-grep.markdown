@@ -15,7 +15,7 @@ inspired by a recent blog post to
 asked for a search term and a pathspec; accepting the defaults will search for
 a symbol at your current cursor position across the entire git repository.
 
-```lisp
+```elisp
 (defvar aron/git-grep-symbol-history nil
   "Internal variable for aron-grep; do not modify")
 (defvar aron/git-grep-pathspec-history nil
@@ -51,7 +51,7 @@ My personal emacs
 often use `C-z` as a prefix (how is `C-z` useful to anyone in these modern times?).
 I have `aron/git-grep` bound to `C-z j`.
 
-```lisp
+```elisp
 (defvar ctl-z-map (make-sparse-keymap) "Keymap for user extensions.")
 (define-key ctl-z-map "j" 'aron/git-grep)
 
