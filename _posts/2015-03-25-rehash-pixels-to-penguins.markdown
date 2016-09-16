@@ -18,3 +18,8 @@ The new version is called
 [pixels2015](http://aronatkins.github.io/pixels2015/). The source is in a
 [GitHub](https://github.com)
 [repository](https://github.com/aronatkins/pixels2015/tree/gh-pages).
+
+Update (2016-09-16): The video of my presentation at BarCampBoston2 is now
+available on [YouTube](https://youtu.be/xpEw14P6pIQ).
+
+<iframe width="640" height="360" src="https://www.youtube.com/embed/xpEw14P6pIQ" frameborder="0" allowfullscreen></iframe>
