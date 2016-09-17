@@ -1,0 +1,37 @@
+---
+title: potato
+date: '2016-09-16'
+layout: post
+tags: song music
+---
+
+Inspiration can strike at the oddest times.
+
+Tonight, my daughter asked if I had written a song I had been playing after
+dinner. It's something that's unfinished because parts of it were just humming
+and la-la-la.
+
+"How do you write a song?" For me, I always start by messing around on the
+guitar (or tonight, the ukulele) until I've got something I like. I start
+humming over the guitar to find a tune and then I try and find words that
+match the melody in my head. Sometimes I have an idea or a phrase that I want
+to fit in, but it almost always starts with the music.
+
+I wrote this song to show how it works.
+
+<iframe width="100%" height="166" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/283268662&amp;color=ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false"></iframe>
+
+> ## Potato
+>
+> Sometimes, I feel like a potato  
+> All covered with dirt.  
+> My eyes are always filled with soil  
+> No, it don't hurt.  
+> I wait around for a shovel,  
+> To come and dig me up.  
+> I'm going to go swim in some oil,  
+> And I'll be, and I'll be your french fry for your dinner.  
+> I'll be the french fry you'll love.  
+> I'll be a french fry for your dinner.  
+> I'll be a french fry for you.
+
