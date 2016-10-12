@@ -41,6 +41,8 @@ Downloading daily build from: http://s3.amazonaws.com/rstudio-dailybuilds/RStudi
 Installed RStudio-0.99.585 to /Applications
 ```
 
-> **Update** The script has been simplified based on an [RStudio support article](https://support.rstudio.com/hc/en-us/articles/203842428-Getting-the-newest-RStudio-builds). The sample output and the [Gist](https://gist.github.com/aronatkins/ac3934e08d2961285bef) have been updated with these changes.
+> **Update 2015-06-10** The script has been simplified based on an [RStudio support article](https://support.rstudio.com/hc/en-us/articles/203842428-Getting-the-newest-RStudio-builds). The sample output and the [Gist](https://gist.github.com/aronatkins/ac3934e08d2961285bef) have been updated with these changes.
+
+> **Update 2016-10-12** The script now supports both OSX/macOS and Ubuntu Linux.
 
 <script src="https://gist.github.com/aronatkins/ac3934e08d2961285bef.js"></script>
