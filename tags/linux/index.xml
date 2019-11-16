@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>linux on Aron Atkins</title>
+    <link>https://aronatkins.github.io/tags/linux/</link>
+    <description>Recent content in linux on Aron Atkins</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <managingEditor>aron.atkins@gmail.com (Aron Atkins)</managingEditor>
+    <webMaster>aron.atkins@gmail.com (Aron Atkins)</webMaster>
+    <lastBuildDate>Wed, 12 Oct 2016 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://aronatkins.github.io/tags/linux/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Installing RStudio daily builds (Ubuntu)</title>
+      <link>https://aronatkins.github.io/posts/2016-10-12-installing-rstudio-daily-ubuntu-builds/</link>
+      <pubDate>Wed, 12 Oct 2016 00:00:00 +0000</pubDate>
+      <author>aron.atkins@gmail.com (Aron Atkins)</author>
+      <guid>https://aronatkins.github.io/posts/2016-10-12-installing-rstudio-daily-ubuntu-builds/</guid>
+      <description>The script that I previously published to handle OSX installs has been updated to also handle installing RStudio daily desktop builds on Ubuntu Linux hosts.
+You need to install either curl or wget in order to use this script. It only understands Ubuntu installation and uses dpkg to perform the install. If run as a non-root user, sudo is used when running dpkg.
+You may need to follow this script with a apt-get install -f to install RStudio package dependencies (using sudo if appropriate).</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>javascript on Aron Atkins</title>
+    <link>https://aronatkins.github.io/tags/javascript/</link>
+    <description>Recent content in javascript on Aron Atkins</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <managingEditor>aron.atkins@gmail.com (Aron Atkins)</managingEditor>
+    <webMaster>aron.atkins@gmail.com (Aron Atkins)</webMaster>
+    <lastBuildDate>Wed, 25 Mar 2015 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://aronatkins.github.io/tags/javascript/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Rehash: Pixels to Penguins</title>
+      <link>https://aronatkins.github.io/posts/2015-03-25-rehash-pixels-to-penguins/</link>
+      <pubDate>Wed, 25 Mar 2015 00:00:00 +0000</pubDate>
+      <author>aron.atkins@gmail.com (Aron Atkins)</author>
+      <guid>https://aronatkins.github.io/posts/2015-03-25-rehash-pixels-to-penguins/</guid>
+      <description>A million years ago, I mashed-up the Flickr search API and an ASCII-art version of Tux the penguin. I called it &amp;ldquo;Pixels to Penguins&amp;rdquo;. The images from the search were mapped onto the ASCII image and gradually made visible. The results were also used to produce random MIDI audio. It was really pretty simple, conceptually, but also geeky and cool.
+I wanted to revisit the idea now that browsers are starting to implement the Web Audio API.</description>
+    </item>
+    
+  </channel>
+</rss>

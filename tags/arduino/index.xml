@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>arduino on Aron Atkins</title>
+    <link>https://aronatkins.github.io/tags/arduino/</link>
+    <description>Recent content in arduino on Aron Atkins</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <managingEditor>aron.atkins@gmail.com (Aron Atkins)</managingEditor>
+    <webMaster>aron.atkins@gmail.com (Aron Atkins)</webMaster>
+    <lastBuildDate>Mon, 22 Feb 2016 00:01:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://aronatkins.github.io/tags/arduino/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Gemma&#43;NeoPixel 1: random_same</title>
+      <link>https://aronatkins.github.io/posts/2016-02-22-gemma-neopixel-1-random_same/</link>
+      <pubDate>Mon, 22 Feb 2016 00:01:00 +0000</pubDate>
+      <author>aron.atkins@gmail.com (Aron Atkins)</author>
+      <guid>https://aronatkins.github.io/posts/2016-02-22-gemma-neopixel-1-random_same/</guid>
+      <description>This post is the first in a planned series of articles about my experiments with an Arduino Gemma and a NeoPixel ring with 16 RGB LEDs.
+I&amp;rsquo;m not going to go into detail about how to install or configure the Arduino IDE. Start with the Adafruit Gemma setup instructions and then the NeoPixel library installation instructions that are part of the NeoPixel Überguide.
+Make sure you are using a USB cable that is not power-only!</description>
+    </item>
+    
+    <item>
+      <title>Gemma&#43;NeoPixel 0: Wheel</title>
+      <link>https://aronatkins.github.io/posts/2016-02-22-gemma-neopixel-0-wheel/</link>
+      <pubDate>Mon, 22 Feb 2016 00:00:00 +0000</pubDate>
+      <author>aron.atkins@gmail.com (Aron Atkins)</author>
+      <guid>https://aronatkins.github.io/posts/2016-02-22-gemma-neopixel-0-wheel/</guid>
+      <description>This post describes the Wheel function that is part of the strandtest example included within the NeoPixel library.
+I&amp;rsquo;m writing it as a preamble to a planned series of articles about my experiments with an Arduino Gemma and a NeoPixel ring with 16 RGB LEDs.
+The Wheel function takes a value from 0 to 255 (inclusive) and maps that onto a red-green-blue color wheel. Internally, it computes a value for the red, green, and blue components of the result.</description>
+    </item>
+    
+    <item>
+      <title>Jewelbots WearablesKit</title>
+      <link>https://aronatkins.github.io/posts/2016-02-21-jewelbots-wearableskit/</link>
+      <pubDate>Sun, 21 Feb 2016 00:00:00 +0000</pubDate>
+      <author>aron.atkins@gmail.com (Aron Atkins)</author>
+      <guid>https://aronatkins.github.io/posts/2016-02-21-jewelbots-wearableskit/</guid>
+      <description>We recently purchased the Jewelbots Wearables Kit 1.0 and built this lovely felt &amp;ldquo;L&amp;rdquo; that is soon getting attached to a backpack.
+I have been a software engineer for twenty years, but never did much with hardware and electronics. The Jewelbots kit is a good entry to this world.
+In the kit The Jewelbots WearablesKit contains:
+ An Arduino Gemma Five Adafruit LED sequins Conductive thread Battery holder Two cell batteries Sewing needles  Jewelbots uses Adafruit parts to build their kit, which retails for $29 and comes in a branded box, stickers and a small instruction booklet.</description>
+    </item>
+    
+  </channel>
+</rss>

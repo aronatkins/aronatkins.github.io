@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>rstudio on Aron Atkins</title>
+    <link>https://aronatkins.github.io/tags/rstudio/</link>
+    <description>Recent content in rstudio on Aron Atkins</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <managingEditor>aron.atkins@gmail.com (Aron Atkins)</managingEditor>
+    <webMaster>aron.atkins@gmail.com (Aron Atkins)</webMaster>
+    <lastBuildDate>Wed, 12 Oct 2016 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://aronatkins.github.io/tags/rstudio/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Installing RStudio daily builds (Ubuntu)</title>
+      <link>https://aronatkins.github.io/posts/2016-10-12-installing-rstudio-daily-ubuntu-builds/</link>
+      <pubDate>Wed, 12 Oct 2016 00:00:00 +0000</pubDate>
+      <author>aron.atkins@gmail.com (Aron Atkins)</author>
+      <guid>https://aronatkins.github.io/posts/2016-10-12-installing-rstudio-daily-ubuntu-builds/</guid>
+      <description>The script that I previously published to handle OSX installs has been updated to also handle installing RStudio daily desktop builds on Ubuntu Linux hosts.
+You need to install either curl or wget in order to use this script. It only understands Ubuntu installation and uses dpkg to perform the install. If run as a non-root user, sudo is used when running dpkg.
+You may need to follow this script with a apt-get install -f to install RStudio package dependencies (using sudo if appropriate).</description>
+    </item>
+    
+    <item>
+      <title>Installing RStudio daily builds</title>
+      <link>https://aronatkins.github.io/posts/2015-06-03-installing-rstudio-daily-builds/</link>
+      <pubDate>Wed, 03 Jun 2015 00:00:00 +0000</pubDate>
+      <author>aron.atkins@gmail.com (Aron Atkins)</author>
+      <guid>https://aronatkins.github.io/posts/2015-06-03-installing-rstudio-daily-builds/</guid>
+      <description>As a member of the team at RStudio, I install the daily build of our open source RStudio IDE almost every morning.
+There are published ways to download and install these builds for Linux but that doesn&amp;rsquo;t work for me.
+My main development machine is a Macbook Pro, and, well, we&amp;rsquo;re different.
+After far too many iterations of &amp;ldquo;google for &amp;lsquo;rstudio daily mac&amp;rsquo; then download the DMG then mount it then copy the application to /Applications&amp;rdquo;, I put on my &amp;ldquo;Let&amp;rsquo;s write a script for that!</description>
+    </item>
+    
+    <item>
+      <title>I R what I R</title>
+      <link>https://aronatkins.github.io/posts/2015-02-04-i-r-what-i-r/</link>
+      <pubDate>Wed, 04 Feb 2015 00:00:00 +0000</pubDate>
+      <author>aron.atkins@gmail.com (Aron Atkins)</author>
+      <guid>https://aronatkins.github.io/posts/2015-02-04-i-r-what-i-r/</guid>
+      <description>I am two days late in posting about it, but as of Groundhog Day, I have rejoined the ranks of the employed.
+I am a part of the team at RStudio, joining a number of former Brightcove colleagues.
+As typical with new jobs, there&amp;rsquo;s a ton to learn: R and all its accompanying ecosystem, Angular, Bootstrap, Go. All this newness can be a bit intimidating, but I also find it invigorating &amp;ndash; my eagerness to dig in and deeply understand all these new things drives me forward.</description>
+    </item>
+    
+  </channel>
+</rss>

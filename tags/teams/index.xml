@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>teams on Aron Atkins</title>
+    <link>https://aronatkins.github.io/tags/teams/</link>
+    <description>Recent content in teams on Aron Atkins</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <managingEditor>aron.atkins@gmail.com (Aron Atkins)</managingEditor>
+    <webMaster>aron.atkins@gmail.com (Aron Atkins)</webMaster>
+    <lastBuildDate>Tue, 23 Dec 2014 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://aronatkins.github.io/tags/teams/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>You build it, you own it!</title>
+      <link>https://aronatkins.github.io/posts/2014-12-23-you-build-it-you-own-it/</link>
+      <pubDate>Tue, 23 Dec 2014 00:00:00 +0000</pubDate>
+      <author>aron.atkins@gmail.com (Aron Atkins)</author>
+      <guid>https://aronatkins.github.io/posts/2014-12-23-you-build-it-you-own-it/</guid>
+      <description>One of the most powerful transitions I experienced while at Brightcove was the shift away from dev-and-test-and-deploy silos. In its place came teams who built, tested, deployed, and operated our services.
+I recently came across an ACM interview with Werner Vogels from Amazon. The article is from 2006 but discusses their experience with this transition:
+ Giving developers operational responsibilities has greatly enhanced the quality of the services, both from a customer and a technology point of view.</description>
+    </item>
+    
+  </channel>
+</rss>

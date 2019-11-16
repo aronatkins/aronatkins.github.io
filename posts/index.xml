@@ -1,0 +1,348 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on Aron Atkins</title>
+    <link>https://aronatkins.github.io/posts/</link>
+    <description>Recent content in Posts on Aron Atkins</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <managingEditor>aron.atkins@gmail.com (Aron Atkins)</managingEditor>
+    <webMaster>aron.atkins@gmail.com (Aron Atkins)</webMaster>
+    <lastBuildDate>Wed, 12 Oct 2016 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://aronatkins.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Installing RStudio daily builds (Ubuntu)</title>
+      <link>https://aronatkins.github.io/posts/2016-10-12-installing-rstudio-daily-ubuntu-builds/</link>
+      <pubDate>Wed, 12 Oct 2016 00:00:00 +0000</pubDate>
+      <author>aron.atkins@gmail.com (Aron Atkins)</author>
+      <guid>https://aronatkins.github.io/posts/2016-10-12-installing-rstudio-daily-ubuntu-builds/</guid>
+      <description>The script that I previously published to handle OSX installs has been updated to also handle installing RStudio daily desktop builds on Ubuntu Linux hosts.
+You need to install either curl or wget in order to use this script. It only understands Ubuntu installation and uses dpkg to perform the install. If run as a non-root user, sudo is used when running dpkg.
+You may need to follow this script with a apt-get install -f to install RStudio package dependencies (using sudo if appropriate).</description>
+    </item>
+    
+    <item>
+      <title>potato</title>
+      <link>https://aronatkins.github.io/posts/2016-09-16-potato/</link>
+      <pubDate>Fri, 16 Sep 2016 00:00:00 +0000</pubDate>
+      <author>aron.atkins@gmail.com (Aron Atkins)</author>
+      <guid>https://aronatkins.github.io/posts/2016-09-16-potato/</guid>
+      <description>Inspiration can strike at the oddest times.
+Tonight, my daughter asked if I had written a song I had been playing after dinner. It&amp;rsquo;s something that&amp;rsquo;s unfinished because parts of it were just humming and la-la-la.
+&amp;ldquo;How do you write a song?&amp;rdquo; For me, I always start by messing around on the guitar (or tonight, the ukulele) until I&amp;rsquo;ve got something I like. I start humming over the guitar to find a tune and then I try and find words that match the melody in my head.</description>
+    </item>
+    
+    <item>
+      <title>Gemma&#43;NeoPixel 1: random_same</title>
+      <link>https://aronatkins.github.io/posts/2016-02-22-gemma-neopixel-1-random_same/</link>
+      <pubDate>Mon, 22 Feb 2016 00:01:00 +0000</pubDate>
+      <author>aron.atkins@gmail.com (Aron Atkins)</author>
+      <guid>https://aronatkins.github.io/posts/2016-02-22-gemma-neopixel-1-random_same/</guid>
+      <description>This post is the first in a planned series of articles about my experiments with an Arduino Gemma and a NeoPixel ring with 16 RGB LEDs.
+I&amp;rsquo;m not going to go into detail about how to install or configure the Arduino IDE. Start with the Adafruit Gemma setup instructions and then the NeoPixel library installation instructions that are part of the NeoPixel Überguide.
+Make sure you are using a USB cable that is not power-only!</description>
+    </item>
+    
+    <item>
+      <title>Gemma&#43;NeoPixel 0: Wheel</title>
+      <link>https://aronatkins.github.io/posts/2016-02-22-gemma-neopixel-0-wheel/</link>
+      <pubDate>Mon, 22 Feb 2016 00:00:00 +0000</pubDate>
+      <author>aron.atkins@gmail.com (Aron Atkins)</author>
+      <guid>https://aronatkins.github.io/posts/2016-02-22-gemma-neopixel-0-wheel/</guid>
+      <description>This post describes the Wheel function that is part of the strandtest example included within the NeoPixel library.
+I&amp;rsquo;m writing it as a preamble to a planned series of articles about my experiments with an Arduino Gemma and a NeoPixel ring with 16 RGB LEDs.
+The Wheel function takes a value from 0 to 255 (inclusive) and maps that onto a red-green-blue color wheel. Internally, it computes a value for the red, green, and blue components of the result.</description>
+    </item>
+    
+    <item>
+      <title>Jewelbots WearablesKit</title>
+      <link>https://aronatkins.github.io/posts/2016-02-21-jewelbots-wearableskit/</link>
+      <pubDate>Sun, 21 Feb 2016 00:00:00 +0000</pubDate>
+      <author>aron.atkins@gmail.com (Aron Atkins)</author>
+      <guid>https://aronatkins.github.io/posts/2016-02-21-jewelbots-wearableskit/</guid>
+      <description>We recently purchased the Jewelbots Wearables Kit 1.0 and built this lovely felt &amp;ldquo;L&amp;rdquo; that is soon getting attached to a backpack.
+I have been a software engineer for twenty years, but never did much with hardware and electronics. The Jewelbots kit is a good entry to this world.
+In the kit The Jewelbots WearablesKit contains:
+ An Arduino Gemma Five Adafruit LED sequins Conductive thread Battery holder Two cell batteries Sewing needles  Jewelbots uses Adafruit parts to build their kit, which retails for $29 and comes in a branded box, stickers and a small instruction booklet.</description>
+    </item>
+    
+    <item>
+      <title>go: tell me about slow channels</title>
+      <link>https://aronatkins.github.io/posts/2015-11-15-go-tell-me-about-slow-channels/</link>
+      <pubDate>Sun, 15 Nov 2015 00:00:00 +0000</pubDate>
+      <author>aron.atkins@gmail.com (Aron Atkins)</author>
+      <guid>https://aronatkins.github.io/posts/2015-11-15-go-tell-me-about-slow-channels/</guid>
+      <description>Go channels are a powerful construct for passing information between different go routines, each with distinct responsibilities. Writing to an unbuffered channel is a blocking operation which does not complete until a reader is available at the other end.
+The blocked write is not guaranteed to complete &amp;ndash; if the channel responsible for the read is somehow blocked itself, you may have deadlock.
+Here is a simple wrapper around a channel write that helps detect long-blocked operations.</description>
+    </item>
+    
+    <item>
+      <title>Back in My Day</title>
+      <link>https://aronatkins.github.io/posts/2015-11-01-back-in-my-day/</link>
+      <pubDate>Sun, 01 Nov 2015 00:00:00 +0000</pubDate>
+      <author>aron.atkins@gmail.com (Aron Atkins)</author>
+      <guid>https://aronatkins.github.io/posts/2015-11-01-back-in-my-day/</guid>
+      <description>Stop the presses! Sound the bells! I&amp;rsquo;ve written (finished, not just another fragment) a song that&amp;rsquo;s not tied to someone&amp;rsquo;s birthday!
+  Back in My Day Back in my day
+I was the one who got picked on the most
+Chased home from school by the boys who boast
+That they could ruin my day
+Back in my day
+I turned around and gave them what for
+And they didn&amp;rsquo;t bother me no more</description>
+    </item>
+    
+    <item>
+      <title>Reunion</title>
+      <link>https://aronatkins.github.io/posts/2015-10-25-reunion/</link>
+      <pubDate>Sun, 25 Oct 2015 00:00:00 +0000</pubDate>
+      <author>aron.atkins@gmail.com (Aron Atkins)</author>
+      <guid>https://aronatkins.github.io/posts/2015-10-25-reunion/</guid>
+      <description>Here&amp;rsquo;s a fragment of a song written because one of my friends from college and I were joking on Facebook about starting a band together. Unfortunately, she doesn&amp;rsquo;t live that close to me.
+I decided to write about the distance between us and if technology could bridge that gap. I thought about writing more, but somehow, the simple repetition feels just right.
+This is a bit of an experiment for me, as I decided to overdub harmonies.</description>
+    </item>
+    
+    <item>
+      <title>Birthday Party Pirates</title>
+      <link>https://aronatkins.github.io/posts/2015-10-16-birthday-party-pirates/</link>
+      <pubDate>Fri, 16 Oct 2015 00:00:00 +0000</pubDate>
+      <author>aron.atkins@gmail.com (Aron Atkins)</author>
+      <guid>https://aronatkins.github.io/posts/2015-10-16-birthday-party-pirates/</guid>
+      <description>Another in my series of birthday songs. This was inspired by a &amp;ldquo;Jake and the Neverland Pirates&amp;rdquo; seventh birthday party theme.
+  Birthday Party Pirates I want to be a pirate
+Headed out to sea.
+I just turned seven
+I&amp;rsquo;m sure that I am ready!
+I want to be a pirate
+Maybe first mate.
+Don&amp;rsquo;t want to be a scallywag
+Who&amp;rsquo;s forced to walk the plank!
+Yo, ho, ho!</description>
+    </item>
+    
+    <item>
+      <title>Installing RStudio daily builds</title>
+      <link>https://aronatkins.github.io/posts/2015-06-03-installing-rstudio-daily-builds/</link>
+      <pubDate>Wed, 03 Jun 2015 00:00:00 +0000</pubDate>
+      <author>aron.atkins@gmail.com (Aron Atkins)</author>
+      <guid>https://aronatkins.github.io/posts/2015-06-03-installing-rstudio-daily-builds/</guid>
+      <description>As a member of the team at RStudio, I install the daily build of our open source RStudio IDE almost every morning.
+There are published ways to download and install these builds for Linux but that doesn&amp;rsquo;t work for me.
+My main development machine is a Macbook Pro, and, well, we&amp;rsquo;re different.
+After far too many iterations of &amp;ldquo;google for &amp;lsquo;rstudio daily mac&amp;rsquo; then download the DMG then mount it then copy the application to /Applications&amp;rdquo;, I put on my &amp;ldquo;Let&amp;rsquo;s write a script for that!</description>
+    </item>
+    
+    <item>
+      <title>jekyll, markdown, and source highlighting</title>
+      <link>https://aronatkins.github.io/posts/2015-04-30-jekyll-markdown-and-source-highlighting/</link>
+      <pubDate>Thu, 30 Apr 2015 00:01:00 +0000</pubDate>
+      <author>aron.atkins@gmail.com (Aron Atkins)</author>
+      <guid>https://aronatkins.github.io/posts/2015-04-30-jekyll-markdown-and-source-highlighting/</guid>
+      <description>Here is how I added code styling to this blog. Unfortunately, the code is only styled when you visit the site; the RSS feeds will have unstyled code blocks.
+I decided to use highlight.js after struggling with Jekyll configuration/extensions. In particular, I either couldn&amp;rsquo;t get the highlighting to work at all, or didn&amp;rsquo;t find support for one or more languages I&amp;rsquo;ve been touching.
+The highlight.js package contains a number of default languages and many more that can be added in.</description>
+    </item>
+    
+    <item>
+      <title>go: email with attachments</title>
+      <link>https://aronatkins.github.io/posts/2015-04-30-go-email-with-attachments/</link>
+      <pubDate>Thu, 30 Apr 2015 00:00:00 +0000</pubDate>
+      <author>aron.atkins@gmail.com (Aron Atkins)</author>
+      <guid>https://aronatkins.github.io/posts/2015-04-30-go-email-with-attachments/</guid>
+      <description>Here is an example showing how to use the gomail package to produce email containing plain-text content, alternative html content with an embedded image, and an HTML attachment.
+It doesn&amp;rsquo;t worry about trying to actually send mail but only tries to create a well-composed message. See the documentation or repository on GitHub for more details.
+package main import ( &amp;#34;encoding/base64&amp;#34; &amp;#34;fmt&amp;#34; &amp;#34;net/smtp&amp;#34; &amp;#34;gopkg.in/gomail.v1&amp;#34; ) func main() { m := gomail.NewMessage() m.</description>
+    </item>
+    
+    <item>
+      <title>emacs: aron/git-grep</title>
+      <link>https://aronatkins.github.io/posts/2015-04-29-emacs-aron-git-grep/</link>
+      <pubDate>Wed, 29 Apr 2015 00:00:00 +0000</pubDate>
+      <author>aron.atkins@gmail.com (Aron Atkins)</author>
+      <guid>https://aronatkins.github.io/posts/2015-04-29-emacs-aron-git-grep/</guid>
+      <description>There are lots of suggestions how to expose git grep in emacs.
+Here is mine, inspired by a recent blog post to oremacs. You are interactively asked for a search term and a pathspec; accepting the defaults will search for a symbol at your current cursor position across the entire git repository.
+(defvar aron/git-grep-symbol-history nil &amp;#34;Internal variable for aron-grep; do not modify&amp;#34;) (defvar aron/git-grep-pathspec-history nil &amp;#34;Internal variable for aron-grep; do not modify&amp;#34;) (defun aron/git-grep (search-for pathspec) &amp;#34;Grep for a string in the current git repository.</description>
+    </item>
+    
+    <item>
+      <title>Rehash: Pixels to Penguins</title>
+      <link>https://aronatkins.github.io/posts/2015-03-25-rehash-pixels-to-penguins/</link>
+      <pubDate>Wed, 25 Mar 2015 00:00:00 +0000</pubDate>
+      <author>aron.atkins@gmail.com (Aron Atkins)</author>
+      <guid>https://aronatkins.github.io/posts/2015-03-25-rehash-pixels-to-penguins/</guid>
+      <description>A million years ago, I mashed-up the Flickr search API and an ASCII-art version of Tux the penguin. I called it &amp;ldquo;Pixels to Penguins&amp;rdquo;. The images from the search were mapped onto the ASCII image and gradually made visible. The results were also used to produce random MIDI audio. It was really pretty simple, conceptually, but also geeky and cool.
+I wanted to revisit the idea now that browsers are starting to implement the Web Audio API.</description>
+    </item>
+    
+    <item>
+      <title>The Maggots Rise Again</title>
+      <link>https://aronatkins.github.io/posts/2015-02-07-the-maggots-rise-again/</link>
+      <pubDate>Sat, 07 Feb 2015 00:00:00 +0000</pubDate>
+      <author>aron.atkins@gmail.com (Aron Atkins)</author>
+      <guid>https://aronatkins.github.io/posts/2015-02-07-the-maggots-rise-again/</guid>
+      <description>Another birthday, another song. Last year, I wrote &amp;ldquo;Ben&amp;rdquo;. This year is not much different, as I wrote a song about maggots again. We debuted the song last night at Ben&amp;rsquo;s birthday party (with kids dancing and singing the &amp;ldquo;All for one!&amp;rdquo; maggot parts). It sounds so much better with a chorus of kids!
+  The Maggots Rise Again The last time we talked, I asked about your maggots, Ben.</description>
+    </item>
+    
+    <item>
+      <title>I R what I R</title>
+      <link>https://aronatkins.github.io/posts/2015-02-04-i-r-what-i-r/</link>
+      <pubDate>Wed, 04 Feb 2015 00:00:00 +0000</pubDate>
+      <author>aron.atkins@gmail.com (Aron Atkins)</author>
+      <guid>https://aronatkins.github.io/posts/2015-02-04-i-r-what-i-r/</guid>
+      <description>I am two days late in posting about it, but as of Groundhog Day, I have rejoined the ranks of the employed.
+I am a part of the team at RStudio, joining a number of former Brightcove colleagues.
+As typical with new jobs, there&amp;rsquo;s a ton to learn: R and all its accompanying ecosystem, Angular, Bootstrap, Go. All this newness can be a bit intimidating, but I also find it invigorating &amp;ndash; my eagerness to dig in and deeply understand all these new things drives me forward.</description>
+    </item>
+    
+    <item>
+      <title>I never started</title>
+      <link>https://aronatkins.github.io/posts/2015-01-23-i-never-started/</link>
+      <pubDate>Fri, 23 Jan 2015 00:00:00 +0000</pubDate>
+      <author>aron.atkins@gmail.com (Aron Atkins)</author>
+      <guid>https://aronatkins.github.io/posts/2015-01-23-i-never-started/</guid>
+      <description>I am a non-drinker.
+I get asked, &amp;ldquo;Why?&amp;rdquo; and feel like I never have a clear answer.
+When I was younger, I went to a high school several towns away and lived quite a distance from most of my friends. Our parents would always drive to get-togethers. I also worked many evenings and weekends. School, band, work, and lots of driving. I was busy.
+Even at occasions where alcohol was available, it never felt like the right thing to do.</description>
+    </item>
+    
+    <item>
+      <title>A perfect pull?</title>
+      <link>https://aronatkins.github.io/posts/2015-01-22-a-perfect-pull/</link>
+      <pubDate>Thu, 22 Jan 2015 00:00:00 +0000</pubDate>
+      <author>aron.atkins@gmail.com (Aron Atkins)</author>
+      <guid>https://aronatkins.github.io/posts/2015-01-22-a-perfect-pull/</guid>
+      <description>Yesterday, GitHub published their guidelines for collaborating with pull requests. I love this.
+I have written about my code review philosophy and guidelines in the past. The GitHub guide captures much of the same advice and also includes a few practical tips when using the GitHub Flow and pull requests.
+The GitHub guidelines were inspired by Thoughtbot&amp;rsquo;s code review guide.</description>
+    </item>
+    
+    <item>
+      <title>a.placebetween.us was built with love</title>
+      <link>https://aronatkins.github.io/posts/2015-01-02-a-placebetween-us-was-built-with-love/</link>
+      <pubDate>Fri, 02 Jan 2015 00:00:00 +0000</pubDate>
+      <author>aron.atkins@gmail.com (Aron Atkins)</author>
+      <guid>https://aronatkins.github.io/posts/2015-01-02-a-placebetween-us-was-built-with-love/</guid>
+      <description>Eight years ago, Matthew and I were busy bootstrapping spotstory. We lived in different towns near Boston and were often looking for places to meet. For months we said, &amp;ldquo;You know, there really should be a website where you can give it two addresses, and it will find all of the coffee shops halfway between them.&amp;rdquo;
+I couldn&amp;rsquo;t sleep one night and whipped up a.placebetween.us.
+We blogged about some of the early publicity about the site, but the spotstory blog is no more.</description>
+    </item>
+    
+    <item>
+      <title>You build it, you own it!</title>
+      <link>https://aronatkins.github.io/posts/2014-12-23-you-build-it-you-own-it/</link>
+      <pubDate>Tue, 23 Dec 2014 00:00:00 +0000</pubDate>
+      <author>aron.atkins@gmail.com (Aron Atkins)</author>
+      <guid>https://aronatkins.github.io/posts/2014-12-23-you-build-it-you-own-it/</guid>
+      <description>One of the most powerful transitions I experienced while at Brightcove was the shift away from dev-and-test-and-deploy silos. In its place came teams who built, tested, deployed, and operated our services.
+I recently came across an ACM interview with Werner Vogels from Amazon. The article is from 2006 but discusses their experience with this transition:
+ Giving developers operational responsibilities has greatly enhanced the quality of the services, both from a customer and a technology point of view.</description>
+    </item>
+    
+    <item>
+      <title>Growing Up: Live</title>
+      <link>https://aronatkins.github.io/posts/2014-12-21-growing-up-live/</link>
+      <pubDate>Sun, 21 Dec 2014 00:01:00 +0000</pubDate>
+      <author>aron.atkins@gmail.com (Aron Atkins)</author>
+      <guid>https://aronatkins.github.io/posts/2014-12-21-growing-up-live/</guid>
+      <description>Last night was Jason&amp;rsquo;s birthday bash/concert. We had a fun night in Worcester at Ralph&amp;rsquo;s listening to good music and catching up with old friends.
+I jumped on-stage and performed &amp;lsquo;Growing Up&amp;lsquo; before Jason&amp;rsquo;s band The Rusty Shovels played their set.
+We captured an iPhone recording of my performance.
+
+Thanks so much to all of The Rusty Shovels for letting me crash their party and serenade Jason with his birthday song.</description>
+    </item>
+    
+    <item>
+      <title>Happy Birthday, Jason Macierowski!</title>
+      <link>https://aronatkins.github.io/posts/2014-12-21-happy-birthday-jason-macierowski/</link>
+      <pubDate>Sun, 21 Dec 2014 00:00:00 +0000</pubDate>
+      <author>aron.atkins@gmail.com (Aron Atkins)</author>
+      <guid>https://aronatkins.github.io/posts/2014-12-21-happy-birthday-jason-macierowski/</guid>
+      <description>I have started to form this habit of writing songs for birthdays. My friend Ben turned 40, and a song emerged. His son had a birthday on March 14, so I wrote about pie.
+As soon as I heard that one of my closest friends was throwing himself a birthday bash/concert, inspiration struck. I&amp;rsquo;m not sure that I&amp;rsquo;ve ever written a song with so many lyrics!
+Jason and I have a ton of history.</description>
+    </item>
+    
+    <item>
+      <title>Girls and Legos? Absurd!</title>
+      <link>https://aronatkins.github.io/posts/2014-12-18-girls-and-legos-absurd/</link>
+      <pubDate>Thu, 18 Dec 2014 00:00:00 +0000</pubDate>
+      <author>aron.atkins@gmail.com (Aron Atkins)</author>
+      <guid>https://aronatkins.github.io/posts/2014-12-18-girls-and-legos-absurd/</guid>
+      <description>I have had a distaste for the Lego Friends collections ever since I first encountered them. They&amp;rsquo;ve created a specialty brand of Lego toys that caters to the Disney Princess set and promotes pastels and flower gardens as the way to a girl&amp;rsquo;s imagination. I don&amp;rsquo;t understand why they couldn&amp;rsquo;t have simply added more gender balance to their existing sets.
+This webcomic made the rounds this week and suggests an alternative approach that I have long thought made sense.</description>
+    </item>
+    
+    <item>
+      <title>Hey, Buddy!</title>
+      <link>https://aronatkins.github.io/posts/2014-12-13-hey-buddy/</link>
+      <pubDate>Sat, 13 Dec 2014 00:00:00 +0000</pubDate>
+      <author>aron.atkins@gmail.com (Aron Atkins)</author>
+      <guid>https://aronatkins.github.io/posts/2014-12-13-hey-buddy/</guid>
+      <description>Thanks to github and their easy-to-use pull request UI, pre-commit code reviews have become much more common in the industry. For me, lightweight peer reviews are a requirement in any well-run development shop. Github certainly did not invent this style of review, but they have certainly help popularize the practice. Thanks, Github!
+I have helped establish code reviewing throughout my career ever since seeing its positive effect at my first job, working on formal verification tools at Chrysalis Symbolic Design.</description>
+    </item>
+    
+    <item>
+      <title>Live @ WJUL</title>
+      <link>https://aronatkins.github.io/posts/2014-12-12-live-at-wjul/</link>
+      <pubDate>Fri, 12 Dec 2014 00:00:00 +0000</pubDate>
+      <author>aron.atkins@gmail.com (Aron Atkins)</author>
+      <guid>https://aronatkins.github.io/posts/2014-12-12-live-at-wjul/</guid>
+      <description>Back in 1999, I did a solo performance on the WJUL radio show of Duct Tape Boy (Matthew Mittelstadt). Even now, 15 years later, I am really proud of that session and super thankful that I was given the opportunity.
+I have had the WJUL recordings occasionally online; they are again available on my music site.
+My SoundCloud page also has the complete Live @ WJUL album.</description>
+    </item>
+    
+    <item>
+      <title>I used to be jaded</title>
+      <link>https://aronatkins.github.io/posts/2014-12-11-i-used-to-be-jaded/</link>
+      <pubDate>Thu, 11 Dec 2014 00:00:00 +0000</pubDate>
+      <author>aron.atkins@gmail.com (Aron Atkins)</author>
+      <guid>https://aronatkins.github.io/posts/2014-12-11-i-used-to-be-jaded/</guid>
+      <description>In college, I was part of a band called jaded. We started off as a trio, were briefly a quartet, but for most of our history were a duo: me singing and playing guitar and Jason playing either bass or electronic drums.
+We recorded with Tascam cassette recorders, mastered onto cassette, and have no playable copies of our first two albums.
+I do have electronic copies of our final studio album, Breathe, from 1995 and our remix/live album Sister in the Corner, from 1998.</description>
+    </item>
+    
+    <item>
+      <title>Farewell, Brightcove</title>
+      <link>https://aronatkins.github.io/posts/2014-12-10-farewell-brightcove/</link>
+      <pubDate>Wed, 10 Dec 2014 00:00:00 +0000</pubDate>
+      <author>aron.atkins@gmail.com (Aron Atkins)</author>
+      <guid>https://aronatkins.github.io/posts/2014-12-10-farewell-brightcove/</guid>
+      <description>Today is two weeks after my last day at Brightcove. My seven-and-a-half year journey was filled with growth, challenges, scale, and a wonderful team.
+As is customary, I sent a departure letter to a number of my colleagues. To those who did not receive the note, I apologize for the oversight. Here it is; the message applies to everyone with whom I shared the Brightcove experience.
+ Subject: Seven years of thanks Date: 2014-11-26</description>
+    </item>
+    
+    <item>
+      <title>Knowing Everything Too Young</title>
+      <link>https://aronatkins.github.io/posts/2014-12-09-knowing-everything-too-young/</link>
+      <pubDate>Tue, 09 Dec 2014 00:00:00 +0000</pubDate>
+      <author>aron.atkins@gmail.com (Aron Atkins)</author>
+      <guid>https://aronatkins.github.io/posts/2014-12-09-knowing-everything-too-young/</guid>
+      <description>Knowing Everything Too Young is a book of poetry written by my sister, Cristina. Back in 1998, I published a small print run of this book with the help of my brother-in-law. I also put the contents online. She received the printed books and the website as a Christmas gift that year.
+Unfortunately, that old online location is no longer around, but I am happy to make the book available again.</description>
+    </item>
+    
+    <item>
+      <title>Hello, world</title>
+      <link>https://aronatkins.github.io/posts/2014-12-06-hello-world/</link>
+      <pubDate>Sat, 06 Dec 2014 00:00:00 +0000</pubDate>
+      <author>aron.atkins@gmail.com (Aron Atkins)</author>
+      <guid>https://aronatkins.github.io/posts/2014-12-06-hello-world/</guid>
+      <description>Hello, world.
+This is a post.
+You are very welcome.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Aron Atkins  | Gemma&#43;NeoPixel 0: Wheel</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="generator" content="Hugo 0.59.0" />
+    <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+
+    <link rel="stylesheet" href='/css/aronatkins.css'>
+    
+    <meta property="og:title" content="Gemma&#43;NeoPixel 0: Wheel" />
+<meta property="og:description" content="This post describes the Wheel function that is part of the strandtest example included within the NeoPixel library.
+I&rsquo;m writing it as a preamble to a planned series of articles about my experiments with an Arduino Gemma and a NeoPixel ring with 16 RGB LEDs.
+The Wheel function takes a value from 0 to 255 (inclusive) and maps that onto a red-green-blue color wheel. Internally, it computes a value for the red, green, and blue components of the result." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://aronatkins.github.io/posts/2016-02-22-gemma-neopixel-0-wheel/" />
+<meta property="article:published_time" content="2016-02-22T00:00:00+00:00" />
+<meta property="article:modified_time" content="2016-02-22T00:00:00+00:00" />
+<meta itemprop="name" content="Gemma&#43;NeoPixel 0: Wheel">
+<meta itemprop="description" content="This post describes the Wheel function that is part of the strandtest example included within the NeoPixel library.
+I&rsquo;m writing it as a preamble to a planned series of articles about my experiments with an Arduino Gemma and a NeoPixel ring with 16 RGB LEDs.
+The Wheel function takes a value from 0 to 255 (inclusive) and maps that onto a red-green-blue color wheel. Internally, it computes a value for the red, green, and blue components of the result.">
+
+
+<meta itemprop="datePublished" content="2016-02-22T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2016-02-22T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="593">
+
+
+
+<meta itemprop="keywords" content="arduino,gemma,code,neopixel,adafruit," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Gemma&#43;NeoPixel 0: Wheel"/>
+<meta name="twitter:description" content="This post describes the Wheel function that is part of the strandtest example included within the NeoPixel library.
+I&rsquo;m writing it as a preamble to a planned series of articles about my experiments with an Arduino Gemma and a NeoPixel ring with 16 RGB LEDs.
+The Wheel function takes a value from 0 to 255 (inclusive) and maps that onto a red-green-blue color wheel. Internally, it computes a value for the red, green, and blue components of the result."/>
+</head>
+
+  <body>
+
+    <header class="site-header">
+    <nav role="navigation" class="site-navigation">
+    <div class="bounded-wrapper">
+        <div class="bounded" >
+            <div class="header-columns">
+                <div class="site-title">
+                    <a href="https://aronatkins.github.io/">
+                        Aron Atkins
+                    </a>
+                </div>
+                <div>
+                    
+                    <ul class="site-navigation-list">
+                        
+                        <li>
+                            <a href="/about/" title="About page">
+                                About
+                            </a>
+                        </li>
+                        
+                    </ul>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+
+</header>
+
+    <main role="main">
+      
+<div class="bounded-wrapper">
+    <article class="bounded">
+        <header>
+            <h1>Gemma&#43;NeoPixel 0: Wheel</h1>
+            <time datetime="2016-02-22T00:00:00Z">2016-02-22</time>
+        </header>
+
+        <section><p>This post describes the
+<a href="https://github.com/adafruit/Adafruit_NeoPixel/blob/be0d7706e196dd8479e4573038785bad0b1e6726/examples/strandtest/strandtest.ino"><code>Wheel</code></a>
+function that is part of the
+<a href="https://github.com/adafruit/Adafruit_NeoPixel/tree/be0d7706e196dd8479e4573038785bad0b1e6726/examples/strandtest">strandtest</a>
+example included within the <a href="https://github.com/adafruit/Adafruit_NeoPixel">NeoPixel library</a>.</p>
+
+<p>I&rsquo;m writing it as a preamble to a planned series of articles about my
+experiments with an Arduino <a href="https://www.adafruit.com/products/1222">Gemma</a>
+and a NeoPixel ring with
+<a href="https://www.adafruit.com/products/1463">16 RGB LEDs</a>.</p>
+
+<p>The <code>Wheel</code> function takes a value from 0 to 255 (inclusive) and maps that
+onto a red-green-blue color wheel. Internally, it computes a value for the
+red, green, and blue components of the result. Those three parts are combined
+by the <code>strip.Color</code> function to return a 32-bit value representing that
+color.</p>
+
+<blockquote>
+<p>The <code>Wheel</code> function may eventually be included in the NeoPixel library, but
+for now, include it in each of your sketches.</p>
+</blockquote>
+<div class="highlight"><pre style="color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#859900;font-weight:bold">uint32_t</span> <span style="color:#268bd2">Wheel</span>(<span style="color:#268bd2">byte</span> <span style="color:#268bd2">WheelPos</span>) {
+  <span style="color:#268bd2">WheelPos</span> = <span style="color:#2aa198;font-weight:bold">255</span> - <span style="color:#268bd2">WheelPos</span>;
+  <span style="color:#859900">if</span>(<span style="color:#268bd2">WheelPos</span> &lt; <span style="color:#2aa198;font-weight:bold">85</span>) {
+    <span style="color:#859900">return</span> <span style="color:#268bd2">strip</span>.<span style="color:#268bd2">Color</span>(<span style="color:#2aa198;font-weight:bold">255</span> - <span style="color:#268bd2">WheelPos</span> * <span style="color:#2aa198;font-weight:bold">3</span>, <span style="color:#2aa198;font-weight:bold">0</span>, <span style="color:#268bd2">WheelPos</span> * <span style="color:#2aa198;font-weight:bold">3</span>);
+  }
+  <span style="color:#859900">if</span>(<span style="color:#268bd2">WheelPos</span> &lt; <span style="color:#2aa198;font-weight:bold">170</span>) {
+    <span style="color:#268bd2">WheelPos</span> -= <span style="color:#2aa198;font-weight:bold">85</span>;
+    <span style="color:#859900">return</span> <span style="color:#268bd2">strip</span>.<span style="color:#268bd2">Color</span>(<span style="color:#2aa198;font-weight:bold">0</span>, <span style="color:#268bd2">WheelPos</span> * <span style="color:#2aa198;font-weight:bold">3</span>, <span style="color:#2aa198;font-weight:bold">255</span> - <span style="color:#268bd2">WheelPos</span> * <span style="color:#2aa198;font-weight:bold">3</span>);
+  }
+  <span style="color:#268bd2">WheelPos</span> -= <span style="color:#2aa198;font-weight:bold">170</span>;
+  <span style="color:#859900">return</span> <span style="color:#268bd2">strip</span>.<span style="color:#268bd2">Color</span>(<span style="color:#268bd2">WheelPos</span> * <span style="color:#2aa198;font-weight:bold">3</span>, <span style="color:#2aa198;font-weight:bold">255</span> - <span style="color:#268bd2">WheelPos</span> * <span style="color:#2aa198;font-weight:bold">3</span>, <span style="color:#2aa198;font-weight:bold">0</span>);
+}
+</code></pre></div>
+<p>From a quick code reading, we can see that the numbers from 0 to 255 are
+divided into three sections: 0-85, 86-170, and 171-255. But what we care about
+more than the math are the colors that result.</p>
+
+<p>Let&rsquo;s build a table showing how an input value is transformed. I wrote a
+little
+<a href="https://github.com/aronatkins/bits-bytes-and-lights/blob/2498dcf3472732ed5761af9fce068ee77b4fd8de/NeoPixel/color-wheel.py">Python code</a>
+to take each number from 0 to 255 and give the resulting red, green, and blue
+values. In addition, I added the HTML hex color code and the color itself.
+Maybe it&rsquo;ll help you when incorporating <code>Wheel</code> into your own designs.</p>
+
+<blockquote>
+<p>The color wheel only includes red, green, and blue combinations. There is no
+black and no white. You may need to use other techniques or in addition
+to the <code>Wheel</code> function.</p>
+</blockquote>
+
+<p>Get ready for some scrolling!</p>
+
+<table>
+<tbody>
+<tr><th>position</th><th>0</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th></tr>
+<tr><th>Red</th><td>255</td><td>252</td><td>249</td><td>246</td><td>243</td><td>240</td><td>237</td><td>234</td></tr>
+<tr><th>Green</th><td>0</td><td>3</td><td>6</td><td>9</td><td>12</td><td>15</td><td>18</td><td>21</td></tr>
+<tr><th>Blue</th><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+<tr><th>HTML color code</th><td><tt>#ff0000<tt></td><td><tt>#fc0300<tt></td><td><tt>#f90600<tt></td><td><tt>#f60900<tt></td><td><tt>#f30c00<tt></td><td><tt>#f00f00<tt></td><td><tt>#ed1200<tt></td><td><tt>#ea1500<tt></td></tr>
+<tr><th>HTML color</th><td style='background-color:#ff0000;'></td><td style='background-color:#fc0300;'></td><td style='background-color:#f90600;'></td><td style='background-color:#f60900;'></td><td style='background-color:#f30c00;'></td><td style='background-color:#f00f00;'></td><td style='background-color:#ed1200;'></td><td style='background-color:#ea1500;'></td></tr>
+</tbody>
+<tbody>
+<tr><th>position</th><th>8</th><th>9</th><th>10</th><th>11</th><th>12</th><th>13</th><th>14</th><th>15</th></tr>
+<tr><th>Red</th><td>231</td><td>228</td><td>225</td><td>222</td><td>219</td><td>216</td><td>213</td><td>210</td></tr>
+<tr><th>Green</th><td>24</td><td>27</td><td>30</td><td>33</td><td>36</td><td>39</td><td>42</td><td>45</td></tr>
+<tr><th>Blue</th><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+<tr><th>HTML color code</th><td><tt>#e71800<tt></td><td><tt>#e41b00<tt></td><td><tt>#e11e00<tt></td><td><tt>#de2100<tt></td><td><tt>#db2400<tt></td><td><tt>#d82700<tt></td><td><tt>#d52a00<tt></td><td><tt>#d22d00<tt></td></tr>
+<tr><th>HTML color</th><td style='background-color:#e71800;'></td><td style='background-color:#e41b00;'></td><td style='background-color:#e11e00;'></td><td style='background-color:#de2100;'></td><td style='background-color:#db2400;'></td><td style='background-color:#d82700;'></td><td style='background-color:#d52a00;'></td><td style='background-color:#d22d00;'></td></tr>
+</tbody>
+<tbody>
+<tr><th>position</th><th>16</th><th>17</th><th>18</th><th>19</th><th>20</th><th>21</th><th>22</th><th>23</th></tr>
+<tr><th>Red</th><td>207</td><td>204</td><td>201</td><td>198</td><td>195</td><td>192</td><td>189</td><td>186</td></tr>
+<tr><th>Green</th><td>48</td><td>51</td><td>54</td><td>57</td><td>60</td><td>63</td><td>66</td><td>69</td></tr>
+<tr><th>Blue</th><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+<tr><th>HTML color code</th><td><tt>#cf3000<tt></td><td><tt>#cc3300<tt></td><td><tt>#c93600<tt></td><td><tt>#c63900<tt></td><td><tt>#c33c00<tt></td><td><tt>#c03f00<tt></td><td><tt>#bd4200<tt></td><td><tt>#ba4500<tt></td></tr>
+<tr><th>HTML color</th><td style='background-color:#cf3000;'></td><td style='background-color:#cc3300;'></td><td style='background-color:#c93600;'></td><td style='background-color:#c63900;'></td><td style='background-color:#c33c00;'></td><td style='background-color:#c03f00;'></td><td style='background-color:#bd4200;'></td><td style='background-color:#ba4500;'></td></tr>
+</tbody>
+<tbody>
+<tr><th>position</th><th>24</th><th>25</th><th>26</th><th>27</th><th>28</th><th>29</th><th>30</th><th>31</th></tr>
+<tr><th>Red</th><td>183</td><td>180</td><td>177</td><td>174</td><td>171</td><td>168</td><td>165</td><td>162</td></tr>
+<tr><th>Green</th><td>72</td><td>75</td><td>78</td><td>81</td><td>84</td><td>87</td><td>90</td><td>93</td></tr>
+<tr><th>Blue</th><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+<tr><th>HTML color code</th><td><tt>#b74800<tt></td><td><tt>#b44b00<tt></td><td><tt>#b14e00<tt></td><td><tt>#ae5100<tt></td><td><tt>#ab5400<tt></td><td><tt>#a85700<tt></td><td><tt>#a55a00<tt></td><td><tt>#a25d00<tt></td></tr>
+<tr><th>HTML color</th><td style='background-color:#b74800;'></td><td style='background-color:#b44b00;'></td><td style='background-color:#b14e00;'></td><td style='background-color:#ae5100;'></td><td style='background-color:#ab5400;'></td><td style='background-color:#a85700;'></td><td style='background-color:#a55a00;'></td><td style='background-color:#a25d00;'></td></tr>
+</tbody>
+<tbody>
+<tr><th>position</th><th>32</th><th>33</th><th>34</th><th>35</th><th>36</th><th>37</th><th>38</th><th>39</th></tr>
+<tr><th>Red</th><td>159</td><td>156</td><td>153</td><td>150</td><td>147</td><td>144</td><td>141</td><td>138</td></tr>
+<tr><th>Green</th><td>96</td><td>99</td><td>102</td><td>105</td><td>108</td><td>111</td><td>114</td><td>117</td></tr>
+<tr><th>Blue</th><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+<tr><th>HTML color code</th><td><tt>#9f6000<tt></td><td><tt>#9c6300<tt></td><td><tt>#996600<tt></td><td><tt>#966900<tt></td><td><tt>#936c00<tt></td><td><tt>#906f00<tt></td><td><tt>#8d7200<tt></td><td><tt>#8a7500<tt></td></tr>
+<tr><th>HTML color</th><td style='background-color:#9f6000;'></td><td style='background-color:#9c6300;'></td><td style='background-color:#996600;'></td><td style='background-color:#966900;'></td><td style='background-color:#936c00;'></td><td style='background-color:#906f00;'></td><td style='background-color:#8d7200;'></td><td style='background-color:#8a7500;'></td></tr>
+</tbody>
+<tbody>
+<tr><th>position</th><th>40</th><th>41</th><th>42</th><th>43</th><th>44</th><th>45</th><th>46</th><th>47</th></tr>
+<tr><th>Red</th><td>135</td><td>132</td><td>129</td><td>126</td><td>123</td><td>120</td><td>117</td><td>114</td></tr>
+<tr><th>Green</th><td>120</td><td>123</td><td>126</td><td>129</td><td>132</td><td>135</td><td>138</td><td>141</td></tr>
+<tr><th>Blue</th><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+<tr><th>HTML color code</th><td><tt>#877800<tt></td><td><tt>#847b00<tt></td><td><tt>#817e00<tt></td><td><tt>#7e8100<tt></td><td><tt>#7b8400<tt></td><td><tt>#788700<tt></td><td><tt>#758a00<tt></td><td><tt>#728d00<tt></td></tr>
+<tr><th>HTML color</th><td style='background-color:#877800;'></td><td style='background-color:#847b00;'></td><td style='background-color:#817e00;'></td><td style='background-color:#7e8100;'></td><td style='background-color:#7b8400;'></td><td style='background-color:#788700;'></td><td style='background-color:#758a00;'></td><td style='background-color:#728d00;'></td></tr>
+</tbody>
+<tbody>
+<tr><th>position</th><th>48</th><th>49</th><th>50</th><th>51</th><th>52</th><th>53</th><th>54</th><th>55</th></tr>
+<tr><th>Red</th><td>111</td><td>108</td><td>105</td><td>102</td><td>99</td><td>96</td><td>93</td><td>90</td></tr>
+<tr><th>Green</th><td>144</td><td>147</td><td>150</td><td>153</td><td>156</td><td>159</td><td>162</td><td>165</td></tr>
+<tr><th>Blue</th><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+<tr><th>HTML color code</th><td><tt>#6f9000<tt></td><td><tt>#6c9300<tt></td><td><tt>#699600<tt></td><td><tt>#669900<tt></td><td><tt>#639c00<tt></td><td><tt>#609f00<tt></td><td><tt>#5da200<tt></td><td><tt>#5aa500<tt></td></tr>
+<tr><th>HTML color</th><td style='background-color:#6f9000;'></td><td style='background-color:#6c9300;'></td><td style='background-color:#699600;'></td><td style='background-color:#669900;'></td><td style='background-color:#639c00;'></td><td style='background-color:#609f00;'></td><td style='background-color:#5da200;'></td><td style='background-color:#5aa500;'></td></tr>
+</tbody>
+<tbody>
+<tr><th>position</th><th>56</th><th>57</th><th>58</th><th>59</th><th>60</th><th>61</th><th>62</th><th>63</th></tr>
+<tr><th>Red</th><td>87</td><td>84</td><td>81</td><td>78</td><td>75</td><td>72</td><td>69</td><td>66</td></tr>
+<tr><th>Green</th><td>168</td><td>171</td><td>174</td><td>177</td><td>180</td><td>183</td><td>186</td><td>189</td></tr>
+<tr><th>Blue</th><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+<tr><th>HTML color code</th><td><tt>#57a800<tt></td><td><tt>#54ab00<tt></td><td><tt>#51ae00<tt></td><td><tt>#4eb100<tt></td><td><tt>#4bb400<tt></td><td><tt>#48b700<tt></td><td><tt>#45ba00<tt></td><td><tt>#42bd00<tt></td></tr>
+<tr><th>HTML color</th><td style='background-color:#57a800;'></td><td style='background-color:#54ab00;'></td><td style='background-color:#51ae00;'></td><td style='background-color:#4eb100;'></td><td style='background-color:#4bb400;'></td><td style='background-color:#48b700;'></td><td style='background-color:#45ba00;'></td><td style='background-color:#42bd00;'></td></tr>
+</tbody>
+<tbody>
+<tr><th>position</th><th>64</th><th>65</th><th>66</th><th>67</th><th>68</th><th>69</th><th>70</th><th>71</th></tr>
+<tr><th>Red</th><td>63</td><td>60</td><td>57</td><td>54</td><td>51</td><td>48</td><td>45</td><td>42</td></tr>
+<tr><th>Green</th><td>192</td><td>195</td><td>198</td><td>201</td><td>204</td><td>207</td><td>210</td><td>213</td></tr>
+<tr><th>Blue</th><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+<tr><th>HTML color code</th><td><tt>#3fc000<tt></td><td><tt>#3cc300<tt></td><td><tt>#39c600<tt></td><td><tt>#36c900<tt></td><td><tt>#33cc00<tt></td><td><tt>#30cf00<tt></td><td><tt>#2dd200<tt></td><td><tt>#2ad500<tt></td></tr>
+<tr><th>HTML color</th><td style='background-color:#3fc000;'></td><td style='background-color:#3cc300;'></td><td style='background-color:#39c600;'></td><td style='background-color:#36c900;'></td><td style='background-color:#33cc00;'></td><td style='background-color:#30cf00;'></td><td style='background-color:#2dd200;'></td><td style='background-color:#2ad500;'></td></tr>
+</tbody>
+<tbody>
+<tr><th>position</th><th>72</th><th>73</th><th>74</th><th>75</th><th>76</th><th>77</th><th>78</th><th>79</th></tr>
+<tr><th>Red</th><td>39</td><td>36</td><td>33</td><td>30</td><td>27</td><td>24</td><td>21</td><td>18</td></tr>
+<tr><th>Green</th><td>216</td><td>219</td><td>222</td><td>225</td><td>228</td><td>231</td><td>234</td><td>237</td></tr>
+<tr><th>Blue</th><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+<tr><th>HTML color code</th><td><tt>#27d800<tt></td><td><tt>#24db00<tt></td><td><tt>#21de00<tt></td><td><tt>#1ee100<tt></td><td><tt>#1be400<tt></td><td><tt>#18e700<tt></td><td><tt>#15ea00<tt></td><td><tt>#12ed00<tt></td></tr>
+<tr><th>HTML color</th><td style='background-color:#27d800;'></td><td style='background-color:#24db00;'></td><td style='background-color:#21de00;'></td><td style='background-color:#1ee100;'></td><td style='background-color:#1be400;'></td><td style='background-color:#18e700;'></td><td style='background-color:#15ea00;'></td><td style='background-color:#12ed00;'></td></tr>
+</tbody>
+<tbody>
+<tr><th>position</th><th>80</th><th>81</th><th>82</th><th>83</th><th>84</th><th>85</th><th>86</th><th>87</th></tr>
+<tr><th>Red</th><td>15</td><td>12</td><td>9</td><td>6</td><td>3</td><td>0</td><td>0</td><td>0</td></tr>
+<tr><th>Green</th><td>240</td><td>243</td><td>246</td><td>249</td><td>252</td><td>255</td><td>252</td><td>249</td></tr>
+<tr><th>Blue</th><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>3</td><td>6</td></tr>
+<tr><th>HTML color code</th><td><tt>#0ff000<tt></td><td><tt>#0cf300<tt></td><td><tt>#09f600<tt></td><td><tt>#06f900<tt></td><td><tt>#03fc00<tt></td><td><tt>#00ff00<tt></td><td><tt>#00fc03<tt></td><td><tt>#00f906<tt></td></tr>
+<tr><th>HTML color</th><td style='background-color:#0ff000;'></td><td style='background-color:#0cf300;'></td><td style='background-color:#09f600;'></td><td style='background-color:#06f900;'></td><td style='background-color:#03fc00;'></td><td style='background-color:#00ff00;'></td><td style='background-color:#00fc03;'></td><td style='background-color:#00f906;'></td></tr>
+</tbody>
+<tbody>
+<tr><th>position</th><th>88</th><th>89</th><th>90</th><th>91</th><th>92</th><th>93</th><th>94</th><th>95</th></tr>
+<tr><th>Red</th><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+<tr><th>Green</th><td>246</td><td>243</td><td>240</td><td>237</td><td>234</td><td>231</td><td>228</td><td>225</td></tr>
+<tr><th>Blue</th><td>9</td><td>12</td><td>15</td><td>18</td><td>21</td><td>24</td><td>27</td><td>30</td></tr>
+<tr><th>HTML color code</th><td><tt>#00f609<tt></td><td><tt>#00f30c<tt></td><td><tt>#00f00f<tt></td><td><tt>#00ed12<tt></td><td><tt>#00ea15<tt></td><td><tt>#00e718<tt></td><td><tt>#00e41b<tt></td><td><tt>#00e11e<tt></td></tr>
+<tr><th>HTML color</th><td style='background-color:#00f609;'></td><td style='background-color:#00f30c;'></td><td style='background-color:#00f00f;'></td><td style='background-color:#00ed12;'></td><td style='background-color:#00ea15;'></td><td style='background-color:#00e718;'></td><td style='background-color:#00e41b;'></td><td style='background-color:#00e11e;'></td></tr>
+</tbody>
+<tbody>
+<tr><th>position</th><th>96</th><th>97</th><th>98</th><th>99</th><th>100</th><th>101</th><th>102</th><th>103</th></tr>
+<tr><th>Red</th><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+<tr><th>Green</th><td>222</td><td>219</td><td>216</td><td>213</td><td>210</td><td>207</td><td>204</td><td>201</td></tr>
+<tr><th>Blue</th><td>33</td><td>36</td><td>39</td><td>42</td><td>45</td><td>48</td><td>51</td><td>54</td></tr>
+<tr><th>HTML color code</th><td><tt>#00de21<tt></td><td><tt>#00db24<tt></td><td><tt>#00d827<tt></td><td><tt>#00d52a<tt></td><td><tt>#00d22d<tt></td><td><tt>#00cf30<tt></td><td><tt>#00cc33<tt></td><td><tt>#00c936<tt></td></tr>
+<tr><th>HTML color</th><td style='background-color:#00de21;'></td><td style='background-color:#00db24;'></td><td style='background-color:#00d827;'></td><td style='background-color:#00d52a;'></td><td style='background-color:#00d22d;'></td><td style='background-color:#00cf30;'></td><td style='background-color:#00cc33;'></td><td style='background-color:#00c936;'></td></tr>
+</tbody>
+<tbody>
+<tr><th>position</th><th>104</th><th>105</th><th>106</th><th>107</th><th>108</th><th>109</th><th>110</th><th>111</th></tr>
+<tr><th>Red</th><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+<tr><th>Green</th><td>198</td><td>195</td><td>192</td><td>189</td><td>186</td><td>183</td><td>180</td><td>177</td></tr>
+<tr><th>Blue</th><td>57</td><td>60</td><td>63</td><td>66</td><td>69</td><td>72</td><td>75</td><td>78</td></tr>
+<tr><th>HTML color code</th><td><tt>#00c639<tt></td><td><tt>#00c33c<tt></td><td><tt>#00c03f<tt></td><td><tt>#00bd42<tt></td><td><tt>#00ba45<tt></td><td><tt>#00b748<tt></td><td><tt>#00b44b<tt></td><td><tt>#00b14e<tt></td></tr>
+<tr><th>HTML color</th><td style='background-color:#00c639;'></td><td style='background-color:#00c33c;'></td><td style='background-color:#00c03f;'></td><td style='background-color:#00bd42;'></td><td style='background-color:#00ba45;'></td><td style='background-color:#00b748;'></td><td style='background-color:#00b44b;'></td><td style='background-color:#00b14e;'></td></tr>
+</tbody>
+<tbody>
+<tr><th>position</th><th>112</th><th>113</th><th>114</th><th>115</th><th>116</th><th>117</th><th>118</th><th>119</th></tr>
+<tr><th>Red</th><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+<tr><th>Green</th><td>174</td><td>171</td><td>168</td><td>165</td><td>162</td><td>159</td><td>156</td><td>153</td></tr>
+<tr><th>Blue</th><td>81</td><td>84</td><td>87</td><td>90</td><td>93</td><td>96</td><td>99</td><td>102</td></tr>
+<tr><th>HTML color code</th><td><tt>#00ae51<tt></td><td><tt>#00ab54<tt></td><td><tt>#00a857<tt></td><td><tt>#00a55a<tt></td><td><tt>#00a25d<tt></td><td><tt>#009f60<tt></td><td><tt>#009c63<tt></td><td><tt>#009966<tt></td></tr>
+<tr><th>HTML color</th><td style='background-color:#00ae51;'></td><td style='background-color:#00ab54;'></td><td style='background-color:#00a857;'></td><td style='background-color:#00a55a;'></td><td style='background-color:#00a25d;'></td><td style='background-color:#009f60;'></td><td style='background-color:#009c63;'></td><td style='background-color:#009966;'></td></tr>
+</tbody>
+<tbody>
+<tr><th>position</th><th>120</th><th>121</th><th>122</th><th>123</th><th>124</th><th>125</th><th>126</th><th>127</th></tr>
+<tr><th>Red</th><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+<tr><th>Green</th><td>150</td><td>147</td><td>144</td><td>141</td><td>138</td><td>135</td><td>132</td><td>129</td></tr>
+<tr><th>Blue</th><td>105</td><td>108</td><td>111</td><td>114</td><td>117</td><td>120</td><td>123</td><td>126</td></tr>
+<tr><th>HTML color code</th><td><tt>#009669<tt></td><td><tt>#00936c<tt></td><td><tt>#00906f<tt></td><td><tt>#008d72<tt></td><td><tt>#008a75<tt></td><td><tt>#008778<tt></td><td><tt>#00847b<tt></td><td><tt>#00817e<tt></td></tr>
+<tr><th>HTML color</th><td style='background-color:#009669;'></td><td style='background-color:#00936c;'></td><td style='background-color:#00906f;'></td><td style='background-color:#008d72;'></td><td style='background-color:#008a75;'></td><td style='background-color:#008778;'></td><td style='background-color:#00847b;'></td><td style='background-color:#00817e;'></td></tr>
+</tbody>
+<tbody>
+<tr><th>position</th><th>128</th><th>129</th><th>130</th><th>131</th><th>132</th><th>133</th><th>134</th><th>135</th></tr>
+<tr><th>Red</th><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+<tr><th>Green</th><td>126</td><td>123</td><td>120</td><td>117</td><td>114</td><td>111</td><td>108</td><td>105</td></tr>
+<tr><th>Blue</th><td>129</td><td>132</td><td>135</td><td>138</td><td>141</td><td>144</td><td>147</td><td>150</td></tr>
+<tr><th>HTML color code</th><td><tt>#007e81<tt></td><td><tt>#007b84<tt></td><td><tt>#007887<tt></td><td><tt>#00758a<tt></td><td><tt>#00728d<tt></td><td><tt>#006f90<tt></td><td><tt>#006c93<tt></td><td><tt>#006996<tt></td></tr>
+<tr><th>HTML color</th><td style='background-color:#007e81;'></td><td style='background-color:#007b84;'></td><td style='background-color:#007887;'></td><td style='background-color:#00758a;'></td><td style='background-color:#00728d;'></td><td style='background-color:#006f90;'></td><td style='background-color:#006c93;'></td><td style='background-color:#006996;'></td></tr>
+</tbody>
+<tbody>
+<tr><th>position</th><th>136</th><th>137</th><th>138</th><th>139</th><th>140</th><th>141</th><th>142</th><th>143</th></tr>
+<tr><th>Red</th><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+<tr><th>Green</th><td>102</td><td>99</td><td>96</td><td>93</td><td>90</td><td>87</td><td>84</td><td>81</td></tr>
+<tr><th>Blue</th><td>153</td><td>156</td><td>159</td><td>162</td><td>165</td><td>168</td><td>171</td><td>174</td></tr>
+<tr><th>HTML color code</th><td><tt>#006699<tt></td><td><tt>#00639c<tt></td><td><tt>#00609f<tt></td><td><tt>#005da2<tt></td><td><tt>#005aa5<tt></td><td><tt>#0057a8<tt></td><td><tt>#0054ab<tt></td><td><tt>#0051ae<tt></td></tr>
+<tr><th>HTML color</th><td style='background-color:#006699;'></td><td style='background-color:#00639c;'></td><td style='background-color:#00609f;'></td><td style='background-color:#005da2;'></td><td style='background-color:#005aa5;'></td><td style='background-color:#0057a8;'></td><td style='background-color:#0054ab;'></td><td style='background-color:#0051ae;'></td></tr>
+</tbody>
+<tbody>
+<tr><th>position</th><th>144</th><th>145</th><th>146</th><th>147</th><th>148</th><th>149</th><th>150</th><th>151</th></tr>
+<tr><th>Red</th><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+<tr><th>Green</th><td>78</td><td>75</td><td>72</td><td>69</td><td>66</td><td>63</td><td>60</td><td>57</td></tr>
+<tr><th>Blue</th><td>177</td><td>180</td><td>183</td><td>186</td><td>189</td><td>192</td><td>195</td><td>198</td></tr>
+<tr><th>HTML color code</th><td><tt>#004eb1<tt></td><td><tt>#004bb4<tt></td><td><tt>#0048b7<tt></td><td><tt>#0045ba<tt></td><td><tt>#0042bd<tt></td><td><tt>#003fc0<tt></td><td><tt>#003cc3<tt></td><td><tt>#0039c6<tt></td></tr>
+<tr><th>HTML color</th><td style='background-color:#004eb1;'></td><td style='background-color:#004bb4;'></td><td style='background-color:#0048b7;'></td><td style='background-color:#0045ba;'></td><td style='background-color:#0042bd;'></td><td style='background-color:#003fc0;'></td><td style='background-color:#003cc3;'></td><td style='background-color:#0039c6;'></td></tr>
+</tbody>
+<tbody>
+<tr><th>position</th><th>152</th><th>153</th><th>154</th><th>155</th><th>156</th><th>157</th><th>158</th><th>159</th></tr>
+<tr><th>Red</th><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+<tr><th>Green</th><td>54</td><td>51</td><td>48</td><td>45</td><td>42</td><td>39</td><td>36</td><td>33</td></tr>
+<tr><th>Blue</th><td>201</td><td>204</td><td>207</td><td>210</td><td>213</td><td>216</td><td>219</td><td>222</td></tr>
+<tr><th>HTML color code</th><td><tt>#0036c9<tt></td><td><tt>#0033cc<tt></td><td><tt>#0030cf<tt></td><td><tt>#002dd2<tt></td><td><tt>#002ad5<tt></td><td><tt>#0027d8<tt></td><td><tt>#0024db<tt></td><td><tt>#0021de<tt></td></tr>
+<tr><th>HTML color</th><td style='background-color:#0036c9;'></td><td style='background-color:#0033cc;'></td><td style='background-color:#0030cf;'></td><td style='background-color:#002dd2;'></td><td style='background-color:#002ad5;'></td><td style='background-color:#0027d8;'></td><td style='background-color:#0024db;'></td><td style='background-color:#0021de;'></td></tr>
+</tbody>
+<tbody>
+<tr><th>position</th><th>160</th><th>161</th><th>162</th><th>163</th><th>164</th><th>165</th><th>166</th><th>167</th></tr>
+<tr><th>Red</th><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+<tr><th>Green</th><td>30</td><td>27</td><td>24</td><td>21</td><td>18</td><td>15</td><td>12</td><td>9</td></tr>
+<tr><th>Blue</th><td>225</td><td>228</td><td>231</td><td>234</td><td>237</td><td>240</td><td>243</td><td>246</td></tr>
+<tr><th>HTML color code</th><td><tt>#001ee1<tt></td><td><tt>#001be4<tt></td><td><tt>#0018e7<tt></td><td><tt>#0015ea<tt></td><td><tt>#0012ed<tt></td><td><tt>#000ff0<tt></td><td><tt>#000cf3<tt></td><td><tt>#0009f6<tt></td></tr>
+<tr><th>HTML color</th><td style='background-color:#001ee1;'></td><td style='background-color:#001be4;'></td><td style='background-color:#0018e7;'></td><td style='background-color:#0015ea;'></td><td style='background-color:#0012ed;'></td><td style='background-color:#000ff0;'></td><td style='background-color:#000cf3;'></td><td style='background-color:#0009f6;'></td></tr>
+</tbody>
+<tbody>
+<tr><th>position</th><th>168</th><th>169</th><th>170</th><th>171</th><th>172</th><th>173</th><th>174</th><th>175</th></tr>
+<tr><th>Red</th><td>0</td><td>0</td><td>0</td><td>3</td><td>6</td><td>9</td><td>12</td><td>15</td></tr>
+<tr><th>Green</th><td>6</td><td>3</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+<tr><th>Blue</th><td>249</td><td>252</td><td>255</td><td>252</td><td>249</td><td>246</td><td>243</td><td>240</td></tr>
+<tr><th>HTML color code</th><td><tt>#0006f9<tt></td><td><tt>#0003fc<tt></td><td><tt>#0000ff<tt></td><td><tt>#0300fc<tt></td><td><tt>#0600f9<tt></td><td><tt>#0900f6<tt></td><td><tt>#0c00f3<tt></td><td><tt>#0f00f0<tt></td></tr>
+<tr><th>HTML color</th><td style='background-color:#0006f9;'></td><td style='background-color:#0003fc;'></td><td style='background-color:#0000ff;'></td><td style='background-color:#0300fc;'></td><td style='background-color:#0600f9;'></td><td style='background-color:#0900f6;'></td><td style='background-color:#0c00f3;'></td><td style='background-color:#0f00f0;'></td></tr>
+</tbody>
+<tbody>
+<tr><th>position</th><th>176</th><th>177</th><th>178</th><th>179</th><th>180</th><th>181</th><th>182</th><th>183</th></tr>
+<tr><th>Red</th><td>18</td><td>21</td><td>24</td><td>27</td><td>30</td><td>33</td><td>36</td><td>39</td></tr>
+<tr><th>Green</th><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+<tr><th>Blue</th><td>237</td><td>234</td><td>231</td><td>228</td><td>225</td><td>222</td><td>219</td><td>216</td></tr>
+<tr><th>HTML color code</th><td><tt>#1200ed<tt></td><td><tt>#1500ea<tt></td><td><tt>#1800e7<tt></td><td><tt>#1b00e4<tt></td><td><tt>#1e00e1<tt></td><td><tt>#2100de<tt></td><td><tt>#2400db<tt></td><td><tt>#2700d8<tt></td></tr>
+<tr><th>HTML color</th><td style='background-color:#1200ed;'></td><td style='background-color:#1500ea;'></td><td style='background-color:#1800e7;'></td><td style='background-color:#1b00e4;'></td><td style='background-color:#1e00e1;'></td><td style='background-color:#2100de;'></td><td style='background-color:#2400db;'></td><td style='background-color:#2700d8;'></td></tr>
+</tbody>
+<tbody>
+<tr><th>position</th><th>184</th><th>185</th><th>186</th><th>187</th><th>188</th><th>189</th><th>190</th><th>191</th></tr>
+<tr><th>Red</th><td>42</td><td>45</td><td>48</td><td>51</td><td>54</td><td>57</td><td>60</td><td>63</td></tr>
+<tr><th>Green</th><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+<tr><th>Blue</th><td>213</td><td>210</td><td>207</td><td>204</td><td>201</td><td>198</td><td>195</td><td>192</td></tr>
+<tr><th>HTML color code</th><td><tt>#2a00d5<tt></td><td><tt>#2d00d2<tt></td><td><tt>#3000cf<tt></td><td><tt>#3300cc<tt></td><td><tt>#3600c9<tt></td><td><tt>#3900c6<tt></td><td><tt>#3c00c3<tt></td><td><tt>#3f00c0<tt></td></tr>
+<tr><th>HTML color</th><td style='background-color:#2a00d5;'></td><td style='background-color:#2d00d2;'></td><td style='background-color:#3000cf;'></td><td style='background-color:#3300cc;'></td><td style='background-color:#3600c9;'></td><td style='background-color:#3900c6;'></td><td style='background-color:#3c00c3;'></td><td style='background-color:#3f00c0;'></td></tr>
+</tbody>
+<tbody>
+<tr><th>position</th><th>192</th><th>193</th><th>194</th><th>195</th><th>196</th><th>197</th><th>198</th><th>199</th></tr>
+<tr><th>Red</th><td>66</td><td>69</td><td>72</td><td>75</td><td>78</td><td>81</td><td>84</td><td>87</td></tr>
+<tr><th>Green</th><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+<tr><th>Blue</th><td>189</td><td>186</td><td>183</td><td>180</td><td>177</td><td>174</td><td>171</td><td>168</td></tr>
+<tr><th>HTML color code</th><td><tt>#4200bd<tt></td><td><tt>#4500ba<tt></td><td><tt>#4800b7<tt></td><td><tt>#4b00b4<tt></td><td><tt>#4e00b1<tt></td><td><tt>#5100ae<tt></td><td><tt>#5400ab<tt></td><td><tt>#5700a8<tt></td></tr>
+<tr><th>HTML color</th><td style='background-color:#4200bd;'></td><td style='background-color:#4500ba;'></td><td style='background-color:#4800b7;'></td><td style='background-color:#4b00b4;'></td><td style='background-color:#4e00b1;'></td><td style='background-color:#5100ae;'></td><td style='background-color:#5400ab;'></td><td style='background-color:#5700a8;'></td></tr>
+</tbody>
+<tbody>
+<tr><th>position</th><th>200</th><th>201</th><th>202</th><th>203</th><th>204</th><th>205</th><th>206</th><th>207</th></tr>
+<tr><th>Red</th><td>90</td><td>93</td><td>96</td><td>99</td><td>102</td><td>105</td><td>108</td><td>111</td></tr>
+<tr><th>Green</th><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+<tr><th>Blue</th><td>165</td><td>162</td><td>159</td><td>156</td><td>153</td><td>150</td><td>147</td><td>144</td></tr>
+<tr><th>HTML color code</th><td><tt>#5a00a5<tt></td><td><tt>#5d00a2<tt></td><td><tt>#60009f<tt></td><td><tt>#63009c<tt></td><td><tt>#660099<tt></td><td><tt>#690096<tt></td><td><tt>#6c0093<tt></td><td><tt>#6f0090<tt></td></tr>
+<tr><th>HTML color</th><td style='background-color:#5a00a5;'></td><td style='background-color:#5d00a2;'></td><td style='background-color:#60009f;'></td><td style='background-color:#63009c;'></td><td style='background-color:#660099;'></td><td style='background-color:#690096;'></td><td style='background-color:#6c0093;'></td><td style='background-color:#6f0090;'></td></tr>
+</tbody>
+<tbody>
+<tr><th>position</th><th>208</th><th>209</th><th>210</th><th>211</th><th>212</th><th>213</th><th>214</th><th>215</th></tr>
+<tr><th>Red</th><td>114</td><td>117</td><td>120</td><td>123</td><td>126</td><td>129</td><td>132</td><td>135</td></tr>
+<tr><th>Green</th><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+<tr><th>Blue</th><td>141</td><td>138</td><td>135</td><td>132</td><td>129</td><td>126</td><td>123</td><td>120</td></tr>
+<tr><th>HTML color code</th><td><tt>#72008d<tt></td><td><tt>#75008a<tt></td><td><tt>#780087<tt></td><td><tt>#7b0084<tt></td><td><tt>#7e0081<tt></td><td><tt>#81007e<tt></td><td><tt>#84007b<tt></td><td><tt>#870078<tt></td></tr>
+<tr><th>HTML color</th><td style='background-color:#72008d;'></td><td style='background-color:#75008a;'></td><td style='background-color:#780087;'></td><td style='background-color:#7b0084;'></td><td style='background-color:#7e0081;'></td><td style='background-color:#81007e;'></td><td style='background-color:#84007b;'></td><td style='background-color:#870078;'></td></tr>
+</tbody>
+<tbody>
+<tr><th>position</th><th>216</th><th>217</th><th>218</th><th>219</th><th>220</th><th>221</th><th>222</th><th>223</th></tr>
+<tr><th>Red</th><td>138</td><td>141</td><td>144</td><td>147</td><td>150</td><td>153</td><td>156</td><td>159</td></tr>
+<tr><th>Green</th><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+<tr><th>Blue</th><td>117</td><td>114</td><td>111</td><td>108</td><td>105</td><td>102</td><td>99</td><td>96</td></tr>
+<tr><th>HTML color code</th><td><tt>#8a0075<tt></td><td><tt>#8d0072<tt></td><td><tt>#90006f<tt></td><td><tt>#93006c<tt></td><td><tt>#960069<tt></td><td><tt>#990066<tt></td><td><tt>#9c0063<tt></td><td><tt>#9f0060<tt></td></tr>
+<tr><th>HTML color</th><td style='background-color:#8a0075;'></td><td style='background-color:#8d0072;'></td><td style='background-color:#90006f;'></td><td style='background-color:#93006c;'></td><td style='background-color:#960069;'></td><td style='background-color:#990066;'></td><td style='background-color:#9c0063;'></td><td style='background-color:#9f0060;'></td></tr>
+</tbody>
+<tbody>
+<tr><th>position</th><th>224</th><th>225</th><th>226</th><th>227</th><th>228</th><th>229</th><th>230</th><th>231</th></tr>
+<tr><th>Red</th><td>162</td><td>165</td><td>168</td><td>171</td><td>174</td><td>177</td><td>180</td><td>183</td></tr>
+<tr><th>Green</th><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+<tr><th>Blue</th><td>93</td><td>90</td><td>87</td><td>84</td><td>81</td><td>78</td><td>75</td><td>72</td></tr>
+<tr><th>HTML color code</th><td><tt>#a2005d<tt></td><td><tt>#a5005a<tt></td><td><tt>#a80057<tt></td><td><tt>#ab0054<tt></td><td><tt>#ae0051<tt></td><td><tt>#b1004e<tt></td><td><tt>#b4004b<tt></td><td><tt>#b70048<tt></td></tr>
+<tr><th>HTML color</th><td style='background-color:#a2005d;'></td><td style='background-color:#a5005a;'></td><td style='background-color:#a80057;'></td><td style='background-color:#ab0054;'></td><td style='background-color:#ae0051;'></td><td style='background-color:#b1004e;'></td><td style='background-color:#b4004b;'></td><td style='background-color:#b70048;'></td></tr>
+</tbody>
+<tbody>
+<tr><th>position</th><th>232</th><th>233</th><th>234</th><th>235</th><th>236</th><th>237</th><th>238</th><th>239</th></tr>
+<tr><th>Red</th><td>186</td><td>189</td><td>192</td><td>195</td><td>198</td><td>201</td><td>204</td><td>207</td></tr>
+<tr><th>Green</th><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+<tr><th>Blue</th><td>69</td><td>66</td><td>63</td><td>60</td><td>57</td><td>54</td><td>51</td><td>48</td></tr>
+<tr><th>HTML color code</th><td><tt>#ba0045<tt></td><td><tt>#bd0042<tt></td><td><tt>#c0003f<tt></td><td><tt>#c3003c<tt></td><td><tt>#c60039<tt></td><td><tt>#c90036<tt></td><td><tt>#cc0033<tt></td><td><tt>#cf0030<tt></td></tr>
+<tr><th>HTML color</th><td style='background-color:#ba0045;'></td><td style='background-color:#bd0042;'></td><td style='background-color:#c0003f;'></td><td style='background-color:#c3003c;'></td><td style='background-color:#c60039;'></td><td style='background-color:#c90036;'></td><td style='background-color:#cc0033;'></td><td style='background-color:#cf0030;'></td></tr>
+</tbody>
+<tbody>
+<tr><th>position</th><th>240</th><th>241</th><th>242</th><th>243</th><th>244</th><th>245</th><th>246</th><th>247</th></tr>
+<tr><th>Red</th><td>210</td><td>213</td><td>216</td><td>219</td><td>222</td><td>225</td><td>228</td><td>231</td></tr>
+<tr><th>Green</th><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+<tr><th>Blue</th><td>45</td><td>42</td><td>39</td><td>36</td><td>33</td><td>30</td><td>27</td><td>24</td></tr>
+<tr><th>HTML color code</th><td><tt>#d2002d<tt></td><td><tt>#d5002a<tt></td><td><tt>#d80027<tt></td><td><tt>#db0024<tt></td><td><tt>#de0021<tt></td><td><tt>#e1001e<tt></td><td><tt>#e4001b<tt></td><td><tt>#e70018<tt></td></tr>
+<tr><th>HTML color</th><td style='background-color:#d2002d;'></td><td style='background-color:#d5002a;'></td><td style='background-color:#d80027;'></td><td style='background-color:#db0024;'></td><td style='background-color:#de0021;'></td><td style='background-color:#e1001e;'></td><td style='background-color:#e4001b;'></td><td style='background-color:#e70018;'></td></tr>
+</tbody>
+<tbody>
+<tr><th>position</th><th>248</th><th>249</th><th>250</th><th>251</th><th>252</th><th>253</th><th>254</th><th>255</th></tr>
+<tr><th>Red</th><td>234</td><td>237</td><td>240</td><td>243</td><td>246</td><td>249</td><td>252</td><td>255</td></tr>
+<tr><th>Green</th><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+<tr><th>Blue</th><td>21</td><td>18</td><td>15</td><td>12</td><td>9</td><td>6</td><td>3</td><td>0</td></tr>
+<tr><th>HTML color code</th><td><tt>#ea0015<tt></td><td><tt>#ed0012<tt></td><td><tt>#f0000f<tt></td><td><tt>#f3000c<tt></td><td><tt>#f60009<tt></td><td><tt>#f90006<tt></td><td><tt>#fc0003<tt></td><td><tt>#ff0000<tt></td></tr>
+<tr><th>HTML color</th><td style='background-color:#ea0015;'></td><td style='background-color:#ed0012;'></td><td style='background-color:#f0000f;'></td><td style='background-color:#f3000c;'></td><td style='background-color:#f60009;'></td><td style='background-color:#f90006;'></td><td style='background-color:#fc0003;'></td><td style='background-color:#ff0000;'></td></tr>
+</tbody>
+</table>
+<div class="tags">
+    More: 
+    
+    
+    
+    <a href="/tags/adafruit">adafruit</a> / <a href="/tags/arduino">arduino</a> / <a href="/tags/code">code</a> / <a href="/tags/gemma">gemma</a> / <a href="/tags/neopixel">neopixel</a>
+</div>
+
+</section>
+    </article>
+</div>
+
+    </main>
+    <footer role="contentinfo">
+    <div class="bounded-wrapper">
+        <div class="bounded">
+            <div class="footer-columns">
+                
+                <div class="footer-column nowrap">
+                    <ul class="contact-list">
+                        <li>Aron Atkins</li>
+                        <li>
+                            
+                            <a href="http://gweep.net/~aron/">gweep.net/~aron/</a>
+                            
+                        </li>
+                        <li>aron.atkins@gmail.com</li>
+                        <li>
+                            <a href="/feed.xml">
+                                <span class="icon icon-rss">
+                                    
+<svg width="50px" height="50px" viewBox="0 0 50 50" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+  <title>RSS</title>
+  <description>Created with Sketch (http://www.bohemiancoding.com/sketch)</description>
+  <defs></defs>
+  <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+    <g id="RSS" sketch:type="MSArtboardGroup" fill="#000000">
+      <path d="M50,25 C50,11.1928806 38.8071194,0 25,0 C11.1928806,0 0,11.1928806 0,25 C0,38.8071194 11.1928806,50 25,50 C38.8071194,50 50,38.8071194 50,25 Z M47,25 C47,12.8497349 37.1502651,3 25,3 C12.8497349,3 3,12.8497349 3,25 C3,37.1502651 12.8497349,47 25,47 C37.1502651,47 47,37.1502651 47,25 Z M15.9310647,31.9383671 C15.9310647,33.4789156 17.124854,34.722384 18.5941945,34.722384 C20.0692323,34.722384 21.2608163,33.4789799 21.2608775,31.9383671 C21.2608775,30.4059173 20.0692936,29.1484369 18.5941945,29.1484369 C17.124854,29.1484369 15.9310647,30.4059173 15.9310647,31.9383671 Z M15.9310647,24.8801766 C18.4283003,24.8801766 20.7764883,25.9045951 22.5442915,27.7604778 C24.3102568,29.6124397 25.2845487,32.0872928 25.2845487,34.7164707 L29.1366284,34.7164064 C29.1366284,27.0736971 23.2104415,20.8569335 15.9310647,20.8569335 L15.9310647,24.8801766 Z M15.9310647,17.7475554 C24.8358746,17.7475554 32.0848048,25.3602482 32.0848048,34.7142853 L35.9310647,34.7144139 C35.9310647,23.1426889 26.9580715,13.722384 15.9310647,13.722384 L15.9310647,17.7475554 Z M15.9310647,17.7475554" id="Oval-1" sketch:type="MSShapeGroup"></path>
+    </g>
+  </g>
+</svg>
+
+                                </span>
+                                <span class="username">subscribe (RSS)</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column nowrap">
+                    <ul class="social-media-list">
+                        <li>
+                            
+                            <a href="https://linkedin.com/in/aronatkins/">
+                                <span class="icon icon-linkedin">
+                                    
+<svg width="50px" height="50px" viewBox="0 0 50 50" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+  <title>LinkedIn</title>
+  <description>Created with Sketch (http://www.bohemiancoding.com/sketch)</description>
+  <defs></defs>
+  <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+    <g id="LinkedIn" sketch:type="MSArtboardGroup" fill="#000000">
+      <path d="M25,50 C38.8071194,50 50,38.8071194 50,25 C50,11.1928806 38.8071194,0 25,0 C11.1928806,0 0,11.1928806 0,25 C0,38.8071194 11.1928806,50 25,50 Z M25,47 C37.1502651,47 47,37.1502651 47,25 C47,12.8497349 37.1502651,3 25,3 C12.8497349,3 3,12.8497349 3,25 C3,37.1502651 12.8497349,47 25,47 Z M14,20.1180479 L14,34.6581834 L18.7100851,34.6581834 L18.7100851,20.1180479 L14,20.1180479 Z M16.6646962,13 C15.0534058,13 14,14.0858611 14,15.5115122 C14,16.9076331 15.0222711,18.0247614 16.6035556,18.0247614 L16.6336556,18.0247614 C18.2759867,18.0247614 19.2988222,16.9076331 19.2988222,15.5115122 C19.2682519,14.0858611 18.2759867,13 16.6646962,13 Z M30.5769213,20.1180479 C28.076176,20.1180479 26.9565501,21.5293199 26.3314108,22.5193527 L26.3314108,20.4598644 L21.6207614,20.4598644 C21.6828427,21.8242356 21.6207614,35 21.6207614,35 L26.3314108,35 L26.3314108,26.8795887 C26.3314108,26.445032 26.3619812,26.0115368 26.4865199,25.7004084 C26.826932,24.83226 27.6020069,23.9334233 28.9032674,23.9334233 C30.6083381,23.9334233 31.2899149,25.2667202 31.2899149,27.2206333 L31.2899149,34.999614 L35.9998119,34.999614 L36,26.6627446 C36,22.1966439 33.6763743,20.1180479 30.5769213,20.1180479 Z M30.5769213,20.1180479" id="Oval-1" sketch:type="MSShapeGroup"></path>
+    </g>
+  </g>
+</svg>
+
+                                </span>
+                                <span class="username">linkedin.com/in/aronatkins</span>
+                            </a>
+                            
+                        </li>
+                        <li>
+                            
+                            <a href="https://github.com/aronatkins">
+                                <span class="icon icon-github">
+                                    <svg viewBox="0 0 16 16">
+  <path fill="#828282" d="M7.999,0.431c-4.285,0-7.76,3.474-7.76,7.761 c0,3.428,2.223,6.337,5.307,7.363c0.388,0.071,0.53-0.168,0.53-0.374c0-0.184-0.007-0.672-0.01-1.32 c-2.159,0.469-2.614-1.04-2.614-1.04c-0.353-0.896-0.862-1.135-0.862-1.135c-0.705-0.481,0.053-0.472,0.053-0.472 c0.779,0.055,1.189,0.8,1.189,0.8c0.692,1.186,1.816,0.843,2.258,0.645c0.071-0.502,0.271-0.843,0.493-1.037 C4.86,11.425,3.049,10.76,3.049,7.786c0-0.847,0.302-1.54,0.799-2.082C3.768,5.507,3.501,4.718,3.924,3.65 c0,0,0.652-0.209,2.134,0.796C6.677,4.273,7.34,4.187,8,4.184c0.659,0.003,1.323,0.089,1.943,0.261 c1.482-1.004,2.132-0.796,2.132-0.796c0.423,1.068,0.157,1.857,0.077,2.054c0.497,0.542,0.798,1.235,0.798,2.082 c0,2.981-1.814,3.637-3.543,3.829c0.279,0.24,0.527,0.713,0.527,1.437c0,1.037-0.01,1.874-0.01,2.129 c0,0.208,0.14,0.449,0.534,0.373c3.081-1.028,5.302-3.935,5.302-7.362C15.76,3.906,12.285,0.431,7.999,0.431z"/>
+</svg>
+
+                                </span>
+                                <span class="username">github.com/aronatkins</span>
+                            </a>
+                            
+                        </li>
+
+                        <li>
+                            
+                            <a href="https://twitter.com/aronatkins">
+                                <span class="icon icon-twitter">
+                                    <svg viewBox="0 0 16 16">
+  <path fill="#828282" d="M15.969,3.058c-0.586,0.26-1.217,0.436-1.878,0.515c0.675-0.405,1.194-1.045,1.438-1.809
+                          c-0.632,0.375-1.332,0.647-2.076,0.793c-0.596-0.636-1.446-1.033-2.387-1.033c-1.806,0-3.27,1.464-3.27,3.27 c0,0.256,0.029,0.506,0.085,0.745C5.163,5.404,2.753,4.102,1.14,2.124C0.859,2.607,0.698,3.168,0.698,3.767 c0,1.134,0.577,2.135,1.455,2.722C1.616,6.472,1.112,6.325,0.671,6.08c0,0.014,0,0.027,0,0.041c0,1.584,1.127,2.906,2.623,3.206 C3.02,9.402,2.731,9.442,2.433,9.442c-0.211,0-0.416-0.021-0.615-0.059c0.416,1.299,1.624,2.245,3.055,2.271 c-1.119,0.877-2.529,1.4-4.061,1.4c-0.264,0-0.524-0.015-0.78-0.046c1.447,0.928,3.166,1.469,5.013,1.469 c6.015,0,9.304-4.983,9.304-9.304c0-0.142-0.003-0.283-0.009-0.423C14.976,4.29,15.531,3.714,15.969,3.058z"/>
+</svg>
+
+                                </span>
+                                <span class="username">twitter.com/aronatkins</span>
+                            </a>
+                            
+                        </li>
+
+                        <li>
+                            
+                            <a href="https://soundcloud.com/aronatkins">
+                                <span class="icon icon-soundcloud">
+                                    
+<svg width="50px" height="50px" viewBox="0 0 50 50" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+  <title>SoundCloud</title>
+  <description>Created with Sketch (http://www.bohemiancoding.com/sketch)</description>
+  <defs></defs>
+  <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+    <g id="SoundCloud" sketch:type="MSArtboardGroup" fill="#000000">
+      <path d="M25,0 C11.1928806,0 0,11.1928806 0,25 C0,38.8071194 11.1928806,50 25,50 C38.8071194,50 50,38.8071194 50,25 C50,11.1928806 38.8071194,0 25,0 Z M25,3 C12.8497349,3 3,12.8497349 3,25 C3,37.1502651 12.8497349,47 25,47 C37.1502651,47 47,37.1502651 47,25 C47,12.8497349 37.1502651,3 25,3 Z M11.2046957,26.4994198 L11,28.2899843 L11.2046957,30.0498224 C11.2122973,30.1238678 11.258563,30.1755611 11.3170241,30.1755611 C11.3736257,30.1755611 11.4197274,30.1243715 11.4286961,30.0505779 L11.6713997,28.2899843 L11.4286961,26.4989161 C11.4200555,26.4251226 11.3733523,26.3731145 11.3170241,26.3731145 C11.2586177,26.3731145 11.2122426,26.4251226 11.2046957,26.4994198 Z M12.8503005,25.3946571 C12.8503005,25.3952867 12.5750031,28.2897324 12.5750031,28.2897324 L12.8503005,31.1207736 C12.8580661,31.1967079 12.9071756,31.2514864 12.9668398,31.2514864 C13.0253555,31.2514864 13.0733712,31.1979672 13.0829963,31.1215921 L13.3961375,28.2897324 L13.0833791,25.3946571 C13.0737541,25.3177153 13.0258477,25.2645739 12.9668398,25.2645739 C12.9075037,25.2645739 12.8583943,25.3194783 12.8503005,25.3946571 Z M14.396866,24.761745 L14.1500608,28.2908658 L14.396866,31.7053294 C14.4034832,31.8110456 14.4745771,31.8908837 14.5613116,31.8908837 C14.6470618,31.8908837 14.7178823,31.8109197 14.7254838,31.7053294 L15.0061953,28.2908658 L14.7254838,24.7609894 C14.7179369,24.6552103 14.6471712,24.5753722 14.5613116,24.5753722 C14.4745771,24.5753722 14.403866,24.6552732 14.396866,24.761745 Z M15.9578691,25.0172521 L15.7251733,28.2909287 L15.9578691,31.7335372 C15.9645956,31.8549944 16.0449317,31.9468586 16.1461038,31.9468586 C16.2457993,31.9468586 16.3264635,31.8549314 16.3339557,31.733852 L16.5983703,28.2909287 L16.3339557,25.0157409 C16.3268463,24.8947875 16.2460727,24.8036159 16.1461038,24.8036159 C16.044877,24.8036159 15.9642128,24.8955431 15.9578691,25.0172521 Z M17.5195284,22.9658916 L17.3001764,28.292251 L17.5195284,31.7345446 C17.5252159,31.8690983 17.6326223,31.9751293 17.7456069,31.9751293 C17.85799,31.9751293 17.972123,31.8685946 17.972123,31.7337261 L18.205475,28.292251 L17.950412,22.9658916 C17.9436307,22.8306454 17.8434977,22.7241106 17.7311147,22.7241106 C17.6182395,22.7241106 17.5248877,22.8305824 17.5195284,22.9658916 Z M19.0799298,21.7485496 C19.0799298,21.7489903 18.8752888,28.2933213 18.8752888,28.2933213 L19.0803673,31.7138925 C19.085508,31.8633686 19.1890863,31.9816775 19.3161256,31.9816775 C19.4420165,31.9816775 19.5458683,31.8633686 19.5518839,31.7126332 L19.7832125,28.2933213 L19.5518839,21.7485496 C19.5455948,21.5974994 19.4419618,21.4795682 19.3160709,21.4795682 C19.1890863,21.4795682 19.085508,21.5977513 19.0799298,21.7485496 Z M20.6267141,20.9640207 L20.4502919,28.2940139 L20.6269329,31.6585473 C20.6312532,31.8388756 20.7830113,31.9814257 20.9374491,31.9814257 C21.0916135,31.9814257 21.2481294,31.8388756 21.2481294,31.657477 L21.4195204,28.2942028 L21.2073871,20.9639577 C21.2024652,20.7820553 21.064215,20.6391905 20.9103787,20.6391905 C20.7556128,20.6391905 20.6309251,20.7816146 20.6267141,20.9640207 Z M22.1736078,21.4133933 L22.025459,28.2954621 L22.1736078,31.6071059 C22.1771625,31.8179717 22.3266784,31.9846998 22.5091162,31.9846998 C22.6910072,31.9846998 22.8440778,31.8182235 22.8440778,31.6048392 L23.0066094,28.2958399 L22.8385544,21.4128896 C22.8341794,21.1998201 22.6872885,21.032966 22.5053975,21.032966 C22.3232331,21.032966 22.1771625,21.1997571 22.1736078,21.4133933 Z M23.7558296,19.3647403 L23.6005168,28.2972251 L23.7562671,31.5388532 C23.7590015,31.7759119 23.947455,31.9709107 24.1542288,31.9709107 C24.3605652,31.9709107 24.5521358,31.7757859 24.5521358,31.5353272 L24.7023627,28.2972251 L24.5239717,19.3640477 C24.5209639,19.1245334 24.341862,18.9290938 24.1355257,18.9290938 C23.9286971,18.9290938 23.7589468,19.1245334 23.7558296,19.3647403 Z M34.2236391,24.3767843 C33.9495448,20.8031482 31.3466882,18 28.1717992,18 C27.3948523,18 26.641093,18.1759838 25.9723183,18.4738655 C25.7124428,18.589593 25.6441927,18.7089094 25.6441927,18.9399865 L25.6441927,31.5248122 C25.6441927,31.7674747 25.8069977,31.9696515 26.0125684,31.9933888 C26.0213184,31.9945221 35.4956182,32 35.5570323,32 C37.4589032,32 39,30.2245469 39,28.0346031 C39,25.8446593 37.4574267,24.0688914 35.5556651,24.0688914 C35.0838752,24.0688914 34.6335774,24.1788262 34.2236391,24.3767843 Z M34.2236391,24.3767843" id="Oval-1" sketch:type="MSShapeGroup"></path>
+    </g>
+  </g>
+</svg>
+
+                                </span>
+                                <span class="username">soundcloud.com/aronatkins</span>
+                            </a>
+                            
+                        </li>
+                    </ul>
+                </div>
+
+                
+                <div class="footer-column text-wrap">
+                    I am Aron Atkins, a software engineer and musician living just outside Boston.
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+  </body>
+</html>

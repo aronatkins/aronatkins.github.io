@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>highlight.js on Aron Atkins</title>
+    <link>https://aronatkins.github.io/tags/highlight.js/</link>
+    <description>Recent content in highlight.js on Aron Atkins</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <managingEditor>aron.atkins@gmail.com (Aron Atkins)</managingEditor>
+    <webMaster>aron.atkins@gmail.com (Aron Atkins)</webMaster>
+    <lastBuildDate>Thu, 30 Apr 2015 00:01:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://aronatkins.github.io/tags/highlight.js/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>jekyll, markdown, and source highlighting</title>
+      <link>https://aronatkins.github.io/posts/2015-04-30-jekyll-markdown-and-source-highlighting/</link>
+      <pubDate>Thu, 30 Apr 2015 00:01:00 +0000</pubDate>
+      <author>aron.atkins@gmail.com (Aron Atkins)</author>
+      <guid>https://aronatkins.github.io/posts/2015-04-30-jekyll-markdown-and-source-highlighting/</guid>
+      <description>Here is how I added code styling to this blog. Unfortunately, the code is only styled when you visit the site; the RSS feeds will have unstyled code blocks.
+I decided to use highlight.js after struggling with Jekyll configuration/extensions. In particular, I either couldn&amp;rsquo;t get the highlighting to work at all, or didn&amp;rsquo;t find support for one or more languages I&amp;rsquo;ve been touching.
+The highlight.js package contains a number of default languages and many more that can be added in.</description>
+    </item>
+    
+  </channel>
+</rss>

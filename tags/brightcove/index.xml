@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>brightcove on Aron Atkins</title>
+    <link>https://aronatkins.github.io/tags/brightcove/</link>
+    <description>Recent content in brightcove on Aron Atkins</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <managingEditor>aron.atkins@gmail.com (Aron Atkins)</managingEditor>
+    <webMaster>aron.atkins@gmail.com (Aron Atkins)</webMaster>
+    <lastBuildDate>Wed, 10 Dec 2014 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://aronatkins.github.io/tags/brightcove/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Farewell, Brightcove</title>
+      <link>https://aronatkins.github.io/posts/2014-12-10-farewell-brightcove/</link>
+      <pubDate>Wed, 10 Dec 2014 00:00:00 +0000</pubDate>
+      <author>aron.atkins@gmail.com (Aron Atkins)</author>
+      <guid>https://aronatkins.github.io/posts/2014-12-10-farewell-brightcove/</guid>
+      <description>Today is two weeks after my last day at Brightcove. My seven-and-a-half year journey was filled with growth, challenges, scale, and a wonderful team.
+As is customary, I sent a departure letter to a number of my colleagues. To those who did not receive the note, I apologize for the oversight. Here it is; the message applies to everyone with whom I shared the Brightcove experience.
+ Subject: Seven years of thanks Date: 2014-11-26</description>
+    </item>
+    
+  </channel>
+</rss>

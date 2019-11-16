@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>git on Aron Atkins</title>
+    <link>https://aronatkins.github.io/tags/git/</link>
+    <description>Recent content in git on Aron Atkins</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <managingEditor>aron.atkins@gmail.com (Aron Atkins)</managingEditor>
+    <webMaster>aron.atkins@gmail.com (Aron Atkins)</webMaster>
+    <lastBuildDate>Wed, 29 Apr 2015 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://aronatkins.github.io/tags/git/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>emacs: aron/git-grep</title>
+      <link>https://aronatkins.github.io/posts/2015-04-29-emacs-aron-git-grep/</link>
+      <pubDate>Wed, 29 Apr 2015 00:00:00 +0000</pubDate>
+      <author>aron.atkins@gmail.com (Aron Atkins)</author>
+      <guid>https://aronatkins.github.io/posts/2015-04-29-emacs-aron-git-grep/</guid>
+      <description>There are lots of suggestions how to expose git grep in emacs.
+Here is mine, inspired by a recent blog post to oremacs. You are interactively asked for a search term and a pathspec; accepting the defaults will search for a symbol at your current cursor position across the entire git repository.
+(defvar aron/git-grep-symbol-history nil &amp;#34;Internal variable for aron-grep; do not modify&amp;#34;) (defvar aron/git-grep-pathspec-history nil &amp;#34;Internal variable for aron-grep; do not modify&amp;#34;) (defun aron/git-grep (search-for pathspec) &amp;#34;Grep for a string in the current git repository.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>attachment on Aron Atkins</title>
+    <link>https://aronatkins.github.io/tags/attachment/</link>
+    <description>Recent content in attachment on Aron Atkins</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <managingEditor>aron.atkins@gmail.com (Aron Atkins)</managingEditor>
+    <webMaster>aron.atkins@gmail.com (Aron Atkins)</webMaster>
+    <lastBuildDate>Thu, 30 Apr 2015 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://aronatkins.github.io/tags/attachment/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>go: email with attachments</title>
+      <link>https://aronatkins.github.io/posts/2015-04-30-go-email-with-attachments/</link>
+      <pubDate>Thu, 30 Apr 2015 00:00:00 +0000</pubDate>
+      <author>aron.atkins@gmail.com (Aron Atkins)</author>
+      <guid>https://aronatkins.github.io/posts/2015-04-30-go-email-with-attachments/</guid>
+      <description>Here is an example showing how to use the gomail package to produce email containing plain-text content, alternative html content with an embedded image, and an HTML attachment.
+It doesn&amp;rsquo;t worry about trying to actually send mail but only tries to create a well-composed message. See the documentation or repository on GitHub for more details.
+package main import ( &amp;#34;encoding/base64&amp;#34; &amp;#34;fmt&amp;#34; &amp;#34;net/smtp&amp;#34; &amp;#34;gopkg.in/gomail.v1&amp;#34; ) func main() { m := gomail.NewMessage() m.</description>
+    </item>
+    
+  </channel>
+</rss>

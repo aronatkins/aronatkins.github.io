@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>mac on Aron Atkins</title>
+    <link>https://aronatkins.github.io/tags/mac/</link>
+    <description>Recent content in mac on Aron Atkins</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <managingEditor>aron.atkins@gmail.com (Aron Atkins)</managingEditor>
+    <webMaster>aron.atkins@gmail.com (Aron Atkins)</webMaster>
+    <lastBuildDate>Wed, 03 Jun 2015 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://aronatkins.github.io/tags/mac/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Installing RStudio daily builds</title>
+      <link>https://aronatkins.github.io/posts/2015-06-03-installing-rstudio-daily-builds/</link>
+      <pubDate>Wed, 03 Jun 2015 00:00:00 +0000</pubDate>
+      <author>aron.atkins@gmail.com (Aron Atkins)</author>
+      <guid>https://aronatkins.github.io/posts/2015-06-03-installing-rstudio-daily-builds/</guid>
+      <description>As a member of the team at RStudio, I install the daily build of our open source RStudio IDE almost every morning.
+There are published ways to download and install these builds for Linux but that doesn&amp;rsquo;t work for me.
+My main development machine is a Macbook Pro, and, well, we&amp;rsquo;re different.
+After far too many iterations of &amp;ldquo;google for &amp;lsquo;rstudio daily mac&amp;rsquo; then download the DMG then mount it then copy the application to /Applications&amp;rdquo;, I put on my &amp;ldquo;Let&amp;rsquo;s write a script for that!</description>
+    </item>
+    
+  </channel>
+</rss>

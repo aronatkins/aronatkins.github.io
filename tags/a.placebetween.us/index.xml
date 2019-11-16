@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>a.placebetween.us on Aron Atkins</title>
+    <link>https://aronatkins.github.io/tags/a.placebetween.us/</link>
+    <description>Recent content in a.placebetween.us on Aron Atkins</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <managingEditor>aron.atkins@gmail.com (Aron Atkins)</managingEditor>
+    <webMaster>aron.atkins@gmail.com (Aron Atkins)</webMaster>
+    <lastBuildDate>Fri, 02 Jan 2015 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://aronatkins.github.io/tags/a.placebetween.us/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>a.placebetween.us was built with love</title>
+      <link>https://aronatkins.github.io/posts/2015-01-02-a-placebetween-us-was-built-with-love/</link>
+      <pubDate>Fri, 02 Jan 2015 00:00:00 +0000</pubDate>
+      <author>aron.atkins@gmail.com (Aron Atkins)</author>
+      <guid>https://aronatkins.github.io/posts/2015-01-02-a-placebetween-us-was-built-with-love/</guid>
+      <description>Eight years ago, Matthew and I were busy bootstrapping spotstory. We lived in different towns near Boston and were often looking for places to meet. For months we said, &amp;ldquo;You know, there really should be a website where you can give it two addresses, and it will find all of the coffee shops halfway between them.&amp;rdquo;
+I couldn&amp;rsquo;t sleep one night and whipped up a.placebetween.us.
+We blogged about some of the early publicity about the site, but the spotstory blog is no more.</description>
+    </item>
+    
+  </channel>
+</rss>

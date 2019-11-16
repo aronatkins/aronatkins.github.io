@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>engineering on Aron Atkins</title>
+    <link>https://aronatkins.github.io/tags/engineering/</link>
+    <description>Recent content in engineering on Aron Atkins</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <managingEditor>aron.atkins@gmail.com (Aron Atkins)</managingEditor>
+    <webMaster>aron.atkins@gmail.com (Aron Atkins)</webMaster>
+    <lastBuildDate>Wed, 12 Oct 2016 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://aronatkins.github.io/tags/engineering/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Installing RStudio daily builds (Ubuntu)</title>
+      <link>https://aronatkins.github.io/posts/2016-10-12-installing-rstudio-daily-ubuntu-builds/</link>
+      <pubDate>Wed, 12 Oct 2016 00:00:00 +0000</pubDate>
+      <author>aron.atkins@gmail.com (Aron Atkins)</author>
+      <guid>https://aronatkins.github.io/posts/2016-10-12-installing-rstudio-daily-ubuntu-builds/</guid>
+      <description>The script that I previously published to handle OSX installs has been updated to also handle installing RStudio daily desktop builds on Ubuntu Linux hosts.
+You need to install either curl or wget in order to use this script. It only understands Ubuntu installation and uses dpkg to perform the install. If run as a non-root user, sudo is used when running dpkg.
+You may need to follow this script with a apt-get install -f to install RStudio package dependencies (using sudo if appropriate).</description>
+    </item>
+    
+    <item>
+      <title>Installing RStudio daily builds</title>
+      <link>https://aronatkins.github.io/posts/2015-06-03-installing-rstudio-daily-builds/</link>
+      <pubDate>Wed, 03 Jun 2015 00:00:00 +0000</pubDate>
+      <author>aron.atkins@gmail.com (Aron Atkins)</author>
+      <guid>https://aronatkins.github.io/posts/2015-06-03-installing-rstudio-daily-builds/</guid>
+      <description>As a member of the team at RStudio, I install the daily build of our open source RStudio IDE almost every morning.
+There are published ways to download and install these builds for Linux but that doesn&amp;rsquo;t work for me.
+My main development machine is a Macbook Pro, and, well, we&amp;rsquo;re different.
+After far too many iterations of &amp;ldquo;google for &amp;lsquo;rstudio daily mac&amp;rsquo; then download the DMG then mount it then copy the application to /Applications&amp;rdquo;, I put on my &amp;ldquo;Let&amp;rsquo;s write a script for that!</description>
+    </item>
+    
+    <item>
+      <title>I R what I R</title>
+      <link>https://aronatkins.github.io/posts/2015-02-04-i-r-what-i-r/</link>
+      <pubDate>Wed, 04 Feb 2015 00:00:00 +0000</pubDate>
+      <author>aron.atkins@gmail.com (Aron Atkins)</author>
+      <guid>https://aronatkins.github.io/posts/2015-02-04-i-r-what-i-r/</guid>
+      <description>I am two days late in posting about it, but as of Groundhog Day, I have rejoined the ranks of the employed.
+I am a part of the team at RStudio, joining a number of former Brightcove colleagues.
+As typical with new jobs, there&amp;rsquo;s a ton to learn: R and all its accompanying ecosystem, Angular, Bootstrap, Go. All this newness can be a bit intimidating, but I also find it invigorating &amp;ndash; my eagerness to dig in and deeply understand all these new things drives me forward.</description>
+    </item>
+    
+    <item>
+      <title>A perfect pull?</title>
+      <link>https://aronatkins.github.io/posts/2015-01-22-a-perfect-pull/</link>
+      <pubDate>Thu, 22 Jan 2015 00:00:00 +0000</pubDate>
+      <author>aron.atkins@gmail.com (Aron Atkins)</author>
+      <guid>https://aronatkins.github.io/posts/2015-01-22-a-perfect-pull/</guid>
+      <description>Yesterday, GitHub published their guidelines for collaborating with pull requests. I love this.
+I have written about my code review philosophy and guidelines in the past. The GitHub guide captures much of the same advice and also includes a few practical tips when using the GitHub Flow and pull requests.
+The GitHub guidelines were inspired by Thoughtbot&amp;rsquo;s code review guide.</description>
+    </item>
+    
+    <item>
+      <title>You build it, you own it!</title>
+      <link>https://aronatkins.github.io/posts/2014-12-23-you-build-it-you-own-it/</link>
+      <pubDate>Tue, 23 Dec 2014 00:00:00 +0000</pubDate>
+      <author>aron.atkins@gmail.com (Aron Atkins)</author>
+      <guid>https://aronatkins.github.io/posts/2014-12-23-you-build-it-you-own-it/</guid>
+      <description>One of the most powerful transitions I experienced while at Brightcove was the shift away from dev-and-test-and-deploy silos. In its place came teams who built, tested, deployed, and operated our services.
+I recently came across an ACM interview with Werner Vogels from Amazon. The article is from 2006 but discusses their experience with this transition:
+ Giving developers operational responsibilities has greatly enhanced the quality of the services, both from a customer and a technology point of view.</description>
+    </item>
+    
+    <item>
+      <title>Hey, Buddy!</title>
+      <link>https://aronatkins.github.io/posts/2014-12-13-hey-buddy/</link>
+      <pubDate>Sat, 13 Dec 2014 00:00:00 +0000</pubDate>
+      <author>aron.atkins@gmail.com (Aron Atkins)</author>
+      <guid>https://aronatkins.github.io/posts/2014-12-13-hey-buddy/</guid>
+      <description>Thanks to github and their easy-to-use pull request UI, pre-commit code reviews have become much more common in the industry. For me, lightweight peer reviews are a requirement in any well-run development shop. Github certainly did not invent this style of review, but they have certainly help popularize the practice. Thanks, Github!
+I have helped establish code reviewing throughout my career ever since seeing its positive effect at my first job, working on formal verification tools at Chrysalis Symbolic Design.</description>
+    </item>
+    
+  </channel>
+</rss>
