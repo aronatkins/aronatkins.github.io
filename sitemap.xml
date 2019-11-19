@@ -3,12 +3,22 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://aronatkins.github.io/about/</loc>
-    <lastmod>2019-10-31T23:09:33-04:00</lastmod>
+    <loc>https://aronatkins.github.io/</loc>
+    <lastmod>2019-11-18T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://aronatkins.github.io/</loc>
+    <loc>https://aronatkins.github.io/posts/2019-11-18-i-go-you-go-we-all-go-hugo/</loc>
+    <lastmod>2019-11-18T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://aronatkins.github.io/posts/</loc>
+    <lastmod>2019-11-18T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://aronatkins.github.io/about/</loc>
     <lastmod>2019-10-31T23:09:33-04:00</lastmod>
   </url>
   
@@ -24,11 +34,6 @@
   
   <url>
     <loc>https://aronatkins.github.io/tags/linux/</loc>
-    <lastmod>2016-10-12T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://aronatkins.github.io/posts/</loc>
     <lastmod>2016-10-12T00:00:00+00:00</lastmod>
   </url>
   

@@ -8,10 +8,23 @@
     <language>en-us</language>
     <managingEditor>aron.atkins@gmail.com (Aron Atkins)</managingEditor>
     <webMaster>aron.atkins@gmail.com (Aron Atkins)</webMaster>
-    <lastBuildDate>Thu, 31 Oct 2019 23:09:33 -0400</lastBuildDate>
+    <lastBuildDate>Mon, 18 Nov 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://aronatkins.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>I Go, You Go, We All Go: Hugo!</title>
+      <link>https://aronatkins.github.io/posts/2019-11-18-i-go-you-go-we-all-go-hugo/</link>
+      <pubDate>Mon, 18 Nov 2019 00:00:00 +0000</pubDate>
+      <author>aron.atkins@gmail.com (Aron Atkins)</author>
+      <guid>https://aronatkins.github.io/posts/2019-11-18-i-go-you-go-we-all-go-hugo/</guid>
+      <description>This blog that was stale is no longer Jekyll but Hugo.
+Shifting the content was pretty straightforward, but things have new paths. I might add aliasing rules for the old locations.
+The theme is custom and pretty minimal. I used the Ananke theme as a guide.
+The RSS feed has moved to /index.xml from /feed.xml.
+Many things still to do as we go, &amp;ldquo;Hugo!&amp;rdquo;.</description>
+    </item>
     
     <item>
       <title>About</title>
