@@ -9,9 +9,7 @@
     <managingEditor>aron.atkins@gmail.com (Aron Atkins)</managingEditor>
     <webMaster>aron.atkins@gmail.com (Aron Atkins)</webMaster>
     <lastBuildDate>Sun, 15 Nov 2015 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://aronatkins.github.io/tags/golang/index.xml" rel="self" type="application/rss+xml" />
-    
+    <atom:link href="https://aronatkins.github.io/tags/golang/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>go: tell me about slow channels</title>
@@ -19,9 +17,79 @@
       <pubDate>Sun, 15 Nov 2015 00:00:00 +0000</pubDate>
       <author>aron.atkins@gmail.com (Aron Atkins)</author>
       <guid>https://aronatkins.github.io/posts/2015-11-15-go-tell-me-about-slow-channels/</guid>
-      <description>Go channels are a powerful construct for passing information between different go routines, each with distinct responsibilities. Writing to an unbuffered channel is a blocking operation which does not complete until a reader is available at the other end.
-The blocked write is not guaranteed to complete &amp;ndash; if the channel responsible for the read is somehow blocked itself, you may have deadlock.
-Here is a simple wrapper around a channel write that helps detect long-blocked operations.</description>
+      <description>&lt;p&gt;Go channels are a powerful construct for passing information between different
+go routines, each with distinct responsibilities. Writing to an unbuffered
+channel is a blocking operation which does not complete until a reader is
+available at the other end.&lt;/p&gt;
+
+&lt;p&gt;The blocked write is not guaranteed to complete &amp;ndash; if the channel responsible
+for the read is somehow blocked itself, you may have deadlock.&lt;/p&gt;
+
+&lt;p&gt;Here is a simple wrapper around a channel write that helps detect long-blocked
+operations.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span style=&#34;color:#dc322f;font-weight:bold&#34;&gt;import&lt;/span&gt; (
+	&lt;span style=&#34;color:#2aa198&#34;&gt;&amp;#34;log&amp;#34;&lt;/span&gt;
+	&lt;span style=&#34;color:#2aa198&#34;&gt;&amp;#34;time&amp;#34;&lt;/span&gt;
+)
+
+&lt;span style=&#34;color:#859900&#34;&gt;func&lt;/span&gt; &lt;span style=&#34;color:#268bd2&#34;&gt;Emit&lt;/span&gt;(&lt;span style=&#34;color:#268bd2&#34;&gt;out&lt;/span&gt; &lt;span style=&#34;color:#859900&#34;&gt;chan&lt;/span&gt;&amp;lt;- &lt;span style=&#34;color:#859900&#34;&gt;interface&lt;/span&gt;{}, &lt;span style=&#34;color:#268bd2&#34;&gt;data&lt;/span&gt; &lt;span style=&#34;color:#859900&#34;&gt;interface&lt;/span&gt;{}) (&lt;span style=&#34;color:#268bd2&#34;&gt;ok&lt;/span&gt; &lt;span style=&#34;color:#859900;font-weight:bold&#34;&gt;bool&lt;/span&gt;) {
+	&lt;span style=&#34;color:#859900&#34;&gt;var&lt;/span&gt; &lt;span style=&#34;color:#268bd2&#34;&gt;stallStart&lt;/span&gt; &lt;span style=&#34;color:#268bd2&#34;&gt;time&lt;/span&gt;.&lt;span style=&#34;color:#268bd2&#34;&gt;Time&lt;/span&gt;
+	&lt;span style=&#34;color:#93a1a1;font-style:italic&#34;&gt;// If we stalled, print the duration of the stall as we exit.
+&lt;/span&gt;&lt;span style=&#34;color:#93a1a1;font-style:italic&#34;&gt;&lt;/span&gt;	&lt;span style=&#34;color:#859900&#34;&gt;defer&lt;/span&gt; &lt;span style=&#34;color:#859900&#34;&gt;func&lt;/span&gt;() {
+		&lt;span style=&#34;color:#859900&#34;&gt;if&lt;/span&gt; !&lt;span style=&#34;color:#268bd2&#34;&gt;stallStart&lt;/span&gt;.&lt;span style=&#34;color:#268bd2&#34;&gt;IsZero&lt;/span&gt;() {
+			&lt;span style=&#34;color:#268bd2&#34;&gt;diff&lt;/span&gt; := &lt;span style=&#34;color:#268bd2&#34;&gt;time&lt;/span&gt;.&lt;span style=&#34;color:#268bd2&#34;&gt;Now&lt;/span&gt;().&lt;span style=&#34;color:#268bd2&#34;&gt;Sub&lt;/span&gt;(&lt;span style=&#34;color:#268bd2&#34;&gt;stallStart&lt;/span&gt;)
+			&lt;span style=&#34;color:#268bd2&#34;&gt;log&lt;/span&gt;.&lt;span style=&#34;color:#268bd2&#34;&gt;Printf&lt;/span&gt;(&lt;span style=&#34;color:#2aa198&#34;&gt;&amp;#34;Stall sending data %+v recovered after %0.2f seconds&amp;#34;&lt;/span&gt;,
+				&lt;span style=&#34;color:#268bd2&#34;&gt;data&lt;/span&gt;, &lt;span style=&#34;color:#268bd2&#34;&gt;diff&lt;/span&gt;.&lt;span style=&#34;color:#268bd2&#34;&gt;Seconds&lt;/span&gt;())
+		}
+	}()
+	&lt;span style=&#34;color:#268bd2&#34;&gt;ok&lt;/span&gt; = &lt;span style=&#34;color:#859900;font-weight:bold&#34;&gt;true&lt;/span&gt;
+	&lt;span style=&#34;color:#268bd2&#34;&gt;sendStart&lt;/span&gt; := &lt;span style=&#34;color:#268bd2&#34;&gt;time&lt;/span&gt;.&lt;span style=&#34;color:#268bd2&#34;&gt;Now&lt;/span&gt;()
+	&lt;span style=&#34;color:#859900&#34;&gt;for&lt;/span&gt; {
+		&lt;span style=&#34;color:#859900&#34;&gt;select&lt;/span&gt; {
+		&lt;span style=&#34;color:#859900&#34;&gt;case&lt;/span&gt; &lt;span style=&#34;color:#268bd2&#34;&gt;out&lt;/span&gt; &amp;lt;- &lt;span style=&#34;color:#268bd2&#34;&gt;data&lt;/span&gt;:
+			&lt;span style=&#34;color:#859900&#34;&gt;return&lt;/span&gt;
+		&lt;span style=&#34;color:#859900&#34;&gt;case&lt;/span&gt; &amp;lt;-&lt;span style=&#34;color:#268bd2&#34;&gt;time&lt;/span&gt;.&lt;span style=&#34;color:#268bd2&#34;&gt;After&lt;/span&gt;(&lt;span style=&#34;color:#2aa198;font-weight:bold&#34;&gt;1&lt;/span&gt; * &lt;span style=&#34;color:#268bd2&#34;&gt;time&lt;/span&gt;.&lt;span style=&#34;color:#268bd2&#34;&gt;Second&lt;/span&gt;):
+			&lt;span style=&#34;color:#859900&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#268bd2&#34;&gt;stallStart&lt;/span&gt;.&lt;span style=&#34;color:#268bd2&#34;&gt;IsZero&lt;/span&gt;() {
+				&lt;span style=&#34;color:#268bd2&#34;&gt;log&lt;/span&gt;.&lt;span style=&#34;color:#268bd2&#34;&gt;Printf&lt;/span&gt;(&lt;span style=&#34;color:#2aa198&#34;&gt;&amp;#34;Stall sending data %+v&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#268bd2&#34;&gt;data&lt;/span&gt;)
+				&lt;span style=&#34;color:#268bd2&#34;&gt;stallStart&lt;/span&gt; = &lt;span style=&#34;color:#268bd2&#34;&gt;sendStart&lt;/span&gt;
+				&lt;span style=&#34;color:#268bd2&#34;&gt;ok&lt;/span&gt; = &lt;span style=&#34;color:#859900;font-weight:bold&#34;&gt;false&lt;/span&gt;
+			}
+		}
+	}
+}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Some things you might want to change for own application:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Writes taking longer than one second are identified as a stall. This is a
+constant in the code and not configurable.&lt;/li&gt;
+&lt;li&gt;The &lt;code&gt;time.After&lt;/code&gt; triggers each second of the stall but only does something
+the first time through. Maybe you&amp;rsquo;ll want to log every so often that the
+send is still stalled.&lt;/li&gt;
+&lt;li&gt;You might want to do something other than log a message when a stall is
+detected. Some ideas:
+
+&lt;ul&gt;
+&lt;li&gt;Print a stack trace.&lt;/li&gt;
+&lt;li&gt;Update a counter (maybe external to this function) so a health check fails.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Here is a simple &lt;code&gt;main&lt;/code&gt; that shows this wrapper being used:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span style=&#34;color:#859900&#34;&gt;func&lt;/span&gt; &lt;span style=&#34;color:#268bd2&#34;&gt;main&lt;/span&gt;() {
+	&lt;span style=&#34;color:#268bd2&#34;&gt;out&lt;/span&gt; := &lt;span style=&#34;color:#cb4b16&#34;&gt;make&lt;/span&gt;(&lt;span style=&#34;color:#859900&#34;&gt;chan&lt;/span&gt; &lt;span style=&#34;color:#859900&#34;&gt;interface&lt;/span&gt;{})
+	&lt;span style=&#34;color:#859900&#34;&gt;go&lt;/span&gt; &lt;span style=&#34;color:#859900&#34;&gt;func&lt;/span&gt;() {
+		&amp;lt;-&lt;span style=&#34;color:#268bd2&#34;&gt;time&lt;/span&gt;.&lt;span style=&#34;color:#268bd2&#34;&gt;After&lt;/span&gt;(&lt;span style=&#34;color:#2aa198;font-weight:bold&#34;&gt;2&lt;/span&gt; * &lt;span style=&#34;color:#268bd2&#34;&gt;time&lt;/span&gt;.&lt;span style=&#34;color:#268bd2&#34;&gt;Second&lt;/span&gt;)
+		&amp;lt;-&lt;span style=&#34;color:#268bd2&#34;&gt;out&lt;/span&gt;
+	}()
+	&lt;span style=&#34;color:#268bd2&#34;&gt;Emit&lt;/span&gt;(&lt;span style=&#34;color:#268bd2&#34;&gt;out&lt;/span&gt;, &lt;span style=&#34;color:#2aa198&#34;&gt;&amp;#34;slow-data&amp;#34;&lt;/span&gt;)
+}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;When run, it outputs:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ go run stall.go
+2015/11/15 19:38:40 Stall sending data slow-data
+2015/11/15 19:38:41 Stall sending data slow-data recovered after 2.00 seconds
+&lt;/code&gt;&lt;/pre&gt;
+</description>
     </item>
     
     <item>
@@ -30,9 +98,96 @@ Here is a simple wrapper around a channel write that helps detect long-blocked o
       <pubDate>Thu, 30 Apr 2015 00:00:00 +0000</pubDate>
       <author>aron.atkins@gmail.com (Aron Atkins)</author>
       <guid>https://aronatkins.github.io/posts/2015-04-30-go-email-with-attachments/</guid>
-      <description>Here is an example showing how to use the gomail package to produce email containing plain-text content, alternative html content with an embedded image, and an HTML attachment.
-It doesn&amp;rsquo;t worry about trying to actually send mail but only tries to create a well-composed message. See the documentation or repository on GitHub for more details.
-package main import ( &amp;#34;encoding/base64&amp;#34; &amp;#34;fmt&amp;#34; &amp;#34;net/smtp&amp;#34; &amp;#34;gopkg.in/gomail.v1&amp;#34; ) func main() { m := gomail.NewMessage() m.</description>
+      <description>&lt;p&gt;Here is an example showing how to use the
+&lt;a href=&#34;https://godoc.org/gopkg.in/gomail.v1&#34;&gt;gomail&lt;/a&gt; package to produce email
+containing plain-text content, alternative html content with an embedded
+image, and an HTML attachment.&lt;/p&gt;
+
+&lt;p&gt;It doesn&amp;rsquo;t worry about trying to actually send mail but only tries to create a
+well-composed message. See the
+&lt;a href=&#34;https://godoc.org/gopkg.in/gomail.v1&#34;&gt;documentation&lt;/a&gt; or
+&lt;a href=&#34;https://github.com/go-gomail/gomail&#34;&gt;repository&lt;/a&gt; on GitHub for more details.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span style=&#34;color:#dc322f;font-weight:bold&#34;&gt;package&lt;/span&gt; &lt;span style=&#34;color:#268bd2&#34;&gt;main&lt;/span&gt;
+
+&lt;span style=&#34;color:#dc322f;font-weight:bold&#34;&gt;import&lt;/span&gt; (
+    &lt;span style=&#34;color:#2aa198&#34;&gt;&amp;#34;encoding/base64&amp;#34;&lt;/span&gt;
+    &lt;span style=&#34;color:#2aa198&#34;&gt;&amp;#34;fmt&amp;#34;&lt;/span&gt;
+    &lt;span style=&#34;color:#2aa198&#34;&gt;&amp;#34;net/smtp&amp;#34;&lt;/span&gt;
+
+    &lt;span style=&#34;color:#2aa198&#34;&gt;&amp;#34;gopkg.in/gomail.v1&amp;#34;&lt;/span&gt;
+)
+
+&lt;span style=&#34;color:#859900&#34;&gt;func&lt;/span&gt; &lt;span style=&#34;color:#268bd2&#34;&gt;main&lt;/span&gt;() {
+    &lt;span style=&#34;color:#268bd2&#34;&gt;m&lt;/span&gt; := &lt;span style=&#34;color:#268bd2&#34;&gt;gomail&lt;/span&gt;.&lt;span style=&#34;color:#268bd2&#34;&gt;NewMessage&lt;/span&gt;()
+    &lt;span style=&#34;color:#268bd2&#34;&gt;m&lt;/span&gt;.&lt;span style=&#34;color:#268bd2&#34;&gt;SetHeaders&lt;/span&gt;(&lt;span style=&#34;color:#859900&#34;&gt;map&lt;/span&gt;[&lt;span style=&#34;color:#859900;font-weight:bold&#34;&gt;string&lt;/span&gt;][]&lt;span style=&#34;color:#859900;font-weight:bold&#34;&gt;string&lt;/span&gt;{
+        &lt;span style=&#34;color:#2aa198&#34;&gt;&amp;#34;From&amp;#34;&lt;/span&gt;:    {&lt;span style=&#34;color:#2aa198&#34;&gt;&amp;#34;alice@foobar.com&amp;#34;&lt;/span&gt;},
+        &lt;span style=&#34;color:#2aa198&#34;&gt;&amp;#34;To&amp;#34;&lt;/span&gt;:      {&lt;span style=&#34;color:#2aa198&#34;&gt;&amp;#34;bob@foobar.com&amp;#34;&lt;/span&gt;},
+        &lt;span style=&#34;color:#2aa198&#34;&gt;&amp;#34;Subject&amp;#34;&lt;/span&gt;: {&lt;span style=&#34;color:#2aa198&#34;&gt;&amp;#34;inbound crap&amp;#34;&lt;/span&gt;},
+    })
+    &lt;span style=&#34;color:#268bd2&#34;&gt;m&lt;/span&gt;.&lt;span style=&#34;color:#268bd2&#34;&gt;SetBody&lt;/span&gt;(&lt;span style=&#34;color:#2aa198&#34;&gt;&amp;#34;text/plain&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#2aa198&#34;&gt;&amp;#34;hello. i am sending you crap.&amp;#34;&lt;/span&gt;)
+    &lt;span style=&#34;color:#93a1a1;font-style:italic&#34;&gt;// from: http://probablyprogramming.com/2009/03/15/the-tiniest-gif-ever
+&lt;/span&gt;&lt;span style=&#34;color:#93a1a1;font-style:italic&#34;&gt;&lt;/span&gt;    &lt;span style=&#34;color:#268bd2&#34;&gt;blankEncoded&lt;/span&gt; := &lt;span style=&#34;color:#2aa198&#34;&gt;&amp;#34;R0lGODlhAQABAIABAP///wAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==&amp;#34;&lt;/span&gt;
+    &lt;span style=&#34;color:#93a1a1;font-style:italic&#34;&gt;// i&amp;#39;m a bad person. ignoring errors!
+&lt;/span&gt;&lt;span style=&#34;color:#93a1a1;font-style:italic&#34;&gt;&lt;/span&gt;    &lt;span style=&#34;color:#268bd2&#34;&gt;blankContent&lt;/span&gt;, &lt;span style=&#34;color:#268bd2&#34;&gt;_&lt;/span&gt; := &lt;span style=&#34;color:#268bd2&#34;&gt;base64&lt;/span&gt;.&lt;span style=&#34;color:#268bd2&#34;&gt;StdEncoding&lt;/span&gt;.&lt;span style=&#34;color:#268bd2&#34;&gt;DecodeString&lt;/span&gt;(&lt;span style=&#34;color:#268bd2&#34;&gt;blankEncoded&lt;/span&gt;)
+    &lt;span style=&#34;color:#268bd2&#34;&gt;blank&lt;/span&gt; := &lt;span style=&#34;color:#268bd2&#34;&gt;gomail&lt;/span&gt;.&lt;span style=&#34;color:#268bd2&#34;&gt;CreateFile&lt;/span&gt;(&lt;span style=&#34;color:#2aa198&#34;&gt;&amp;#34;blank.gif&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#268bd2&#34;&gt;blankContent&lt;/span&gt;)
+    &lt;span style=&#34;color:#268bd2&#34;&gt;m&lt;/span&gt;.&lt;span style=&#34;color:#268bd2&#34;&gt;Embed&lt;/span&gt;(&lt;span style=&#34;color:#268bd2&#34;&gt;blank&lt;/span&gt;)
+    &lt;span style=&#34;color:#268bd2&#34;&gt;m&lt;/span&gt;.&lt;span style=&#34;color:#268bd2&#34;&gt;AddAlternative&lt;/span&gt;(&lt;span style=&#34;color:#2aa198&#34;&gt;&amp;#34;text/html&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#2aa198&#34;&gt;`&amp;lt;p&amp;gt;hello. i am sending you &amp;lt;img border=&amp;#34;2&amp;#34; src=&amp;#34;cid:blank.gif&amp;#34; alt=&amp;#34;blank&amp;#34; /&amp;gt; crap.&amp;lt;/p&amp;gt;`&lt;/span&gt;)
+    &lt;span style=&#34;color:#268bd2&#34;&gt;crap&lt;/span&gt; := &lt;span style=&#34;color:#268bd2&#34;&gt;gomail&lt;/span&gt;.&lt;span style=&#34;color:#268bd2&#34;&gt;CreateFile&lt;/span&gt;(&lt;span style=&#34;color:#2aa198&#34;&gt;&amp;#34;crap.html&amp;#34;&lt;/span&gt;, []&lt;span style=&#34;color:#cb4b16&#34;&gt;byte&lt;/span&gt;(&lt;span style=&#34;color:#2aa198&#34;&gt;&amp;#34;&amp;lt;!doctype html&amp;gt;\n&amp;lt;html&amp;gt;&amp;lt;title&amp;gt;crap&amp;lt;/title&amp;gt;&amp;lt;body&amp;gt;this is crap, y&amp;#39;know?&amp;lt;/body&amp;gt;&amp;lt;/html&amp;gt;&amp;#34;&lt;/span&gt;))
+    &lt;span style=&#34;color:#268bd2&#34;&gt;m&lt;/span&gt;.&lt;span style=&#34;color:#268bd2&#34;&gt;Attach&lt;/span&gt;(&lt;span style=&#34;color:#268bd2&#34;&gt;crap&lt;/span&gt;)
+
+    &lt;span style=&#34;color:#268bd2&#34;&gt;mailDumper&lt;/span&gt; := &lt;span style=&#34;color:#859900&#34;&gt;func&lt;/span&gt;(&lt;span style=&#34;color:#268bd2&#34;&gt;addr&lt;/span&gt; &lt;span style=&#34;color:#859900;font-weight:bold&#34;&gt;string&lt;/span&gt;, &lt;span style=&#34;color:#268bd2&#34;&gt;a&lt;/span&gt; &lt;span style=&#34;color:#268bd2&#34;&gt;smtp&lt;/span&gt;.&lt;span style=&#34;color:#268bd2&#34;&gt;Auth&lt;/span&gt;, &lt;span style=&#34;color:#268bd2&#34;&gt;from&lt;/span&gt; &lt;span style=&#34;color:#859900;font-weight:bold&#34;&gt;string&lt;/span&gt;, &lt;span style=&#34;color:#268bd2&#34;&gt;to&lt;/span&gt; []&lt;span style=&#34;color:#859900;font-weight:bold&#34;&gt;string&lt;/span&gt;, &lt;span style=&#34;color:#268bd2&#34;&gt;msg&lt;/span&gt; []&lt;span style=&#34;color:#859900;font-weight:bold&#34;&gt;byte&lt;/span&gt;) &lt;span style=&#34;color:#859900;font-weight:bold&#34;&gt;error&lt;/span&gt; {
+        &lt;span style=&#34;color:#93a1a1;font-style:italic&#34;&gt;// This dumps out the mail message so it can piped straight to `sendmail -t`
+&lt;/span&gt;&lt;span style=&#34;color:#93a1a1;font-style:italic&#34;&gt;&lt;/span&gt;        &lt;span style=&#34;color:#93a1a1;font-style:italic&#34;&gt;// and proves that this is a parsable message.
+&lt;/span&gt;&lt;span style=&#34;color:#93a1a1;font-style:italic&#34;&gt;&lt;/span&gt;        &lt;span style=&#34;color:#268bd2&#34;&gt;fmt&lt;/span&gt;.&lt;span style=&#34;color:#268bd2&#34;&gt;Print&lt;/span&gt;(&lt;span style=&#34;color:#cb4b16&#34;&gt;string&lt;/span&gt;(&lt;span style=&#34;color:#268bd2&#34;&gt;msg&lt;/span&gt;))
+        &lt;span style=&#34;color:#859900&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#859900;font-weight:bold&#34;&gt;nil&lt;/span&gt;
+    }
+    &lt;span style=&#34;color:#268bd2&#34;&gt;mailer&lt;/span&gt; := &lt;span style=&#34;color:#268bd2&#34;&gt;gomail&lt;/span&gt;.&lt;span style=&#34;color:#268bd2&#34;&gt;NewMailer&lt;/span&gt;(&lt;span style=&#34;color:#2aa198&#34;&gt;&amp;#34;localhost&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#2aa198&#34;&gt;&amp;#34;user&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#2aa198&#34;&gt;&amp;#34;pass&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#2aa198;font-weight:bold&#34;&gt;465&lt;/span&gt;, &lt;span style=&#34;color:#268bd2&#34;&gt;gomail&lt;/span&gt;.&lt;span style=&#34;color:#268bd2&#34;&gt;SetSendMail&lt;/span&gt;(&lt;span style=&#34;color:#268bd2&#34;&gt;mailDumper&lt;/span&gt;))
+    &lt;span style=&#34;color:#268bd2&#34;&gt;mailer&lt;/span&gt;.&lt;span style=&#34;color:#268bd2&#34;&gt;Send&lt;/span&gt;(&lt;span style=&#34;color:#268bd2&#34;&gt;m&lt;/span&gt;)
+}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Here is the resulting message:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-nohighlight&#34; data-lang=&#34;nohighlight&#34;&gt;Date: Wed, 29 Apr 2015 16:33:56 -0400
+Content-Type: multipart/mixed; boundary=21ee3da964c7bf70def62adb9ee1a061747003c026e363e47231258c48f1
+From: alice@foobar.com
+To: bob@foobar.com
+Subject: inbound crap
+Mime-Version: 1.0
+
+--21ee3da964c7bf70def62adb9ee1a061747003c026e363e47231258c48f1
+Content-Type: multipart/related; boundary=76a1282373c08a65dd49db1dea2c55111fda9a715c89720a844fabb7d497
+
+--76a1282373c08a65dd49db1dea2c55111fda9a715c89720a844fabb7d497
+Content-Type: multipart/alternative; boundary=4186c39e13b2140c88094b3933206336f2bb3948db7ecf064c7a7d7473f2
+
+--4186c39e13b2140c88094b3933206336f2bb3948db7ecf064c7a7d7473f2
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+hello. i am sending you crap.
+--4186c39e13b2140c88094b3933206336f2bb3948db7ecf064c7a7d7473f2
+Content-Type: text/html; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+&amp;lt;p&amp;gt;hello. i am sending you &amp;lt;img border=3D&amp;#34;2&amp;#34; src=3D&amp;#34;cid:blank.gif&amp;#34; alt=3D&amp;#34;bl=
+ank&amp;#34; /&amp;gt; crap.&amp;lt;/p&amp;gt;
+--4186c39e13b2140c88094b3933206336f2bb3948db7ecf064c7a7d7473f2--
+
+--76a1282373c08a65dd49db1dea2c55111fda9a715c89720a844fabb7d497
+Content-Type: image/gif; name=&amp;#34;blank.gif&amp;#34;
+Content-Transfer-Encoding: base64
+Content-Disposition: inline; filename=&amp;#34;blank.gif&amp;#34;
+Content-ID: &amp;lt;blank.gif&amp;gt;
+
+R0lGODlhAQABAIABAP///wAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==
+--76a1282373c08a65dd49db1dea2c55111fda9a715c89720a844fabb7d497--
+
+--21ee3da964c7bf70def62adb9ee1a061747003c026e363e47231258c48f1
+Content-Type: text/html; charset=utf-8; name=&amp;#34;crap.html&amp;#34;
+Content-Transfer-Encoding: base64
+Content-Disposition: attachment; filename=&amp;#34;crap.html&amp;#34;
+
+PCFkb2N0eXBlIGh0bWw+CjxodG1sPjx0aXRsZT5jcmFwPC90aXRsZT48Ym9keT50aGlzIGlzIGNy
+YXAsIHkna25vdz88L2JvZHk+PC9odG1sPg==
+--21ee3da964c7bf70def62adb9ee1a061747003c026e363e47231258c48f1--&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
     </item>
     
   </channel>

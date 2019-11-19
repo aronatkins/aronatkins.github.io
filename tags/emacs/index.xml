@@ -9,9 +9,7 @@
     <managingEditor>aron.atkins@gmail.com (Aron Atkins)</managingEditor>
     <webMaster>aron.atkins@gmail.com (Aron Atkins)</webMaster>
     <lastBuildDate>Wed, 29 Apr 2015 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://aronatkins.github.io/tags/emacs/index.xml" rel="self" type="application/rss+xml" />
-    
+    <atom:link href="https://aronatkins.github.io/tags/emacs/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>emacs: aron/git-grep</title>
@@ -19,9 +17,55 @@
       <pubDate>Wed, 29 Apr 2015 00:00:00 +0000</pubDate>
       <author>aron.atkins@gmail.com (Aron Atkins)</author>
       <guid>https://aronatkins.github.io/posts/2015-04-29-emacs-aron-git-grep/</guid>
-      <description>There are lots of suggestions how to expose git grep in emacs.
-Here is mine, inspired by a recent blog post to oremacs. You are interactively asked for a search term and a pathspec; accepting the defaults will search for a symbol at your current cursor position across the entire git repository.
-(defvar aron/git-grep-symbol-history nil &amp;#34;Internal variable for aron-grep; do not modify&amp;#34;) (defvar aron/git-grep-pathspec-history nil &amp;#34;Internal variable for aron-grep; do not modify&amp;#34;) (defun aron/git-grep (search-for pathspec) &amp;#34;Grep for a string in the current git repository.</description>
+      <description>&lt;p&gt;There are
+&lt;a href=&#34;https://www.google.com/search?q=emacs+git+grep&#34;&gt;lots of suggestions&lt;/a&gt; how to
+expose &lt;code&gt;git grep&lt;/code&gt; in emacs.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/aronatkins/emacs.d/blob/master/lisp/aron-grep.el&#34;&gt;Here is mine&lt;/a&gt;,
+inspired by a recent blog post to
+&lt;a href=&#34;http://oremacs.com/2015/04/19/git-grep-ivy/&#34;&gt;oremacs&lt;/a&gt;. You are interactively
+asked for a search term and a pathspec; accepting the defaults will search for
+a symbol at your current cursor position across the entire git repository.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-elisp&#34; data-lang=&#34;elisp&#34;&gt;(&lt;span style=&#34;color:#cb4b16&#34;&gt;defvar&lt;/span&gt; &lt;span style=&#34;color:#268bd2&#34;&gt;aron/git-grep-symbol-history&lt;/span&gt; &lt;span style=&#34;color:#268bd2&#34;&gt;nil&lt;/span&gt;
+  &lt;span style=&#34;color:#2aa198&#34;&gt;&amp;#34;Internal variable for aron-grep; do not modify&amp;#34;&lt;/span&gt;)
+(&lt;span style=&#34;color:#cb4b16&#34;&gt;defvar&lt;/span&gt; &lt;span style=&#34;color:#268bd2&#34;&gt;aron/git-grep-pathspec-history&lt;/span&gt; &lt;span style=&#34;color:#268bd2&#34;&gt;nil&lt;/span&gt;
+  &lt;span style=&#34;color:#2aa198&#34;&gt;&amp;#34;Internal variable for aron-grep; do not modify&amp;#34;&lt;/span&gt;)
+(&lt;span style=&#34;color:#cb4b16&#34;&gt;defun&lt;/span&gt; &lt;span style=&#34;color:#268bd2&#34;&gt;aron/git-grep&lt;/span&gt; (&lt;span style=&#34;color:#268bd2&#34;&gt;search-for&lt;/span&gt; &lt;span style=&#34;color:#268bd2&#34;&gt;pathspec&lt;/span&gt;)
+  &lt;span style=&#34;color:#2aa198&#34;&gt;&amp;#34;Grep for a string in the current git repository.&amp;#34;&lt;/span&gt;
+  (&lt;span style=&#34;color:#cb4b16&#34;&gt;interactive&lt;/span&gt; (&lt;span style=&#34;color:#268bd2&#34;&gt;list&lt;/span&gt; 
+                (&lt;span style=&#34;color:#268bd2&#34;&gt;read-from-minibuffer&lt;/span&gt; &lt;span style=&#34;color:#2aa198&#34;&gt;&amp;#34;search for: &amp;#34;&lt;/span&gt;
+                                      (&lt;span style=&#34;color:#268bd2&#34;&gt;thing-at-point&lt;/span&gt; &lt;span style=&#34;color:#2aa198&#34;&gt;&amp;#39;symbol&lt;/span&gt;)
+                                      &lt;span style=&#34;color:#268bd2&#34;&gt;nil&lt;/span&gt; &lt;span style=&#34;color:#268bd2&#34;&gt;nil&lt;/span&gt;
+                                      &lt;span style=&#34;color:#2aa198&#34;&gt;&amp;#39;aron/git-grep-symbol-history&lt;/span&gt;)
+                (&lt;span style=&#34;color:#268bd2&#34;&gt;read-from-minibuffer&lt;/span&gt; &lt;span style=&#34;color:#2aa198&#34;&gt;&amp;#34;pathspecs: &amp;#34;&lt;/span&gt;
+                                      &lt;span style=&#34;color:#2aa198&#34;&gt;&amp;#34;&amp;#34;&lt;/span&gt;
+                                      &lt;span style=&#34;color:#268bd2&#34;&gt;nil&lt;/span&gt; &lt;span style=&#34;color:#268bd2&#34;&gt;nil&lt;/span&gt;
+                                      &lt;span style=&#34;color:#2aa198&#34;&gt;&amp;#39;aron/git-grep-pathspec-history&lt;/span&gt;)
+                ))
+  (&lt;span style=&#34;color:#cb4b16&#34;&gt;let&lt;/span&gt; ((&lt;span style=&#34;color:#268bd2&#34;&gt;default-directory&lt;/span&gt; (&lt;span style=&#34;color:#268bd2&#34;&gt;locate-dominating-file&lt;/span&gt; &lt;span style=&#34;color:#268bd2&#34;&gt;default-directory&lt;/span&gt; &lt;span style=&#34;color:#2aa198&#34;&gt;&amp;#34;.git&amp;#34;&lt;/span&gt;)))
+    &lt;span style=&#34;color:#93a1a1;font-style:italic&#34;&gt;; We don&amp;#39;t use the grep function directly because it doesn&amp;#39;t offer much&lt;/span&gt;
+    &lt;span style=&#34;color:#93a1a1;font-style:italic&#34;&gt;; besides adding /dev/null in unpredictable ways. We have a fully runnable&lt;/span&gt;
+    &lt;span style=&#34;color:#93a1a1;font-style:italic&#34;&gt;; compilation command; just apply grep-mode to the result.&lt;/span&gt;
+    (&lt;span style=&#34;color:#268bd2&#34;&gt;compilation-start&lt;/span&gt;
+     (&lt;span style=&#34;color:#268bd2&#34;&gt;format&lt;/span&gt; &lt;span style=&#34;color:#2aa198&#34;&gt;&amp;#34;git --no-pager grep -nH --full-name --no-color -i -e &amp;#39;%s&amp;#39; -- %s&amp;#34;&lt;/span&gt;
+             &lt;span style=&#34;color:#268bd2&#34;&gt;search-for&lt;/span&gt; &lt;span style=&#34;color:#268bd2&#34;&gt;pathspec&lt;/span&gt;)
+     &lt;span style=&#34;color:#2aa198&#34;&gt;&amp;#39;grep-mode&lt;/span&gt;)))&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;If I just want to search Go files, use a pathspec of &lt;code&gt;*.go&lt;/code&gt;; Javascript with
+&lt;code&gt;*.js&lt;/code&gt;. I am occasionally unhappy that the search is case insensitive and may
+rewrite that bit.&lt;/p&gt;
+
+&lt;p&gt;My personal emacs
+&lt;a href=&#34;https://github.com/aronatkins/emacs.d/blob/master/lisp/aron-keys.el&#34;&gt;key bindings&lt;/a&gt;
+often use &lt;code&gt;C-z&lt;/code&gt; as a prefix (how is &lt;code&gt;C-z&lt;/code&gt; useful to anyone in these modern times?).
+I have &lt;code&gt;aron/git-grep&lt;/code&gt; bound to &lt;code&gt;C-z j&lt;/code&gt;.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-elisp&#34; data-lang=&#34;elisp&#34;&gt;(&lt;span style=&#34;color:#cb4b16&#34;&gt;defvar&lt;/span&gt; &lt;span style=&#34;color:#268bd2&#34;&gt;ctl-z-map&lt;/span&gt; (&lt;span style=&#34;color:#268bd2&#34;&gt;make-sparse-keymap&lt;/span&gt;) &lt;span style=&#34;color:#2aa198&#34;&gt;&amp;#34;Keymap for user extensions.&amp;#34;&lt;/span&gt;)
+(&lt;span style=&#34;color:#268bd2&#34;&gt;define-key&lt;/span&gt; &lt;span style=&#34;color:#268bd2&#34;&gt;ctl-z-map&lt;/span&gt; &lt;span style=&#34;color:#2aa198&#34;&gt;&amp;#34;j&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#2aa198&#34;&gt;&amp;#39;aron/git-grep&lt;/span&gt;)
+
+&lt;span style=&#34;color:#93a1a1;font-style:italic&#34;&gt;;; since we&amp;#39;re changing the default meaning of C-z, add suspend back into the&lt;/span&gt;
+&lt;span style=&#34;color:#93a1a1;font-style:italic&#34;&gt;;; fray with C-z C-z.&lt;/span&gt;
+(&lt;span style=&#34;color:#268bd2&#34;&gt;define-key&lt;/span&gt; &lt;span style=&#34;color:#268bd2&#34;&gt;ctl-z-map&lt;/span&gt; &lt;span style=&#34;color:#2aa198&#34;&gt;&amp;#34;\C-z&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#2aa198&#34;&gt;&amp;#39;suspend-emacs&lt;/span&gt;)
+
+(&lt;span style=&#34;color:#268bd2&#34;&gt;global-set-key&lt;/span&gt; &lt;span style=&#34;color:#2aa198&#34;&gt;&amp;#34;\C-z&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#268bd2&#34;&gt;ctl-z-map&lt;/span&gt;)&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
     </item>
     
   </channel>

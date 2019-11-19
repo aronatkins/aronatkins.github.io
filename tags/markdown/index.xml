@@ -9,9 +9,7 @@
     <managingEditor>aron.atkins@gmail.com (Aron Atkins)</managingEditor>
     <webMaster>aron.atkins@gmail.com (Aron Atkins)</webMaster>
     <lastBuildDate>Thu, 30 Apr 2015 00:01:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://aronatkins.github.io/tags/markdown/index.xml" rel="self" type="application/rss+xml" />
-    
+    <atom:link href="https://aronatkins.github.io/tags/markdown/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>jekyll, markdown, and source highlighting</title>
@@ -19,9 +17,46 @@
       <pubDate>Thu, 30 Apr 2015 00:01:00 +0000</pubDate>
       <author>aron.atkins@gmail.com (Aron Atkins)</author>
       <guid>https://aronatkins.github.io/posts/2015-04-30-jekyll-markdown-and-source-highlighting/</guid>
-      <description>Here is how I added code styling to this blog. Unfortunately, the code is only styled when you visit the site; the RSS feeds will have unstyled code blocks.
-I decided to use highlight.js after struggling with Jekyll configuration/extensions. In particular, I either couldn&amp;rsquo;t get the highlighting to work at all, or didn&amp;rsquo;t find support for one or more languages I&amp;rsquo;ve been touching.
-The highlight.js package contains a number of default languages and many more that can be added in.</description>
+      <description>&lt;p&gt;Here is how I added code styling to this blog. Unfortunately, the code is only
+styled when you visit the site; the RSS feeds will have unstyled code blocks.&lt;/p&gt;
+
+&lt;p&gt;I decided to use &lt;a href=&#34;https://highlightjs.org/&#34;&gt;highlight.js&lt;/a&gt; after struggling
+with Jekyll configuration/extensions. In particular, I either couldn&amp;rsquo;t get the
+highlighting to work at all, or didn&amp;rsquo;t find support for one or more languages
+I&amp;rsquo;ve been touching.&lt;/p&gt;
+
+&lt;p&gt;The highlight.js package contains a number of default languages and many more
+that can be added in. If you use the default set, you can use a CDN-hosted
+copy. I wanted R, Go, and Lisp which demanded a
+&lt;a href=&#34;https://highlightjs.org/download/&#34;&gt;custom build&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;The downloaded bundle contains a &lt;code&gt;highlight.pack.js&lt;/code&gt; which I copied into a
+&lt;code&gt;js/&lt;/code&gt; directory within my Jekyll blog. I am using the sunburst theme, which I
+copied into &lt;code&gt;css/highlight.css&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;In &lt;code&gt;_includes/head.html&lt;/code&gt;, add the following:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;link rel=&amp;quot;stylesheet&amp;quot; href=&amp;quot;{{ &amp;quot;/css/highlight.css&amp;quot; | prepend: site.baseurl }}&amp;quot;&amp;gt;
+&amp;lt;script src=&amp;quot;{{ &amp;quot;/js/highlight.pack.js&amp;quot; | prepend: site.baseurl }}&amp;quot;&amp;gt;&amp;lt;/script&amp;gt;
+&amp;lt;script&amp;gt;hljs.initHighlightingOnLoad();&amp;lt;/script&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;That&amp;rsquo;s it! Your code blocks now have syntax highlighting.&lt;/p&gt;
+
+&lt;p&gt;If you want to force language-specific code highlighting of a block, say what
+language you are using:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-markdown&#34; data-lang=&#34;markdown&#34;&gt;&lt;span style=&#34;color:#2aa198&#34;&gt;```lisp
+&lt;/span&gt;&lt;span style=&#34;color:#2aa198&#34;&gt;&lt;/span&gt;(&lt;span style=&#34;color:#cb4b16&#34;&gt;defun&lt;/span&gt; &lt;span style=&#34;color:#268bd2&#34;&gt;aron/git-grep&lt;/span&gt; () ...)
+&lt;span style=&#34;color:#2aa198&#34;&gt;```&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;which is rendered like:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-lisp&#34; data-lang=&#34;lisp&#34;&gt;(&lt;span style=&#34;color:#cb4b16&#34;&gt;defun&lt;/span&gt; &lt;span style=&#34;color:#268bd2&#34;&gt;aron/git-grep&lt;/span&gt; () ...)&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;If you don&amp;rsquo;t specify a lanuage identifier, highlight.js will still apply some
+formatting to your block. If you don&amp;rsquo;t want that, use the &lt;code&gt;nohighlight&lt;/code&gt; tag:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-markdown&#34; data-lang=&#34;markdown&#34;&gt;&lt;span style=&#34;color:#2aa198&#34;&gt;```nohighlight
+&lt;/span&gt;&lt;span style=&#34;color:#2aa198&#34;&gt;&lt;/span&gt;this shall not be formatted
+&lt;span style=&#34;color:#2aa198&#34;&gt;```&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;which is rendered like:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-nohighlight&#34; data-lang=&#34;nohighlight&#34;&gt;this shall not be formatted&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
     </item>
     
   </channel>

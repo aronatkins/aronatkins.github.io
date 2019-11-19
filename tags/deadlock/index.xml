@@ -9,9 +9,7 @@
     <managingEditor>aron.atkins@gmail.com (Aron Atkins)</managingEditor>
     <webMaster>aron.atkins@gmail.com (Aron Atkins)</webMaster>
     <lastBuildDate>Sun, 15 Nov 2015 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://aronatkins.github.io/tags/deadlock/index.xml" rel="self" type="application/rss+xml" />
-    
+    <atom:link href="https://aronatkins.github.io/tags/deadlock/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>go: tell me about slow channels</title>
@@ -19,9 +17,79 @@
       <pubDate>Sun, 15 Nov 2015 00:00:00 +0000</pubDate>
       <author>aron.atkins@gmail.com (Aron Atkins)</author>
       <guid>https://aronatkins.github.io/posts/2015-11-15-go-tell-me-about-slow-channels/</guid>
-      <description>Go channels are a powerful construct for passing information between different go routines, each with distinct responsibilities. Writing to an unbuffered channel is a blocking operation which does not complete until a reader is available at the other end.
-The blocked write is not guaranteed to complete &amp;ndash; if the channel responsible for the read is somehow blocked itself, you may have deadlock.
-Here is a simple wrapper around a channel write that helps detect long-blocked operations.</description>
+      <description>&lt;p&gt;Go channels are a powerful construct for passing information between different
+go routines, each with distinct responsibilities. Writing to an unbuffered
+channel is a blocking operation which does not complete until a reader is
+available at the other end.&lt;/p&gt;
+
+&lt;p&gt;The blocked write is not guaranteed to complete &amp;ndash; if the channel responsible
+for the read is somehow blocked itself, you may have deadlock.&lt;/p&gt;
+
+&lt;p&gt;Here is a simple wrapper around a channel write that helps detect long-blocked
+operations.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span style=&#34;color:#dc322f;font-weight:bold&#34;&gt;import&lt;/span&gt; (
+	&lt;span style=&#34;color:#2aa198&#34;&gt;&amp;#34;log&amp;#34;&lt;/span&gt;
+	&lt;span style=&#34;color:#2aa198&#34;&gt;&amp;#34;time&amp;#34;&lt;/span&gt;
+)
+
+&lt;span style=&#34;color:#859900&#34;&gt;func&lt;/span&gt; &lt;span style=&#34;color:#268bd2&#34;&gt;Emit&lt;/span&gt;(&lt;span style=&#34;color:#268bd2&#34;&gt;out&lt;/span&gt; &lt;span style=&#34;color:#859900&#34;&gt;chan&lt;/span&gt;&amp;lt;- &lt;span style=&#34;color:#859900&#34;&gt;interface&lt;/span&gt;{}, &lt;span style=&#34;color:#268bd2&#34;&gt;data&lt;/span&gt; &lt;span style=&#34;color:#859900&#34;&gt;interface&lt;/span&gt;{}) (&lt;span style=&#34;color:#268bd2&#34;&gt;ok&lt;/span&gt; &lt;span style=&#34;color:#859900;font-weight:bold&#34;&gt;bool&lt;/span&gt;) {
+	&lt;span style=&#34;color:#859900&#34;&gt;var&lt;/span&gt; &lt;span style=&#34;color:#268bd2&#34;&gt;stallStart&lt;/span&gt; &lt;span style=&#34;color:#268bd2&#34;&gt;time&lt;/span&gt;.&lt;span style=&#34;color:#268bd2&#34;&gt;Time&lt;/span&gt;
+	&lt;span style=&#34;color:#93a1a1;font-style:italic&#34;&gt;// If we stalled, print the duration of the stall as we exit.
+&lt;/span&gt;&lt;span style=&#34;color:#93a1a1;font-style:italic&#34;&gt;&lt;/span&gt;	&lt;span style=&#34;color:#859900&#34;&gt;defer&lt;/span&gt; &lt;span style=&#34;color:#859900&#34;&gt;func&lt;/span&gt;() {
+		&lt;span style=&#34;color:#859900&#34;&gt;if&lt;/span&gt; !&lt;span style=&#34;color:#268bd2&#34;&gt;stallStart&lt;/span&gt;.&lt;span style=&#34;color:#268bd2&#34;&gt;IsZero&lt;/span&gt;() {
+			&lt;span style=&#34;color:#268bd2&#34;&gt;diff&lt;/span&gt; := &lt;span style=&#34;color:#268bd2&#34;&gt;time&lt;/span&gt;.&lt;span style=&#34;color:#268bd2&#34;&gt;Now&lt;/span&gt;().&lt;span style=&#34;color:#268bd2&#34;&gt;Sub&lt;/span&gt;(&lt;span style=&#34;color:#268bd2&#34;&gt;stallStart&lt;/span&gt;)
+			&lt;span style=&#34;color:#268bd2&#34;&gt;log&lt;/span&gt;.&lt;span style=&#34;color:#268bd2&#34;&gt;Printf&lt;/span&gt;(&lt;span style=&#34;color:#2aa198&#34;&gt;&amp;#34;Stall sending data %+v recovered after %0.2f seconds&amp;#34;&lt;/span&gt;,
+				&lt;span style=&#34;color:#268bd2&#34;&gt;data&lt;/span&gt;, &lt;span style=&#34;color:#268bd2&#34;&gt;diff&lt;/span&gt;.&lt;span style=&#34;color:#268bd2&#34;&gt;Seconds&lt;/span&gt;())
+		}
+	}()
+	&lt;span style=&#34;color:#268bd2&#34;&gt;ok&lt;/span&gt; = &lt;span style=&#34;color:#859900;font-weight:bold&#34;&gt;true&lt;/span&gt;
+	&lt;span style=&#34;color:#268bd2&#34;&gt;sendStart&lt;/span&gt; := &lt;span style=&#34;color:#268bd2&#34;&gt;time&lt;/span&gt;.&lt;span style=&#34;color:#268bd2&#34;&gt;Now&lt;/span&gt;()
+	&lt;span style=&#34;color:#859900&#34;&gt;for&lt;/span&gt; {
+		&lt;span style=&#34;color:#859900&#34;&gt;select&lt;/span&gt; {
+		&lt;span style=&#34;color:#859900&#34;&gt;case&lt;/span&gt; &lt;span style=&#34;color:#268bd2&#34;&gt;out&lt;/span&gt; &amp;lt;- &lt;span style=&#34;color:#268bd2&#34;&gt;data&lt;/span&gt;:
+			&lt;span style=&#34;color:#859900&#34;&gt;return&lt;/span&gt;
+		&lt;span style=&#34;color:#859900&#34;&gt;case&lt;/span&gt; &amp;lt;-&lt;span style=&#34;color:#268bd2&#34;&gt;time&lt;/span&gt;.&lt;span style=&#34;color:#268bd2&#34;&gt;After&lt;/span&gt;(&lt;span style=&#34;color:#2aa198;font-weight:bold&#34;&gt;1&lt;/span&gt; * &lt;span style=&#34;color:#268bd2&#34;&gt;time&lt;/span&gt;.&lt;span style=&#34;color:#268bd2&#34;&gt;Second&lt;/span&gt;):
+			&lt;span style=&#34;color:#859900&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#268bd2&#34;&gt;stallStart&lt;/span&gt;.&lt;span style=&#34;color:#268bd2&#34;&gt;IsZero&lt;/span&gt;() {
+				&lt;span style=&#34;color:#268bd2&#34;&gt;log&lt;/span&gt;.&lt;span style=&#34;color:#268bd2&#34;&gt;Printf&lt;/span&gt;(&lt;span style=&#34;color:#2aa198&#34;&gt;&amp;#34;Stall sending data %+v&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#268bd2&#34;&gt;data&lt;/span&gt;)
+				&lt;span style=&#34;color:#268bd2&#34;&gt;stallStart&lt;/span&gt; = &lt;span style=&#34;color:#268bd2&#34;&gt;sendStart&lt;/span&gt;
+				&lt;span style=&#34;color:#268bd2&#34;&gt;ok&lt;/span&gt; = &lt;span style=&#34;color:#859900;font-weight:bold&#34;&gt;false&lt;/span&gt;
+			}
+		}
+	}
+}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Some things you might want to change for own application:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Writes taking longer than one second are identified as a stall. This is a
+constant in the code and not configurable.&lt;/li&gt;
+&lt;li&gt;The &lt;code&gt;time.After&lt;/code&gt; triggers each second of the stall but only does something
+the first time through. Maybe you&amp;rsquo;ll want to log every so often that the
+send is still stalled.&lt;/li&gt;
+&lt;li&gt;You might want to do something other than log a message when a stall is
+detected. Some ideas:
+
+&lt;ul&gt;
+&lt;li&gt;Print a stack trace.&lt;/li&gt;
+&lt;li&gt;Update a counter (maybe external to this function) so a health check fails.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Here is a simple &lt;code&gt;main&lt;/code&gt; that shows this wrapper being used:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span style=&#34;color:#859900&#34;&gt;func&lt;/span&gt; &lt;span style=&#34;color:#268bd2&#34;&gt;main&lt;/span&gt;() {
+	&lt;span style=&#34;color:#268bd2&#34;&gt;out&lt;/span&gt; := &lt;span style=&#34;color:#cb4b16&#34;&gt;make&lt;/span&gt;(&lt;span style=&#34;color:#859900&#34;&gt;chan&lt;/span&gt; &lt;span style=&#34;color:#859900&#34;&gt;interface&lt;/span&gt;{})
+	&lt;span style=&#34;color:#859900&#34;&gt;go&lt;/span&gt; &lt;span style=&#34;color:#859900&#34;&gt;func&lt;/span&gt;() {
+		&amp;lt;-&lt;span style=&#34;color:#268bd2&#34;&gt;time&lt;/span&gt;.&lt;span style=&#34;color:#268bd2&#34;&gt;After&lt;/span&gt;(&lt;span style=&#34;color:#2aa198;font-weight:bold&#34;&gt;2&lt;/span&gt; * &lt;span style=&#34;color:#268bd2&#34;&gt;time&lt;/span&gt;.&lt;span style=&#34;color:#268bd2&#34;&gt;Second&lt;/span&gt;)
+		&amp;lt;-&lt;span style=&#34;color:#268bd2&#34;&gt;out&lt;/span&gt;
+	}()
+	&lt;span style=&#34;color:#268bd2&#34;&gt;Emit&lt;/span&gt;(&lt;span style=&#34;color:#268bd2&#34;&gt;out&lt;/span&gt;, &lt;span style=&#34;color:#2aa198&#34;&gt;&amp;#34;slow-data&amp;#34;&lt;/span&gt;)
+}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;When run, it outputs:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ go run stall.go
+2015/11/15 19:38:40 Stall sending data slow-data
+2015/11/15 19:38:41 Stall sending data slow-data recovered after 2.00 seconds
+&lt;/code&gt;&lt;/pre&gt;
+</description>
     </item>
     
   </channel>

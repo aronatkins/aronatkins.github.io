@@ -9,9 +9,7 @@
     <managingEditor>aron.atkins@gmail.com (Aron Atkins)</managingEditor>
     <webMaster>aron.atkins@gmail.com (Aron Atkins)</webMaster>
     <lastBuildDate>Wed, 10 Dec 2014 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://aronatkins.github.io/tags/brightcove/index.xml" rel="self" type="application/rss+xml" />
-    
+    <atom:link href="https://aronatkins.github.io/tags/brightcove/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Farewell, Brightcove</title>
@@ -19,9 +17,40 @@
       <pubDate>Wed, 10 Dec 2014 00:00:00 +0000</pubDate>
       <author>aron.atkins@gmail.com (Aron Atkins)</author>
       <guid>https://aronatkins.github.io/posts/2014-12-10-farewell-brightcove/</guid>
-      <description>Today is two weeks after my last day at Brightcove. My seven-and-a-half year journey was filled with growth, challenges, scale, and a wonderful team.
-As is customary, I sent a departure letter to a number of my colleagues. To those who did not receive the note, I apologize for the oversight. Here it is; the message applies to everyone with whom I shared the Brightcove experience.
- Subject: Seven years of thanks Date: 2014-11-26</description>
+      <description>&lt;p&gt;Today is two weeks after my last day at Brightcove. My seven-and-a-half year
+journey was filled with growth, challenges, scale, and a wonderful team.&lt;/p&gt;
+
+&lt;p&gt;As is customary, I sent a departure letter to a number of my colleagues. To
+those who did not receive the note, I apologize for the oversight. Here it is;
+the message applies to everyone with whom I shared the Brightcove experience.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Subject: Seven years of thanks&lt;br/&gt;
+Date: 2014-11-26&lt;/p&gt;
+
+&lt;p&gt;I often say that scale is humbling. Most times we speak in terms of our
+services &amp;ndash; of storage or streams or player traffic. These things reveal
+massive numbers that send the mind spinning.&lt;/p&gt;
+
+&lt;p&gt;More humbling is how we have scaled as people, as teams, and as a company.
+We are always solving bigger, harder, more important problems while
+reinforcing our foundation: a culture of respect and personal
+responsibility.&lt;/p&gt;
+
+&lt;p&gt;I reflect on my seven and a half year journey at Brightcove with a prideful
+glow that will not soon fade.&lt;/p&gt;
+
+&lt;p&gt;Today, as we approach the US Thanksgiving holiday, I am thankful to have
+been given the opportunity to be humbled so many times.&lt;/p&gt;
+
+&lt;p&gt;Please let me say good bye by saying, &amp;ldquo;Thank you.&amp;rdquo;&lt;/p&gt;
+
+&lt;p&gt;Aron&lt;/p&gt;
+
+&lt;p&gt;aron.atkins@gmail.com&lt;br/&gt;
+&lt;a href=&#34;https://www.linkedin.com/in/aronatkins&#34;&gt;https://www.linkedin.com/in/aronatkins&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+</description>
     </item>
     
   </channel>
