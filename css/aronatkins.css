@@ -128,12 +128,14 @@ footer {
     .footer-columns {
         flex-wrap: wrap;
     }
+    .footer-columns > *:not(:last-child) {
+        margin-bottom: 1em;
+    }
 }
 
 /* https://www.rawkblog.com/2019/01/flexbox-gutters-negative-margins-solved/ */
 .footer-columns > *:not(:last-child) {
     margin-right: 2em;
-    margin-bottom: 1em;
 }
 
 ul.post-list,
