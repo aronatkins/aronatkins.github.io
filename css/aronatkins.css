@@ -205,14 +205,23 @@ a:hover .icon-soundcloud svg path {
     fill: #f50;
 }
 
-.aronography .lyrics {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-gap: 1em;
-}
 
-.aronography .verse {
-    grid-column: 1;
+@media only screen and (min-width: 678px) {
+    .aronography .lyrics {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 1em;
+    }
+    .aronography .verse {
+        grid-column: 1;
+    }
+    .aronography .details {
+        grid-column: 2;
+    }
+    .aronography .details img {
+        float: right;
+        padding-left: 1em;
+    }
 }
 
 .aronography .verse p {
@@ -221,7 +230,6 @@ a:hover .icon-soundcloud svg path {
 }
 
 .aronography .details {
-    grid-column: 2;
     font-weight: 100;
     border: 1px;
     background: #eeeeee;
@@ -234,27 +242,38 @@ a:hover .icon-soundcloud svg path {
     position: relative;
 }
 
-.aronography .details:before {
-    content: "";
-    width: 0px;
-    height: 0px;
-    position: absolute;
-    border-left: 10px solid transparent;
-    border-right: 10px solid #cdcdcd;
-    border-top: 10px solid #cdcdcd;
-    border-bottom: 10px solid transparent;
-    left: -20px;
-    top: 6px;
+@media only screen and (max-width: 677px) {
+    .aronography .details:before {
+        content: "";
+        width: 0px;
+        height: 0px;
+        position: absolute;
+        border-right: 10px solid transparent;
+        border-left: 10px solid #cdcdcd;
+        border-bottom: 10px solid #cdcdcd;
+        border-top: 10px solid transparent;
+        top: -20px;
+        left: 6px;
+    }
+}
+@media only screen and (min-width: 678px) {
+    .aronography .details:before {
+        content: "";
+        width: 0px;
+        height: 0px;
+        position: absolute;
+        border-left: 10px solid transparent;
+        border-right: 10px solid #cdcdcd;
+        border-top: 10px solid #cdcdcd;
+        border-bottom: 10px solid transparent;
+        left: -20px;
+        top: 6px;
+    }
 }
 
 .aronography .details p {
     margin-top: 1em;
     margin-bottom: 1em;
-}
-
-.aronography .details img {
-    float: right;
-    padding-left: 1em;
 }
 
 .aronography .trailer {
