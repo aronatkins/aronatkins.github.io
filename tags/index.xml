@@ -8,8 +8,107 @@
     <language>en-us</language>
     <managingEditor>aron.atkins@gmail.com (Aron Atkins)</managingEditor>
     <webMaster>aron.atkins@gmail.com (Aron Atkins)</webMaster>
-    <lastBuildDate>Wed, 12 Oct 2016 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 18 May 2022 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://aronatkins.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>annotated</title>
+      <link>https://aronatkins.github.io/tags/annotated/</link>
+      <pubDate>Wed, 18 May 2022 00:00:00 +0000</pubDate>
+      <author>aron.atkins@gmail.com (Aron Atkins)</author>
+      <guid>https://aronatkins.github.io/tags/annotated/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>birthday</title>
+      <link>https://aronatkins.github.io/tags/birthday/</link>
+      <pubDate>Wed, 18 May 2022 00:00:00 +0000</pubDate>
+      <author>aron.atkins@gmail.com (Aron Atkins)</author>
+      <guid>https://aronatkins.github.io/tags/birthday/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>jaded</title>
+      <link>https://aronatkins.github.io/tags/jaded/</link>
+      <pubDate>Wed, 18 May 2022 00:00:00 +0000</pubDate>
+      <author>aron.atkins@gmail.com (Aron Atkins)</author>
+      <guid>https://aronatkins.github.io/tags/jaded/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>jason</title>
+      <link>https://aronatkins.github.io/tags/jason/</link>
+      <pubDate>Wed, 18 May 2022 00:00:00 +0000</pubDate>
+      <author>aron.atkins@gmail.com (Aron Atkins)</author>
+      <guid>https://aronatkins.github.io/tags/jason/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>jason macierowski</title>
+      <link>https://aronatkins.github.io/tags/jason-macierowski/</link>
+      <pubDate>Wed, 18 May 2022 00:00:00 +0000</pubDate>
+      <author>aron.atkins@gmail.com (Aron Atkins)</author>
+      <guid>https://aronatkins.github.io/tags/jason-macierowski/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>lyrics</title>
+      <link>https://aronatkins.github.io/tags/lyrics/</link>
+      <pubDate>Wed, 18 May 2022 00:00:00 +0000</pubDate>
+      <author>aron.atkins@gmail.com (Aron Atkins)</author>
+      <guid>https://aronatkins.github.io/tags/lyrics/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>macierowski</title>
+      <link>https://aronatkins.github.io/tags/macierowski/</link>
+      <pubDate>Wed, 18 May 2022 00:00:00 +0000</pubDate>
+      <author>aron.atkins@gmail.com (Aron Atkins)</author>
+      <guid>https://aronatkins.github.io/tags/macierowski/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>music</title>
+      <link>https://aronatkins.github.io/tags/music/</link>
+      <pubDate>Wed, 18 May 2022 00:00:00 +0000</pubDate>
+      <author>aron.atkins@gmail.com (Aron Atkins)</author>
+      <guid>https://aronatkins.github.io/tags/music/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>song</title>
+      <link>https://aronatkins.github.io/tags/song/</link>
+      <pubDate>Wed, 18 May 2022 00:00:00 +0000</pubDate>
+      <author>aron.atkins@gmail.com (Aron Atkins)</author>
+      <guid>https://aronatkins.github.io/tags/song/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>tintern</title>
+      <link>https://aronatkins.github.io/tags/tintern/</link>
+      <pubDate>Wed, 18 May 2022 00:00:00 +0000</pubDate>
+      <author>aron.atkins@gmail.com (Aron Atkins)</author>
+      <guid>https://aronatkins.github.io/tags/tintern/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>tintern abbey</title>
+      <link>https://aronatkins.github.io/tags/tintern-abbey/</link>
+      <pubDate>Wed, 18 May 2022 00:00:00 +0000</pubDate>
+      <author>aron.atkins@gmail.com (Aron Atkins)</author>
+      <guid>https://aronatkins.github.io/tags/tintern-abbey/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>engineering</title>
@@ -44,24 +143,6 @@
       <pubDate>Wed, 12 Oct 2016 00:00:00 +0000</pubDate>
       <author>aron.atkins@gmail.com (Aron Atkins)</author>
       <guid>https://aronatkins.github.io/tags/ubuntu/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>music</title>
-      <link>https://aronatkins.github.io/tags/music/</link>
-      <pubDate>Fri, 16 Sep 2016 00:00:00 +0000</pubDate>
-      <author>aron.atkins@gmail.com (Aron Atkins)</author>
-      <guid>https://aronatkins.github.io/tags/music/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>song</title>
-      <link>https://aronatkins.github.io/tags/song/</link>
-      <pubDate>Fri, 16 Sep 2016 00:00:00 +0000</pubDate>
-      <author>aron.atkins@gmail.com (Aron Atkins)</author>
-      <guid>https://aronatkins.github.io/tags/song/</guid>
       <description></description>
     </item>
     
@@ -170,15 +251,6 @@
       <pubDate>Sun, 15 Nov 2015 00:00:00 +0000</pubDate>
       <author>aron.atkins@gmail.com (Aron Atkins)</author>
       <guid>https://aronatkins.github.io/tags/golang/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>birthday</title>
-      <link>https://aronatkins.github.io/tags/birthday/</link>
-      <pubDate>Fri, 16 Oct 2015 00:00:00 +0000</pubDate>
-      <author>aron.atkins@gmail.com (Aron Atkins)</author>
-      <guid>https://aronatkins.github.io/tags/birthday/</guid>
       <description></description>
     </item>
     
@@ -395,33 +467,6 @@
       <pubDate>Tue, 23 Dec 2014 00:00:00 +0000</pubDate>
       <author>aron.atkins@gmail.com (Aron Atkins)</author>
       <guid>https://aronatkins.github.io/tags/teams/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>jaded</title>
-      <link>https://aronatkins.github.io/tags/jaded/</link>
-      <pubDate>Sun, 21 Dec 2014 00:01:00 +0000</pubDate>
-      <author>aron.atkins@gmail.com (Aron Atkins)</author>
-      <guid>https://aronatkins.github.io/tags/jaded/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>jason</title>
-      <link>https://aronatkins.github.io/tags/jason/</link>
-      <pubDate>Sun, 21 Dec 2014 00:01:00 +0000</pubDate>
-      <author>aron.atkins@gmail.com (Aron Atkins)</author>
-      <guid>https://aronatkins.github.io/tags/jason/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>tintern</title>
-      <link>https://aronatkins.github.io/tags/tintern/</link>
-      <pubDate>Sun, 21 Dec 2014 00:01:00 +0000</pubDate>
-      <author>aron.atkins@gmail.com (Aron Atkins)</author>
-      <guid>https://aronatkins.github.io/tags/tintern/</guid>
       <description></description>
     </item>
     
