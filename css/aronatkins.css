@@ -32,6 +32,7 @@ pre {
     overflow-x: auto;
 }
 
+/*
 blockquote {
     color: #828282;
     border-left: 4px solid #e8e8e8;
@@ -39,6 +40,7 @@ blockquote {
     padding-left: 1em;
     font-style: italic;
 }
+*/
 
 .site-header, .page-header {
     border-top: 5px solid #424242;
@@ -236,6 +238,14 @@ a:hover .icon-soundcloud svg path {
     border: 2px solid #cdcdcd;
     padding-left: 1em;
     padding-right: 1em;
+}
+
+/* override browser default stylesheet */
+.aronography blockquote.details {
+    margin-block-start: 0em;
+    margin-block-end: 0em;
+    margin-inline-start: 0em;
+    margin-inline-end: 0em;
 }
 
 .aronography .details {
