@@ -6,7 +6,7 @@
     
     <title>Aron Atkins  | emacs: aron/git-grep</title>
     <meta name="viewport" content="width=device-width,minimum-scale=1">
-    <meta name="generator" content="Hugo 0.59.1" />
+    <meta name="generator" content="Hugo 0.122.0">
     <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
 
     <link rel="stylesheet" href='/css/aronatkins.css'>
@@ -16,24 +16,17 @@
 Here is mine, inspired by a recent blog post to oremacs. You are interactively asked for a search term and a pathspec; accepting the defaults will search for a symbol at your current cursor position across the entire git repository.
 (defvar aron/git-grep-symbol-history nil &#34;Internal variable for aron-grep; do not modify&#34;) (defvar aron/git-grep-pathspec-history nil &#34;Internal variable for aron-grep; do not modify&#34;) (defun aron/git-grep (search-for pathspec) &#34;Grep for a string in the current git repository." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://aronatkins.github.io/posts/2015-04-29-emacs-aron-git-grep/" />
+<meta property="og:url" content="https://aronatkins.github.io/posts/2015-04-29-emacs-aron-git-grep/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2015-04-29T00:00:00+00:00" />
 <meta property="article:modified_time" content="2015-04-29T00:00:00+00:00" />
+
 <meta itemprop="name" content="emacs: aron/git-grep">
 <meta itemprop="description" content="There are lots of suggestions how to expose git grep in emacs.
 Here is mine, inspired by a recent blog post to oremacs. You are interactively asked for a search term and a pathspec; accepting the defaults will search for a symbol at your current cursor position across the entire git repository.
-(defvar aron/git-grep-symbol-history nil &#34;Internal variable for aron-grep; do not modify&#34;) (defvar aron/git-grep-pathspec-history nil &#34;Internal variable for aron-grep; do not modify&#34;) (defun aron/git-grep (search-for pathspec) &#34;Grep for a string in the current git repository.">
-
-
-<meta itemprop="datePublished" content="2015-04-29T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2015-04-29T00:00:00&#43;00:00" />
+(defvar aron/git-grep-symbol-history nil &#34;Internal variable for aron-grep; do not modify&#34;) (defvar aron/git-grep-pathspec-history nil &#34;Internal variable for aron-grep; do not modify&#34;) (defun aron/git-grep (search-for pathspec) &#34;Grep for a string in the current git repository."><meta itemprop="datePublished" content="2015-04-29T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2015-04-29T00:00:00+00:00" />
 <meta itemprop="wordCount" content="255">
-
-
-
-<meta itemprop="keywords" content="emacs,git,grep," />
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="emacs: aron/git-grep"/>
+<meta itemprop="keywords" content="emacs,git,grep," /><meta name="twitter:card" content="summary"/><meta name="twitter:title" content="emacs: aron/git-grep"/>
 <meta name="twitter:description" content="There are lots of suggestions how to expose git grep in emacs.
 Here is mine, inspired by a recent blog post to oremacs. You are interactively asked for a search term and a pathspec; accepting the defaults will search for a symbol at your current cursor position across the entire git repository.
 (defvar aron/git-grep-symbol-history nil &#34;Internal variable for aron-grep; do not modify&#34;) (defvar aron/git-grep-pathspec-history nil &#34;Internal variable for aron-grep; do not modify&#34;) (defun aron/git-grep (search-for pathspec) &#34;Grep for a string in the current git repository."/>
@@ -83,57 +76,59 @@ Here is mine, inspired by a recent blog post to oremacs. You are interactively a
         <section><p>There are
 <a href="https://www.google.com/search?q=emacs+git+grep">lots of suggestions</a> how to
 expose <code>git grep</code> in emacs.</p>
-
 <p><a href="https://github.com/aronatkins/emacs.d/blob/master/lisp/aron-grep.el">Here is mine</a>,
 inspired by a recent blog post to
 <a href="http://oremacs.com/2015/04/19/git-grep-ivy/">oremacs</a>. You are interactively
 asked for a search term and a pathspec; accepting the defaults will search for
 a symbol at your current cursor position across the entire git repository.</p>
-<div class="highlight"><pre style="color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-elisp" data-lang="elisp">(<span style="color:#cb4b16">defvar</span> <span style="color:#268bd2">aron/git-grep-symbol-history</span> <span style="color:#268bd2">nil</span>
-  <span style="color:#2aa198">&#34;Internal variable for aron-grep; do not modify&#34;</span>)
-(<span style="color:#cb4b16">defvar</span> <span style="color:#268bd2">aron/git-grep-pathspec-history</span> <span style="color:#268bd2">nil</span>
-  <span style="color:#2aa198">&#34;Internal variable for aron-grep; do not modify&#34;</span>)
-(<span style="color:#cb4b16">defun</span> <span style="color:#268bd2">aron/git-grep</span> (<span style="color:#268bd2">search-for</span> <span style="color:#268bd2">pathspec</span>)
-  <span style="color:#2aa198">&#34;Grep for a string in the current git repository.&#34;</span>
-  (<span style="color:#cb4b16">interactive</span> (<span style="color:#268bd2">list</span> 
-                (<span style="color:#268bd2">read-from-minibuffer</span> <span style="color:#2aa198">&#34;search for: &#34;</span>
-                                      (<span style="color:#268bd2">thing-at-point</span> <span style="color:#2aa198">&#39;symbol</span>)
-                                      <span style="color:#268bd2">nil</span> <span style="color:#268bd2">nil</span>
-                                      <span style="color:#2aa198">&#39;aron/git-grep-symbol-history</span>)
-                (<span style="color:#268bd2">read-from-minibuffer</span> <span style="color:#2aa198">&#34;pathspecs: &#34;</span>
-                                      <span style="color:#2aa198">&#34;&#34;</span>
-                                      <span style="color:#268bd2">nil</span> <span style="color:#268bd2">nil</span>
-                                      <span style="color:#2aa198">&#39;aron/git-grep-pathspec-history</span>)
-                ))
-  (<span style="color:#cb4b16">let</span> ((<span style="color:#268bd2">default-directory</span> (<span style="color:#268bd2">locate-dominating-file</span> <span style="color:#268bd2">default-directory</span> <span style="color:#2aa198">&#34;.git&#34;</span>)))
-    <span style="color:#93a1a1;font-style:italic">; We don&#39;t use the grep function directly because it doesn&#39;t offer much</span>
-    <span style="color:#93a1a1;font-style:italic">; besides adding /dev/null in unpredictable ways. We have a fully runnable</span>
-    <span style="color:#93a1a1;font-style:italic">; compilation command; just apply grep-mode to the result.</span>
-    (<span style="color:#268bd2">compilation-start</span>
-     (<span style="color:#268bd2">format</span> <span style="color:#2aa198">&#34;git --no-pager grep -nH --full-name --no-color -i -e &#39;%s&#39; -- %s&#34;</span>
-             <span style="color:#268bd2">search-for</span> <span style="color:#268bd2">pathspec</span>)
-     <span style="color:#2aa198">&#39;grep-mode</span>)))</code></pre></div>
-<p>If I just want to search Go files, use a pathspec of <code>*.go</code>; Javascript with
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-elisp" data-lang="elisp"><span style="display:flex;"><span>(<span style="color:#0086b3">defvar</span> <span style="color:#008080">aron/git-grep-symbol-history</span> <span style="color:#008080">nil</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#d14">&#34;Internal variable for aron-grep; do not modify&#34;</span>)
+</span></span><span style="display:flex;"><span>(<span style="color:#0086b3">defvar</span> <span style="color:#008080">aron/git-grep-pathspec-history</span> <span style="color:#008080">nil</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#d14">&#34;Internal variable for aron-grep; do not modify&#34;</span>)
+</span></span><span style="display:flex;"><span>(<span style="color:#0086b3">defun</span> <span style="color:#008080">aron/git-grep</span> (<span style="color:#008080">search-for</span> <span style="color:#008080">pathspec</span>)
+</span></span><span style="display:flex;"><span>  <span style="color:#d14">&#34;Grep for a string in the current git repository.&#34;</span>
+</span></span><span style="display:flex;"><span>  (<span style="color:#0086b3">interactive</span> (<span style="color:#900;font-weight:bold">list</span> 
+</span></span><span style="display:flex;"><span>                (<span style="color:#900;font-weight:bold">read-from-minibuffer</span> <span style="color:#d14">&#34;search for: &#34;</span>
+</span></span><span style="display:flex;"><span>                                      (<span style="color:#008080">thing-at-point</span> <span style="color:#990073">&#39;symbol</span>)
+</span></span><span style="display:flex;"><span>                                      <span style="color:#008080">nil</span> <span style="color:#008080">nil</span>
+</span></span><span style="display:flex;"><span>                                      <span style="color:#990073">&#39;aron/git-grep-symbol-history</span>)
+</span></span><span style="display:flex;"><span>                (<span style="color:#900;font-weight:bold">read-from-minibuffer</span> <span style="color:#d14">&#34;pathspecs: &#34;</span>
+</span></span><span style="display:flex;"><span>                                      <span style="color:#d14">&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>                                      <span style="color:#008080">nil</span> <span style="color:#008080">nil</span>
+</span></span><span style="display:flex;"><span>                                      <span style="color:#990073">&#39;aron/git-grep-pathspec-history</span>)
+</span></span><span style="display:flex;"><span>                ))
+</span></span><span style="display:flex;"><span>  (<span style="color:#0086b3">let</span> ((<span style="color:#008080">default-directory</span> (<span style="color:#008080">locate-dominating-file</span> <span style="color:#008080">default-directory</span> <span style="color:#d14">&#34;.git&#34;</span>)))
+</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">; We don&#39;t use the grep function directly because it doesn&#39;t offer much</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">; besides adding /dev/null in unpredictable ways. We have a fully runnable</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">; compilation command; just apply grep-mode to the result.</span>
+</span></span><span style="display:flex;"><span>    (<span style="color:#008080">compilation-start</span>
+</span></span><span style="display:flex;"><span>     (<span style="color:#900;font-weight:bold">format</span> <span style="color:#d14">&#34;git --no-pager grep -nH --full-name --no-color -i -e &#39;%s&#39; -- %s&#34;</span>
+</span></span><span style="display:flex;"><span>             <span style="color:#008080">search-for</span> <span style="color:#008080">pathspec</span>)
+</span></span><span style="display:flex;"><span>     <span style="color:#990073">&#39;grep-mode</span>)))
+</span></span></code></pre></div><p>If I just want to search Go files, use a pathspec of <code>*.go</code>; Javascript with
 <code>*.js</code>. I am occasionally unhappy that the search is case insensitive and may
 rewrite that bit.</p>
-
 <p>My personal emacs
 <a href="https://github.com/aronatkins/emacs.d/blob/master/lisp/aron-keys.el">key bindings</a>
 often use <code>C-z</code> as a prefix (how is <code>C-z</code> useful to anyone in these modern times?).
 I have <code>aron/git-grep</code> bound to <code>C-z j</code>.</p>
-<div class="highlight"><pre style="color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-elisp" data-lang="elisp">(<span style="color:#cb4b16">defvar</span> <span style="color:#268bd2">ctl-z-map</span> (<span style="color:#268bd2">make-sparse-keymap</span>) <span style="color:#2aa198">&#34;Keymap for user extensions.&#34;</span>)
-(<span style="color:#268bd2">define-key</span> <span style="color:#268bd2">ctl-z-map</span> <span style="color:#2aa198">&#34;j&#34;</span> <span style="color:#2aa198">&#39;aron/git-grep</span>)
-
-<span style="color:#93a1a1;font-style:italic">;; since we&#39;re changing the default meaning of C-z, add suspend back into the</span>
-<span style="color:#93a1a1;font-style:italic">;; fray with C-z C-z.</span>
-(<span style="color:#268bd2">define-key</span> <span style="color:#268bd2">ctl-z-map</span> <span style="color:#2aa198">&#34;\C-z&#34;</span> <span style="color:#2aa198">&#39;suspend-emacs</span>)
-
-(<span style="color:#268bd2">global-set-key</span> <span style="color:#2aa198">&#34;\C-z&#34;</span> <span style="color:#268bd2">ctl-z-map</span>)</code></pre></div><div class="tags">
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-elisp" data-lang="elisp"><span style="display:flex;"><span>(<span style="color:#0086b3">defvar</span> <span style="color:#008080">ctl-z-map</span> (<span style="color:#900;font-weight:bold">make-sparse-keymap</span>) <span style="color:#d14">&#34;Keymap for user extensions.&#34;</span>)
+</span></span><span style="display:flex;"><span>(<span style="color:#900;font-weight:bold">define-key</span> <span style="color:#008080">ctl-z-map</span> <span style="color:#d14">&#34;j&#34;</span> <span style="color:#990073">&#39;aron/git-grep</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">;; since we&#39;re changing the default meaning of C-z, add suspend back into the</span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">;; fray with C-z C-z.</span>
+</span></span><span style="display:flex;"><span>(<span style="color:#900;font-weight:bold">define-key</span> <span style="color:#008080">ctl-z-map</span> <span style="color:#d14">&#34;\C-z&#34;</span> <span style="color:#990073">&#39;suspend-emacs</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>(<span style="color:#008080">global-set-key</span> <span style="color:#d14">&#34;\C-z&#34;</span> <span style="color:#008080">ctl-z-map</span>)
+</span></span></code></pre></div><div class="tags">
     More: 
     
-    
-    
-    <a href="/tags/emacs">emacs</a> / <a href="/tags/git">git</a> / <a href="/tags/grep">grep</a>
+        <a href="/tags/emacs">emacs</a>
+ / 
+        <a href="/tags/git">git</a>
+ / 
+        <a href="/tags/grep">grep</a>
+
 </div>
 
 </section>

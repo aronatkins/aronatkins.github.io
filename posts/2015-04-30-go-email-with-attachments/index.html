@@ -6,7 +6,7 @@
     
     <title>Aron Atkins  | go: email with attachments</title>
     <meta name="viewport" content="width=device-width,minimum-scale=1">
-    <meta name="generator" content="Hugo 0.59.1" />
+    <meta name="generator" content="Hugo 0.122.0">
     <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
 
     <link rel="stylesheet" href='/css/aronatkins.css'>
@@ -16,24 +16,17 @@
 It doesn&rsquo;t worry about trying to actually send mail but only tries to create a well-composed message. See the documentation or repository on GitHub for more details.
 package main import ( &#34;encoding/base64&#34; &#34;fmt&#34; &#34;net/smtp&#34; &#34;gopkg.in/gomail.v1&#34; ) func main() { m := gomail.NewMessage() m." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://aronatkins.github.io/posts/2015-04-30-go-email-with-attachments/" />
+<meta property="og:url" content="https://aronatkins.github.io/posts/2015-04-30-go-email-with-attachments/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2015-04-30T00:00:00+00:00" />
 <meta property="article:modified_time" content="2015-04-30T00:00:00+00:00" />
+
 <meta itemprop="name" content="go: email with attachments">
 <meta itemprop="description" content="Here is an example showing how to use the gomail package to produce email containing plain-text content, alternative html content with an embedded image, and an HTML attachment.
 It doesn&rsquo;t worry about trying to actually send mail but only tries to create a well-composed message. See the documentation or repository on GitHub for more details.
-package main import ( &#34;encoding/base64&#34; &#34;fmt&#34; &#34;net/smtp&#34; &#34;gopkg.in/gomail.v1&#34; ) func main() { m := gomail.NewMessage() m.">
-
-
-<meta itemprop="datePublished" content="2015-04-30T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2015-04-30T00:00:00&#43;00:00" />
+package main import ( &#34;encoding/base64&#34; &#34;fmt&#34; &#34;net/smtp&#34; &#34;gopkg.in/gomail.v1&#34; ) func main() { m := gomail.NewMessage() m."><meta itemprop="datePublished" content="2015-04-30T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2015-04-30T00:00:00+00:00" />
 <meta itemprop="wordCount" content="269">
-
-
-
-<meta itemprop="keywords" content="go,golang,gomail,email,attachment," />
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="go: email with attachments"/>
+<meta itemprop="keywords" content="go,golang,gomail,email,attachment," /><meta name="twitter:card" content="summary"/><meta name="twitter:title" content="go: email with attachments"/>
 <meta name="twitter:description" content="Here is an example showing how to use the gomail package to produce email containing plain-text content, alternative html content with an embedded image, and an HTML attachment.
 It doesn&rsquo;t worry about trying to actually send mail but only tries to create a well-composed message. See the documentation or repository on GitHub for more details.
 package main import ( &#34;encoding/base64&#34; &#34;fmt&#34; &#34;net/smtp&#34; &#34;gopkg.in/gomail.v1&#34; ) func main() { m := gomail.NewMessage() m."/>
@@ -84,97 +77,104 @@ package main import ( &#34;encoding/base64&#34; &#34;fmt&#34; &#34;net/smtp&#34;
 <a href="https://godoc.org/gopkg.in/gomail.v1">gomail</a> package to produce email
 containing plain-text content, alternative html content with an embedded
 image, and an HTML attachment.</p>
-
 <p>It doesn&rsquo;t worry about trying to actually send mail but only tries to create a
 well-composed message. See the
 <a href="https://godoc.org/gopkg.in/gomail.v1">documentation</a> or
 <a href="https://github.com/go-gomail/gomail">repository</a> on GitHub for more details.</p>
-<div class="highlight"><pre style="color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#dc322f;font-weight:bold">package</span> <span style="color:#268bd2">main</span>
-
-<span style="color:#dc322f;font-weight:bold">import</span> (
-    <span style="color:#2aa198">&#34;encoding/base64&#34;</span>
-    <span style="color:#2aa198">&#34;fmt&#34;</span>
-    <span style="color:#2aa198">&#34;net/smtp&#34;</span>
-
-    <span style="color:#2aa198">&#34;gopkg.in/gomail.v1&#34;</span>
-)
-
-<span style="color:#859900">func</span> <span style="color:#268bd2">main</span>() {
-    <span style="color:#268bd2">m</span> := <span style="color:#268bd2">gomail</span>.<span style="color:#268bd2">NewMessage</span>()
-    <span style="color:#268bd2">m</span>.<span style="color:#268bd2">SetHeaders</span>(<span style="color:#859900">map</span>[<span style="color:#859900;font-weight:bold">string</span>][]<span style="color:#859900;font-weight:bold">string</span>{
-        <span style="color:#2aa198">&#34;From&#34;</span>:    {<span style="color:#2aa198">&#34;alice@foobar.com&#34;</span>},
-        <span style="color:#2aa198">&#34;To&#34;</span>:      {<span style="color:#2aa198">&#34;bob@foobar.com&#34;</span>},
-        <span style="color:#2aa198">&#34;Subject&#34;</span>: {<span style="color:#2aa198">&#34;inbound crap&#34;</span>},
-    })
-    <span style="color:#268bd2">m</span>.<span style="color:#268bd2">SetBody</span>(<span style="color:#2aa198">&#34;text/plain&#34;</span>, <span style="color:#2aa198">&#34;hello. i am sending you crap.&#34;</span>)
-    <span style="color:#93a1a1;font-style:italic">// from: http://probablyprogramming.com/2009/03/15/the-tiniest-gif-ever
-</span><span style="color:#93a1a1;font-style:italic"></span>    <span style="color:#268bd2">blankEncoded</span> := <span style="color:#2aa198">&#34;R0lGODlhAQABAIABAP///wAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==&#34;</span>
-    <span style="color:#93a1a1;font-style:italic">// i&#39;m a bad person. ignoring errors!
-</span><span style="color:#93a1a1;font-style:italic"></span>    <span style="color:#268bd2">blankContent</span>, <span style="color:#268bd2">_</span> := <span style="color:#268bd2">base64</span>.<span style="color:#268bd2">StdEncoding</span>.<span style="color:#268bd2">DecodeString</span>(<span style="color:#268bd2">blankEncoded</span>)
-    <span style="color:#268bd2">blank</span> := <span style="color:#268bd2">gomail</span>.<span style="color:#268bd2">CreateFile</span>(<span style="color:#2aa198">&#34;blank.gif&#34;</span>, <span style="color:#268bd2">blankContent</span>)
-    <span style="color:#268bd2">m</span>.<span style="color:#268bd2">Embed</span>(<span style="color:#268bd2">blank</span>)
-    <span style="color:#268bd2">m</span>.<span style="color:#268bd2">AddAlternative</span>(<span style="color:#2aa198">&#34;text/html&#34;</span>, <span style="color:#2aa198">`&lt;p&gt;hello. i am sending you &lt;img border=&#34;2&#34; src=&#34;cid:blank.gif&#34; alt=&#34;blank&#34; /&gt; crap.&lt;/p&gt;`</span>)
-    <span style="color:#268bd2">crap</span> := <span style="color:#268bd2">gomail</span>.<span style="color:#268bd2">CreateFile</span>(<span style="color:#2aa198">&#34;crap.html&#34;</span>, []<span style="color:#cb4b16">byte</span>(<span style="color:#2aa198">&#34;&lt;!doctype html&gt;\n&lt;html&gt;&lt;title&gt;crap&lt;/title&gt;&lt;body&gt;this is crap, y&#39;know?&lt;/body&gt;&lt;/html&gt;&#34;</span>))
-    <span style="color:#268bd2">m</span>.<span style="color:#268bd2">Attach</span>(<span style="color:#268bd2">crap</span>)
-
-    <span style="color:#268bd2">mailDumper</span> := <span style="color:#859900">func</span>(<span style="color:#268bd2">addr</span> <span style="color:#859900;font-weight:bold">string</span>, <span style="color:#268bd2">a</span> <span style="color:#268bd2">smtp</span>.<span style="color:#268bd2">Auth</span>, <span style="color:#268bd2">from</span> <span style="color:#859900;font-weight:bold">string</span>, <span style="color:#268bd2">to</span> []<span style="color:#859900;font-weight:bold">string</span>, <span style="color:#268bd2">msg</span> []<span style="color:#859900;font-weight:bold">byte</span>) <span style="color:#859900;font-weight:bold">error</span> {
-        <span style="color:#93a1a1;font-style:italic">// This dumps out the mail message so it can piped straight to `sendmail -t`
-</span><span style="color:#93a1a1;font-style:italic"></span>        <span style="color:#93a1a1;font-style:italic">// and proves that this is a parsable message.
-</span><span style="color:#93a1a1;font-style:italic"></span>        <span style="color:#268bd2">fmt</span>.<span style="color:#268bd2">Print</span>(<span style="color:#cb4b16">string</span>(<span style="color:#268bd2">msg</span>))
-        <span style="color:#859900">return</span> <span style="color:#859900;font-weight:bold">nil</span>
-    }
-    <span style="color:#268bd2">mailer</span> := <span style="color:#268bd2">gomail</span>.<span style="color:#268bd2">NewMailer</span>(<span style="color:#2aa198">&#34;localhost&#34;</span>, <span style="color:#2aa198">&#34;user&#34;</span>, <span style="color:#2aa198">&#34;pass&#34;</span>, <span style="color:#2aa198;font-weight:bold">465</span>, <span style="color:#268bd2">gomail</span>.<span style="color:#268bd2">SetSendMail</span>(<span style="color:#268bd2">mailDumper</span>))
-    <span style="color:#268bd2">mailer</span>.<span style="color:#268bd2">Send</span>(<span style="color:#268bd2">m</span>)
-}</code></pre></div>
-<p>Here is the resulting message:</p>
-<div class="highlight"><pre style="color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-nohighlight" data-lang="nohighlight">Date: Wed, 29 Apr 2015 16:33:56 -0400
-Content-Type: multipart/mixed; boundary=21ee3da964c7bf70def62adb9ee1a061747003c026e363e47231258c48f1
-From: alice@foobar.com
-To: bob@foobar.com
-Subject: inbound crap
-Mime-Version: 1.0
-
---21ee3da964c7bf70def62adb9ee1a061747003c026e363e47231258c48f1
-Content-Type: multipart/related; boundary=76a1282373c08a65dd49db1dea2c55111fda9a715c89720a844fabb7d497
-
---76a1282373c08a65dd49db1dea2c55111fda9a715c89720a844fabb7d497
-Content-Type: multipart/alternative; boundary=4186c39e13b2140c88094b3933206336f2bb3948db7ecf064c7a7d7473f2
-
---4186c39e13b2140c88094b3933206336f2bb3948db7ecf064c7a7d7473f2
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: quoted-printable
-
-hello. i am sending you crap.
---4186c39e13b2140c88094b3933206336f2bb3948db7ecf064c7a7d7473f2
-Content-Type: text/html; charset=UTF-8
-Content-Transfer-Encoding: quoted-printable
-
-&lt;p&gt;hello. i am sending you &lt;img border=3D&#34;2&#34; src=3D&#34;cid:blank.gif&#34; alt=3D&#34;bl=
-ank&#34; /&gt; crap.&lt;/p&gt;
---4186c39e13b2140c88094b3933206336f2bb3948db7ecf064c7a7d7473f2--
-
---76a1282373c08a65dd49db1dea2c55111fda9a715c89720a844fabb7d497
-Content-Type: image/gif; name=&#34;blank.gif&#34;
-Content-Transfer-Encoding: base64
-Content-Disposition: inline; filename=&#34;blank.gif&#34;
-Content-ID: &lt;blank.gif&gt;
-
-R0lGODlhAQABAIABAP///wAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==
---76a1282373c08a65dd49db1dea2c55111fda9a715c89720a844fabb7d497--
-
---21ee3da964c7bf70def62adb9ee1a061747003c026e363e47231258c48f1
-Content-Type: text/html; charset=utf-8; name=&#34;crap.html&#34;
-Content-Transfer-Encoding: base64
-Content-Disposition: attachment; filename=&#34;crap.html&#34;
-
-PCFkb2N0eXBlIGh0bWw+CjxodG1sPjx0aXRsZT5jcmFwPC90aXRsZT48Ym9keT50aGlzIGlzIGNy
-YXAsIHkna25vdz88L2JvZHk+PC9odG1sPg==
---21ee3da964c7bf70def62adb9ee1a061747003c026e363e47231258c48f1--</code></pre></div><div class="tags">
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">package</span> main
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">import</span> (
+</span></span><span style="display:flex;"><span>    <span style="color:#d14">&#34;encoding/base64&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#d14">&#34;fmt&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#d14">&#34;net/smtp&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#d14">&#34;gopkg.in/gomail.v1&#34;</span>
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">func</span> <span style="color:#900;font-weight:bold">main</span>() {
+</span></span><span style="display:flex;"><span>    m <span style="color:#000;font-weight:bold">:=</span> gomail.<span style="color:#900;font-weight:bold">NewMessage</span>()
+</span></span><span style="display:flex;"><span>    m.<span style="color:#900;font-weight:bold">SetHeaders</span>(<span style="color:#000;font-weight:bold">map</span>[<span style="color:#458;font-weight:bold">string</span>][]<span style="color:#458;font-weight:bold">string</span>{
+</span></span><span style="display:flex;"><span>        <span style="color:#d14">&#34;From&#34;</span>:    {<span style="color:#d14">&#34;alice@foobar.com&#34;</span>},
+</span></span><span style="display:flex;"><span>        <span style="color:#d14">&#34;To&#34;</span>:      {<span style="color:#d14">&#34;bob@foobar.com&#34;</span>},
+</span></span><span style="display:flex;"><span>        <span style="color:#d14">&#34;Subject&#34;</span>: {<span style="color:#d14">&#34;inbound crap&#34;</span>},
+</span></span><span style="display:flex;"><span>    })
+</span></span><span style="display:flex;"><span>    m.<span style="color:#900;font-weight:bold">SetBody</span>(<span style="color:#d14">&#34;text/plain&#34;</span>, <span style="color:#d14">&#34;hello. i am sending you crap.&#34;</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">// from: http://probablyprogramming.com/2009/03/15/the-tiniest-gif-ever
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>    blankEncoded <span style="color:#000;font-weight:bold">:=</span> <span style="color:#d14">&#34;R0lGODlhAQABAIABAP///wAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">// i&#39;m a bad person. ignoring errors!
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>    blankContent, _ <span style="color:#000;font-weight:bold">:=</span> base64.StdEncoding.<span style="color:#900;font-weight:bold">DecodeString</span>(blankEncoded)
+</span></span><span style="display:flex;"><span>    blank <span style="color:#000;font-weight:bold">:=</span> gomail.<span style="color:#900;font-weight:bold">CreateFile</span>(<span style="color:#d14">&#34;blank.gif&#34;</span>, blankContent)
+</span></span><span style="display:flex;"><span>    m.<span style="color:#900;font-weight:bold">Embed</span>(blank)
+</span></span><span style="display:flex;"><span>    m.<span style="color:#900;font-weight:bold">AddAlternative</span>(<span style="color:#d14">&#34;text/html&#34;</span>, <span style="color:#d14">`&lt;p&gt;hello. i am sending you &lt;img border=&#34;2&#34; src=&#34;cid:blank.gif&#34; alt=&#34;blank&#34; /&gt; crap.&lt;/p&gt;`</span>)
+</span></span><span style="display:flex;"><span>    crap <span style="color:#000;font-weight:bold">:=</span> gomail.<span style="color:#900;font-weight:bold">CreateFile</span>(<span style="color:#d14">&#34;crap.html&#34;</span>, []<span style="color:#0086b3">byte</span>(<span style="color:#d14">&#34;&lt;!doctype html&gt;\n&lt;html&gt;&lt;title&gt;crap&lt;/title&gt;&lt;body&gt;this is crap, y&#39;know?&lt;/body&gt;&lt;/html&gt;&#34;</span>))
+</span></span><span style="display:flex;"><span>    m.<span style="color:#900;font-weight:bold">Attach</span>(crap)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    mailDumper <span style="color:#000;font-weight:bold">:=</span> <span style="color:#000;font-weight:bold">func</span>(addr <span style="color:#458;font-weight:bold">string</span>, a smtp.Auth, from <span style="color:#458;font-weight:bold">string</span>, to []<span style="color:#458;font-weight:bold">string</span>, msg []<span style="color:#458;font-weight:bold">byte</span>) <span style="color:#458;font-weight:bold">error</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">// This dumps out the mail message so it can piped straight to `sendmail -t`
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        <span style="color:#998;font-style:italic">// and proves that this is a parsable message.
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        fmt.<span style="color:#900;font-weight:bold">Print</span>(<span style="color:#0086b3">string</span>(msg))
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">return</span> <span style="color:#000;font-weight:bold">nil</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    mailer <span style="color:#000;font-weight:bold">:=</span> gomail.<span style="color:#900;font-weight:bold">NewMailer</span>(<span style="color:#d14">&#34;localhost&#34;</span>, <span style="color:#d14">&#34;user&#34;</span>, <span style="color:#d14">&#34;pass&#34;</span>, <span style="color:#099">465</span>, gomail.<span style="color:#900;font-weight:bold">SetSendMail</span>(mailDumper))
+</span></span><span style="display:flex;"><span>    mailer.<span style="color:#900;font-weight:bold">Send</span>(m)
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Here is the resulting message:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>Date: Wed, 29 Apr 2015 16:33:56 -0400
+</span></span><span style="display:flex;"><span>Content-Type: multipart/mixed; boundary=21ee3da964c7bf70def62adb9ee1a061747003c026e363e47231258c48f1
+</span></span><span style="display:flex;"><span>From: alice@foobar.com
+</span></span><span style="display:flex;"><span>To: bob@foobar.com
+</span></span><span style="display:flex;"><span>Subject: inbound crap
+</span></span><span style="display:flex;"><span>Mime-Version: 1.0
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>--21ee3da964c7bf70def62adb9ee1a061747003c026e363e47231258c48f1
+</span></span><span style="display:flex;"><span>Content-Type: multipart/related; boundary=76a1282373c08a65dd49db1dea2c55111fda9a715c89720a844fabb7d497
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>--76a1282373c08a65dd49db1dea2c55111fda9a715c89720a844fabb7d497
+</span></span><span style="display:flex;"><span>Content-Type: multipart/alternative; boundary=4186c39e13b2140c88094b3933206336f2bb3948db7ecf064c7a7d7473f2
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>--4186c39e13b2140c88094b3933206336f2bb3948db7ecf064c7a7d7473f2
+</span></span><span style="display:flex;"><span>Content-Type: text/plain; charset=UTF-8
+</span></span><span style="display:flex;"><span>Content-Transfer-Encoding: quoted-printable
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>hello. i am sending you crap.
+</span></span><span style="display:flex;"><span>--4186c39e13b2140c88094b3933206336f2bb3948db7ecf064c7a7d7473f2
+</span></span><span style="display:flex;"><span>Content-Type: text/html; charset=UTF-8
+</span></span><span style="display:flex;"><span>Content-Transfer-Encoding: quoted-printable
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>&lt;p&gt;hello. i am sending you &lt;img border=3D&#34;2&#34; src=3D&#34;cid:blank.gif&#34; alt=3D&#34;bl=
+</span></span><span style="display:flex;"><span>ank&#34; /&gt; crap.&lt;/p&gt;
+</span></span><span style="display:flex;"><span>--4186c39e13b2140c88094b3933206336f2bb3948db7ecf064c7a7d7473f2--
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>--76a1282373c08a65dd49db1dea2c55111fda9a715c89720a844fabb7d497
+</span></span><span style="display:flex;"><span>Content-Type: image/gif; name=&#34;blank.gif&#34;
+</span></span><span style="display:flex;"><span>Content-Transfer-Encoding: base64
+</span></span><span style="display:flex;"><span>Content-Disposition: inline; filename=&#34;blank.gif&#34;
+</span></span><span style="display:flex;"><span>Content-ID: &lt;blank.gif&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>R0lGODlhAQABAIABAP///wAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==
+</span></span><span style="display:flex;"><span>--76a1282373c08a65dd49db1dea2c55111fda9a715c89720a844fabb7d497--
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>--21ee3da964c7bf70def62adb9ee1a061747003c026e363e47231258c48f1
+</span></span><span style="display:flex;"><span>Content-Type: text/html; charset=utf-8; name=&#34;crap.html&#34;
+</span></span><span style="display:flex;"><span>Content-Transfer-Encoding: base64
+</span></span><span style="display:flex;"><span>Content-Disposition: attachment; filename=&#34;crap.html&#34;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>PCFkb2N0eXBlIGh0bWw+CjxodG1sPjx0aXRsZT5jcmFwPC90aXRsZT48Ym9keT50aGlzIGlzIGNy
+</span></span><span style="display:flex;"><span>YXAsIHkna25vdz88L2JvZHk+PC9odG1sPg==
+</span></span><span style="display:flex;"><span>--21ee3da964c7bf70def62adb9ee1a061747003c026e363e47231258c48f1--
+</span></span></code></pre></div><div class="tags">
     More: 
     
-    
-    
-    <a href="/tags/attachment">attachment</a> / <a href="/tags/email">email</a> / <a href="/tags/go">go</a> / <a href="/tags/golang">golang</a> / <a href="/tags/gomail">gomail</a>
+        <a href="/tags/attachment">attachment</a>
+ / 
+        <a href="/tags/email">email</a>
+ / 
+        <a href="/tags/go">go</a>
+ / 
+        <a href="/tags/golang">golang</a>
+ / 
+        <a href="/tags/gomail">gomail</a>
+
 </div>
 
 </section>

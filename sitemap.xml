@@ -1,484 +1,292 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  
   <url>
     <loc>https://aronatkins.github.io/tags/annotated/</loc>
     <lastmod>2022-05-18T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://aronatkins.github.io/</loc>
     <lastmod>2022-05-18T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://aronatkins.github.io/tags/birthday/</loc>
     <lastmod>2022-05-18T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://aronatkins.github.io/posts/2022-05-18-growing-up-annotated/</loc>
     <lastmod>2022-05-18T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://aronatkins.github.io/tags/jaded/</loc>
     <lastmod>2022-05-18T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://aronatkins.github.io/tags/jason/</loc>
     <lastmod>2022-05-18T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://aronatkins.github.io/tags/jason-macierowski/</loc>
     <lastmod>2022-05-18T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://aronatkins.github.io/tags/lyrics/</loc>
     <lastmod>2022-05-18T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://aronatkins.github.io/tags/macierowski/</loc>
     <lastmod>2022-05-18T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://aronatkins.github.io/tags/music/</loc>
     <lastmod>2022-05-18T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://aronatkins.github.io/posts/</loc>
     <lastmod>2022-05-18T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://aronatkins.github.io/tags/song/</loc>
     <lastmod>2022-05-18T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://aronatkins.github.io/tags/</loc>
     <lastmod>2022-05-18T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://aronatkins.github.io/tags/tintern/</loc>
     <lastmod>2022-05-18T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://aronatkins.github.io/tags/tintern-abbey/</loc>
     <lastmod>2022-05-18T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://aronatkins.github.io/posts/2022-05-17-from-where-came-tintern/</loc>
     <lastmod>2022-05-17T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://aronatkins.github.io/posts/2021-03-25-aronography/</loc>
     <lastmod>2021-03-25T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://aronatkins.github.io/posts/2019-11-18-i-go-you-go-we-all-go-hugo/</loc>
     <lastmod>2019-11-18T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://aronatkins.github.io/about/</loc>
     <lastmod>2019-10-31T23:09:33-04:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://aronatkins.github.io/tags/engineering/</loc>
     <lastmod>2016-10-12T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://aronatkins.github.io/posts/2016-10-12-installing-rstudio-daily-ubuntu-builds/</loc>
     <lastmod>2016-10-12T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://aronatkins.github.io/tags/linux/</loc>
     <lastmod>2016-10-12T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://aronatkins.github.io/tags/rstudio/</loc>
     <lastmod>2016-10-12T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://aronatkins.github.io/tags/ubuntu/</loc>
     <lastmod>2016-10-12T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://aronatkins.github.io/posts/2016-09-16-potato/</loc>
     <lastmod>2016-09-16T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://aronatkins.github.io/tags/adafruit/</loc>
     <lastmod>2016-02-22T00:01:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://aronatkins.github.io/tags/arduino/</loc>
     <lastmod>2016-02-22T00:01:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://aronatkins.github.io/tags/code/</loc>
     <lastmod>2016-02-22T00:01:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://aronatkins.github.io/tags/gemma/</loc>
     <lastmod>2016-02-22T00:01:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://aronatkins.github.io/posts/2016-02-22-gemma-neopixel-1-random_same/</loc>
     <lastmod>2016-02-22T00:01:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://aronatkins.github.io/tags/neopixel/</loc>
     <lastmod>2016-02-22T00:01:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://aronatkins.github.io/posts/2016-02-22-gemma-neopixel-0-wheel/</loc>
     <lastmod>2016-02-22T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://aronatkins.github.io/tags/jewelbots/</loc>
     <lastmod>2016-02-21T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://aronatkins.github.io/posts/2016-02-21-jewelbots-wearableskit/</loc>
     <lastmod>2016-02-21T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://aronatkins.github.io/tags/led/</loc>
     <lastmod>2016-02-21T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://aronatkins.github.io/tags/wearables/</loc>
     <lastmod>2016-02-21T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://aronatkins.github.io/tags/channel/</loc>
     <lastmod>2015-11-15T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://aronatkins.github.io/tags/deadlock/</loc>
     <lastmod>2015-11-15T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://aronatkins.github.io/tags/go/</loc>
     <lastmod>2015-11-15T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://aronatkins.github.io/posts/2015-11-15-go-tell-me-about-slow-channels/</loc>
     <lastmod>2015-11-15T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://aronatkins.github.io/tags/golang/</loc>
     <lastmod>2015-11-15T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://aronatkins.github.io/posts/2015-11-01-back-in-my-day/</loc>
     <lastmod>2015-11-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://aronatkins.github.io/posts/2015-10-25-reunion/</loc>
     <lastmod>2015-10-25T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://aronatkins.github.io/posts/2015-10-16-birthday-party-pirates/</loc>
     <lastmod>2015-10-16T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://aronatkins.github.io/posts/2015-06-03-installing-rstudio-daily-builds/</loc>
     <lastmod>2015-06-03T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://aronatkins.github.io/tags/mac/</loc>
     <lastmod>2015-06-03T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://aronatkins.github.io/tags/osx/</loc>
     <lastmod>2015-06-03T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://aronatkins.github.io/tags/highlight.js/</loc>
     <lastmod>2015-04-30T00:01:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://aronatkins.github.io/tags/jekyll/</loc>
     <lastmod>2015-04-30T00:01:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://aronatkins.github.io/posts/2015-04-30-jekyll-markdown-and-source-highlighting/</loc>
     <lastmod>2015-04-30T00:01:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://aronatkins.github.io/tags/markdown/</loc>
     <lastmod>2015-04-30T00:01:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://aronatkins.github.io/tags/attachment/</loc>
     <lastmod>2015-04-30T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://aronatkins.github.io/tags/email/</loc>
     <lastmod>2015-04-30T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://aronatkins.github.io/posts/2015-04-30-go-email-with-attachments/</loc>
     <lastmod>2015-04-30T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://aronatkins.github.io/tags/gomail/</loc>
     <lastmod>2015-04-30T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://aronatkins.github.io/tags/emacs/</loc>
     <lastmod>2015-04-29T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://aronatkins.github.io/posts/2015-04-29-emacs-aron-git-grep/</loc>
     <lastmod>2015-04-29T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://aronatkins.github.io/tags/git/</loc>
     <lastmod>2015-04-29T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://aronatkins.github.io/tags/grep/</loc>
     <lastmod>2015-04-29T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://aronatkins.github.io/tags/barcamp/</loc>
     <lastmod>2015-03-25T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://aronatkins.github.io/tags/boston/</loc>
     <lastmod>2015-03-25T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://aronatkins.github.io/tags/html/</loc>
     <lastmod>2015-03-25T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://aronatkins.github.io/tags/javascript/</loc>
     <lastmod>2015-03-25T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://aronatkins.github.io/tags/programming/</loc>
     <lastmod>2015-03-25T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://aronatkins.github.io/posts/2015-03-25-rehash-pixels-to-penguins/</loc>
     <lastmod>2015-03-25T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://aronatkins.github.io/tags/tux/</loc>
     <lastmod>2015-03-25T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://aronatkins.github.io/tags/ben/</loc>
     <lastmod>2015-02-07T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://aronatkins.github.io/tags/maggots/</loc>
     <lastmod>2015-02-07T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://aronatkins.github.io/posts/2015-02-07-the-maggots-rise-again/</loc>
     <lastmod>2015-02-07T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://aronatkins.github.io/posts/2015-02-04-i-r-what-i-r/</loc>
     <lastmod>2015-02-04T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://aronatkins.github.io/posts/2015-01-23-i-never-started/</loc>
     <lastmod>2015-01-23T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://aronatkins.github.io/posts/2015-01-22-a-perfect-pull/</loc>
     <lastmod>2015-01-22T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://aronatkins.github.io/tags/codereview/</loc>
     <lastmod>2015-01-22T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://aronatkins.github.io/tags/a.placebetween.us/</loc>
     <lastmod>2015-01-02T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://aronatkins.github.io/posts/2015-01-02-a-placebetween-us-was-built-with-love/</loc>
     <lastmod>2015-01-02T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://aronatkins.github.io/tags/spotstory/</loc>
     <lastmod>2015-01-02T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://aronatkins.github.io/tags/devops/</loc>
     <lastmod>2014-12-23T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://aronatkins.github.io/tags/teams/</loc>
     <lastmod>2014-12-23T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://aronatkins.github.io/posts/2014-12-23-you-build-it-you-own-it/</loc>
     <lastmod>2014-12-23T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://aronatkins.github.io/posts/2014-12-21-growing-up-live/</loc>
     <lastmod>2014-12-21T00:01:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://aronatkins.github.io/posts/2014-12-21-happy-birthday-jason-macierowski/</loc>
     <lastmod>2014-12-21T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://aronatkins.github.io/tags/friends/</loc>
     <lastmod>2014-12-18T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://aronatkins.github.io/posts/2014-12-18-girls-and-legos-absurd/</loc>
     <lastmod>2014-12-18T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://aronatkins.github.io/tags/lego/</loc>
     <lastmod>2014-12-18T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://aronatkins.github.io/tags/toys/</loc>
     <lastmod>2014-12-18T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://aronatkins.github.io/posts/2014-12-13-hey-buddy/</loc>
     <lastmod>2014-12-13T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://aronatkins.github.io/posts/2014-12-12-live-at-wjul/</loc>
     <lastmod>2014-12-12T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://aronatkins.github.io/posts/2014-12-11-i-used-to-be-jaded/</loc>
     <lastmod>2014-12-11T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://aronatkins.github.io/tags/brightcove/</loc>
     <lastmod>2014-12-10T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://aronatkins.github.io/posts/2014-12-10-farewell-brightcove/</loc>
     <lastmod>2014-12-10T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://aronatkins.github.io/tags/family/</loc>
     <lastmod>2014-12-09T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://aronatkins.github.io/posts/2014-12-09-knowing-everything-too-young/</loc>
     <lastmod>2014-12-09T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://aronatkins.github.io/tags/poetry/</loc>
     <lastmod>2014-12-09T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://aronatkins.github.io/tags/first/</loc>
     <lastmod>2014-12-06T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://aronatkins.github.io/posts/2014-12-06-hello-world/</loc>
     <lastmod>2014-12-06T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://aronatkins.github.io/categories/</loc>
   </url>
-  
 </urlset>

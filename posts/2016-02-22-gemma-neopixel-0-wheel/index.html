@@ -6,7 +6,7 @@
     
     <title>Aron Atkins  | Gemma&#43;NeoPixel 0: Wheel</title>
     <meta name="viewport" content="width=device-width,minimum-scale=1">
-    <meta name="generator" content="Hugo 0.59.1" />
+    <meta name="generator" content="Hugo 0.122.0">
     <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
 
     <link rel="stylesheet" href='/css/aronatkins.css'>
@@ -16,24 +16,17 @@
 I&rsquo;m writing it as a preamble to a planned series of articles about my experiments with an Arduino Gemma and a NeoPixel ring with 16 RGB LEDs.
 The Wheel function takes a value from 0 to 255 (inclusive) and maps that onto a red-green-blue color wheel. Internally, it computes a value for the red, green, and blue components of the result." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://aronatkins.github.io/posts/2016-02-22-gemma-neopixel-0-wheel/" />
+<meta property="og:url" content="https://aronatkins.github.io/posts/2016-02-22-gemma-neopixel-0-wheel/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2016-02-22T00:00:00+00:00" />
 <meta property="article:modified_time" content="2016-02-22T00:00:00+00:00" />
+
 <meta itemprop="name" content="Gemma&#43;NeoPixel 0: Wheel">
 <meta itemprop="description" content="This post describes the Wheel function that is part of the strandtest example included within the NeoPixel library.
 I&rsquo;m writing it as a preamble to a planned series of articles about my experiments with an Arduino Gemma and a NeoPixel ring with 16 RGB LEDs.
-The Wheel function takes a value from 0 to 255 (inclusive) and maps that onto a red-green-blue color wheel. Internally, it computes a value for the red, green, and blue components of the result.">
-
-
-<meta itemprop="datePublished" content="2016-02-22T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2016-02-22T00:00:00&#43;00:00" />
+The Wheel function takes a value from 0 to 255 (inclusive) and maps that onto a red-green-blue color wheel. Internally, it computes a value for the red, green, and blue components of the result."><meta itemprop="datePublished" content="2016-02-22T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2016-02-22T00:00:00+00:00" />
 <meta itemprop="wordCount" content="593">
-
-
-
-<meta itemprop="keywords" content="arduino,gemma,code,neopixel,adafruit," />
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Gemma&#43;NeoPixel 0: Wheel"/>
+<meta itemprop="keywords" content="arduino,gemma,code,neopixel,adafruit," /><meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Gemma&#43;NeoPixel 0: Wheel"/>
 <meta name="twitter:description" content="This post describes the Wheel function that is part of the strandtest example included within the NeoPixel library.
 I&rsquo;m writing it as a preamble to a planned series of articles about my experiments with an Arduino Gemma and a NeoPixel ring with 16 RGB LEDs.
 The Wheel function takes a value from 0 to 255 (inclusive) and maps that onto a red-green-blue color wheel. Internally, it computes a value for the red, green, and blue components of the result."/>
@@ -85,54 +78,46 @@ The Wheel function takes a value from 0 to 255 (inclusive) and maps that onto a 
 function that is part of the
 <a href="https://github.com/adafruit/Adafruit_NeoPixel/tree/be0d7706e196dd8479e4573038785bad0b1e6726/examples/strandtest">strandtest</a>
 example included within the <a href="https://github.com/adafruit/Adafruit_NeoPixel">NeoPixel library</a>.</p>
-
 <p>I&rsquo;m writing it as a preamble to a planned series of articles about my
 experiments with an Arduino <a href="https://www.adafruit.com/products/1222">Gemma</a>
 and a NeoPixel ring with
 <a href="https://www.adafruit.com/products/1463">16 RGB LEDs</a>.</p>
-
 <p>The <code>Wheel</code> function takes a value from 0 to 255 (inclusive) and maps that
 onto a red-green-blue color wheel. Internally, it computes a value for the
 red, green, and blue components of the result. Those three parts are combined
 by the <code>strip.Color</code> function to return a 32-bit value representing that
 color.</p>
-
 <blockquote>
 <p>The <code>Wheel</code> function may eventually be included in the NeoPixel library, but
 for now, include it in each of your sketches.</p>
 </blockquote>
-<div class="highlight"><pre style="color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#859900;font-weight:bold">uint32_t</span> <span style="color:#268bd2">Wheel</span>(<span style="color:#268bd2">byte</span> <span style="color:#268bd2">WheelPos</span>) {
-  <span style="color:#268bd2">WheelPos</span> = <span style="color:#2aa198;font-weight:bold">255</span> - <span style="color:#268bd2">WheelPos</span>;
-  <span style="color:#859900">if</span>(<span style="color:#268bd2">WheelPos</span> &lt; <span style="color:#2aa198;font-weight:bold">85</span>) {
-    <span style="color:#859900">return</span> <span style="color:#268bd2">strip</span>.<span style="color:#268bd2">Color</span>(<span style="color:#2aa198;font-weight:bold">255</span> - <span style="color:#268bd2">WheelPos</span> * <span style="color:#2aa198;font-weight:bold">3</span>, <span style="color:#2aa198;font-weight:bold">0</span>, <span style="color:#268bd2">WheelPos</span> * <span style="color:#2aa198;font-weight:bold">3</span>);
-  }
-  <span style="color:#859900">if</span>(<span style="color:#268bd2">WheelPos</span> &lt; <span style="color:#2aa198;font-weight:bold">170</span>) {
-    <span style="color:#268bd2">WheelPos</span> -= <span style="color:#2aa198;font-weight:bold">85</span>;
-    <span style="color:#859900">return</span> <span style="color:#268bd2">strip</span>.<span style="color:#268bd2">Color</span>(<span style="color:#2aa198;font-weight:bold">0</span>, <span style="color:#268bd2">WheelPos</span> * <span style="color:#2aa198;font-weight:bold">3</span>, <span style="color:#2aa198;font-weight:bold">255</span> - <span style="color:#268bd2">WheelPos</span> * <span style="color:#2aa198;font-weight:bold">3</span>);
-  }
-  <span style="color:#268bd2">WheelPos</span> -= <span style="color:#2aa198;font-weight:bold">170</span>;
-  <span style="color:#859900">return</span> <span style="color:#268bd2">strip</span>.<span style="color:#268bd2">Color</span>(<span style="color:#268bd2">WheelPos</span> * <span style="color:#2aa198;font-weight:bold">3</span>, <span style="color:#2aa198;font-weight:bold">255</span> - <span style="color:#268bd2">WheelPos</span> * <span style="color:#2aa198;font-weight:bold">3</span>, <span style="color:#2aa198;font-weight:bold">0</span>);
-}
-</code></pre></div>
-<p>From a quick code reading, we can see that the numbers from 0 to 255 are
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#458;font-weight:bold">uint32_t</span> <span style="color:#900;font-weight:bold">Wheel</span>(byte WheelPos) {
+</span></span><span style="display:flex;"><span>  WheelPos <span style="color:#000;font-weight:bold">=</span> <span style="color:#099">255</span> <span style="color:#000;font-weight:bold">-</span> WheelPos;
+</span></span><span style="display:flex;"><span>  <span style="color:#000;font-weight:bold">if</span>(WheelPos <span style="color:#000;font-weight:bold">&lt;</span> <span style="color:#099">85</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">return</span> strip.Color(<span style="color:#099">255</span> <span style="color:#000;font-weight:bold">-</span> WheelPos <span style="color:#000;font-weight:bold">*</span> <span style="color:#099">3</span>, <span style="color:#099">0</span>, WheelPos <span style="color:#000;font-weight:bold">*</span> <span style="color:#099">3</span>);
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  <span style="color:#000;font-weight:bold">if</span>(WheelPos <span style="color:#000;font-weight:bold">&lt;</span> <span style="color:#099">170</span>) {
+</span></span><span style="display:flex;"><span>    WheelPos <span style="color:#000;font-weight:bold">-=</span> <span style="color:#099">85</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">return</span> strip.Color(<span style="color:#099">0</span>, WheelPos <span style="color:#000;font-weight:bold">*</span> <span style="color:#099">3</span>, <span style="color:#099">255</span> <span style="color:#000;font-weight:bold">-</span> WheelPos <span style="color:#000;font-weight:bold">*</span> <span style="color:#099">3</span>);
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  WheelPos <span style="color:#000;font-weight:bold">-=</span> <span style="color:#099">170</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#000;font-weight:bold">return</span> strip.Color(WheelPos <span style="color:#000;font-weight:bold">*</span> <span style="color:#099">3</span>, <span style="color:#099">255</span> <span style="color:#000;font-weight:bold">-</span> WheelPos <span style="color:#000;font-weight:bold">*</span> <span style="color:#099">3</span>, <span style="color:#099">0</span>);
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>From a quick code reading, we can see that the numbers from 0 to 255 are
 divided into three sections: 0-85, 86-170, and 171-255. But what we care about
 more than the math are the colors that result.</p>
-
 <p>Let&rsquo;s build a table showing how an input value is transformed. I wrote a
 little
 <a href="https://github.com/aronatkins/bits-bytes-and-lights/blob/2498dcf3472732ed5761af9fce068ee77b4fd8de/NeoPixel/color-wheel.py">Python code</a>
 to take each number from 0 to 255 and give the resulting red, green, and blue
 values. In addition, I added the HTML hex color code and the color itself.
 Maybe it&rsquo;ll help you when incorporating <code>Wheel</code> into your own designs.</p>
-
 <blockquote>
 <p>The color wheel only includes red, green, and blue combinations. There is no
 black and no white. You may need to use other techniques or in addition
 to the <code>Wheel</code> function.</p>
 </blockquote>
-
 <p>Get ready for some scrolling!</p>
-
 <table>
 <tbody>
 <tr><th>position</th><th>0</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th></tr>
@@ -394,9 +379,16 @@ to the <code>Wheel</code> function.</p>
 <div class="tags">
     More: 
     
-    
-    
-    <a href="/tags/adafruit">adafruit</a> / <a href="/tags/arduino">arduino</a> / <a href="/tags/code">code</a> / <a href="/tags/gemma">gemma</a> / <a href="/tags/neopixel">neopixel</a>
+        <a href="/tags/adafruit">adafruit</a>
+ / 
+        <a href="/tags/arduino">arduino</a>
+ / 
+        <a href="/tags/code">code</a>
+ / 
+        <a href="/tags/gemma">gemma</a>
+ / 
+        <a href="/tags/neopixel">neopixel</a>
+
 </div>
 
 </section>

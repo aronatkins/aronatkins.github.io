@@ -6,7 +6,7 @@
     
     <title>Aron Atkins  | Gemma&#43;NeoPixel 1: random_same</title>
     <meta name="viewport" content="width=device-width,minimum-scale=1">
-    <meta name="generator" content="Hugo 0.59.1" />
+    <meta name="generator" content="Hugo 0.122.0">
     <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
 
     <link rel="stylesheet" href='/css/aronatkins.css'>
@@ -16,24 +16,17 @@
 I&rsquo;m not going to go into detail about how to install or configure the Arduino IDE. Start with the Adafruit Gemma setup instructions and then the NeoPixel library installation instructions that are part of the NeoPixel Überguide.
 Make sure you are using a USB cable that is not power-only!" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://aronatkins.github.io/posts/2016-02-22-gemma-neopixel-1-random_same/" />
+<meta property="og:url" content="https://aronatkins.github.io/posts/2016-02-22-gemma-neopixel-1-random_same/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2016-02-22T00:01:00+00:00" />
 <meta property="article:modified_time" content="2016-02-22T00:01:00+00:00" />
+
 <meta itemprop="name" content="Gemma&#43;NeoPixel 1: random_same">
 <meta itemprop="description" content="This post is the first in a planned series of articles about my experiments with an Arduino Gemma and a NeoPixel ring with 16 RGB LEDs.
 I&rsquo;m not going to go into detail about how to install or configure the Arduino IDE. Start with the Adafruit Gemma setup instructions and then the NeoPixel library installation instructions that are part of the NeoPixel Überguide.
-Make sure you are using a USB cable that is not power-only!">
-
-
-<meta itemprop="datePublished" content="2016-02-22T00:01:00&#43;00:00" />
-<meta itemprop="dateModified" content="2016-02-22T00:01:00&#43;00:00" />
+Make sure you are using a USB cable that is not power-only!"><meta itemprop="datePublished" content="2016-02-22T00:01:00+00:00" />
+<meta itemprop="dateModified" content="2016-02-22T00:01:00+00:00" />
 <meta itemprop="wordCount" content="824">
-
-
-
-<meta itemprop="keywords" content="arduino,gemma,code,neopixel,adafruit," />
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Gemma&#43;NeoPixel 1: random_same"/>
+<meta itemprop="keywords" content="arduino,gemma,code,neopixel,adafruit," /><meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Gemma&#43;NeoPixel 1: random_same"/>
 <meta name="twitter:description" content="This post is the first in a planned series of articles about my experiments with an Arduino Gemma and a NeoPixel ring with 16 RGB LEDs.
 I&rsquo;m not going to go into detail about how to install or configure the Arduino IDE. Start with the Adafruit Gemma setup instructions and then the NeoPixel library installation instructions that are part of the NeoPixel Überguide.
 Make sure you are using a USB cable that is not power-only!"/>
@@ -80,150 +73,125 @@ Make sure you are using a USB cable that is not power-only!"/>
             <time datetime="2016-02-22T00:01:00Z">2016-02-22</time>
         </header>
 
-        <section>
-
-<p>This post is the first in a planned series of articles about my experiments
+        <section><p>This post is the first in a planned series of articles about my experiments
 with an Arduino <a href="https://www.adafruit.com/products/1222">Gemma</a> and a NeoPixel
 ring with <a href="https://www.adafruit.com/products/1463">16 RGB LEDs</a>.</p>
-
 <p>I&rsquo;m not going to go into detail about how to install or configure the Arduino
 IDE. Start with the
 <a href="https://learn.adafruit.com/introducing-gemma/setting-up-with-arduino-ide">Adafruit Gemma setup instructions</a>
 and then the
 <a href="https://learn.adafruit.com/adafruit-neopixel-uberguide/arduino-library">NeoPixel library installation instructions</a>
 that are part of the <a href="https://learn.adafruit.com/adafruit-neopixel-uberguide/">NeoPixel Überguide</a>.</p>
-
 <p>Make sure you are using a USB cable that is not power-only!</p>
-
 <h2 id="wiring">Wiring</h2>
-
 <p>Let&rsquo;s start simple. Grab some
 <a href="https://www.adafruit.com/products/1008">small alligator clips</a> from Adafruit
 and follow the
 <a href="https://learn.adafruit.com/gemma-hoop-earrings/circuit-diagram">wiring instructions</a>
 from the <a href="https://learn.adafruit.com/gemma-hoop-earrings">Gemma Hoop Earrings</a> project.</p>
-
 <h2 id="code">Code</h2>
-
 <p>We are going to write a really simple program that randomly chooses a color
 between 0 and 255 and then assign that color to all LEDs. The code is pretty
 simple C++ and uses the Adafruit
 <a href="https://github.com/adafruit/Adafruit_NeoPixel">NeoPixel library</a> and will run
 on our Arduino Gemma.</p>
-
 <p>Create a new sketch in the Arduino IDE. Click the &ldquo;Save&rdquo; button and name your
 sketch &ldquo;random_same&rdquo;.</p>
-
-<p><img src="/images/name-sketch.png" alt="save and name your sketch" /></p>
-
+<p><img src="/images/name-sketch.png" alt="save and name your sketch"></p>
 <p>Let&rsquo;s start off by letting the compiler know about the Adafruit NeoPixel
 library with an <code>include</code> directive.</p>
-<div class="highlight"><pre style="color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#93a1a1;font-style:italic">#include</span> <span style="color:#93a1a1;font-style:italic">&lt;Adafruit_NeoPixel.h&gt;</span><span style="color:#93a1a1;font-style:italic">
-</span></code></pre></div>
-<p>We can now go ahead and create an object that manages all the interaction with
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#999;font-weight:bold;font-style:italic">#include</span> <span style="color:#999;font-weight:bold;font-style:italic">&lt;Adafruit_NeoPixel.h&gt;</span><span style="color:#999;font-weight:bold;font-style:italic">
+</span></span></span></code></pre></div><p>We can now go ahead and create an object that manages all the interaction with
 the NeoPixel. The <code>Adafruit_NeoPixel</code> call we are using takes the number of
 pixels as its first argument and pin number as the second. My NeoPixel has 16
 LEDs and is wired to the <code>D0</code> pin on my Gemma.</p>
-<div class="highlight"><pre style="color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#268bd2">Adafruit_NeoPixel</span> <span style="color:#268bd2">strip</span> = <span style="color:#268bd2">Adafruit_NeoPixel</span>(<span style="color:#2aa198;font-weight:bold">16</span>, <span style="color:#2aa198;font-weight:bold">0</span>);
-</code></pre></div>
-<blockquote>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span>Adafruit_NeoPixel strip <span style="color:#000;font-weight:bold">=</span> Adafruit_NeoPixel(<span style="color:#099">16</span>, <span style="color:#099">0</span>);
+</span></span></code></pre></div><blockquote>
 <p>There is an optional, third argument to the <code>Adafruit_NeoPixel</code> function
 that lets you specify the type of NeoPixel. The default choice worked for
 me. Consult the NeoPixel documentation to see if you need to explicitly
 configure its type.</p>
 </blockquote>
-
 <p>Your sketch may already contain a <code>setup</code> function definition. We are going to
 replace that with a version that initializes the NeoPixel strip and sets an
 initial brightness. Your Gemma will call the <code>setup</code> function when it starts
 executing your program, so it&rsquo;s a great place for anything we want to do once.</p>
-
 <p>The <code>strip.begin</code> call will configure our <code>D0</code> pin so it is ready to send
 instructions to the NeoPixel. The <code>strip.setBrightness</code> call will prevent you
 from going blind. Those NeoPixels can get bright! Feel free to experiment with
 other brightness values or removing the call to <code>strip.setBrightness</code>
 altogether.</p>
-<div class="highlight"><pre style="color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#859900;font-weight:bold">void</span> <span style="color:#268bd2">setup</span>() {
-  <span style="color:#268bd2">strip</span>.<span style="color:#268bd2">begin</span>();
-  <span style="color:#268bd2">strip</span>.<span style="color:#268bd2">setBrightness</span>(<span style="color:#2aa198;font-weight:bold">30</span>);
-}
-</code></pre></div>
-<p>The NeoPixel is ready to go. Let&rsquo;s give it some color. We do that by defining
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#458;font-weight:bold">void</span> <span style="color:#900;font-weight:bold">setup</span>() {
+</span></span><span style="display:flex;"><span>  strip.begin();
+</span></span><span style="display:flex;"><span>  strip.setBrightness(<span style="color:#099">30</span>);
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>The NeoPixel is ready to go. Let&rsquo;s give it some color. We do that by defining
 a <code>loop</code> function which the Gemma will execute over and over again.</p>
-
 <p>Our <code>loop</code> implementation uses a <code>Wheel</code> function that takes an eight-bit
 number between 0 and 255 (inclusive) and translates that into a 32-bit number
 the NeoPixels use as color choice. I talk about <code>Wheel</code> in <a href="https://aronatkins.github.io/posts/2016-02-22-gemma-neopixel-0-wheel/">another post</a>. Make sure to include a
 copy at the end of your program.</p>
-
 <p>We use the Arduino <a href="https://www.arduino.cc/en/Reference/Random"><code>random</code></a>
 function to compute our input to <code>Wheel</code>.</p>
-
 <p>Once we have our color, we use a <code>for</code> loop to assign that color to each pixel
 with the <code>strip.setPixelColor</code> call. This function takes the index of the LED
 as its first argument (the first LED is at index <code>0</code>) and a 32-bit color as
 its second.</p>
-
 <p>A call to <code>strip.setPixelColor</code> does not immediately send any instructions to
 the NeoPixel. Instead, all color choices are buffered in-memory by the
 NeoPixel library and sent to the device when <code>strip.show</code> is called.</p>
-
 <p>We add a <a href="https://www.arduino.cc/en/Reference/Delay"><code>delay</code></a> at the end of
 <code>loop</code> to make our code pause after each color choice. The <code>delay</code> function
 takes a number of milliseconds as its only argument. Increase the delay value
 to wait longer. Decrease the value to make the color change more often.</p>
-
 <p>Things will blink really quickly if you remove the call to <code>delay</code> entirely!</p>
-<div class="highlight"><pre style="color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#93a1a1;font-style:italic">// Randomly give the same color to all pixels.
-</span><span style="color:#93a1a1;font-style:italic"></span><span style="color:#859900;font-weight:bold">void</span> <span style="color:#268bd2">loop</span>() {
-  <span style="color:#859900;font-weight:bold">uint32_t</span> <span style="color:#268bd2">c</span> = <span style="color:#268bd2">Wheel</span>(<span style="color:#268bd2">random</span>(<span style="color:#2aa198;font-weight:bold">256</span>));
-  <span style="color:#859900;font-weight:bold">uint8_t</span> <span style="color:#268bd2">i</span>;
-  <span style="color:#859900">for</span> (<span style="color:#268bd2">i</span>=<span style="color:#2aa198;font-weight:bold">0</span>; <span style="color:#268bd2">i</span>&lt;<span style="color:#268bd2">strip</span>.<span style="color:#268bd2">numPixels</span>(); <span style="color:#268bd2">i</span>++) {
-    <span style="color:#268bd2">strip</span>.<span style="color:#268bd2">setPixelColor</span>(<span style="color:#268bd2">i</span>, <span style="color:#268bd2">c</span>);
-  }
-  <span style="color:#268bd2">strip</span>.<span style="color:#268bd2">show</span>();
-  <span style="color:#268bd2">delay</span>(<span style="color:#2aa198;font-weight:bold">200</span>);
-}
-</code></pre></div>
-<h2 id="the-whole-program">The whole program</h2>
-
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#998;font-style:italic">// Randomly give the same color to all pixels.
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span><span style="color:#458;font-weight:bold">void</span> <span style="color:#900;font-weight:bold">loop</span>() {
+</span></span><span style="display:flex;"><span>  <span style="color:#458;font-weight:bold">uint32_t</span> c <span style="color:#000;font-weight:bold">=</span> Wheel(random(<span style="color:#099">256</span>));
+</span></span><span style="display:flex;"><span>  <span style="color:#458;font-weight:bold">uint8_t</span> i;
+</span></span><span style="display:flex;"><span>  <span style="color:#000;font-weight:bold">for</span> (i<span style="color:#000;font-weight:bold">=</span><span style="color:#099">0</span>; i<span style="color:#000;font-weight:bold">&lt;</span>strip.numPixels(); i<span style="color:#000;font-weight:bold">++</span>) {
+</span></span><span style="display:flex;"><span>    strip.setPixelColor(i, c);
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  strip.show();
+</span></span><span style="display:flex;"><span>  delay(<span style="color:#099">200</span>);
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="the-whole-program">The whole program</h2>
 <p>Here&rsquo;s the entire program.</p>
-<div class="highlight"><pre style="color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#93a1a1;font-style:italic">#include</span> <span style="color:#93a1a1;font-style:italic">&lt;Adafruit_NeoPixel.h&gt;</span><span style="color:#93a1a1;font-style:italic">
-</span><span style="color:#93a1a1;font-style:italic"></span>
-<span style="color:#268bd2">Adafruit_NeoPixel</span> <span style="color:#268bd2">strip</span> = <span style="color:#268bd2">Adafruit_NeoPixel</span>(<span style="color:#2aa198;font-weight:bold">16</span>, <span style="color:#2aa198;font-weight:bold">0</span>);
-
-<span style="color:#859900;font-weight:bold">void</span> <span style="color:#268bd2">setup</span>() {
-  <span style="color:#268bd2">strip</span>.<span style="color:#268bd2">begin</span>();
-  <span style="color:#268bd2">strip</span>.<span style="color:#268bd2">setBrightness</span>(<span style="color:#2aa198;font-weight:bold">30</span>);
-}
-
-<span style="color:#93a1a1;font-style:italic">// Randomly give the same color to all pixels.
-</span><span style="color:#93a1a1;font-style:italic"></span><span style="color:#859900;font-weight:bold">void</span> <span style="color:#268bd2">loop</span>() {
-  <span style="color:#859900;font-weight:bold">uint32_t</span> <span style="color:#268bd2">c</span> = <span style="color:#268bd2">Wheel</span>(<span style="color:#268bd2">random</span>(<span style="color:#2aa198;font-weight:bold">256</span>));
-  <span style="color:#859900;font-weight:bold">uint8_t</span> <span style="color:#268bd2">i</span>;
-  <span style="color:#859900">for</span> (<span style="color:#268bd2">i</span>=<span style="color:#2aa198;font-weight:bold">0</span>; <span style="color:#268bd2">i</span>&lt;<span style="color:#268bd2">strip</span>.<span style="color:#268bd2">numPixels</span>(); <span style="color:#268bd2">i</span>++) {
-    <span style="color:#268bd2">strip</span>.<span style="color:#268bd2">setPixelColor</span>(<span style="color:#268bd2">i</span>, <span style="color:#268bd2">c</span>);
-  }
-  <span style="color:#268bd2">strip</span>.<span style="color:#268bd2">show</span>();
-  <span style="color:#268bd2">delay</span>(<span style="color:#2aa198;font-weight:bold">200</span>);
-}
-
-<span style="color:#93a1a1;font-style:italic">// Input a value 0 to 255 to get a color value.
-</span><span style="color:#93a1a1;font-style:italic">// The colours are a transition r - g - b - back to r.
-</span><span style="color:#93a1a1;font-style:italic"></span><span style="color:#859900;font-weight:bold">uint32_t</span> <span style="color:#268bd2">Wheel</span>(<span style="color:#268bd2">byte</span> <span style="color:#268bd2">WheelPos</span>) {
-  <span style="color:#268bd2">WheelPos</span> = <span style="color:#2aa198;font-weight:bold">255</span> - <span style="color:#268bd2">WheelPos</span>;
-  <span style="color:#859900">if</span>(<span style="color:#268bd2">WheelPos</span> &lt; <span style="color:#2aa198;font-weight:bold">85</span>) {
-    <span style="color:#859900">return</span> <span style="color:#268bd2">strip</span>.<span style="color:#268bd2">Color</span>(<span style="color:#2aa198;font-weight:bold">255</span> - <span style="color:#268bd2">WheelPos</span> * <span style="color:#2aa198;font-weight:bold">3</span>, <span style="color:#2aa198;font-weight:bold">0</span>, <span style="color:#268bd2">WheelPos</span> * <span style="color:#2aa198;font-weight:bold">3</span>);
-  }
-  <span style="color:#859900">if</span>(<span style="color:#268bd2">WheelPos</span> &lt; <span style="color:#2aa198;font-weight:bold">170</span>) {
-    <span style="color:#268bd2">WheelPos</span> -= <span style="color:#2aa198;font-weight:bold">85</span>;
-    <span style="color:#859900">return</span> <span style="color:#268bd2">strip</span>.<span style="color:#268bd2">Color</span>(<span style="color:#2aa198;font-weight:bold">0</span>, <span style="color:#268bd2">WheelPos</span> * <span style="color:#2aa198;font-weight:bold">3</span>, <span style="color:#2aa198;font-weight:bold">255</span> - <span style="color:#268bd2">WheelPos</span> * <span style="color:#2aa198;font-weight:bold">3</span>);
-  }
-  <span style="color:#268bd2">WheelPos</span> -= <span style="color:#2aa198;font-weight:bold">170</span>;
-  <span style="color:#859900">return</span> <span style="color:#268bd2">strip</span>.<span style="color:#268bd2">Color</span>(<span style="color:#268bd2">WheelPos</span> * <span style="color:#2aa198;font-weight:bold">3</span>, <span style="color:#2aa198;font-weight:bold">255</span> - <span style="color:#268bd2">WheelPos</span> * <span style="color:#2aa198;font-weight:bold">3</span>, <span style="color:#2aa198;font-weight:bold">0</span>);
-}
-</code></pre></div>
-<p>As you get a little more comfortable writing code for your Gemma and NeoPixel,
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#999;font-weight:bold;font-style:italic">#include</span> <span style="color:#999;font-weight:bold;font-style:italic">&lt;Adafruit_NeoPixel.h&gt;</span><span style="color:#999;font-weight:bold;font-style:italic">
+</span></span></span><span style="display:flex;"><span><span style="color:#999;font-weight:bold;font-style:italic"></span>
+</span></span><span style="display:flex;"><span>Adafruit_NeoPixel strip <span style="color:#000;font-weight:bold">=</span> Adafruit_NeoPixel(<span style="color:#099">16</span>, <span style="color:#099">0</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#458;font-weight:bold">void</span> <span style="color:#900;font-weight:bold">setup</span>() {
+</span></span><span style="display:flex;"><span>  strip.begin();
+</span></span><span style="display:flex;"><span>  strip.setBrightness(<span style="color:#099">30</span>);
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">// Randomly give the same color to all pixels.
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span><span style="color:#458;font-weight:bold">void</span> <span style="color:#900;font-weight:bold">loop</span>() {
+</span></span><span style="display:flex;"><span>  <span style="color:#458;font-weight:bold">uint32_t</span> c <span style="color:#000;font-weight:bold">=</span> Wheel(random(<span style="color:#099">256</span>));
+</span></span><span style="display:flex;"><span>  <span style="color:#458;font-weight:bold">uint8_t</span> i;
+</span></span><span style="display:flex;"><span>  <span style="color:#000;font-weight:bold">for</span> (i<span style="color:#000;font-weight:bold">=</span><span style="color:#099">0</span>; i<span style="color:#000;font-weight:bold">&lt;</span>strip.numPixels(); i<span style="color:#000;font-weight:bold">++</span>) {
+</span></span><span style="display:flex;"><span>    strip.setPixelColor(i, c);
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  strip.show();
+</span></span><span style="display:flex;"><span>  delay(<span style="color:#099">200</span>);
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">// Input a value 0 to 255 to get a color value.
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">// The colours are a transition r - g - b - back to r.
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span><span style="color:#458;font-weight:bold">uint32_t</span> <span style="color:#900;font-weight:bold">Wheel</span>(byte WheelPos) {
+</span></span><span style="display:flex;"><span>  WheelPos <span style="color:#000;font-weight:bold">=</span> <span style="color:#099">255</span> <span style="color:#000;font-weight:bold">-</span> WheelPos;
+</span></span><span style="display:flex;"><span>  <span style="color:#000;font-weight:bold">if</span>(WheelPos <span style="color:#000;font-weight:bold">&lt;</span> <span style="color:#099">85</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">return</span> strip.Color(<span style="color:#099">255</span> <span style="color:#000;font-weight:bold">-</span> WheelPos <span style="color:#000;font-weight:bold">*</span> <span style="color:#099">3</span>, <span style="color:#099">0</span>, WheelPos <span style="color:#000;font-weight:bold">*</span> <span style="color:#099">3</span>);
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  <span style="color:#000;font-weight:bold">if</span>(WheelPos <span style="color:#000;font-weight:bold">&lt;</span> <span style="color:#099">170</span>) {
+</span></span><span style="display:flex;"><span>    WheelPos <span style="color:#000;font-weight:bold">-=</span> <span style="color:#099">85</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">return</span> strip.Color(<span style="color:#099">0</span>, WheelPos <span style="color:#000;font-weight:bold">*</span> <span style="color:#099">3</span>, <span style="color:#099">255</span> <span style="color:#000;font-weight:bold">-</span> WheelPos <span style="color:#000;font-weight:bold">*</span> <span style="color:#099">3</span>);
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  WheelPos <span style="color:#000;font-weight:bold">-=</span> <span style="color:#099">170</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#000;font-weight:bold">return</span> strip.Color(WheelPos <span style="color:#000;font-weight:bold">*</span> <span style="color:#099">3</span>, <span style="color:#099">255</span> <span style="color:#000;font-weight:bold">-</span> WheelPos <span style="color:#000;font-weight:bold">*</span> <span style="color:#099">3</span>, <span style="color:#099">0</span>);
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>As you get a little more comfortable writing code for your Gemma and NeoPixel,
 you should poke through the source for the
 <a href="https://github.com/adafruit/Adafruit_NeoPixel">NeoPixel library</a>. The
 examples may give you some ideas for further experimentation. The NeoPixel
@@ -232,9 +200,16 @@ calls themselves can also be helpful. I read the implementations of
 <div class="tags">
     More: 
     
-    
-    
-    <a href="/tags/adafruit">adafruit</a> / <a href="/tags/arduino">arduino</a> / <a href="/tags/code">code</a> / <a href="/tags/gemma">gemma</a> / <a href="/tags/neopixel">neopixel</a>
+        <a href="/tags/adafruit">adafruit</a>
+ / 
+        <a href="/tags/arduino">arduino</a>
+ / 
+        <a href="/tags/code">code</a>
+ / 
+        <a href="/tags/gemma">gemma</a>
+ / 
+        <a href="/tags/neopixel">neopixel</a>
+
 </div>
 
 </section>

@@ -6,7 +6,7 @@
     
     <title>Aron Atkins  | Installing RStudio daily builds (Ubuntu)</title>
     <meta name="viewport" content="width=device-width,minimum-scale=1">
-    <meta name="generator" content="Hugo 0.59.1" />
+    <meta name="generator" content="Hugo 0.122.0">
     <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
 
     <link rel="stylesheet" href='/css/aronatkins.css'>
@@ -16,24 +16,17 @@
 You need to install either curl or wget in order to use this script. It only understands Ubuntu installation and uses dpkg to perform the install. If run as a non-root user, sudo is used when running dpkg.
 You may need to follow this script with a apt-get install -f to install RStudio package dependencies (using sudo if appropriate)." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://aronatkins.github.io/posts/2016-10-12-installing-rstudio-daily-ubuntu-builds/" />
+<meta property="og:url" content="https://aronatkins.github.io/posts/2016-10-12-installing-rstudio-daily-ubuntu-builds/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2016-10-12T00:00:00+00:00" />
 <meta property="article:modified_time" content="2016-10-12T00:00:00+00:00" />
+
 <meta itemprop="name" content="Installing RStudio daily builds (Ubuntu)">
 <meta itemprop="description" content="The script that I previously published to handle OSX installs has been updated to also handle installing RStudio daily desktop builds on Ubuntu Linux hosts.
 You need to install either curl or wget in order to use this script. It only understands Ubuntu installation and uses dpkg to perform the install. If run as a non-root user, sudo is used when running dpkg.
-You may need to follow this script with a apt-get install -f to install RStudio package dependencies (using sudo if appropriate).">
-
-
-<meta itemprop="datePublished" content="2016-10-12T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2016-10-12T00:00:00&#43;00:00" />
+You may need to follow this script with a apt-get install -f to install RStudio package dependencies (using sudo if appropriate)."><meta itemprop="datePublished" content="2016-10-12T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2016-10-12T00:00:00+00:00" />
 <meta itemprop="wordCount" content="242">
-
-
-
-<meta itemprop="keywords" content="rstudio,linux,ubuntu,engineering," />
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Installing RStudio daily builds (Ubuntu)"/>
+<meta itemprop="keywords" content="rstudio,linux,ubuntu,engineering," /><meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Installing RStudio daily builds (Ubuntu)"/>
 <meta name="twitter:description" content="The script that I previously published to handle OSX installs has been updated to also handle installing RStudio daily desktop builds on Ubuntu Linux hosts.
 You need to install either curl or wget in order to use this script. It only understands Ubuntu installation and uses dpkg to perform the install. If run as a non-root user, sudo is used when running dpkg.
 You may need to follow this script with a apt-get install -f to install RStudio package dependencies (using sudo if appropriate)."/>
@@ -84,44 +77,45 @@ You may need to follow this script with a apt-get install -f to install RStudio 
 <a href="https://aronatkins.github.io/posts/2015-06-03-installing-rstudio-daily-builds/">script that I previously published</a> to
 handle OSX installs has been updated to also handle installing RStudio daily
 desktop builds on Ubuntu Linux hosts.</p>
-
 <p>You need to install either <code>curl</code> or <code>wget</code> in order to use this script. It
 only understands Ubuntu installation and uses <code>dpkg</code> to perform the install.
 If run as a non-<code>root</code> user, <code>sudo</code> is used when running <code>dpkg</code>.</p>
-
 <p>You may need to follow this script with a <code>apt-get install -f</code> to install
 RStudio package dependencies (using <code>sudo</code> if appropriate).</p>
-
 <p>You can always find the latest version <a href="https://gist.github.com/aronatkins/ac3934e08d2961285bef">as a GitHub Gist</a>
 and embedded below (the embed will not appear in RSS or in non-Javascript
 viewers). It fetches the latest daily RStudio IDE build from our download
 site, replacing any existing install.</p>
-
 <p>To use this script, download it to your own machine, make it executable, and
 run it. Use it every day!</p>
-<div class="highlight"><pre style="color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-nohighlight" data-lang="nohighlight"># <span style="color:#268bd2">Mark</span> <span style="color:#268bd2">executable</span> <span style="color:#268bd2">after</span> <span style="color:#268bd2">downloading</span>.
-$ <span style="color:#268bd2">chmod</span> +<span style="color:#268bd2">x</span> <span style="color:#268bd2">install</span>-<span style="color:#268bd2">rstudio</span>-<span style="color:#268bd2">daily</span>.<span style="color:#268bd2">sh</span>
-# <span style="color:#268bd2">Every</span> <span style="color:#268bd2">day</span>!
-$ ./<span style="color:#268bd2">install</span>-<span style="color:#268bd2">rstudio</span>-<span style="color:#268bd2">daily</span>.<span style="color:#268bd2">sh</span>
-<span style="color:#268bd2">Downloading</span> <span style="color:#268bd2">daily</span> <span style="color:#268bd2">build</span> <span style="color:#268bd2">from</span>: <span style="color:#268bd2">https</span>:<span style="color:#93a1a1;font-style:italic">//www.rstudio.org/download/latest/daily/desktop/ubuntu64/rstudio-latest-amd64.deb
-</span><span style="color:#93a1a1;font-style:italic"></span>  % <span style="color:#268bd2">Total</span>    % <span style="color:#268bd2">Received</span> % <span style="color:#268bd2">Xferd</span>  <span style="color:#268bd2">Average</span> <span style="color:#268bd2">Speed</span>   <span style="color:#268bd2">Time</span>    <span style="color:#268bd2">Time</span>     <span style="color:#268bd2">Time</span>  <span style="color:#268bd2">Current</span>
-                                 <span style="color:#268bd2">Dload</span>  <span style="color:#268bd2">Upload</span>   <span style="color:#268bd2">Total</span>   <span style="color:#268bd2">Spent</span>    <span style="color:#268bd2">Left</span>  <span style="color:#268bd2">Speed</span>
-<span style="color:#2aa198;font-weight:bold">100</span>   <span style="color:#2aa198;font-weight:bold">335</span>  <span style="color:#2aa198;font-weight:bold">100</span>   <span style="color:#2aa198;font-weight:bold">335</span>    <span style="color:#2aa198;font-weight:bold">0</span>     <span style="color:#2aa198;font-weight:bold">0</span>    <span style="color:#2aa198;font-weight:bold">642</span>      <span style="color:#2aa198;font-weight:bold">0</span> --:--:-- --:--:-- --:--:--   <span style="color:#2aa198;font-weight:bold">642</span>
-<span style="color:#2aa198;font-weight:bold">100</span> <span style="color:#2aa198;font-weight:bold">94.1</span><span style="color:#268bd2">M</span>  <span style="color:#2aa198;font-weight:bold">100</span> <span style="color:#2aa198;font-weight:bold">94.1</span><span style="color:#268bd2">M</span>    <span style="color:#2aa198;font-weight:bold">0</span>     <span style="color:#2aa198;font-weight:bold">0</span>  <span style="color:#2aa198;font-weight:bold">3383</span><span style="color:#268bd2">k</span>      <span style="color:#2aa198;font-weight:bold">0</span>  <span style="color:#2aa198;font-weight:bold">0</span>:<span style="color:#2aa198;font-weight:bold">00</span>:<span style="color:#2aa198;font-weight:bold">28</span>  <span style="color:#2aa198;font-weight:bold">0</span>:<span style="color:#2aa198;font-weight:bold">00</span>:<span style="color:#2aa198;font-weight:bold">28</span> --:--:-- <span style="color:#2aa198;font-weight:bold">3599</span><span style="color:#268bd2">k</span>
-<span style="color:#268bd2">Installing</span> /<span style="color:#268bd2">tmp</span>/<span style="color:#268bd2">rstudio</span>-<span style="color:#268bd2">latest</span>-<span style="color:#268bd2">amd64</span>.<span style="color:#268bd2">deb</span>
-<span style="color:#268bd2">Selecting</span> <span style="color:#268bd2">previously</span> <span style="color:#268bd2">unselected</span> <span style="color:#dc322f;font-weight:bold">package</span> <span style="color:#268bd2">rstudio</span>.
-(<span style="color:#268bd2">Reading</span> <span style="color:#268bd2">database</span> ... <span style="color:#2aa198;font-weight:bold">8837</span> <span style="color:#268bd2">files</span> <span style="color:#268bd2">and</span> <span style="color:#268bd2">directories</span> <span style="color:#268bd2">currently</span> <span style="color:#268bd2">installed</span>.)
-<span style="color:#268bd2">Preparing</span> <span style="color:#268bd2">to</span> <span style="color:#268bd2">unpack</span> /<span style="color:#268bd2">tmp</span>/<span style="color:#268bd2">rstudio</span>-<span style="color:#268bd2">latest</span>-<span style="color:#268bd2">amd64</span>.<span style="color:#268bd2">deb</span> ...
-<span style="color:#268bd2">Unpacking</span> <span style="color:#268bd2">rstudio</span> (<span style="color:#2aa198;font-weight:bold">1.0.39</span>) ...
-<span style="color:#268bd2">Setting</span> <span style="color:#268bd2">up</span> <span style="color:#268bd2">rstudio</span> (<span style="color:#2aa198;font-weight:bold">1.0.39</span>) ...
-<span style="color:#268bd2">Processing</span> <span style="color:#268bd2">triggers</span> <span style="color:#859900">for</span> <span style="color:#268bd2">shared</span>-<span style="color:#268bd2">mime</span>-<span style="color:#268bd2">info</span> (<span style="color:#2aa198;font-weight:bold">1.5</span>-<span style="color:#2aa198;font-weight:bold">2</span><span style="color:#268bd2">ubuntu0</span><span style="color:#2aa198;font-weight:bold">.1</span>) ...</code></pre></div>
-<script src="https://gist.github.com/aronatkins/ac3934e08d2961285bef.js"></script>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span># Mark executable after downloading.
+</span></span><span style="display:flex;"><span>$ chmod +x install-rstudio-daily.sh
+</span></span><span style="display:flex;"><span># Every day!
+</span></span><span style="display:flex;"><span>$ ./install-rstudio-daily.sh
+</span></span><span style="display:flex;"><span>Downloading daily build from: https://www.rstudio.org/download/latest/daily/desktop/ubuntu64/rstudio-latest-amd64.deb
+</span></span><span style="display:flex;"><span>  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+</span></span><span style="display:flex;"><span>                                 Dload  Upload   Total   Spent    Left  Speed
+</span></span><span style="display:flex;"><span>100   335  100   335    0     0    642      0 --:--:-- --:--:-- --:--:--   642
+</span></span><span style="display:flex;"><span>100 94.1M  100 94.1M    0     0  3383k      0  0:00:28  0:00:28 --:--:-- 3599k
+</span></span><span style="display:flex;"><span>Installing /tmp/rstudio-latest-amd64.deb
+</span></span><span style="display:flex;"><span>Selecting previously unselected package rstudio.
+</span></span><span style="display:flex;"><span>(Reading database ... 8837 files and directories currently installed.)
+</span></span><span style="display:flex;"><span>Preparing to unpack /tmp/rstudio-latest-amd64.deb ...
+</span></span><span style="display:flex;"><span>Unpacking rstudio (1.0.39) ...
+</span></span><span style="display:flex;"><span>Setting up rstudio (1.0.39) ...
+</span></span><span style="display:flex;"><span>Processing triggers for shared-mime-info (1.5-2ubuntu0.1) ...
+</span></span></code></pre></div><script src="https://gist.github.com/aronatkins/ac3934e08d2961285bef.js"></script>
 <div class="tags">
     More: 
     
-    
-    
-    <a href="/tags/engineering">engineering</a> / <a href="/tags/linux">linux</a> / <a href="/tags/rstudio">rstudio</a> / <a href="/tags/ubuntu">ubuntu</a>
+        <a href="/tags/engineering">engineering</a>
+ / 
+        <a href="/tags/linux">linux</a>
+ / 
+        <a href="/tags/rstudio">rstudio</a>
+ / 
+        <a href="/tags/ubuntu">ubuntu</a>
+
 </div>
 
 </section>

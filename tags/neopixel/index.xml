@@ -17,150 +17,125 @@
       <pubDate>Mon, 22 Feb 2016 00:01:00 +0000</pubDate>
       <author>aron.atkins@gmail.com (Aron Atkins)</author>
       <guid>https://aronatkins.github.io/posts/2016-02-22-gemma-neopixel-1-random_same/</guid>
-      <description>
-
-&lt;p&gt;This post is the first in a planned series of articles about my experiments
+      <description>&lt;p&gt;This post is the first in a planned series of articles about my experiments
 with an Arduino &lt;a href=&#34;https://www.adafruit.com/products/1222&#34;&gt;Gemma&lt;/a&gt; and a NeoPixel
 ring with &lt;a href=&#34;https://www.adafruit.com/products/1463&#34;&gt;16 RGB LEDs&lt;/a&gt;.&lt;/p&gt;
-
 &lt;p&gt;I&amp;rsquo;m not going to go into detail about how to install or configure the Arduino
 IDE. Start with the
 &lt;a href=&#34;https://learn.adafruit.com/introducing-gemma/setting-up-with-arduino-ide&#34;&gt;Adafruit Gemma setup instructions&lt;/a&gt;
 and then the
 &lt;a href=&#34;https://learn.adafruit.com/adafruit-neopixel-uberguide/arduino-library&#34;&gt;NeoPixel library installation instructions&lt;/a&gt;
 that are part of the &lt;a href=&#34;https://learn.adafruit.com/adafruit-neopixel-uberguide/&#34;&gt;NeoPixel Überguide&lt;/a&gt;.&lt;/p&gt;
-
 &lt;p&gt;Make sure you are using a USB cable that is not power-only!&lt;/p&gt;
-
 &lt;h2 id=&#34;wiring&#34;&gt;Wiring&lt;/h2&gt;
-
 &lt;p&gt;Let&amp;rsquo;s start simple. Grab some
 &lt;a href=&#34;https://www.adafruit.com/products/1008&#34;&gt;small alligator clips&lt;/a&gt; from Adafruit
 and follow the
 &lt;a href=&#34;https://learn.adafruit.com/gemma-hoop-earrings/circuit-diagram&#34;&gt;wiring instructions&lt;/a&gt;
 from the &lt;a href=&#34;https://learn.adafruit.com/gemma-hoop-earrings&#34;&gt;Gemma Hoop Earrings&lt;/a&gt; project.&lt;/p&gt;
-
 &lt;h2 id=&#34;code&#34;&gt;Code&lt;/h2&gt;
-
 &lt;p&gt;We are going to write a really simple program that randomly chooses a color
 between 0 and 255 and then assign that color to all LEDs. The code is pretty
 simple C++ and uses the Adafruit
 &lt;a href=&#34;https://github.com/adafruit/Adafruit_NeoPixel&#34;&gt;NeoPixel library&lt;/a&gt; and will run
 on our Arduino Gemma.&lt;/p&gt;
-
 &lt;p&gt;Create a new sketch in the Arduino IDE. Click the &amp;ldquo;Save&amp;rdquo; button and name your
 sketch &amp;ldquo;random_same&amp;rdquo;.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://aronatkins.github.io/images/name-sketch.png&#34; alt=&#34;save and name your sketch&#34; /&gt;&lt;/p&gt;
-
+&lt;p&gt;&lt;img src=&#34;https://aronatkins.github.io/images/name-sketch.png&#34; alt=&#34;save and name your sketch&#34;&gt;&lt;/p&gt;
 &lt;p&gt;Let&amp;rsquo;s start off by letting the compiler know about the Adafruit NeoPixel
 library with an &lt;code&gt;include&lt;/code&gt; directive.&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-cpp&#34; data-lang=&#34;cpp&#34;&gt;&lt;span style=&#34;color:#93a1a1;font-style:italic&#34;&gt;#include&lt;/span&gt; &lt;span style=&#34;color:#93a1a1;font-style:italic&#34;&gt;&amp;lt;Adafruit_NeoPixel.h&amp;gt;&lt;/span&gt;&lt;span style=&#34;color:#93a1a1;font-style:italic&#34;&gt;
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;We can now go ahead and create an object that manages all the interaction with
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-cpp&#34; data-lang=&#34;cpp&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#999;font-weight:bold;font-style:italic&#34;&gt;#include&lt;/span&gt; &lt;span style=&#34;color:#999;font-weight:bold;font-style:italic&#34;&gt;&amp;lt;Adafruit_NeoPixel.h&amp;gt;&lt;/span&gt;&lt;span style=&#34;color:#999;font-weight:bold;font-style:italic&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;We can now go ahead and create an object that manages all the interaction with
 the NeoPixel. The &lt;code&gt;Adafruit_NeoPixel&lt;/code&gt; call we are using takes the number of
 pixels as its first argument and pin number as the second. My NeoPixel has 16
 LEDs and is wired to the &lt;code&gt;D0&lt;/code&gt; pin on my Gemma.&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-cpp&#34; data-lang=&#34;cpp&#34;&gt;&lt;span style=&#34;color:#268bd2&#34;&gt;Adafruit_NeoPixel&lt;/span&gt; &lt;span style=&#34;color:#268bd2&#34;&gt;strip&lt;/span&gt; = &lt;span style=&#34;color:#268bd2&#34;&gt;Adafruit_NeoPixel&lt;/span&gt;(&lt;span style=&#34;color:#2aa198;font-weight:bold&#34;&gt;16&lt;/span&gt;, &lt;span style=&#34;color:#2aa198;font-weight:bold&#34;&gt;0&lt;/span&gt;);
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;blockquote&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-cpp&#34; data-lang=&#34;cpp&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Adafruit_NeoPixel strip &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;=&lt;/span&gt; Adafruit_NeoPixel(&lt;span style=&#34;color:#099&#34;&gt;16&lt;/span&gt;, &lt;span style=&#34;color:#099&#34;&gt;0&lt;/span&gt;);
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;blockquote&gt;
 &lt;p&gt;There is an optional, third argument to the &lt;code&gt;Adafruit_NeoPixel&lt;/code&gt; function
 that lets you specify the type of NeoPixel. The default choice worked for
 me. Consult the NeoPixel documentation to see if you need to explicitly
 configure its type.&lt;/p&gt;
 &lt;/blockquote&gt;
-
 &lt;p&gt;Your sketch may already contain a &lt;code&gt;setup&lt;/code&gt; function definition. We are going to
 replace that with a version that initializes the NeoPixel strip and sets an
 initial brightness. Your Gemma will call the &lt;code&gt;setup&lt;/code&gt; function when it starts
 executing your program, so it&amp;rsquo;s a great place for anything we want to do once.&lt;/p&gt;
-
 &lt;p&gt;The &lt;code&gt;strip.begin&lt;/code&gt; call will configure our &lt;code&gt;D0&lt;/code&gt; pin so it is ready to send
 instructions to the NeoPixel. The &lt;code&gt;strip.setBrightness&lt;/code&gt; call will prevent you
 from going blind. Those NeoPixels can get bright! Feel free to experiment with
 other brightness values or removing the call to &lt;code&gt;strip.setBrightness&lt;/code&gt;
 altogether.&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-cpp&#34; data-lang=&#34;cpp&#34;&gt;&lt;span style=&#34;color:#859900;font-weight:bold&#34;&gt;void&lt;/span&gt; &lt;span style=&#34;color:#268bd2&#34;&gt;setup&lt;/span&gt;() {
-  &lt;span style=&#34;color:#268bd2&#34;&gt;strip&lt;/span&gt;.&lt;span style=&#34;color:#268bd2&#34;&gt;begin&lt;/span&gt;();
-  &lt;span style=&#34;color:#268bd2&#34;&gt;strip&lt;/span&gt;.&lt;span style=&#34;color:#268bd2&#34;&gt;setBrightness&lt;/span&gt;(&lt;span style=&#34;color:#2aa198;font-weight:bold&#34;&gt;30&lt;/span&gt;);
-}
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;The NeoPixel is ready to go. Let&amp;rsquo;s give it some color. We do that by defining
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-cpp&#34; data-lang=&#34;cpp&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#458;font-weight:bold&#34;&gt;void&lt;/span&gt; &lt;span style=&#34;color:#900;font-weight:bold&#34;&gt;setup&lt;/span&gt;() {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  strip.begin();
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  strip.setBrightness(&lt;span style=&#34;color:#099&#34;&gt;30&lt;/span&gt;);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The NeoPixel is ready to go. Let&amp;rsquo;s give it some color. We do that by defining
 a &lt;code&gt;loop&lt;/code&gt; function which the Gemma will execute over and over again.&lt;/p&gt;
-
 &lt;p&gt;Our &lt;code&gt;loop&lt;/code&gt; implementation uses a &lt;code&gt;Wheel&lt;/code&gt; function that takes an eight-bit
 number between 0 and 255 (inclusive) and translates that into a 32-bit number
 the NeoPixels use as color choice. I talk about &lt;code&gt;Wheel&lt;/code&gt; in &lt;a href=&#34;https://aronatkins.github.io/posts/2016-02-22-gemma-neopixel-0-wheel/&#34;&gt;another post&lt;/a&gt;. Make sure to include a
 copy at the end of your program.&lt;/p&gt;
-
 &lt;p&gt;We use the Arduino &lt;a href=&#34;https://www.arduino.cc/en/Reference/Random&#34;&gt;&lt;code&gt;random&lt;/code&gt;&lt;/a&gt;
 function to compute our input to &lt;code&gt;Wheel&lt;/code&gt;.&lt;/p&gt;
-
 &lt;p&gt;Once we have our color, we use a &lt;code&gt;for&lt;/code&gt; loop to assign that color to each pixel
 with the &lt;code&gt;strip.setPixelColor&lt;/code&gt; call. This function takes the index of the LED
 as its first argument (the first LED is at index &lt;code&gt;0&lt;/code&gt;) and a 32-bit color as
 its second.&lt;/p&gt;
-
 &lt;p&gt;A call to &lt;code&gt;strip.setPixelColor&lt;/code&gt; does not immediately send any instructions to
 the NeoPixel. Instead, all color choices are buffered in-memory by the
 NeoPixel library and sent to the device when &lt;code&gt;strip.show&lt;/code&gt; is called.&lt;/p&gt;
-
 &lt;p&gt;We add a &lt;a href=&#34;https://www.arduino.cc/en/Reference/Delay&#34;&gt;&lt;code&gt;delay&lt;/code&gt;&lt;/a&gt; at the end of
 &lt;code&gt;loop&lt;/code&gt; to make our code pause after each color choice. The &lt;code&gt;delay&lt;/code&gt; function
 takes a number of milliseconds as its only argument. Increase the delay value
 to wait longer. Decrease the value to make the color change more often.&lt;/p&gt;
-
 &lt;p&gt;Things will blink really quickly if you remove the call to &lt;code&gt;delay&lt;/code&gt; entirely!&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-cpp&#34; data-lang=&#34;cpp&#34;&gt;&lt;span style=&#34;color:#93a1a1;font-style:italic&#34;&gt;// Randomly give the same color to all pixels.
-&lt;/span&gt;&lt;span style=&#34;color:#93a1a1;font-style:italic&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#859900;font-weight:bold&#34;&gt;void&lt;/span&gt; &lt;span style=&#34;color:#268bd2&#34;&gt;loop&lt;/span&gt;() {
-  &lt;span style=&#34;color:#859900;font-weight:bold&#34;&gt;uint32_t&lt;/span&gt; &lt;span style=&#34;color:#268bd2&#34;&gt;c&lt;/span&gt; = &lt;span style=&#34;color:#268bd2&#34;&gt;Wheel&lt;/span&gt;(&lt;span style=&#34;color:#268bd2&#34;&gt;random&lt;/span&gt;(&lt;span style=&#34;color:#2aa198;font-weight:bold&#34;&gt;256&lt;/span&gt;));
-  &lt;span style=&#34;color:#859900;font-weight:bold&#34;&gt;uint8_t&lt;/span&gt; &lt;span style=&#34;color:#268bd2&#34;&gt;i&lt;/span&gt;;
-  &lt;span style=&#34;color:#859900&#34;&gt;for&lt;/span&gt; (&lt;span style=&#34;color:#268bd2&#34;&gt;i&lt;/span&gt;=&lt;span style=&#34;color:#2aa198;font-weight:bold&#34;&gt;0&lt;/span&gt;; &lt;span style=&#34;color:#268bd2&#34;&gt;i&lt;/span&gt;&amp;lt;&lt;span style=&#34;color:#268bd2&#34;&gt;strip&lt;/span&gt;.&lt;span style=&#34;color:#268bd2&#34;&gt;numPixels&lt;/span&gt;(); &lt;span style=&#34;color:#268bd2&#34;&gt;i&lt;/span&gt;++) {
-    &lt;span style=&#34;color:#268bd2&#34;&gt;strip&lt;/span&gt;.&lt;span style=&#34;color:#268bd2&#34;&gt;setPixelColor&lt;/span&gt;(&lt;span style=&#34;color:#268bd2&#34;&gt;i&lt;/span&gt;, &lt;span style=&#34;color:#268bd2&#34;&gt;c&lt;/span&gt;);
-  }
-  &lt;span style=&#34;color:#268bd2&#34;&gt;strip&lt;/span&gt;.&lt;span style=&#34;color:#268bd2&#34;&gt;show&lt;/span&gt;();
-  &lt;span style=&#34;color:#268bd2&#34;&gt;delay&lt;/span&gt;(&lt;span style=&#34;color:#2aa198;font-weight:bold&#34;&gt;200&lt;/span&gt;);
-}
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h2 id=&#34;the-whole-program&#34;&gt;The whole program&lt;/h2&gt;
-
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-cpp&#34; data-lang=&#34;cpp&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#998;font-style:italic&#34;&gt;// Randomly give the same color to all pixels.
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#998;font-style:italic&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#458;font-weight:bold&#34;&gt;void&lt;/span&gt; &lt;span style=&#34;color:#900;font-weight:bold&#34;&gt;loop&lt;/span&gt;() {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#458;font-weight:bold&#34;&gt;uint32_t&lt;/span&gt; c &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;=&lt;/span&gt; Wheel(random(&lt;span style=&#34;color:#099&#34;&gt;256&lt;/span&gt;));
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#458;font-weight:bold&#34;&gt;uint8_t&lt;/span&gt; i;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;for&lt;/span&gt; (i&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#099&#34;&gt;0&lt;/span&gt;; i&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;&amp;lt;&lt;/span&gt;strip.numPixels(); i&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;++&lt;/span&gt;) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    strip.setPixelColor(i, c);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  strip.show();
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  delay(&lt;span style=&#34;color:#099&#34;&gt;200&lt;/span&gt;);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;the-whole-program&#34;&gt;The whole program&lt;/h2&gt;
 &lt;p&gt;Here&amp;rsquo;s the entire program.&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-cpp&#34; data-lang=&#34;cpp&#34;&gt;&lt;span style=&#34;color:#93a1a1;font-style:italic&#34;&gt;#include&lt;/span&gt; &lt;span style=&#34;color:#93a1a1;font-style:italic&#34;&gt;&amp;lt;Adafruit_NeoPixel.h&amp;gt;&lt;/span&gt;&lt;span style=&#34;color:#93a1a1;font-style:italic&#34;&gt;
-&lt;/span&gt;&lt;span style=&#34;color:#93a1a1;font-style:italic&#34;&gt;&lt;/span&gt;
-&lt;span style=&#34;color:#268bd2&#34;&gt;Adafruit_NeoPixel&lt;/span&gt; &lt;span style=&#34;color:#268bd2&#34;&gt;strip&lt;/span&gt; = &lt;span style=&#34;color:#268bd2&#34;&gt;Adafruit_NeoPixel&lt;/span&gt;(&lt;span style=&#34;color:#2aa198;font-weight:bold&#34;&gt;16&lt;/span&gt;, &lt;span style=&#34;color:#2aa198;font-weight:bold&#34;&gt;0&lt;/span&gt;);
-
-&lt;span style=&#34;color:#859900;font-weight:bold&#34;&gt;void&lt;/span&gt; &lt;span style=&#34;color:#268bd2&#34;&gt;setup&lt;/span&gt;() {
-  &lt;span style=&#34;color:#268bd2&#34;&gt;strip&lt;/span&gt;.&lt;span style=&#34;color:#268bd2&#34;&gt;begin&lt;/span&gt;();
-  &lt;span style=&#34;color:#268bd2&#34;&gt;strip&lt;/span&gt;.&lt;span style=&#34;color:#268bd2&#34;&gt;setBrightness&lt;/span&gt;(&lt;span style=&#34;color:#2aa198;font-weight:bold&#34;&gt;30&lt;/span&gt;);
-}
-
-&lt;span style=&#34;color:#93a1a1;font-style:italic&#34;&gt;// Randomly give the same color to all pixels.
-&lt;/span&gt;&lt;span style=&#34;color:#93a1a1;font-style:italic&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#859900;font-weight:bold&#34;&gt;void&lt;/span&gt; &lt;span style=&#34;color:#268bd2&#34;&gt;loop&lt;/span&gt;() {
-  &lt;span style=&#34;color:#859900;font-weight:bold&#34;&gt;uint32_t&lt;/span&gt; &lt;span style=&#34;color:#268bd2&#34;&gt;c&lt;/span&gt; = &lt;span style=&#34;color:#268bd2&#34;&gt;Wheel&lt;/span&gt;(&lt;span style=&#34;color:#268bd2&#34;&gt;random&lt;/span&gt;(&lt;span style=&#34;color:#2aa198;font-weight:bold&#34;&gt;256&lt;/span&gt;));
-  &lt;span style=&#34;color:#859900;font-weight:bold&#34;&gt;uint8_t&lt;/span&gt; &lt;span style=&#34;color:#268bd2&#34;&gt;i&lt;/span&gt;;
-  &lt;span style=&#34;color:#859900&#34;&gt;for&lt;/span&gt; (&lt;span style=&#34;color:#268bd2&#34;&gt;i&lt;/span&gt;=&lt;span style=&#34;color:#2aa198;font-weight:bold&#34;&gt;0&lt;/span&gt;; &lt;span style=&#34;color:#268bd2&#34;&gt;i&lt;/span&gt;&amp;lt;&lt;span style=&#34;color:#268bd2&#34;&gt;strip&lt;/span&gt;.&lt;span style=&#34;color:#268bd2&#34;&gt;numPixels&lt;/span&gt;(); &lt;span style=&#34;color:#268bd2&#34;&gt;i&lt;/span&gt;++) {
-    &lt;span style=&#34;color:#268bd2&#34;&gt;strip&lt;/span&gt;.&lt;span style=&#34;color:#268bd2&#34;&gt;setPixelColor&lt;/span&gt;(&lt;span style=&#34;color:#268bd2&#34;&gt;i&lt;/span&gt;, &lt;span style=&#34;color:#268bd2&#34;&gt;c&lt;/span&gt;);
-  }
-  &lt;span style=&#34;color:#268bd2&#34;&gt;strip&lt;/span&gt;.&lt;span style=&#34;color:#268bd2&#34;&gt;show&lt;/span&gt;();
-  &lt;span style=&#34;color:#268bd2&#34;&gt;delay&lt;/span&gt;(&lt;span style=&#34;color:#2aa198;font-weight:bold&#34;&gt;200&lt;/span&gt;);
-}
-
-&lt;span style=&#34;color:#93a1a1;font-style:italic&#34;&gt;// Input a value 0 to 255 to get a color value.
-&lt;/span&gt;&lt;span style=&#34;color:#93a1a1;font-style:italic&#34;&gt;// The colours are a transition r - g - b - back to r.
-&lt;/span&gt;&lt;span style=&#34;color:#93a1a1;font-style:italic&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#859900;font-weight:bold&#34;&gt;uint32_t&lt;/span&gt; &lt;span style=&#34;color:#268bd2&#34;&gt;Wheel&lt;/span&gt;(&lt;span style=&#34;color:#268bd2&#34;&gt;byte&lt;/span&gt; &lt;span style=&#34;color:#268bd2&#34;&gt;WheelPos&lt;/span&gt;) {
-  &lt;span style=&#34;color:#268bd2&#34;&gt;WheelPos&lt;/span&gt; = &lt;span style=&#34;color:#2aa198;font-weight:bold&#34;&gt;255&lt;/span&gt; - &lt;span style=&#34;color:#268bd2&#34;&gt;WheelPos&lt;/span&gt;;
-  &lt;span style=&#34;color:#859900&#34;&gt;if&lt;/span&gt;(&lt;span style=&#34;color:#268bd2&#34;&gt;WheelPos&lt;/span&gt; &amp;lt; &lt;span style=&#34;color:#2aa198;font-weight:bold&#34;&gt;85&lt;/span&gt;) {
-    &lt;span style=&#34;color:#859900&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#268bd2&#34;&gt;strip&lt;/span&gt;.&lt;span style=&#34;color:#268bd2&#34;&gt;Color&lt;/span&gt;(&lt;span style=&#34;color:#2aa198;font-weight:bold&#34;&gt;255&lt;/span&gt; - &lt;span style=&#34;color:#268bd2&#34;&gt;WheelPos&lt;/span&gt; * &lt;span style=&#34;color:#2aa198;font-weight:bold&#34;&gt;3&lt;/span&gt;, &lt;span style=&#34;color:#2aa198;font-weight:bold&#34;&gt;0&lt;/span&gt;, &lt;span style=&#34;color:#268bd2&#34;&gt;WheelPos&lt;/span&gt; * &lt;span style=&#34;color:#2aa198;font-weight:bold&#34;&gt;3&lt;/span&gt;);
-  }
-  &lt;span style=&#34;color:#859900&#34;&gt;if&lt;/span&gt;(&lt;span style=&#34;color:#268bd2&#34;&gt;WheelPos&lt;/span&gt; &amp;lt; &lt;span style=&#34;color:#2aa198;font-weight:bold&#34;&gt;170&lt;/span&gt;) {
-    &lt;span style=&#34;color:#268bd2&#34;&gt;WheelPos&lt;/span&gt; -= &lt;span style=&#34;color:#2aa198;font-weight:bold&#34;&gt;85&lt;/span&gt;;
-    &lt;span style=&#34;color:#859900&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#268bd2&#34;&gt;strip&lt;/span&gt;.&lt;span style=&#34;color:#268bd2&#34;&gt;Color&lt;/span&gt;(&lt;span style=&#34;color:#2aa198;font-weight:bold&#34;&gt;0&lt;/span&gt;, &lt;span style=&#34;color:#268bd2&#34;&gt;WheelPos&lt;/span&gt; * &lt;span style=&#34;color:#2aa198;font-weight:bold&#34;&gt;3&lt;/span&gt;, &lt;span style=&#34;color:#2aa198;font-weight:bold&#34;&gt;255&lt;/span&gt; - &lt;span style=&#34;color:#268bd2&#34;&gt;WheelPos&lt;/span&gt; * &lt;span style=&#34;color:#2aa198;font-weight:bold&#34;&gt;3&lt;/span&gt;);
-  }
-  &lt;span style=&#34;color:#268bd2&#34;&gt;WheelPos&lt;/span&gt; -= &lt;span style=&#34;color:#2aa198;font-weight:bold&#34;&gt;170&lt;/span&gt;;
-  &lt;span style=&#34;color:#859900&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#268bd2&#34;&gt;strip&lt;/span&gt;.&lt;span style=&#34;color:#268bd2&#34;&gt;Color&lt;/span&gt;(&lt;span style=&#34;color:#268bd2&#34;&gt;WheelPos&lt;/span&gt; * &lt;span style=&#34;color:#2aa198;font-weight:bold&#34;&gt;3&lt;/span&gt;, &lt;span style=&#34;color:#2aa198;font-weight:bold&#34;&gt;255&lt;/span&gt; - &lt;span style=&#34;color:#268bd2&#34;&gt;WheelPos&lt;/span&gt; * &lt;span style=&#34;color:#2aa198;font-weight:bold&#34;&gt;3&lt;/span&gt;, &lt;span style=&#34;color:#2aa198;font-weight:bold&#34;&gt;0&lt;/span&gt;);
-}
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;As you get a little more comfortable writing code for your Gemma and NeoPixel,
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-cpp&#34; data-lang=&#34;cpp&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#999;font-weight:bold;font-style:italic&#34;&gt;#include&lt;/span&gt; &lt;span style=&#34;color:#999;font-weight:bold;font-style:italic&#34;&gt;&amp;lt;Adafruit_NeoPixel.h&amp;gt;&lt;/span&gt;&lt;span style=&#34;color:#999;font-weight:bold;font-style:italic&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#999;font-weight:bold;font-style:italic&#34;&gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Adafruit_NeoPixel strip &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;=&lt;/span&gt; Adafruit_NeoPixel(&lt;span style=&#34;color:#099&#34;&gt;16&lt;/span&gt;, &lt;span style=&#34;color:#099&#34;&gt;0&lt;/span&gt;);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#458;font-weight:bold&#34;&gt;void&lt;/span&gt; &lt;span style=&#34;color:#900;font-weight:bold&#34;&gt;setup&lt;/span&gt;() {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  strip.begin();
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  strip.setBrightness(&lt;span style=&#34;color:#099&#34;&gt;30&lt;/span&gt;);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#998;font-style:italic&#34;&gt;// Randomly give the same color to all pixels.
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#998;font-style:italic&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#458;font-weight:bold&#34;&gt;void&lt;/span&gt; &lt;span style=&#34;color:#900;font-weight:bold&#34;&gt;loop&lt;/span&gt;() {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#458;font-weight:bold&#34;&gt;uint32_t&lt;/span&gt; c &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;=&lt;/span&gt; Wheel(random(&lt;span style=&#34;color:#099&#34;&gt;256&lt;/span&gt;));
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#458;font-weight:bold&#34;&gt;uint8_t&lt;/span&gt; i;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;for&lt;/span&gt; (i&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#099&#34;&gt;0&lt;/span&gt;; i&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;&amp;lt;&lt;/span&gt;strip.numPixels(); i&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;++&lt;/span&gt;) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    strip.setPixelColor(i, c);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  strip.show();
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  delay(&lt;span style=&#34;color:#099&#34;&gt;200&lt;/span&gt;);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#998;font-style:italic&#34;&gt;// Input a value 0 to 255 to get a color value.
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#998;font-style:italic&#34;&gt;// The colours are a transition r - g - b - back to r.
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#998;font-style:italic&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#458;font-weight:bold&#34;&gt;uint32_t&lt;/span&gt; &lt;span style=&#34;color:#900;font-weight:bold&#34;&gt;Wheel&lt;/span&gt;(byte WheelPos) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  WheelPos &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#099&#34;&gt;255&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;-&lt;/span&gt; WheelPos;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;if&lt;/span&gt;(WheelPos &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;&amp;lt;&lt;/span&gt; &lt;span style=&#34;color:#099&#34;&gt;85&lt;/span&gt;) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;return&lt;/span&gt; strip.Color(&lt;span style=&#34;color:#099&#34;&gt;255&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;-&lt;/span&gt; WheelPos &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;*&lt;/span&gt; &lt;span style=&#34;color:#099&#34;&gt;3&lt;/span&gt;, &lt;span style=&#34;color:#099&#34;&gt;0&lt;/span&gt;, WheelPos &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;*&lt;/span&gt; &lt;span style=&#34;color:#099&#34;&gt;3&lt;/span&gt;);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;if&lt;/span&gt;(WheelPos &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;&amp;lt;&lt;/span&gt; &lt;span style=&#34;color:#099&#34;&gt;170&lt;/span&gt;) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    WheelPos &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;-=&lt;/span&gt; &lt;span style=&#34;color:#099&#34;&gt;85&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;return&lt;/span&gt; strip.Color(&lt;span style=&#34;color:#099&#34;&gt;0&lt;/span&gt;, WheelPos &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;*&lt;/span&gt; &lt;span style=&#34;color:#099&#34;&gt;3&lt;/span&gt;, &lt;span style=&#34;color:#099&#34;&gt;255&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;-&lt;/span&gt; WheelPos &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;*&lt;/span&gt; &lt;span style=&#34;color:#099&#34;&gt;3&lt;/span&gt;);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  WheelPos &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;-=&lt;/span&gt; &lt;span style=&#34;color:#099&#34;&gt;170&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;return&lt;/span&gt; strip.Color(WheelPos &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;*&lt;/span&gt; &lt;span style=&#34;color:#099&#34;&gt;3&lt;/span&gt;, &lt;span style=&#34;color:#099&#34;&gt;255&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;-&lt;/span&gt; WheelPos &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;*&lt;/span&gt; &lt;span style=&#34;color:#099&#34;&gt;3&lt;/span&gt;, &lt;span style=&#34;color:#099&#34;&gt;0&lt;/span&gt;);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;As you get a little more comfortable writing code for your Gemma and NeoPixel,
 you should poke through the source for the
 &lt;a href=&#34;https://github.com/adafruit/Adafruit_NeoPixel&#34;&gt;NeoPixel library&lt;/a&gt;. The
 examples may give you some ideas for further experimentation. The NeoPixel
@@ -180,54 +155,46 @@ calls themselves can also be helpful. I read the implementations of
 function that is part of the
 &lt;a href=&#34;https://github.com/adafruit/Adafruit_NeoPixel/tree/be0d7706e196dd8479e4573038785bad0b1e6726/examples/strandtest&#34;&gt;strandtest&lt;/a&gt;
 example included within the &lt;a href=&#34;https://github.com/adafruit/Adafruit_NeoPixel&#34;&gt;NeoPixel library&lt;/a&gt;.&lt;/p&gt;
-
 &lt;p&gt;I&amp;rsquo;m writing it as a preamble to a planned series of articles about my
 experiments with an Arduino &lt;a href=&#34;https://www.adafruit.com/products/1222&#34;&gt;Gemma&lt;/a&gt;
 and a NeoPixel ring with
 &lt;a href=&#34;https://www.adafruit.com/products/1463&#34;&gt;16 RGB LEDs&lt;/a&gt;.&lt;/p&gt;
-
 &lt;p&gt;The &lt;code&gt;Wheel&lt;/code&gt; function takes a value from 0 to 255 (inclusive) and maps that
 onto a red-green-blue color wheel. Internally, it computes a value for the
 red, green, and blue components of the result. Those three parts are combined
 by the &lt;code&gt;strip.Color&lt;/code&gt; function to return a 32-bit value representing that
 color.&lt;/p&gt;
-
 &lt;blockquote&gt;
 &lt;p&gt;The &lt;code&gt;Wheel&lt;/code&gt; function may eventually be included in the NeoPixel library, but
 for now, include it in each of your sketches.&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-cpp&#34; data-lang=&#34;cpp&#34;&gt;&lt;span style=&#34;color:#859900;font-weight:bold&#34;&gt;uint32_t&lt;/span&gt; &lt;span style=&#34;color:#268bd2&#34;&gt;Wheel&lt;/span&gt;(&lt;span style=&#34;color:#268bd2&#34;&gt;byte&lt;/span&gt; &lt;span style=&#34;color:#268bd2&#34;&gt;WheelPos&lt;/span&gt;) {
-  &lt;span style=&#34;color:#268bd2&#34;&gt;WheelPos&lt;/span&gt; = &lt;span style=&#34;color:#2aa198;font-weight:bold&#34;&gt;255&lt;/span&gt; - &lt;span style=&#34;color:#268bd2&#34;&gt;WheelPos&lt;/span&gt;;
-  &lt;span style=&#34;color:#859900&#34;&gt;if&lt;/span&gt;(&lt;span style=&#34;color:#268bd2&#34;&gt;WheelPos&lt;/span&gt; &amp;lt; &lt;span style=&#34;color:#2aa198;font-weight:bold&#34;&gt;85&lt;/span&gt;) {
-    &lt;span style=&#34;color:#859900&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#268bd2&#34;&gt;strip&lt;/span&gt;.&lt;span style=&#34;color:#268bd2&#34;&gt;Color&lt;/span&gt;(&lt;span style=&#34;color:#2aa198;font-weight:bold&#34;&gt;255&lt;/span&gt; - &lt;span style=&#34;color:#268bd2&#34;&gt;WheelPos&lt;/span&gt; * &lt;span style=&#34;color:#2aa198;font-weight:bold&#34;&gt;3&lt;/span&gt;, &lt;span style=&#34;color:#2aa198;font-weight:bold&#34;&gt;0&lt;/span&gt;, &lt;span style=&#34;color:#268bd2&#34;&gt;WheelPos&lt;/span&gt; * &lt;span style=&#34;color:#2aa198;font-weight:bold&#34;&gt;3&lt;/span&gt;);
-  }
-  &lt;span style=&#34;color:#859900&#34;&gt;if&lt;/span&gt;(&lt;span style=&#34;color:#268bd2&#34;&gt;WheelPos&lt;/span&gt; &amp;lt; &lt;span style=&#34;color:#2aa198;font-weight:bold&#34;&gt;170&lt;/span&gt;) {
-    &lt;span style=&#34;color:#268bd2&#34;&gt;WheelPos&lt;/span&gt; -= &lt;span style=&#34;color:#2aa198;font-weight:bold&#34;&gt;85&lt;/span&gt;;
-    &lt;span style=&#34;color:#859900&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#268bd2&#34;&gt;strip&lt;/span&gt;.&lt;span style=&#34;color:#268bd2&#34;&gt;Color&lt;/span&gt;(&lt;span style=&#34;color:#2aa198;font-weight:bold&#34;&gt;0&lt;/span&gt;, &lt;span style=&#34;color:#268bd2&#34;&gt;WheelPos&lt;/span&gt; * &lt;span style=&#34;color:#2aa198;font-weight:bold&#34;&gt;3&lt;/span&gt;, &lt;span style=&#34;color:#2aa198;font-weight:bold&#34;&gt;255&lt;/span&gt; - &lt;span style=&#34;color:#268bd2&#34;&gt;WheelPos&lt;/span&gt; * &lt;span style=&#34;color:#2aa198;font-weight:bold&#34;&gt;3&lt;/span&gt;);
-  }
-  &lt;span style=&#34;color:#268bd2&#34;&gt;WheelPos&lt;/span&gt; -= &lt;span style=&#34;color:#2aa198;font-weight:bold&#34;&gt;170&lt;/span&gt;;
-  &lt;span style=&#34;color:#859900&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#268bd2&#34;&gt;strip&lt;/span&gt;.&lt;span style=&#34;color:#268bd2&#34;&gt;Color&lt;/span&gt;(&lt;span style=&#34;color:#268bd2&#34;&gt;WheelPos&lt;/span&gt; * &lt;span style=&#34;color:#2aa198;font-weight:bold&#34;&gt;3&lt;/span&gt;, &lt;span style=&#34;color:#2aa198;font-weight:bold&#34;&gt;255&lt;/span&gt; - &lt;span style=&#34;color:#268bd2&#34;&gt;WheelPos&lt;/span&gt; * &lt;span style=&#34;color:#2aa198;font-weight:bold&#34;&gt;3&lt;/span&gt;, &lt;span style=&#34;color:#2aa198;font-weight:bold&#34;&gt;0&lt;/span&gt;);
-}
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;From a quick code reading, we can see that the numbers from 0 to 255 are
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-cpp&#34; data-lang=&#34;cpp&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#458;font-weight:bold&#34;&gt;uint32_t&lt;/span&gt; &lt;span style=&#34;color:#900;font-weight:bold&#34;&gt;Wheel&lt;/span&gt;(byte WheelPos) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  WheelPos &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#099&#34;&gt;255&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;-&lt;/span&gt; WheelPos;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;if&lt;/span&gt;(WheelPos &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;&amp;lt;&lt;/span&gt; &lt;span style=&#34;color:#099&#34;&gt;85&lt;/span&gt;) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;return&lt;/span&gt; strip.Color(&lt;span style=&#34;color:#099&#34;&gt;255&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;-&lt;/span&gt; WheelPos &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;*&lt;/span&gt; &lt;span style=&#34;color:#099&#34;&gt;3&lt;/span&gt;, &lt;span style=&#34;color:#099&#34;&gt;0&lt;/span&gt;, WheelPos &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;*&lt;/span&gt; &lt;span style=&#34;color:#099&#34;&gt;3&lt;/span&gt;);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;if&lt;/span&gt;(WheelPos &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;&amp;lt;&lt;/span&gt; &lt;span style=&#34;color:#099&#34;&gt;170&lt;/span&gt;) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    WheelPos &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;-=&lt;/span&gt; &lt;span style=&#34;color:#099&#34;&gt;85&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;return&lt;/span&gt; strip.Color(&lt;span style=&#34;color:#099&#34;&gt;0&lt;/span&gt;, WheelPos &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;*&lt;/span&gt; &lt;span style=&#34;color:#099&#34;&gt;3&lt;/span&gt;, &lt;span style=&#34;color:#099&#34;&gt;255&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;-&lt;/span&gt; WheelPos &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;*&lt;/span&gt; &lt;span style=&#34;color:#099&#34;&gt;3&lt;/span&gt;);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  WheelPos &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;-=&lt;/span&gt; &lt;span style=&#34;color:#099&#34;&gt;170&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;return&lt;/span&gt; strip.Color(WheelPos &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;*&lt;/span&gt; &lt;span style=&#34;color:#099&#34;&gt;3&lt;/span&gt;, &lt;span style=&#34;color:#099&#34;&gt;255&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;-&lt;/span&gt; WheelPos &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;*&lt;/span&gt; &lt;span style=&#34;color:#099&#34;&gt;3&lt;/span&gt;, &lt;span style=&#34;color:#099&#34;&gt;0&lt;/span&gt;);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;From a quick code reading, we can see that the numbers from 0 to 255 are
 divided into three sections: 0-85, 86-170, and 171-255. But what we care about
 more than the math are the colors that result.&lt;/p&gt;
-
 &lt;p&gt;Let&amp;rsquo;s build a table showing how an input value is transformed. I wrote a
 little
 &lt;a href=&#34;https://github.com/aronatkins/bits-bytes-and-lights/blob/2498dcf3472732ed5761af9fce068ee77b4fd8de/NeoPixel/color-wheel.py&#34;&gt;Python code&lt;/a&gt;
 to take each number from 0 to 255 and give the resulting red, green, and blue
 values. In addition, I added the HTML hex color code and the color itself.
 Maybe it&amp;rsquo;ll help you when incorporating &lt;code&gt;Wheel&lt;/code&gt; into your own designs.&lt;/p&gt;
-
 &lt;blockquote&gt;
 &lt;p&gt;The color wheel only includes red, green, and blue combinations. There is no
 black and no white. You may need to use other techniques or in addition
 to the &lt;code&gt;Wheel&lt;/code&gt; function.&lt;/p&gt;
 &lt;/blockquote&gt;
-
 &lt;p&gt;Get ready for some scrolling!&lt;/p&gt;
-
 &lt;table&gt;
 &lt;tbody&gt;
 &lt;tr&gt;&lt;th&gt;position&lt;/th&gt;&lt;th&gt;0&lt;/th&gt;&lt;th&gt;1&lt;/th&gt;&lt;th&gt;2&lt;/th&gt;&lt;th&gt;3&lt;/th&gt;&lt;th&gt;4&lt;/th&gt;&lt;th&gt;5&lt;/th&gt;&lt;th&gt;6&lt;/th&gt;&lt;th&gt;7&lt;/th&gt;&lt;/tr&gt;

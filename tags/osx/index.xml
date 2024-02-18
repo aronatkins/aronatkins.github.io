@@ -21,40 +21,35 @@
 build of our
 &lt;a href=&#34;http://www.rstudio.com/products/rstudio/&#34;&gt;open source RStudio IDE&lt;/a&gt; almost
 every morning.&lt;/p&gt;
-
 &lt;p&gt;There are published ways to download and install these builds
 &lt;a href=&#34;http://stackoverflow.com/a/15046636&#34;&gt;for Linux&lt;/a&gt; but that doesn&amp;rsquo;t work for me.&lt;/p&gt;
-
 &lt;p&gt;My main development machine is a Macbook Pro, and, well,
 &lt;a href=&#34;http://en.wikipedia.org/wiki/Think_different&#34;&gt;we&amp;rsquo;re different&lt;/a&gt;.&lt;/p&gt;
-
 &lt;p&gt;After far too many iterations of &amp;ldquo;&lt;em&gt;google for &amp;lsquo;rstudio daily mac&amp;rsquo; then
 download the DMG then mount it then copy the application to &lt;code&gt;/Applications&lt;/code&gt;&lt;/em&gt;&amp;rdquo;,
 I put on my &amp;ldquo;Let&amp;rsquo;s write a script for that!&amp;rdquo; hat and &amp;hellip; wrote a script.&lt;/p&gt;
-
 &lt;p&gt;You can find the latest version &lt;a href=&#34;https://gist.github.com/aronatkins/ac3934e08d2961285bef&#34;&gt;as a GitHub Gist&lt;/a&gt;
 and embedded below (the embed will not appear in RSS or in non-Javascript
 viewers). It fetches the latest daily RStudio IDE build from our download
 site, replacing any existing install.&lt;/p&gt;
-
 &lt;p&gt;To use this script, download it to your own machine, make it executable, and
 run it. Use it every day!&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-nohighlight&#34; data-lang=&#34;nohighlight&#34;&gt;# Mark executable after downloading.
-$ chmod +x install-rstudio-daily.sh
-# Every day!
-$ ./install-rstudio-daily.sh
-Discovering daily build from: http://www.rstudio.org/download/latest/daily/desktop/mac/RStudio-latest.dmg
-Downloading daily build from: http://s3.amazonaws.com/rstudio-dailybuilds/RStudio-0.99.585.dmg
-  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
-                                 Dload  Upload   Total   Spent    Left  Speed
-100 57.5M  100 57.5M    0     0  5558k      0  0:00:10  0:00:10 --:--:-- 6493k
-Installed RStudio-0.99.585 to /Applications&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;blockquote&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;# Mark executable after downloading.
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ chmod +x install-rstudio-daily.sh
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;# Every day!
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ ./install-rstudio-daily.sh
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Discovering daily build from: http://www.rstudio.org/download/latest/daily/desktop/mac/RStudio-latest.dmg
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Downloading daily build from: http://s3.amazonaws.com/rstudio-dailybuilds/RStudio-0.99.585.dmg
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                                 Dload  Upload   Total   Spent    Left  Speed
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;100 57.5M  100 57.5M    0     0  5558k      0  0:00:10  0:00:10 --:--:-- 6493k
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Installed RStudio-0.99.585 to /Applications
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;Update 2015-06-10&lt;/strong&gt; The script has been simplified based on an &lt;a href=&#34;https://support.rstudio.com/hc/en-us/articles/203842428-Getting-the-newest-RStudio-builds&#34;&gt;RStudio support article&lt;/a&gt;. The sample output and the &lt;a href=&#34;https://gist.github.com/aronatkins/ac3934e08d2961285bef&#34;&gt;Gist&lt;/a&gt; have been updated with these changes.&lt;/p&gt;
-
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;Update 2016-10-12&lt;/strong&gt; The script now supports both OSX/macOS and Ubuntu Linux.&lt;/p&gt;
 &lt;/blockquote&gt;
-
 &lt;script src=&#34;https://gist.github.com/aronatkins/ac3934e08d2961285bef.js&#34;&gt;&lt;/script&gt;
 </description>
     </item>

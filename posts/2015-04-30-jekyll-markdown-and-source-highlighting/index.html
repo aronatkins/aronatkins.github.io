@@ -6,7 +6,7 @@
     
     <title>Aron Atkins  | jekyll, markdown, and source highlighting</title>
     <meta name="viewport" content="width=device-width,minimum-scale=1">
-    <meta name="generator" content="Hugo 0.59.1" />
+    <meta name="generator" content="Hugo 0.122.0">
     <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
 
     <link rel="stylesheet" href='/css/aronatkins.css'>
@@ -16,24 +16,17 @@
 I decided to use highlight.js after struggling with Jekyll configuration/extensions. In particular, I either couldn&rsquo;t get the highlighting to work at all, or didn&rsquo;t find support for one or more languages I&rsquo;ve been touching.
 The highlight.js package contains a number of default languages and many more that can be added in." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://aronatkins.github.io/posts/2015-04-30-jekyll-markdown-and-source-highlighting/" />
+<meta property="og:url" content="https://aronatkins.github.io/posts/2015-04-30-jekyll-markdown-and-source-highlighting/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2015-04-30T00:01:00+00:00" />
 <meta property="article:modified_time" content="2015-04-30T00:01:00+00:00" />
+
 <meta itemprop="name" content="jekyll, markdown, and source highlighting">
 <meta itemprop="description" content="Here is how I added code styling to this blog. Unfortunately, the code is only styled when you visit the site; the RSS feeds will have unstyled code blocks.
 I decided to use highlight.js after struggling with Jekyll configuration/extensions. In particular, I either couldn&rsquo;t get the highlighting to work at all, or didn&rsquo;t find support for one or more languages I&rsquo;ve been touching.
-The highlight.js package contains a number of default languages and many more that can be added in.">
-
-
-<meta itemprop="datePublished" content="2015-04-30T00:01:00&#43;00:00" />
-<meta itemprop="dateModified" content="2015-04-30T00:01:00&#43;00:00" />
+The highlight.js package contains a number of default languages and many more that can be added in."><meta itemprop="datePublished" content="2015-04-30T00:01:00+00:00" />
+<meta itemprop="dateModified" content="2015-04-30T00:01:00+00:00" />
 <meta itemprop="wordCount" content="233">
-
-
-
-<meta itemprop="keywords" content="jekyll,markdown,highlight.js," />
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="jekyll, markdown, and source highlighting"/>
+<meta itemprop="keywords" content="jekyll,markdown,highlight.js," /><meta name="twitter:card" content="summary"/><meta name="twitter:title" content="jekyll, markdown, and source highlighting"/>
 <meta name="twitter:description" content="Here is how I added code styling to this blog. Unfortunately, the code is only styled when you visit the site; the RSS feeds will have unstyled code blocks.
 I decided to use highlight.js after struggling with Jekyll configuration/extensions. In particular, I either couldn&rsquo;t get the highlighting to work at all, or didn&rsquo;t find support for one or more languages I&rsquo;ve been touching.
 The highlight.js package contains a number of default languages and many more that can be added in."/>
@@ -82,49 +75,45 @@ The highlight.js package contains a number of default languages and many more th
 
         <section><p>Here is how I added code styling to this blog. Unfortunately, the code is only
 styled when you visit the site; the RSS feeds will have unstyled code blocks.</p>
-
 <p>I decided to use <a href="https://highlightjs.org/">highlight.js</a> after struggling
 with Jekyll configuration/extensions. In particular, I either couldn&rsquo;t get the
 highlighting to work at all, or didn&rsquo;t find support for one or more languages
 I&rsquo;ve been touching.</p>
-
 <p>The highlight.js package contains a number of default languages and many more
 that can be added in. If you use the default set, you can use a CDN-hosted
 copy. I wanted R, Go, and Lisp which demanded a
 <a href="https://highlightjs.org/download/">custom build</a>.</p>
-
 <p>The downloaded bundle contains a <code>highlight.pack.js</code> which I copied into a
 <code>js/</code> directory within my Jekyll blog. I am using the sunburst theme, which I
 copied into <code>css/highlight.css</code>.</p>
-
 <p>In <code>_includes/head.html</code>, add the following:</p>
-
-<pre><code>&lt;link rel=&quot;stylesheet&quot; href=&quot;{{ &quot;/css/highlight.css&quot; | prepend: site.baseurl }}&quot;&gt;
-&lt;script src=&quot;{{ &quot;/js/highlight.pack.js&quot; | prepend: site.baseurl }}&quot;&gt;&lt;/script&gt;
+<pre tabindex="0"><code>&lt;link rel=&#34;stylesheet&#34; href=&#34;{{ &#34;/css/highlight.css&#34; | prepend: site.baseurl }}&#34;&gt;
+&lt;script src=&#34;{{ &#34;/js/highlight.pack.js&#34; | prepend: site.baseurl }}&#34;&gt;&lt;/script&gt;
 &lt;script&gt;hljs.initHighlightingOnLoad();&lt;/script&gt;
-</code></pre>
-
-<p>That&rsquo;s it! Your code blocks now have syntax highlighting.</p>
-
+</code></pre><p>That&rsquo;s it! Your code blocks now have syntax highlighting.</p>
 <p>If you want to force language-specific code highlighting of a block, say what
 language you are using:</p>
-<div class="highlight"><pre style="color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-markdown" data-lang="markdown"><span style="color:#2aa198">```lisp
-</span><span style="color:#2aa198"></span>(<span style="color:#cb4b16">defun</span> <span style="color:#268bd2">aron/git-grep</span> () ...)
-<span style="color:#2aa198">```</span></code></pre></div>
-<p>which is rendered like:</p>
-<div class="highlight"><pre style="color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lisp" data-lang="lisp">(<span style="color:#cb4b16">defun</span> <span style="color:#268bd2">aron/git-grep</span> () ...)</code></pre></div>
-<p>If you don&rsquo;t specify a lanuage identifier, highlight.js will still apply some
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span><span style="color:#d14">```lisp
+</span></span></span><span style="display:flex;"><span><span style="color:#d14"></span>(<span style="color:#0086b3">defun</span> <span style="color:#008080">aron/git-grep</span> () <span style="color:#000;font-weight:bold">...</span>)
+</span></span><span style="display:flex;"><span><span style="color:#d14">```</span>
+</span></span></code></pre></div><p>which is rendered like:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-lisp" data-lang="lisp"><span style="display:flex;"><span>(<span style="color:#0086b3">defun</span> <span style="color:#008080">aron/git-grep</span> () <span style="color:#000;font-weight:bold">...</span>)
+</span></span></code></pre></div><p>If you don&rsquo;t specify a lanuage identifier, highlight.js will still apply some
 formatting to your block. If you don&rsquo;t want that, use the <code>nohighlight</code> tag:</p>
-<div class="highlight"><pre style="color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-markdown" data-lang="markdown"><span style="color:#2aa198">```nohighlight
-</span><span style="color:#2aa198"></span>this shall not be formatted
-<span style="color:#2aa198">```</span></code></pre></div>
-<p>which is rendered like:</p>
-<div class="highlight"><pre style="color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-nohighlight" data-lang="nohighlight">this shall not be formatted</code></pre></div><div class="tags">
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span><span style="color:#d14">```nohighlight
+</span></span></span><span style="display:flex;"><span><span style="color:#d14"></span>this shall not be formatted
+</span></span><span style="display:flex;"><span><span style="color:#d14">```</span>
+</span></span></code></pre></div><p>which is rendered like:</p>
+<pre tabindex="0"><code class="language-nohighlight" data-lang="nohighlight">this shall not be formatted
+</code></pre><div class="tags">
     More: 
     
-    
-    
-    <a href="/tags/highlight.js">highlight.js</a> / <a href="/tags/jekyll">jekyll</a> / <a href="/tags/markdown">markdown</a>
+        <a href="/tags/highlight.js">highlight.js</a>
+ / 
+        <a href="/tags/jekyll">jekyll</a>
+ / 
+        <a href="/tags/markdown">markdown</a>
+
 </div>
 
 </section>

@@ -20,14 +20,12 @@
       <description>&lt;p&gt;Yesterday, &lt;a href=&#34;https://github.com&#34;&gt;GitHub&lt;/a&gt; published
 &lt;a href=&#34;https://github.com/blog/1943-how-to-write-the-perfect-pull-request&#34;&gt;their guidelines&lt;/a&gt;
 for collaborating with pull requests. I love this.&lt;/p&gt;
-
 &lt;p&gt;I have written about my
 &lt;a href=&#34;https://aronatkins.github.io/2014/12/13/hey-buddy.html&#34;&gt;code review philosophy and guidelines&lt;/a&gt; in the
 past. The GitHub guide captures much of the same advice and also includes a
 few practical tips when using the
 &lt;a href=&#34;https://guides.github.com/introduction/flow/index.html&#34;&gt;GitHub Flow&lt;/a&gt; and
 &lt;a href=&#34;https://help.github.com/articles/using-pull-requests/&#34;&gt;pull requests&lt;/a&gt;.&lt;/p&gt;
-
 &lt;p&gt;The GitHub guidelines were inspired by Thoughtbot&amp;rsquo;s
 &lt;a href=&#34;https://github.com/thoughtbot/guides/tree/master/code-review&#34;&gt;code review&lt;/a&gt;
 guide.&lt;/p&gt;
@@ -40,79 +38,60 @@ guide.&lt;/p&gt;
       <pubDate>Sat, 13 Dec 2014 00:00:00 +0000</pubDate>
       <author>aron.atkins@gmail.com (Aron Atkins)</author>
       <guid>https://aronatkins.github.io/posts/2014-12-13-hey-buddy/</guid>
-      <description>
-
-&lt;p&gt;Thanks to &lt;a href=&#34;https://github.com&#34;&gt;github&lt;/a&gt; and their easy-to-use
+      <description>&lt;p&gt;Thanks to &lt;a href=&#34;https://github.com&#34;&gt;github&lt;/a&gt; and their easy-to-use
 &lt;a href=&#34;https://help.github.com/articles/using-pull-requests/&#34;&gt;pull request&lt;/a&gt; UI,
 pre-commit code reviews have become much more common in the industry. For me,
 lightweight peer reviews are a requirement in any well-run development shop.
 Github certainly did not invent this style of review, but they have certainly
 help popularize the practice. Thanks, Github!&lt;/p&gt;
-
 &lt;p&gt;I have helped establish code reviewing throughout my career ever since seeing
 its positive effect at my first job, working on formal verification tools at
 &lt;a href=&#34;http://www.prnewswire.com/news-releases/avant-to-acquire-chrysalis-symbolic-design-inc-formal-verification-market-leader-74406487.html&#34;&gt;Chrysalis Symbolic Design&lt;/a&gt;.&lt;/p&gt;
-
 &lt;p&gt;We did a few full formal code reviews at Chrysalis. They ended up being far
 too heavy and time-consuming. Mostly, we used lighter-weight techniques;
 handing around branches, textual diffs, and over-the-shoulder inspection. The
 tooling was primitive, but the value of these reviews was immeasurable. We
 were working on a product where the original developer was no longer part of
 the company; we were all learning a foreign code base with each change.&lt;/p&gt;
-
 &lt;p&gt;As we explored the code, we gradually learned how the parts fit. The buddy
 reviews helped validate our findings, but more importantly, helped spread that
 knowledge around the group.&lt;/p&gt;
-
 &lt;p&gt;The teaching aspect of code reviews proved far more valuable than critique.
 Yes, there is a chance that an expert will catch a fundamental flaw, but more
 important is the opportunity for non-experts to ask, &amp;ldquo;Why?&amp;rdquo; Buddy reviews help
 educate a team and let everyone become less reliant on &amp;ldquo;experts&amp;rdquo;.&lt;/p&gt;
-
 &lt;p&gt;I left Chrysalis having seen the power of buddy reviews and have helped
 promote adoption ever since.&lt;/p&gt;
-
 &lt;p&gt;If you aren&amp;rsquo;t yet using peer reviews, don&amp;rsquo;t fret. Just ask someone else to
 look at your code. Easy, right? Code review doesn&amp;rsquo;t always start with adoption
 by an entire organization. At &lt;a href=&#34;http://brightcove.com&#34;&gt;Brightcove&lt;/a&gt;, I started
 with just one other developer. We started sharing code and it spread from
 there, organically at first and then finally was adopted by the entire group.&lt;/p&gt;
-
 &lt;p&gt;What follows are some simple guidelines that I brought to
 &lt;a href=&#34;http://brightcove.com&#34;&gt;Brightcove&lt;/a&gt;; we used a similar philosophy at
 &lt;a href=&#34;http://www.carbondesignsystems.com&#34;&gt;Carbon Design Systems&lt;/a&gt; and
 &lt;a href=&#34;http://www.crunchbase.com/organization/iphrase-systems&#34;&gt;iPhrase&lt;/a&gt;.&lt;/p&gt;
-
 &lt;blockquote&gt;
 &lt;h2 id=&#34;buddy-reviews&#34;&gt;Buddy Reviews&lt;/h2&gt;
-
 &lt;p&gt;All checkins must be reviewed and approved by a peer prior to commit. The
 intent is to educate each other on different parts of our system and improve
 the quality of our code.&lt;/p&gt;
-
 &lt;h3 id=&#34;who-can-be-a-buddy&#34;&gt;WHO can be a buddy?&lt;/h3&gt;
-
 &lt;p&gt;Anyone who is able to understand and critique your changes. This usually
 means another engineer. Vary your reviewer from commit to commit &amp;ndash; try and
 broaden the number of people understanding any one subsystem.&lt;/p&gt;
-
 &lt;h3 id=&#34;when-to-buddy&#34;&gt;WHEN to buddy?&lt;/h3&gt;
-
 &lt;p&gt;Before the commit. Every time, every change. A good time for review is while
 tests are running, although if there are failures, you will have to have
 your changes re-reviewed.&lt;/p&gt;
-
 &lt;p&gt;There is no excuse to skip the buddy review. If you are alone in the office
 or working remotely, you still need someone to review your changes. If you
 are working against a tight deadline, your changes still need review.&lt;/p&gt;
-
 &lt;p&gt;Buddy reviews do not always need to be face-to-face (though preferred).
 Email diffs or pointers to changed source files and discuss your
 modifications over the phone, IM, etc. Of course, if your commit can wait
 until the next day (most can), wait for a face-to-face review.&lt;/p&gt;
-
 &lt;h3 id=&#34;what-should-a-buddy-ask&#34;&gt;WHAT should a buddy ask?&lt;/h3&gt;
-
 &lt;ol&gt;
 &lt;li&gt;Do I understand the problem this change is solving?&lt;/li&gt;
 &lt;li&gt;Is this the best/an appropriate solution?&lt;/li&gt;
@@ -127,9 +106,7 @@ until the next day (most can), wait for a face-to-face review.&lt;/p&gt;
 &lt;li&gt;Are there unit tests?&lt;/li&gt;
 &lt;/ol&gt;
 &lt;/blockquote&gt;
-
 &lt;p&gt;Some other thoughts on buddy reviews to get you started:&lt;/p&gt;
-
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;http://blog.codinghorror.com/code-reviews-just-do-it/&#34;&gt;http://blog.codinghorror.com/code-reviews-just-do-it/&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;http://blog.codinghorror.com/whos-your-coding-buddy/&#34;&gt;http://blog.codinghorror.com/whos-your-coding-buddy/&lt;/a&gt;&lt;/li&gt;

@@ -27,6 +27,10 @@ a:hover {
     color: orangered;
 }
 
+.highlight pre {
+    border: 1px dotted #111;
+}
+
 pre {
     padding: 1em;
     overflow-x: auto;
