@@ -51,7 +51,7 @@ blockquote {
     /*background: #eff8ff;*/
     /* background: #ebeafc; */
     /* background: whitesmoke; */
-    background: snow;
+    background: ghostwhite;
 }
 
 .header-columns {
@@ -91,7 +91,8 @@ footer {
     padding-bottom: 1em;;
     margin-top: 1em;
     /* background: whitesmoke; */
-    background: snow;
+    /* background: snow; */
+    background: ghostwhite;
 }
 
 @media only screen and (min-width: 800px) {
