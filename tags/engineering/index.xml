@@ -10,283 +10,53 @@
     <webMaster>aron.atkins@gmail.com (Aron Atkins)</webMaster>
     <lastBuildDate>Wed, 12 Oct 2016 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://aronatkins.github.io/tags/engineering/index.xml" rel="self" type="application/rss+xml" />
-    
     <item>
       <title>Installing RStudio daily builds (Ubuntu)</title>
       <link>https://aronatkins.github.io/posts/2016-10-12-installing-rstudio-daily-ubuntu-builds/</link>
       <pubDate>Wed, 12 Oct 2016 00:00:00 +0000</pubDate>
       <author>aron.atkins@gmail.com (Aron Atkins)</author>
       <guid>https://aronatkins.github.io/posts/2016-10-12-installing-rstudio-daily-ubuntu-builds/</guid>
-      <description>&lt;p&gt;The
-&lt;a href=&#34;https://aronatkins.github.io/posts/2015-06-03-installing-rstudio-daily-builds/&#34;&gt;script that I previously published&lt;/a&gt; to
-handle OSX installs has been updated to also handle installing RStudio daily
-desktop builds on Ubuntu Linux hosts.&lt;/p&gt;
-&lt;p&gt;You need to install either &lt;code&gt;curl&lt;/code&gt; or &lt;code&gt;wget&lt;/code&gt; in order to use this script. It
-only understands Ubuntu installation and uses &lt;code&gt;dpkg&lt;/code&gt; to perform the install.
-If run as a non-&lt;code&gt;root&lt;/code&gt; user, &lt;code&gt;sudo&lt;/code&gt; is used when running &lt;code&gt;dpkg&lt;/code&gt;.&lt;/p&gt;
-&lt;p&gt;You may need to follow this script with a &lt;code&gt;apt-get install -f&lt;/code&gt; to install
-RStudio package dependencies (using &lt;code&gt;sudo&lt;/code&gt; if appropriate).&lt;/p&gt;
-&lt;p&gt;You can always find the latest version &lt;a href=&#34;https://gist.github.com/aronatkins/ac3934e08d2961285bef&#34;&gt;as a GitHub Gist&lt;/a&gt;
-and embedded below (the embed will not appear in RSS or in non-Javascript
-viewers). It fetches the latest daily RStudio IDE build from our download
-site, replacing any existing install.&lt;/p&gt;
-&lt;p&gt;To use this script, download it to your own machine, make it executable, and
-run it. Use it every day!&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;# Mark executable after downloading.
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ chmod +x install-rstudio-daily.sh
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;# Every day!
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ ./install-rstudio-daily.sh
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Downloading daily build from: https://www.rstudio.org/download/latest/daily/desktop/ubuntu64/rstudio-latest-amd64.deb
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                                 Dload  Upload   Total   Spent    Left  Speed
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;100   335  100   335    0     0    642      0 --:--:-- --:--:-- --:--:--   642
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;100 94.1M  100 94.1M    0     0  3383k      0  0:00:28  0:00:28 --:--:-- 3599k
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Installing /tmp/rstudio-latest-amd64.deb
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Selecting previously unselected package rstudio.
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;(Reading database ... 8837 files and directories currently installed.)
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Preparing to unpack /tmp/rstudio-latest-amd64.deb ...
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Unpacking rstudio (1.0.39) ...
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Setting up rstudio (1.0.39) ...
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Processing triggers for shared-mime-info (1.5-2ubuntu0.1) ...
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;script src=&#34;https://gist.github.com/aronatkins/ac3934e08d2961285bef.js&#34;&gt;&lt;/script&gt;
-</description>
+      <description>&lt;p&gt;The&#xA;&lt;a href=&#34;https://aronatkins.github.io/posts/2015-06-03-installing-rstudio-daily-builds/&#34;&gt;script that I previously published&lt;/a&gt; to&#xA;handle OSX installs has been updated to also handle installing RStudio daily&#xA;desktop builds on Ubuntu Linux hosts.&lt;/p&gt;&#xA;&lt;p&gt;You need to install either &lt;code&gt;curl&lt;/code&gt; or &lt;code&gt;wget&lt;/code&gt; in order to use this script. It&#xA;only understands Ubuntu installation and uses &lt;code&gt;dpkg&lt;/code&gt; to perform the install.&#xA;If run as a non-&lt;code&gt;root&lt;/code&gt; user, &lt;code&gt;sudo&lt;/code&gt; is used when running &lt;code&gt;dpkg&lt;/code&gt;.&lt;/p&gt;&#xA;&lt;p&gt;You may need to follow this script with a &lt;code&gt;apt-get install -f&lt;/code&gt; to install&#xA;RStudio package dependencies (using &lt;code&gt;sudo&lt;/code&gt; if appropriate).&lt;/p&gt;&#xA;&lt;p&gt;You can always find the latest version &lt;a href=&#34;https://gist.github.com/aronatkins/ac3934e08d2961285bef&#34;&gt;as a GitHub Gist&lt;/a&gt;&#xA;and embedded below (the embed will not appear in RSS or in non-Javascript&#xA;viewers). It fetches the latest daily RStudio IDE build from our download&#xA;site, replacing any existing install.&lt;/p&gt;&#xA;&lt;p&gt;To use this script, download it to your own machine, make it executable, and&#xA;run it. Use it every day!&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;# Mark executable after downloading.&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ chmod +x install-rstudio-daily.sh&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;# Every day!&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ ./install-rstudio-daily.sh&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Downloading daily build from: https://www.rstudio.org/download/latest/daily/desktop/ubuntu64/rstudio-latest-amd64.deb&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                                 Dload  Upload   Total   Spent    Left  Speed&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;100   335  100   335    0     0    642      0 --:--:-- --:--:-- --:--:--   642&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;100 94.1M  100 94.1M    0     0  3383k      0  0:00:28  0:00:28 --:--:-- 3599k&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Installing /tmp/rstudio-latest-amd64.deb&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Selecting previously unselected package rstudio.&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;(Reading database ... 8837 files and directories currently installed.)&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Preparing to unpack /tmp/rstudio-latest-amd64.deb ...&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Unpacking rstudio (1.0.39) ...&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Setting up rstudio (1.0.39) ...&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Processing triggers for shared-mime-info (1.5-2ubuntu0.1) ...&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;script src=&#34;https://gist.github.com/aronatkins/ac3934e08d2961285bef.js&#34;&gt;&lt;/script&gt;&#xA;</description>
     </item>
-    
     <item>
       <title>Installing RStudio daily builds</title>
       <link>https://aronatkins.github.io/posts/2015-06-03-installing-rstudio-daily-builds/</link>
       <pubDate>Wed, 03 Jun 2015 00:00:00 +0000</pubDate>
       <author>aron.atkins@gmail.com (Aron Atkins)</author>
       <guid>https://aronatkins.github.io/posts/2015-06-03-installing-rstudio-daily-builds/</guid>
-      <description>&lt;p&gt;As a member of the team at &lt;a href=&#34;http://rstudio.com&#34;&gt;RStudio&lt;/a&gt;, I install the daily
-build of our
-&lt;a href=&#34;http://www.rstudio.com/products/rstudio/&#34;&gt;open source RStudio IDE&lt;/a&gt; almost
-every morning.&lt;/p&gt;
-&lt;p&gt;There are published ways to download and install these builds
-&lt;a href=&#34;http://stackoverflow.com/a/15046636&#34;&gt;for Linux&lt;/a&gt; but that doesn&amp;rsquo;t work for me.&lt;/p&gt;
-&lt;p&gt;My main development machine is a Macbook Pro, and, well,
-&lt;a href=&#34;http://en.wikipedia.org/wiki/Think_different&#34;&gt;we&amp;rsquo;re different&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;After far too many iterations of &amp;ldquo;&lt;em&gt;google for &amp;lsquo;rstudio daily mac&amp;rsquo; then
-download the DMG then mount it then copy the application to &lt;code&gt;/Applications&lt;/code&gt;&lt;/em&gt;&amp;rdquo;,
-I put on my &amp;ldquo;Let&amp;rsquo;s write a script for that!&amp;rdquo; hat and &amp;hellip; wrote a script.&lt;/p&gt;
-&lt;p&gt;You can find the latest version &lt;a href=&#34;https://gist.github.com/aronatkins/ac3934e08d2961285bef&#34;&gt;as a GitHub Gist&lt;/a&gt;
-and embedded below (the embed will not appear in RSS or in non-Javascript
-viewers). It fetches the latest daily RStudio IDE build from our download
-site, replacing any existing install.&lt;/p&gt;
-&lt;p&gt;To use this script, download it to your own machine, make it executable, and
-run it. Use it every day!&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;# Mark executable after downloading.
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ chmod +x install-rstudio-daily.sh
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;# Every day!
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ ./install-rstudio-daily.sh
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Discovering daily build from: http://www.rstudio.org/download/latest/daily/desktop/mac/RStudio-latest.dmg
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Downloading daily build from: http://s3.amazonaws.com/rstudio-dailybuilds/RStudio-0.99.585.dmg
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                                 Dload  Upload   Total   Spent    Left  Speed
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;100 57.5M  100 57.5M    0     0  5558k      0  0:00:10  0:00:10 --:--:-- 6493k
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Installed RStudio-0.99.585 to /Applications
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;blockquote&gt;
-&lt;p&gt;&lt;strong&gt;Update 2015-06-10&lt;/strong&gt; The script has been simplified based on an &lt;a href=&#34;https://support.rstudio.com/hc/en-us/articles/203842428-Getting-the-newest-RStudio-builds&#34;&gt;RStudio support article&lt;/a&gt;. The sample output and the &lt;a href=&#34;https://gist.github.com/aronatkins/ac3934e08d2961285bef&#34;&gt;Gist&lt;/a&gt; have been updated with these changes.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;blockquote&gt;
-&lt;p&gt;&lt;strong&gt;Update 2016-10-12&lt;/strong&gt; The script now supports both OSX/macOS and Ubuntu Linux.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;script src=&#34;https://gist.github.com/aronatkins/ac3934e08d2961285bef.js&#34;&gt;&lt;/script&gt;
-</description>
+      <description>&lt;p&gt;As a member of the team at &lt;a href=&#34;http://rstudio.com&#34;&gt;RStudio&lt;/a&gt;, I install the daily&#xA;build of our&#xA;&lt;a href=&#34;http://www.rstudio.com/products/rstudio/&#34;&gt;open source RStudio IDE&lt;/a&gt; almost&#xA;every morning.&lt;/p&gt;&#xA;&lt;p&gt;There are published ways to download and install these builds&#xA;&lt;a href=&#34;http://stackoverflow.com/a/15046636&#34;&gt;for Linux&lt;/a&gt; but that doesn&amp;rsquo;t work for me.&lt;/p&gt;&#xA;&lt;p&gt;My main development machine is a Macbook Pro, and, well,&#xA;&lt;a href=&#34;http://en.wikipedia.org/wiki/Think_different&#34;&gt;we&amp;rsquo;re different&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;p&gt;After far too many iterations of &amp;ldquo;&lt;em&gt;google for &amp;lsquo;rstudio daily mac&amp;rsquo; then&#xA;download the DMG then mount it then copy the application to &lt;code&gt;/Applications&lt;/code&gt;&lt;/em&gt;&amp;rdquo;,&#xA;I put on my &amp;ldquo;Let&amp;rsquo;s write a script for that!&amp;rdquo; hat and &amp;hellip; wrote a script.&lt;/p&gt;&#xA;&lt;p&gt;You can find the latest version &lt;a href=&#34;https://gist.github.com/aronatkins/ac3934e08d2961285bef&#34;&gt;as a GitHub Gist&lt;/a&gt;&#xA;and embedded below (the embed will not appear in RSS or in non-Javascript&#xA;viewers). It fetches the latest daily RStudio IDE build from our download&#xA;site, replacing any existing install.&lt;/p&gt;&#xA;&lt;p&gt;To use this script, download it to your own machine, make it executable, and&#xA;run it. Use it every day!&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;# Mark executable after downloading.&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ chmod +x install-rstudio-daily.sh&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;# Every day!&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ ./install-rstudio-daily.sh&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Discovering daily build from: http://www.rstudio.org/download/latest/daily/desktop/mac/RStudio-latest.dmg&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Downloading daily build from: http://s3.amazonaws.com/rstudio-dailybuilds/RStudio-0.99.585.dmg&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                                 Dload  Upload   Total   Spent    Left  Speed&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;100 57.5M  100 57.5M    0     0  5558k      0  0:00:10  0:00:10 --:--:-- 6493k&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Installed RStudio-0.99.585 to /Applications&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;strong&gt;Update 2015-06-10&lt;/strong&gt; The script has been simplified based on an &lt;a href=&#34;https://support.rstudio.com/hc/en-us/articles/203842428-Getting-the-newest-RStudio-builds&#34;&gt;RStudio support article&lt;/a&gt;. The sample output and the &lt;a href=&#34;https://gist.github.com/aronatkins/ac3934e08d2961285bef&#34;&gt;Gist&lt;/a&gt; have been updated with these changes.&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;strong&gt;Update 2016-10-12&lt;/strong&gt; The script now supports both OSX/macOS and Ubuntu Linux.&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;script src=&#34;https://gist.github.com/aronatkins/ac3934e08d2961285bef.js&#34;&gt;&lt;/script&gt;&#xA;</description>
     </item>
-    
     <item>
       <title>I R what I R</title>
       <link>https://aronatkins.github.io/posts/2015-02-04-i-r-what-i-r/</link>
       <pubDate>Wed, 04 Feb 2015 00:00:00 +0000</pubDate>
       <author>aron.atkins@gmail.com (Aron Atkins)</author>
       <guid>https://aronatkins.github.io/posts/2015-02-04-i-r-what-i-r/</guid>
-      <description>&lt;p&gt;I am two days late in posting about it, but as of
-&lt;a href=&#34;http://en.wikipedia.org/wiki/Groundhog_Day&#34;&gt;Groundhog Day&lt;/a&gt;, I have rejoined
-the ranks of the employed.&lt;/p&gt;
-&lt;p&gt;I am a part of the team at &lt;a href=&#34;http://rstudio.com&#34;&gt;RStudio&lt;/a&gt;, joining a number of
-former &lt;a href=&#34;http://brightcove.com&#34;&gt;Brightcove&lt;/a&gt; colleagues.&lt;/p&gt;
-&lt;p&gt;As typical with new jobs, there&amp;rsquo;s a ton to learn: R and all its accompanying
-ecosystem, Angular, Bootstrap, Go. All this newness can be a bit intimidating,
-but I also find it invigorating &amp;ndash; my eagerness to dig in and deeply
-understand all these new things drives me forward.&lt;/p&gt;
-&lt;p&gt;My first day was a snow day, the result of Boston&amp;rsquo;s most recent winter
-pummeling. So much of what RStudio creates is open and available in public
-&lt;a href=&#34;https://github.com/rstudio/&#34;&gt;GitHub repositories&lt;/a&gt;; I could easily get started
-in between shoveling breaks.&lt;/p&gt;
-&lt;p&gt;I love my blurb from the &lt;a href=&#34;http://rstudio.com/about&#34;&gt;RStudio about&lt;/a&gt; page:&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Aron is a software engineer with experience at a number of Boston-area
-startups. Most recently, he helped build the Brightcove video platform. He
-has Mathematics and Computer Science degrees from
-&lt;a href=&#34;http://wpi.edu&#34;&gt;Worcester Polytechnic Institute&lt;/a&gt;. Aron grew up as part of a
-&lt;a href=&#34;http://atkinsfarms.com&#34;&gt;farming family&lt;/a&gt; and still adores apple cider
-donuts.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;I&amp;rsquo;m glad to be promoting my love for apple cider donuts. It probably deserves
-a blog post of its own!&lt;/p&gt;
-</description>
+      <description>&lt;p&gt;I am two days late in posting about it, but as of&#xA;&lt;a href=&#34;http://en.wikipedia.org/wiki/Groundhog_Day&#34;&gt;Groundhog Day&lt;/a&gt;, I have rejoined&#xA;the ranks of the employed.&lt;/p&gt;&#xA;&lt;p&gt;I am a part of the team at &lt;a href=&#34;http://rstudio.com&#34;&gt;RStudio&lt;/a&gt;, joining a number of&#xA;former &lt;a href=&#34;http://brightcove.com&#34;&gt;Brightcove&lt;/a&gt; colleagues.&lt;/p&gt;&#xA;&lt;p&gt;As typical with new jobs, there&amp;rsquo;s a ton to learn: R and all its accompanying&#xA;ecosystem, Angular, Bootstrap, Go. All this newness can be a bit intimidating,&#xA;but I also find it invigorating &amp;ndash; my eagerness to dig in and deeply&#xA;understand all these new things drives me forward.&lt;/p&gt;&#xA;&lt;p&gt;My first day was a snow day, the result of Boston&amp;rsquo;s most recent winter&#xA;pummeling. So much of what RStudio creates is open and available in public&#xA;&lt;a href=&#34;https://github.com/rstudio/&#34;&gt;GitHub repositories&lt;/a&gt;; I could easily get started&#xA;in between shoveling breaks.&lt;/p&gt;&#xA;&lt;p&gt;I love my blurb from the &lt;a href=&#34;http://rstudio.com/about&#34;&gt;RStudio about&lt;/a&gt; page:&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;Aron is a software engineer with experience at a number of Boston-area&#xA;startups. Most recently, he helped build the Brightcove video platform. He&#xA;has Mathematics and Computer Science degrees from&#xA;&lt;a href=&#34;http://wpi.edu&#34;&gt;Worcester Polytechnic Institute&lt;/a&gt;. Aron grew up as part of a&#xA;&lt;a href=&#34;http://atkinsfarms.com&#34;&gt;farming family&lt;/a&gt; and still adores apple cider&#xA;donuts.&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;I&amp;rsquo;m glad to be promoting my love for apple cider donuts. It probably deserves&#xA;a blog post of its own!&lt;/p&gt;&#xA;</description>
     </item>
-    
     <item>
       <title>A perfect pull?</title>
       <link>https://aronatkins.github.io/posts/2015-01-22-a-perfect-pull/</link>
       <pubDate>Thu, 22 Jan 2015 00:00:00 +0000</pubDate>
       <author>aron.atkins@gmail.com (Aron Atkins)</author>
       <guid>https://aronatkins.github.io/posts/2015-01-22-a-perfect-pull/</guid>
-      <description>&lt;p&gt;Yesterday, &lt;a href=&#34;https://github.com&#34;&gt;GitHub&lt;/a&gt; published
-&lt;a href=&#34;https://github.com/blog/1943-how-to-write-the-perfect-pull-request&#34;&gt;their guidelines&lt;/a&gt;
-for collaborating with pull requests. I love this.&lt;/p&gt;
-&lt;p&gt;I have written about my
-&lt;a href=&#34;https://aronatkins.github.io/2014/12/13/hey-buddy.html&#34;&gt;code review philosophy and guidelines&lt;/a&gt; in the
-past. The GitHub guide captures much of the same advice and also includes a
-few practical tips when using the
-&lt;a href=&#34;https://guides.github.com/introduction/flow/index.html&#34;&gt;GitHub Flow&lt;/a&gt; and
-&lt;a href=&#34;https://help.github.com/articles/using-pull-requests/&#34;&gt;pull requests&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;The GitHub guidelines were inspired by Thoughtbot&amp;rsquo;s
-&lt;a href=&#34;https://github.com/thoughtbot/guides/tree/master/code-review&#34;&gt;code review&lt;/a&gt;
-guide.&lt;/p&gt;
-</description>
+      <description>&lt;p&gt;Yesterday, &lt;a href=&#34;https://github.com&#34;&gt;GitHub&lt;/a&gt; published&#xA;&lt;a href=&#34;https://github.com/blog/1943-how-to-write-the-perfect-pull-request&#34;&gt;their guidelines&lt;/a&gt;&#xA;for collaborating with pull requests. I love this.&lt;/p&gt;&#xA;&lt;p&gt;I have written about my&#xA;&lt;a href=&#34;https://aronatkins.github.io/2014/12/13/hey-buddy.html&#34;&gt;code review philosophy and guidelines&lt;/a&gt; in the&#xA;past. The GitHub guide captures much of the same advice and also includes a&#xA;few practical tips when using the&#xA;&lt;a href=&#34;https://guides.github.com/introduction/flow/index.html&#34;&gt;GitHub Flow&lt;/a&gt; and&#xA;&lt;a href=&#34;https://help.github.com/articles/using-pull-requests/&#34;&gt;pull requests&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;p&gt;The GitHub guidelines were inspired by Thoughtbot&amp;rsquo;s&#xA;&lt;a href=&#34;https://github.com/thoughtbot/guides/tree/master/code-review&#34;&gt;code review&lt;/a&gt;&#xA;guide.&lt;/p&gt;&#xA;</description>
     </item>
-    
     <item>
       <title>You build it, you own it!</title>
       <link>https://aronatkins.github.io/posts/2014-12-23-you-build-it-you-own-it/</link>
       <pubDate>Tue, 23 Dec 2014 00:00:00 +0000</pubDate>
       <author>aron.atkins@gmail.com (Aron Atkins)</author>
       <guid>https://aronatkins.github.io/posts/2014-12-23-you-build-it-you-own-it/</guid>
-      <description>&lt;p&gt;One of the most powerful transitions I experienced while at
-&lt;a href=&#34;http://brightcove.com&#34;&gt;Brightcove&lt;/a&gt; was the shift away from
-dev-and-test-and-deploy silos. In its place came teams who built, tested,
-deployed, and operated our services.&lt;/p&gt;
-&lt;p&gt;I recently came across an
-&lt;a href=&#34;http://queue.acm.org/detail.cfm?id=1142065&#34;&gt;ACM interview&lt;/a&gt; with
-&lt;a href=&#34;http://www.allthingsdistributed.com&#34;&gt;Werner Vogels&lt;/a&gt; from
-&lt;a href=&#34;http://www.amazon.com&#34;&gt;Amazon&lt;/a&gt;. The article is from 2006 but discusses their
-experience with this transition:&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Giving developers operational responsibilities has greatly enhanced the
-quality of the services, both from a customer and a technology point of
-view. The traditional model is that you take your software to the wall that
-separates development and operations, and throw it over and then forget
-about it. Not at Amazon. You build it, you run it. This brings developers
-into contact with the day-to-day operation of their software. It also brings
-them into day-to-day contact with the customer. This customer feedback loop
-is essential for improving the quality of the service.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;The key building block is, &lt;em&gt;&amp;ldquo;You build it, you run it.&amp;quot;&lt;/em&gt; I would prefer
-a slightly stronger statement, which is: &amp;ldquo;You build it, you own it.&amp;rdquo; In the
-best of worlds, there is no handoff &amp;ndash; the team writing the code is the team
-testing the build is the team deploying the service is the team responding to
-support requests and is the team paged if something breaks in the middle of
-the night.&lt;/p&gt;
-&lt;p&gt;This is the ideal that the
-&lt;a href=&#34;http://en.wikipedia.org/wiki/DevOps&#34;&gt;devops&lt;/a&gt; movement is trying to
-accomplish. There is no wall, no barrier that divides an organization into
-separate teams based on skills. Instead, there are blended teams trying to
-completely solve some problem.&lt;/p&gt;
-&lt;p&gt;Giving a team ownership of a product motivates those individuals to take
-fuller responsibility for their work. They learn more about the problem being
-solved. They learn more about constraints placed upon their system (perhaps
-business, perhaps technical). There is no one between their output and
-your customer.&lt;/p&gt;
-&lt;p&gt;I take it personally when something I built does not perform as anticipated or
-fails to meet some customer need. I take pride in products I deliver; my work
-is a reflection of me. I take it as a personal failure if my work makes me
-lose a night of sleep, or worse, if I cause someone else to have a rough
-night. None of this is discouraging! My defensive reaction drives me to
-improve our products further and to be more critical in my own work going
-forward.&lt;/p&gt;
-&lt;p&gt;I have seen this same behavior in others; ownership that encourages personal
-responsibility is a powerful feedback loop that can drive a product team
-forward.&lt;/p&gt;
-</description>
+      <description>&lt;p&gt;One of the most powerful transitions I experienced while at&#xA;&lt;a href=&#34;http://brightcove.com&#34;&gt;Brightcove&lt;/a&gt; was the shift away from&#xA;dev-and-test-and-deploy silos. In its place came teams who built, tested,&#xA;deployed, and operated our services.&lt;/p&gt;&#xA;&lt;p&gt;I recently came across an&#xA;&lt;a href=&#34;http://queue.acm.org/detail.cfm?id=1142065&#34;&gt;ACM interview&lt;/a&gt; with&#xA;&lt;a href=&#34;http://www.allthingsdistributed.com&#34;&gt;Werner Vogels&lt;/a&gt; from&#xA;&lt;a href=&#34;http://www.amazon.com&#34;&gt;Amazon&lt;/a&gt;. The article is from 2006 but discusses their&#xA;experience with this transition:&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;Giving developers operational responsibilities has greatly enhanced the&#xA;quality of the services, both from a customer and a technology point of&#xA;view. The traditional model is that you take your software to the wall that&#xA;separates development and operations, and throw it over and then forget&#xA;about it. Not at Amazon. You build it, you run it. This brings developers&#xA;into contact with the day-to-day operation of their software. It also brings&#xA;them into day-to-day contact with the customer. This customer feedback loop&#xA;is essential for improving the quality of the service.&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;The key building block is, &lt;em&gt;&amp;ldquo;You build it, you run it.&amp;quot;&lt;/em&gt; I would prefer&#xA;a slightly stronger statement, which is: &amp;ldquo;You build it, you own it.&amp;rdquo; In the&#xA;best of worlds, there is no handoff &amp;ndash; the team writing the code is the team&#xA;testing the build is the team deploying the service is the team responding to&#xA;support requests and is the team paged if something breaks in the middle of&#xA;the night.&lt;/p&gt;&#xA;&lt;p&gt;This is the ideal that the&#xA;&lt;a href=&#34;http://en.wikipedia.org/wiki/DevOps&#34;&gt;devops&lt;/a&gt; movement is trying to&#xA;accomplish. There is no wall, no barrier that divides an organization into&#xA;separate teams based on skills. Instead, there are blended teams trying to&#xA;completely solve some problem.&lt;/p&gt;&#xA;&lt;p&gt;Giving a team ownership of a product motivates those individuals to take&#xA;fuller responsibility for their work. They learn more about the problem being&#xA;solved. They learn more about constraints placed upon their system (perhaps&#xA;business, perhaps technical). There is no one between their output and&#xA;your customer.&lt;/p&gt;&#xA;&lt;p&gt;I take it personally when something I built does not perform as anticipated or&#xA;fails to meet some customer need. I take pride in products I deliver; my work&#xA;is a reflection of me. I take it as a personal failure if my work makes me&#xA;lose a night of sleep, or worse, if I cause someone else to have a rough&#xA;night. None of this is discouraging! My defensive reaction drives me to&#xA;improve our products further and to be more critical in my own work going&#xA;forward.&lt;/p&gt;&#xA;&lt;p&gt;I have seen this same behavior in others; ownership that encourages personal&#xA;responsibility is a powerful feedback loop that can drive a product team&#xA;forward.&lt;/p&gt;&#xA;</description>
     </item>
-    
     <item>
       <title>Hey, Buddy!</title>
       <link>https://aronatkins.github.io/posts/2014-12-13-hey-buddy/</link>
       <pubDate>Sat, 13 Dec 2014 00:00:00 +0000</pubDate>
       <author>aron.atkins@gmail.com (Aron Atkins)</author>
       <guid>https://aronatkins.github.io/posts/2014-12-13-hey-buddy/</guid>
-      <description>&lt;p&gt;Thanks to &lt;a href=&#34;https://github.com&#34;&gt;github&lt;/a&gt; and their easy-to-use
-&lt;a href=&#34;https://help.github.com/articles/using-pull-requests/&#34;&gt;pull request&lt;/a&gt; UI,
-pre-commit code reviews have become much more common in the industry. For me,
-lightweight peer reviews are a requirement in any well-run development shop.
-Github certainly did not invent this style of review, but they have certainly
-help popularize the practice. Thanks, Github!&lt;/p&gt;
-&lt;p&gt;I have helped establish code reviewing throughout my career ever since seeing
-its positive effect at my first job, working on formal verification tools at
-&lt;a href=&#34;http://www.prnewswire.com/news-releases/avant-to-acquire-chrysalis-symbolic-design-inc-formal-verification-market-leader-74406487.html&#34;&gt;Chrysalis Symbolic Design&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;We did a few full formal code reviews at Chrysalis. They ended up being far
-too heavy and time-consuming. Mostly, we used lighter-weight techniques;
-handing around branches, textual diffs, and over-the-shoulder inspection. The
-tooling was primitive, but the value of these reviews was immeasurable. We
-were working on a product where the original developer was no longer part of
-the company; we were all learning a foreign code base with each change.&lt;/p&gt;
-&lt;p&gt;As we explored the code, we gradually learned how the parts fit. The buddy
-reviews helped validate our findings, but more importantly, helped spread that
-knowledge around the group.&lt;/p&gt;
-&lt;p&gt;The teaching aspect of code reviews proved far more valuable than critique.
-Yes, there is a chance that an expert will catch a fundamental flaw, but more
-important is the opportunity for non-experts to ask, &amp;ldquo;Why?&amp;rdquo; Buddy reviews help
-educate a team and let everyone become less reliant on &amp;ldquo;experts&amp;rdquo;.&lt;/p&gt;
-&lt;p&gt;I left Chrysalis having seen the power of buddy reviews and have helped
-promote adoption ever since.&lt;/p&gt;
-&lt;p&gt;If you aren&amp;rsquo;t yet using peer reviews, don&amp;rsquo;t fret. Just ask someone else to
-look at your code. Easy, right? Code review doesn&amp;rsquo;t always start with adoption
-by an entire organization. At &lt;a href=&#34;http://brightcove.com&#34;&gt;Brightcove&lt;/a&gt;, I started
-with just one other developer. We started sharing code and it spread from
-there, organically at first and then finally was adopted by the entire group.&lt;/p&gt;
-&lt;p&gt;What follows are some simple guidelines that I brought to
-&lt;a href=&#34;http://brightcove.com&#34;&gt;Brightcove&lt;/a&gt;; we used a similar philosophy at
-&lt;a href=&#34;http://www.carbondesignsystems.com&#34;&gt;Carbon Design Systems&lt;/a&gt; and
-&lt;a href=&#34;http://www.crunchbase.com/organization/iphrase-systems&#34;&gt;iPhrase&lt;/a&gt;.&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;h2 id=&#34;buddy-reviews&#34;&gt;Buddy Reviews&lt;/h2&gt;
-&lt;p&gt;All checkins must be reviewed and approved by a peer prior to commit. The
-intent is to educate each other on different parts of our system and improve
-the quality of our code.&lt;/p&gt;
-&lt;h3 id=&#34;who-can-be-a-buddy&#34;&gt;WHO can be a buddy?&lt;/h3&gt;
-&lt;p&gt;Anyone who is able to understand and critique your changes. This usually
-means another engineer. Vary your reviewer from commit to commit &amp;ndash; try and
-broaden the number of people understanding any one subsystem.&lt;/p&gt;
-&lt;h3 id=&#34;when-to-buddy&#34;&gt;WHEN to buddy?&lt;/h3&gt;
-&lt;p&gt;Before the commit. Every time, every change. A good time for review is while
-tests are running, although if there are failures, you will have to have
-your changes re-reviewed.&lt;/p&gt;
-&lt;p&gt;There is no excuse to skip the buddy review. If you are alone in the office
-or working remotely, you still need someone to review your changes. If you
-are working against a tight deadline, your changes still need review.&lt;/p&gt;
-&lt;p&gt;Buddy reviews do not always need to be face-to-face (though preferred).
-Email diffs or pointers to changed source files and discuss your
-modifications over the phone, IM, etc. Of course, if your commit can wait
-until the next day (most can), wait for a face-to-face review.&lt;/p&gt;
-&lt;h3 id=&#34;what-should-a-buddy-ask&#34;&gt;WHAT should a buddy ask?&lt;/h3&gt;
-&lt;ol&gt;
-&lt;li&gt;Do I understand the problem this change is solving?&lt;/li&gt;
-&lt;li&gt;Is this the best/an appropriate solution?&lt;/li&gt;
-&lt;li&gt;What cases are not handled?&lt;/li&gt;
-&lt;li&gt;What impact could this change have on customers, other subsystems, optimizations, etc.&lt;/li&gt;
-&lt;li&gt;Will this code behave differently with other OS, compiler, etc?&lt;/li&gt;
-&lt;li&gt;What is the potential performance (compile/runtime) impact?&lt;/li&gt;
-&lt;li&gt;Is the code clearly written/readable?&lt;/li&gt;
-&lt;li&gt;Is it appropriately commented/documented?&lt;/li&gt;
-&lt;li&gt;How has this change been tested?&lt;/li&gt;
-&lt;li&gt;Has there been sufficient testing?&lt;/li&gt;
-&lt;li&gt;Are there unit tests?&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;Some other thoughts on buddy reviews to get you started:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;http://blog.codinghorror.com/code-reviews-just-do-it/&#34;&gt;http://blog.codinghorror.com/code-reviews-just-do-it/&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://blog.codinghorror.com/whos-your-coding-buddy/&#34;&gt;http://blog.codinghorror.com/whos-your-coding-buddy/&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://engineering.slideshare.net/2011/11/the-buddy-system-an-alternative-to-pair-programming/&#34;&gt;http://engineering.slideshare.net/2011/11/the-buddy-system-an-alternative-to-pair-programming/&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://marekblotny.blogspot.com/2009/03/coding-buddy-interesting-approach-to.html&#34;&gt;http://marekblotny.blogspot.com/2009/03/coding-buddy-interesting-approach-to.html&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://www.excella.com/blog/peer-review-vs-group-review-which-is-best-for-a-code-review/&#34;&gt;http://www.excella.com/blog/peer-review-vs-group-review-which-is-best-for-a-code-review/&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-</description>
+      <description>&lt;p&gt;Thanks to &lt;a href=&#34;https://github.com&#34;&gt;github&lt;/a&gt; and their easy-to-use&#xA;&lt;a href=&#34;https://help.github.com/articles/using-pull-requests/&#34;&gt;pull request&lt;/a&gt; UI,&#xA;pre-commit code reviews have become much more common in the industry. For me,&#xA;lightweight peer reviews are a requirement in any well-run development shop.&#xA;Github certainly did not invent this style of review, but they have certainly&#xA;help popularize the practice. Thanks, Github!&lt;/p&gt;&#xA;&lt;p&gt;I have helped establish code reviewing throughout my career ever since seeing&#xA;its positive effect at my first job, working on formal verification tools at&#xA;&lt;a href=&#34;http://www.prnewswire.com/news-releases/avant-to-acquire-chrysalis-symbolic-design-inc-formal-verification-market-leader-74406487.html&#34;&gt;Chrysalis Symbolic Design&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;p&gt;We did a few full formal code reviews at Chrysalis. They ended up being far&#xA;too heavy and time-consuming. Mostly, we used lighter-weight techniques;&#xA;handing around branches, textual diffs, and over-the-shoulder inspection. The&#xA;tooling was primitive, but the value of these reviews was immeasurable. We&#xA;were working on a product where the original developer was no longer part of&#xA;the company; we were all learning a foreign code base with each change.&lt;/p&gt;&#xA;&lt;p&gt;As we explored the code, we gradually learned how the parts fit. The buddy&#xA;reviews helped validate our findings, but more importantly, helped spread that&#xA;knowledge around the group.&lt;/p&gt;&#xA;&lt;p&gt;The teaching aspect of code reviews proved far more valuable than critique.&#xA;Yes, there is a chance that an expert will catch a fundamental flaw, but more&#xA;important is the opportunity for non-experts to ask, &amp;ldquo;Why?&amp;rdquo; Buddy reviews help&#xA;educate a team and let everyone become less reliant on &amp;ldquo;experts&amp;rdquo;.&lt;/p&gt;&#xA;&lt;p&gt;I left Chrysalis having seen the power of buddy reviews and have helped&#xA;promote adoption ever since.&lt;/p&gt;&#xA;&lt;p&gt;If you aren&amp;rsquo;t yet using peer reviews, don&amp;rsquo;t fret. Just ask someone else to&#xA;look at your code. Easy, right? Code review doesn&amp;rsquo;t always start with adoption&#xA;by an entire organization. At &lt;a href=&#34;http://brightcove.com&#34;&gt;Brightcove&lt;/a&gt;, I started&#xA;with just one other developer. We started sharing code and it spread from&#xA;there, organically at first and then finally was adopted by the entire group.&lt;/p&gt;&#xA;&lt;p&gt;What follows are some simple guidelines that I brought to&#xA;&lt;a href=&#34;http://brightcove.com&#34;&gt;Brightcove&lt;/a&gt;; we used a similar philosophy at&#xA;&lt;a href=&#34;http://www.carbondesignsystems.com&#34;&gt;Carbon Design Systems&lt;/a&gt; and&#xA;&lt;a href=&#34;http://www.crunchbase.com/organization/iphrase-systems&#34;&gt;iPhrase&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;h2 id=&#34;buddy-reviews&#34;&gt;Buddy Reviews&lt;/h2&gt;&#xA;&lt;p&gt;All checkins must be reviewed and approved by a peer prior to commit. The&#xA;intent is to educate each other on different parts of our system and improve&#xA;the quality of our code.&lt;/p&gt;&#xA;&lt;h3 id=&#34;who-can-be-a-buddy&#34;&gt;WHO can be a buddy?&lt;/h3&gt;&#xA;&lt;p&gt;Anyone who is able to understand and critique your changes. This usually&#xA;means another engineer. Vary your reviewer from commit to commit &amp;ndash; try and&#xA;broaden the number of people understanding any one subsystem.&lt;/p&gt;&#xA;&lt;h3 id=&#34;when-to-buddy&#34;&gt;WHEN to buddy?&lt;/h3&gt;&#xA;&lt;p&gt;Before the commit. Every time, every change. A good time for review is while&#xA;tests are running, although if there are failures, you will have to have&#xA;your changes re-reviewed.&lt;/p&gt;&#xA;&lt;p&gt;There is no excuse to skip the buddy review. If you are alone in the office&#xA;or working remotely, you still need someone to review your changes. If you&#xA;are working against a tight deadline, your changes still need review.&lt;/p&gt;&#xA;&lt;p&gt;Buddy reviews do not always need to be face-to-face (though preferred).&#xA;Email diffs or pointers to changed source files and discuss your&#xA;modifications over the phone, IM, etc. Of course, if your commit can wait&#xA;until the next day (most can), wait for a face-to-face review.&lt;/p&gt;&#xA;&lt;h3 id=&#34;what-should-a-buddy-ask&#34;&gt;WHAT should a buddy ask?&lt;/h3&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;Do I understand the problem this change is solving?&lt;/li&gt;&#xA;&lt;li&gt;Is this the best/an appropriate solution?&lt;/li&gt;&#xA;&lt;li&gt;What cases are not handled?&lt;/li&gt;&#xA;&lt;li&gt;What impact could this change have on customers, other subsystems, optimizations, etc.&lt;/li&gt;&#xA;&lt;li&gt;Will this code behave differently with other OS, compiler, etc?&lt;/li&gt;&#xA;&lt;li&gt;What is the potential performance (compile/runtime) impact?&lt;/li&gt;&#xA;&lt;li&gt;Is the code clearly written/readable?&lt;/li&gt;&#xA;&lt;li&gt;Is it appropriately commented/documented?&lt;/li&gt;&#xA;&lt;li&gt;How has this change been tested?&lt;/li&gt;&#xA;&lt;li&gt;Has there been sufficient testing?&lt;/li&gt;&#xA;&lt;li&gt;Are there unit tests?&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;Some other thoughts on buddy reviews to get you started:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;http://blog.codinghorror.com/code-reviews-just-do-it/&#34;&gt;http://blog.codinghorror.com/code-reviews-just-do-it/&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;http://blog.codinghorror.com/whos-your-coding-buddy/&#34;&gt;http://blog.codinghorror.com/whos-your-coding-buddy/&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;http://engineering.slideshare.net/2011/11/the-buddy-system-an-alternative-to-pair-programming/&#34;&gt;http://engineering.slideshare.net/2011/11/the-buddy-system-an-alternative-to-pair-programming/&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;http://marekblotny.blogspot.com/2009/03/coding-buddy-interesting-approach-to.html&#34;&gt;http://marekblotny.blogspot.com/2009/03/coding-buddy-interesting-approach-to.html&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;http://www.excella.com/blog/peer-review-vs-group-review-which-is-best-for-a-code-review/&#34;&gt;http://www.excella.com/blog/peer-review-vs-group-review-which-is-best-for-a-code-review/&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;</description>
     </item>
-    
   </channel>
 </rss>

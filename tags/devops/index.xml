@@ -10,60 +10,13 @@
     <webMaster>aron.atkins@gmail.com (Aron Atkins)</webMaster>
     <lastBuildDate>Tue, 23 Dec 2014 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://aronatkins.github.io/tags/devops/index.xml" rel="self" type="application/rss+xml" />
-    
     <item>
       <title>You build it, you own it!</title>
       <link>https://aronatkins.github.io/posts/2014-12-23-you-build-it-you-own-it/</link>
       <pubDate>Tue, 23 Dec 2014 00:00:00 +0000</pubDate>
       <author>aron.atkins@gmail.com (Aron Atkins)</author>
       <guid>https://aronatkins.github.io/posts/2014-12-23-you-build-it-you-own-it/</guid>
-      <description>&lt;p&gt;One of the most powerful transitions I experienced while at
-&lt;a href=&#34;http://brightcove.com&#34;&gt;Brightcove&lt;/a&gt; was the shift away from
-dev-and-test-and-deploy silos. In its place came teams who built, tested,
-deployed, and operated our services.&lt;/p&gt;
-&lt;p&gt;I recently came across an
-&lt;a href=&#34;http://queue.acm.org/detail.cfm?id=1142065&#34;&gt;ACM interview&lt;/a&gt; with
-&lt;a href=&#34;http://www.allthingsdistributed.com&#34;&gt;Werner Vogels&lt;/a&gt; from
-&lt;a href=&#34;http://www.amazon.com&#34;&gt;Amazon&lt;/a&gt;. The article is from 2006 but discusses their
-experience with this transition:&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Giving developers operational responsibilities has greatly enhanced the
-quality of the services, both from a customer and a technology point of
-view. The traditional model is that you take your software to the wall that
-separates development and operations, and throw it over and then forget
-about it. Not at Amazon. You build it, you run it. This brings developers
-into contact with the day-to-day operation of their software. It also brings
-them into day-to-day contact with the customer. This customer feedback loop
-is essential for improving the quality of the service.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;The key building block is, &lt;em&gt;&amp;ldquo;You build it, you run it.&amp;quot;&lt;/em&gt; I would prefer
-a slightly stronger statement, which is: &amp;ldquo;You build it, you own it.&amp;rdquo; In the
-best of worlds, there is no handoff &amp;ndash; the team writing the code is the team
-testing the build is the team deploying the service is the team responding to
-support requests and is the team paged if something breaks in the middle of
-the night.&lt;/p&gt;
-&lt;p&gt;This is the ideal that the
-&lt;a href=&#34;http://en.wikipedia.org/wiki/DevOps&#34;&gt;devops&lt;/a&gt; movement is trying to
-accomplish. There is no wall, no barrier that divides an organization into
-separate teams based on skills. Instead, there are blended teams trying to
-completely solve some problem.&lt;/p&gt;
-&lt;p&gt;Giving a team ownership of a product motivates those individuals to take
-fuller responsibility for their work. They learn more about the problem being
-solved. They learn more about constraints placed upon their system (perhaps
-business, perhaps technical). There is no one between their output and
-your customer.&lt;/p&gt;
-&lt;p&gt;I take it personally when something I built does not perform as anticipated or
-fails to meet some customer need. I take pride in products I deliver; my work
-is a reflection of me. I take it as a personal failure if my work makes me
-lose a night of sleep, or worse, if I cause someone else to have a rough
-night. None of this is discouraging! My defensive reaction drives me to
-improve our products further and to be more critical in my own work going
-forward.&lt;/p&gt;
-&lt;p&gt;I have seen this same behavior in others; ownership that encourages personal
-responsibility is a powerful feedback loop that can drive a product team
-forward.&lt;/p&gt;
-</description>
+      <description>&lt;p&gt;One of the most powerful transitions I experienced while at&#xA;&lt;a href=&#34;http://brightcove.com&#34;&gt;Brightcove&lt;/a&gt; was the shift away from&#xA;dev-and-test-and-deploy silos. In its place came teams who built, tested,&#xA;deployed, and operated our services.&lt;/p&gt;&#xA;&lt;p&gt;I recently came across an&#xA;&lt;a href=&#34;http://queue.acm.org/detail.cfm?id=1142065&#34;&gt;ACM interview&lt;/a&gt; with&#xA;&lt;a href=&#34;http://www.allthingsdistributed.com&#34;&gt;Werner Vogels&lt;/a&gt; from&#xA;&lt;a href=&#34;http://www.amazon.com&#34;&gt;Amazon&lt;/a&gt;. The article is from 2006 but discusses their&#xA;experience with this transition:&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;Giving developers operational responsibilities has greatly enhanced the&#xA;quality of the services, both from a customer and a technology point of&#xA;view. The traditional model is that you take your software to the wall that&#xA;separates development and operations, and throw it over and then forget&#xA;about it. Not at Amazon. You build it, you run it. This brings developers&#xA;into contact with the day-to-day operation of their software. It also brings&#xA;them into day-to-day contact with the customer. This customer feedback loop&#xA;is essential for improving the quality of the service.&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;The key building block is, &lt;em&gt;&amp;ldquo;You build it, you run it.&amp;quot;&lt;/em&gt; I would prefer&#xA;a slightly stronger statement, which is: &amp;ldquo;You build it, you own it.&amp;rdquo; In the&#xA;best of worlds, there is no handoff &amp;ndash; the team writing the code is the team&#xA;testing the build is the team deploying the service is the team responding to&#xA;support requests and is the team paged if something breaks in the middle of&#xA;the night.&lt;/p&gt;&#xA;&lt;p&gt;This is the ideal that the&#xA;&lt;a href=&#34;http://en.wikipedia.org/wiki/DevOps&#34;&gt;devops&lt;/a&gt; movement is trying to&#xA;accomplish. There is no wall, no barrier that divides an organization into&#xA;separate teams based on skills. Instead, there are blended teams trying to&#xA;completely solve some problem.&lt;/p&gt;&#xA;&lt;p&gt;Giving a team ownership of a product motivates those individuals to take&#xA;fuller responsibility for their work. They learn more about the problem being&#xA;solved. They learn more about constraints placed upon their system (perhaps&#xA;business, perhaps technical). There is no one between their output and&#xA;your customer.&lt;/p&gt;&#xA;&lt;p&gt;I take it personally when something I built does not perform as anticipated or&#xA;fails to meet some customer need. I take pride in products I deliver; my work&#xA;is a reflection of me. I take it as a personal failure if my work makes me&#xA;lose a night of sleep, or worse, if I cause someone else to have a rough&#xA;night. None of this is discouraging! My defensive reaction drives me to&#xA;improve our products further and to be more critical in my own work going&#xA;forward.&lt;/p&gt;&#xA;&lt;p&gt;I have seen this same behavior in others; ownership that encourages personal&#xA;responsibility is a powerful feedback loop that can drive a product team&#xA;forward.&lt;/p&gt;&#xA;</description>
     </item>
-    
   </channel>
 </rss>

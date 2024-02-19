@@ -10,123 +10,29 @@
     <webMaster>aron.atkins@gmail.com (Aron Atkins)</webMaster>
     <lastBuildDate>Wed, 12 Oct 2016 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://aronatkins.github.io/tags/rstudio/index.xml" rel="self" type="application/rss+xml" />
-    
     <item>
       <title>Installing RStudio daily builds (Ubuntu)</title>
       <link>https://aronatkins.github.io/posts/2016-10-12-installing-rstudio-daily-ubuntu-builds/</link>
       <pubDate>Wed, 12 Oct 2016 00:00:00 +0000</pubDate>
       <author>aron.atkins@gmail.com (Aron Atkins)</author>
       <guid>https://aronatkins.github.io/posts/2016-10-12-installing-rstudio-daily-ubuntu-builds/</guid>
-      <description>&lt;p&gt;The
-&lt;a href=&#34;https://aronatkins.github.io/posts/2015-06-03-installing-rstudio-daily-builds/&#34;&gt;script that I previously published&lt;/a&gt; to
-handle OSX installs has been updated to also handle installing RStudio daily
-desktop builds on Ubuntu Linux hosts.&lt;/p&gt;
-&lt;p&gt;You need to install either &lt;code&gt;curl&lt;/code&gt; or &lt;code&gt;wget&lt;/code&gt; in order to use this script. It
-only understands Ubuntu installation and uses &lt;code&gt;dpkg&lt;/code&gt; to perform the install.
-If run as a non-&lt;code&gt;root&lt;/code&gt; user, &lt;code&gt;sudo&lt;/code&gt; is used when running &lt;code&gt;dpkg&lt;/code&gt;.&lt;/p&gt;
-&lt;p&gt;You may need to follow this script with a &lt;code&gt;apt-get install -f&lt;/code&gt; to install
-RStudio package dependencies (using &lt;code&gt;sudo&lt;/code&gt; if appropriate).&lt;/p&gt;
-&lt;p&gt;You can always find the latest version &lt;a href=&#34;https://gist.github.com/aronatkins/ac3934e08d2961285bef&#34;&gt;as a GitHub Gist&lt;/a&gt;
-and embedded below (the embed will not appear in RSS or in non-Javascript
-viewers). It fetches the latest daily RStudio IDE build from our download
-site, replacing any existing install.&lt;/p&gt;
-&lt;p&gt;To use this script, download it to your own machine, make it executable, and
-run it. Use it every day!&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;# Mark executable after downloading.
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ chmod +x install-rstudio-daily.sh
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;# Every day!
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ ./install-rstudio-daily.sh
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Downloading daily build from: https://www.rstudio.org/download/latest/daily/desktop/ubuntu64/rstudio-latest-amd64.deb
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                                 Dload  Upload   Total   Spent    Left  Speed
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;100   335  100   335    0     0    642      0 --:--:-- --:--:-- --:--:--   642
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;100 94.1M  100 94.1M    0     0  3383k      0  0:00:28  0:00:28 --:--:-- 3599k
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Installing /tmp/rstudio-latest-amd64.deb
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Selecting previously unselected package rstudio.
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;(Reading database ... 8837 files and directories currently installed.)
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Preparing to unpack /tmp/rstudio-latest-amd64.deb ...
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Unpacking rstudio (1.0.39) ...
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Setting up rstudio (1.0.39) ...
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Processing triggers for shared-mime-info (1.5-2ubuntu0.1) ...
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;script src=&#34;https://gist.github.com/aronatkins/ac3934e08d2961285bef.js&#34;&gt;&lt;/script&gt;
-</description>
+      <description>&lt;p&gt;The&#xA;&lt;a href=&#34;https://aronatkins.github.io/posts/2015-06-03-installing-rstudio-daily-builds/&#34;&gt;script that I previously published&lt;/a&gt; to&#xA;handle OSX installs has been updated to also handle installing RStudio daily&#xA;desktop builds on Ubuntu Linux hosts.&lt;/p&gt;&#xA;&lt;p&gt;You need to install either &lt;code&gt;curl&lt;/code&gt; or &lt;code&gt;wget&lt;/code&gt; in order to use this script. It&#xA;only understands Ubuntu installation and uses &lt;code&gt;dpkg&lt;/code&gt; to perform the install.&#xA;If run as a non-&lt;code&gt;root&lt;/code&gt; user, &lt;code&gt;sudo&lt;/code&gt; is used when running &lt;code&gt;dpkg&lt;/code&gt;.&lt;/p&gt;&#xA;&lt;p&gt;You may need to follow this script with a &lt;code&gt;apt-get install -f&lt;/code&gt; to install&#xA;RStudio package dependencies (using &lt;code&gt;sudo&lt;/code&gt; if appropriate).&lt;/p&gt;&#xA;&lt;p&gt;You can always find the latest version &lt;a href=&#34;https://gist.github.com/aronatkins/ac3934e08d2961285bef&#34;&gt;as a GitHub Gist&lt;/a&gt;&#xA;and embedded below (the embed will not appear in RSS or in non-Javascript&#xA;viewers). It fetches the latest daily RStudio IDE build from our download&#xA;site, replacing any existing install.&lt;/p&gt;&#xA;&lt;p&gt;To use this script, download it to your own machine, make it executable, and&#xA;run it. Use it every day!&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;# Mark executable after downloading.&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ chmod +x install-rstudio-daily.sh&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;# Every day!&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ ./install-rstudio-daily.sh&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Downloading daily build from: https://www.rstudio.org/download/latest/daily/desktop/ubuntu64/rstudio-latest-amd64.deb&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                                 Dload  Upload   Total   Spent    Left  Speed&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;100   335  100   335    0     0    642      0 --:--:-- --:--:-- --:--:--   642&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;100 94.1M  100 94.1M    0     0  3383k      0  0:00:28  0:00:28 --:--:-- 3599k&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Installing /tmp/rstudio-latest-amd64.deb&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Selecting previously unselected package rstudio.&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;(Reading database ... 8837 files and directories currently installed.)&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Preparing to unpack /tmp/rstudio-latest-amd64.deb ...&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Unpacking rstudio (1.0.39) ...&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Setting up rstudio (1.0.39) ...&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Processing triggers for shared-mime-info (1.5-2ubuntu0.1) ...&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;script src=&#34;https://gist.github.com/aronatkins/ac3934e08d2961285bef.js&#34;&gt;&lt;/script&gt;&#xA;</description>
     </item>
-    
     <item>
       <title>Installing RStudio daily builds</title>
       <link>https://aronatkins.github.io/posts/2015-06-03-installing-rstudio-daily-builds/</link>
       <pubDate>Wed, 03 Jun 2015 00:00:00 +0000</pubDate>
       <author>aron.atkins@gmail.com (Aron Atkins)</author>
       <guid>https://aronatkins.github.io/posts/2015-06-03-installing-rstudio-daily-builds/</guid>
-      <description>&lt;p&gt;As a member of the team at &lt;a href=&#34;http://rstudio.com&#34;&gt;RStudio&lt;/a&gt;, I install the daily
-build of our
-&lt;a href=&#34;http://www.rstudio.com/products/rstudio/&#34;&gt;open source RStudio IDE&lt;/a&gt; almost
-every morning.&lt;/p&gt;
-&lt;p&gt;There are published ways to download and install these builds
-&lt;a href=&#34;http://stackoverflow.com/a/15046636&#34;&gt;for Linux&lt;/a&gt; but that doesn&amp;rsquo;t work for me.&lt;/p&gt;
-&lt;p&gt;My main development machine is a Macbook Pro, and, well,
-&lt;a href=&#34;http://en.wikipedia.org/wiki/Think_different&#34;&gt;we&amp;rsquo;re different&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;After far too many iterations of &amp;ldquo;&lt;em&gt;google for &amp;lsquo;rstudio daily mac&amp;rsquo; then
-download the DMG then mount it then copy the application to &lt;code&gt;/Applications&lt;/code&gt;&lt;/em&gt;&amp;rdquo;,
-I put on my &amp;ldquo;Let&amp;rsquo;s write a script for that!&amp;rdquo; hat and &amp;hellip; wrote a script.&lt;/p&gt;
-&lt;p&gt;You can find the latest version &lt;a href=&#34;https://gist.github.com/aronatkins/ac3934e08d2961285bef&#34;&gt;as a GitHub Gist&lt;/a&gt;
-and embedded below (the embed will not appear in RSS or in non-Javascript
-viewers). It fetches the latest daily RStudio IDE build from our download
-site, replacing any existing install.&lt;/p&gt;
-&lt;p&gt;To use this script, download it to your own machine, make it executable, and
-run it. Use it every day!&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;# Mark executable after downloading.
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ chmod +x install-rstudio-daily.sh
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;# Every day!
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ ./install-rstudio-daily.sh
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Discovering daily build from: http://www.rstudio.org/download/latest/daily/desktop/mac/RStudio-latest.dmg
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Downloading daily build from: http://s3.amazonaws.com/rstudio-dailybuilds/RStudio-0.99.585.dmg
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                                 Dload  Upload   Total   Spent    Left  Speed
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;100 57.5M  100 57.5M    0     0  5558k      0  0:00:10  0:00:10 --:--:-- 6493k
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Installed RStudio-0.99.585 to /Applications
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;blockquote&gt;
-&lt;p&gt;&lt;strong&gt;Update 2015-06-10&lt;/strong&gt; The script has been simplified based on an &lt;a href=&#34;https://support.rstudio.com/hc/en-us/articles/203842428-Getting-the-newest-RStudio-builds&#34;&gt;RStudio support article&lt;/a&gt;. The sample output and the &lt;a href=&#34;https://gist.github.com/aronatkins/ac3934e08d2961285bef&#34;&gt;Gist&lt;/a&gt; have been updated with these changes.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;blockquote&gt;
-&lt;p&gt;&lt;strong&gt;Update 2016-10-12&lt;/strong&gt; The script now supports both OSX/macOS and Ubuntu Linux.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;script src=&#34;https://gist.github.com/aronatkins/ac3934e08d2961285bef.js&#34;&gt;&lt;/script&gt;
-</description>
+      <description>&lt;p&gt;As a member of the team at &lt;a href=&#34;http://rstudio.com&#34;&gt;RStudio&lt;/a&gt;, I install the daily&#xA;build of our&#xA;&lt;a href=&#34;http://www.rstudio.com/products/rstudio/&#34;&gt;open source RStudio IDE&lt;/a&gt; almost&#xA;every morning.&lt;/p&gt;&#xA;&lt;p&gt;There are published ways to download and install these builds&#xA;&lt;a href=&#34;http://stackoverflow.com/a/15046636&#34;&gt;for Linux&lt;/a&gt; but that doesn&amp;rsquo;t work for me.&lt;/p&gt;&#xA;&lt;p&gt;My main development machine is a Macbook Pro, and, well,&#xA;&lt;a href=&#34;http://en.wikipedia.org/wiki/Think_different&#34;&gt;we&amp;rsquo;re different&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;p&gt;After far too many iterations of &amp;ldquo;&lt;em&gt;google for &amp;lsquo;rstudio daily mac&amp;rsquo; then&#xA;download the DMG then mount it then copy the application to &lt;code&gt;/Applications&lt;/code&gt;&lt;/em&gt;&amp;rdquo;,&#xA;I put on my &amp;ldquo;Let&amp;rsquo;s write a script for that!&amp;rdquo; hat and &amp;hellip; wrote a script.&lt;/p&gt;&#xA;&lt;p&gt;You can find the latest version &lt;a href=&#34;https://gist.github.com/aronatkins/ac3934e08d2961285bef&#34;&gt;as a GitHub Gist&lt;/a&gt;&#xA;and embedded below (the embed will not appear in RSS or in non-Javascript&#xA;viewers). It fetches the latest daily RStudio IDE build from our download&#xA;site, replacing any existing install.&lt;/p&gt;&#xA;&lt;p&gt;To use this script, download it to your own machine, make it executable, and&#xA;run it. Use it every day!&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;# Mark executable after downloading.&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ chmod +x install-rstudio-daily.sh&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;# Every day!&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ ./install-rstudio-daily.sh&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Discovering daily build from: http://www.rstudio.org/download/latest/daily/desktop/mac/RStudio-latest.dmg&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Downloading daily build from: http://s3.amazonaws.com/rstudio-dailybuilds/RStudio-0.99.585.dmg&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                                 Dload  Upload   Total   Spent    Left  Speed&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;100 57.5M  100 57.5M    0     0  5558k      0  0:00:10  0:00:10 --:--:-- 6493k&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Installed RStudio-0.99.585 to /Applications&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;strong&gt;Update 2015-06-10&lt;/strong&gt; The script has been simplified based on an &lt;a href=&#34;https://support.rstudio.com/hc/en-us/articles/203842428-Getting-the-newest-RStudio-builds&#34;&gt;RStudio support article&lt;/a&gt;. The sample output and the &lt;a href=&#34;https://gist.github.com/aronatkins/ac3934e08d2961285bef&#34;&gt;Gist&lt;/a&gt; have been updated with these changes.&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;strong&gt;Update 2016-10-12&lt;/strong&gt; The script now supports both OSX/macOS and Ubuntu Linux.&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;script src=&#34;https://gist.github.com/aronatkins/ac3934e08d2961285bef.js&#34;&gt;&lt;/script&gt;&#xA;</description>
     </item>
-    
     <item>
       <title>I R what I R</title>
       <link>https://aronatkins.github.io/posts/2015-02-04-i-r-what-i-r/</link>
       <pubDate>Wed, 04 Feb 2015 00:00:00 +0000</pubDate>
       <author>aron.atkins@gmail.com (Aron Atkins)</author>
       <guid>https://aronatkins.github.io/posts/2015-02-04-i-r-what-i-r/</guid>
-      <description>&lt;p&gt;I am two days late in posting about it, but as of
-&lt;a href=&#34;http://en.wikipedia.org/wiki/Groundhog_Day&#34;&gt;Groundhog Day&lt;/a&gt;, I have rejoined
-the ranks of the employed.&lt;/p&gt;
-&lt;p&gt;I am a part of the team at &lt;a href=&#34;http://rstudio.com&#34;&gt;RStudio&lt;/a&gt;, joining a number of
-former &lt;a href=&#34;http://brightcove.com&#34;&gt;Brightcove&lt;/a&gt; colleagues.&lt;/p&gt;
-&lt;p&gt;As typical with new jobs, there&amp;rsquo;s a ton to learn: R and all its accompanying
-ecosystem, Angular, Bootstrap, Go. All this newness can be a bit intimidating,
-but I also find it invigorating &amp;ndash; my eagerness to dig in and deeply
-understand all these new things drives me forward.&lt;/p&gt;
-&lt;p&gt;My first day was a snow day, the result of Boston&amp;rsquo;s most recent winter
-pummeling. So much of what RStudio creates is open and available in public
-&lt;a href=&#34;https://github.com/rstudio/&#34;&gt;GitHub repositories&lt;/a&gt;; I could easily get started
-in between shoveling breaks.&lt;/p&gt;
-&lt;p&gt;I love my blurb from the &lt;a href=&#34;http://rstudio.com/about&#34;&gt;RStudio about&lt;/a&gt; page:&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Aron is a software engineer with experience at a number of Boston-area
-startups. Most recently, he helped build the Brightcove video platform. He
-has Mathematics and Computer Science degrees from
-&lt;a href=&#34;http://wpi.edu&#34;&gt;Worcester Polytechnic Institute&lt;/a&gt;. Aron grew up as part of a
-&lt;a href=&#34;http://atkinsfarms.com&#34;&gt;farming family&lt;/a&gt; and still adores apple cider
-donuts.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;I&amp;rsquo;m glad to be promoting my love for apple cider donuts. It probably deserves
-a blog post of its own!&lt;/p&gt;
-</description>
+      <description>&lt;p&gt;I am two days late in posting about it, but as of&#xA;&lt;a href=&#34;http://en.wikipedia.org/wiki/Groundhog_Day&#34;&gt;Groundhog Day&lt;/a&gt;, I have rejoined&#xA;the ranks of the employed.&lt;/p&gt;&#xA;&lt;p&gt;I am a part of the team at &lt;a href=&#34;http://rstudio.com&#34;&gt;RStudio&lt;/a&gt;, joining a number of&#xA;former &lt;a href=&#34;http://brightcove.com&#34;&gt;Brightcove&lt;/a&gt; colleagues.&lt;/p&gt;&#xA;&lt;p&gt;As typical with new jobs, there&amp;rsquo;s a ton to learn: R and all its accompanying&#xA;ecosystem, Angular, Bootstrap, Go. All this newness can be a bit intimidating,&#xA;but I also find it invigorating &amp;ndash; my eagerness to dig in and deeply&#xA;understand all these new things drives me forward.&lt;/p&gt;&#xA;&lt;p&gt;My first day was a snow day, the result of Boston&amp;rsquo;s most recent winter&#xA;pummeling. So much of what RStudio creates is open and available in public&#xA;&lt;a href=&#34;https://github.com/rstudio/&#34;&gt;GitHub repositories&lt;/a&gt;; I could easily get started&#xA;in between shoveling breaks.&lt;/p&gt;&#xA;&lt;p&gt;I love my blurb from the &lt;a href=&#34;http://rstudio.com/about&#34;&gt;RStudio about&lt;/a&gt; page:&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;Aron is a software engineer with experience at a number of Boston-area&#xA;startups. Most recently, he helped build the Brightcove video platform. He&#xA;has Mathematics and Computer Science degrees from&#xA;&lt;a href=&#34;http://wpi.edu&#34;&gt;Worcester Polytechnic Institute&lt;/a&gt;. Aron grew up as part of a&#xA;&lt;a href=&#34;http://atkinsfarms.com&#34;&gt;farming family&lt;/a&gt; and still adores apple cider&#xA;donuts.&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;I&amp;rsquo;m glad to be promoting my love for apple cider donuts. It probably deserves&#xA;a blog post of its own!&lt;/p&gt;&#xA;</description>
     </item>
-    
   </channel>
 </rss>

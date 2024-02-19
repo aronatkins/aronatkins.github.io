@@ -10,50 +10,13 @@
     <webMaster>aron.atkins@gmail.com (Aron Atkins)</webMaster>
     <lastBuildDate>Fri, 02 Jan 2015 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://aronatkins.github.io/tags/spotstory/index.xml" rel="self" type="application/rss+xml" />
-    
     <item>
       <title>a.placebetween.us was built with love</title>
       <link>https://aronatkins.github.io/posts/2015-01-02-a-placebetween-us-was-built-with-love/</link>
       <pubDate>Fri, 02 Jan 2015 00:00:00 +0000</pubDate>
       <author>aron.atkins@gmail.com (Aron Atkins)</author>
       <guid>https://aronatkins.github.io/posts/2015-01-02-a-placebetween-us-was-built-with-love/</guid>
-      <description>&lt;p&gt;&lt;img style=&#34;margin: 0px 10px 0px 0px&#34; height=&#34;61&#34; alt=&#34;a.placebetween.us&#34;
-src=&#34;https://aronatkins.github.io/images/a-placebetween-us-logo.gif&#34; width=&#34;251&#34; align=&#34;left&#34;&gt;
-Eight years ago, &lt;a href=&#34;http://matthewbellantoni.com&#34;&gt;Matthew&lt;/a&gt; and I were busy
-bootstrapping spotstory. We lived in different towns near Boston and were
-often looking for places to meet. For months we said, &amp;ldquo;You know, there really
-should be a website where you can give it two addresses, and it will find all
-of the coffee shops halfway between them.&amp;rdquo;&lt;/p&gt;
-&lt;p&gt;I couldn&amp;rsquo;t sleep one night and whipped up
-&lt;a href=&#34;http://a.placebetween.us&#34;&gt;a.placebetween.us&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;We blogged about some of the early publicity about the site, but the spotstory
-blog is no more. Luckily, the &lt;a href=&#34;http://web.archive.org&#34;&gt;web archive&lt;/a&gt; appears to
-have everything, ever!&lt;/p&gt;
-&lt;p&gt;I wanted to link to some of those
-&lt;a href=&#34;https://web.archive.org/web/20070712094926/http://blog.spotstory.com/&#34;&gt;old blog posts&lt;/a&gt;
-because they&amp;rsquo;re impossible to find if you&amp;rsquo;re not looking carefully.&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;&lt;a href=&#34;https://web.archive.org/web/20080905125344/http://blog.spotstory.com/2007/05/10/introducing-aplacebetweenus/&#34;&gt;Introducing a.placebetween.us&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://web.archive.org/web/20080905125344/http://blog.spotstory.com/2007/05/13/weekend-mentions-roundup/&#34;&gt;Weekend Mentions Roundup&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://web.archive.org/web/20080905125344/http://blog.spotstory.com/2007/05/14/aplacebetweenus-on/&#34;&gt;a.placebetween.us on del.icio.us&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://web.archive.org/web/20080905125344/http://blog.spotstory.com/2007/05/14/anupdatefromus/&#34;&gt;an.updatefrom.us&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://web.archive.org/web/20080905125344/http://blog.spotstory.com/2007/05/16/aplacebetweenus-on-yahoo-tvs-the-9-and-more/&#34;&gt;a.placebetween.us on Yahoo! TV’s The 9, and more&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://web.archive.org/web/20080905125344/http://blog.spotstory.com/2007/06/01/aplacebetweenacrowd/&#34;&gt;a.placebetween.a.crowd&lt;/a&gt;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;It&amp;rsquo;s really quite a simple site &amp;ndash; just one HTML page and some Javascript.
-Google&amp;rsquo;s Map and Search APIs do all the heavy lifting. Everything is almost
-the same as it was when we wrote it eight years ago. I did an update about a
-year ago beause Google changed their APIs, but otherwise, what you&amp;rsquo;re seeing
-is 2007 code. Lovely, right?&lt;/p&gt;
-&lt;p&gt;We still receive the occasional email thanking us for building
-&lt;a href=&#34;http://a.placebetween.us&#34;&gt;a.placebetween.us&lt;/a&gt;. We built it for ourselves a
-long time ago and are pleased as punch that others are still finding it
-useful.&lt;/p&gt;
-&lt;p&gt;What was our midpoint way back then? The Panera Bread in the
-&lt;a href=&#34;http://en.wikipedia.org/wiki/Watertown_Arsenal&#34;&gt;Watertown Arsenal&lt;/a&gt; was pretty
-close!&lt;/p&gt;
-</description>
+      <description>&lt;p&gt;&lt;img style=&#34;margin: 0px 10px 0px 0px&#34; height=&#34;61&#34; alt=&#34;a.placebetween.us&#34;&#xA;src=&#34;https://aronatkins.github.io/images/a-placebetween-us-logo.gif&#34; width=&#34;251&#34; align=&#34;left&#34;&gt;&#xA;Eight years ago, &lt;a href=&#34;http://matthewbellantoni.com&#34;&gt;Matthew&lt;/a&gt; and I were busy&#xA;bootstrapping spotstory. We lived in different towns near Boston and were&#xA;often looking for places to meet. For months we said, &amp;ldquo;You know, there really&#xA;should be a website where you can give it two addresses, and it will find all&#xA;of the coffee shops halfway between them.&amp;rdquo;&lt;/p&gt;&#xA;&lt;p&gt;I couldn&amp;rsquo;t sleep one night and whipped up&#xA;&lt;a href=&#34;http://a.placebetween.us&#34;&gt;a.placebetween.us&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;p&gt;We blogged about some of the early publicity about the site, but the spotstory&#xA;blog is no more. Luckily, the &lt;a href=&#34;http://web.archive.org&#34;&gt;web archive&lt;/a&gt; appears to&#xA;have everything, ever!&lt;/p&gt;&#xA;&lt;p&gt;I wanted to link to some of those&#xA;&lt;a href=&#34;https://web.archive.org/web/20070712094926/http://blog.spotstory.com/&#34;&gt;old blog posts&lt;/a&gt;&#xA;because they&amp;rsquo;re impossible to find if you&amp;rsquo;re not looking carefully.&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://web.archive.org/web/20080905125344/http://blog.spotstory.com/2007/05/10/introducing-aplacebetweenus/&#34;&gt;Introducing a.placebetween.us&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://web.archive.org/web/20080905125344/http://blog.spotstory.com/2007/05/13/weekend-mentions-roundup/&#34;&gt;Weekend Mentions Roundup&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://web.archive.org/web/20080905125344/http://blog.spotstory.com/2007/05/14/aplacebetweenus-on/&#34;&gt;a.placebetween.us on del.icio.us&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://web.archive.org/web/20080905125344/http://blog.spotstory.com/2007/05/14/anupdatefromus/&#34;&gt;an.updatefrom.us&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://web.archive.org/web/20080905125344/http://blog.spotstory.com/2007/05/16/aplacebetweenus-on-yahoo-tvs-the-9-and-more/&#34;&gt;a.placebetween.us on Yahoo! TV’s The 9, and more&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://web.archive.org/web/20080905125344/http://blog.spotstory.com/2007/06/01/aplacebetweenacrowd/&#34;&gt;a.placebetween.a.crowd&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;p&gt;It&amp;rsquo;s really quite a simple site &amp;ndash; just one HTML page and some Javascript.&#xA;Google&amp;rsquo;s Map and Search APIs do all the heavy lifting. Everything is almost&#xA;the same as it was when we wrote it eight years ago. I did an update about a&#xA;year ago beause Google changed their APIs, but otherwise, what you&amp;rsquo;re seeing&#xA;is 2007 code. Lovely, right?&lt;/p&gt;&#xA;&lt;p&gt;We still receive the occasional email thanking us for building&#xA;&lt;a href=&#34;http://a.placebetween.us&#34;&gt;a.placebetween.us&lt;/a&gt;. We built it for ourselves a&#xA;long time ago and are pleased as punch that others are still finding it&#xA;useful.&lt;/p&gt;&#xA;&lt;p&gt;What was our midpoint way back then? The Panera Bread in the&#xA;&lt;a href=&#34;http://en.wikipedia.org/wiki/Watertown_Arsenal&#34;&gt;Watertown Arsenal&lt;/a&gt; was pretty&#xA;close!&lt;/p&gt;&#xA;</description>
     </item>
-    
   </channel>
 </rss>

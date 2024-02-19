@@ -10,29 +10,13 @@
     <webMaster>aron.atkins@gmail.com (Aron Atkins)</webMaster>
     <lastBuildDate>Wed, 25 Mar 2015 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://aronatkins.github.io/tags/tux/index.xml" rel="self" type="application/rss+xml" />
-    
     <item>
       <title>Rehash: Pixels to Penguins</title>
       <link>https://aronatkins.github.io/posts/2015-03-25-rehash-pixels-to-penguins/</link>
       <pubDate>Wed, 25 Mar 2015 00:00:00 +0000</pubDate>
       <author>aron.atkins@gmail.com (Aron Atkins)</author>
       <guid>https://aronatkins.github.io/posts/2015-03-25-rehash-pixels-to-penguins/</guid>
-      <description>&lt;p&gt;A million years ago, I mashed-up the Flickr search API and an ASCII-art
-version of Tux the penguin. I called it &amp;ldquo;Pixels to Penguins&amp;rdquo;. The images from
-the search were mapped onto the ASCII image and gradually made visible. The
-results were also used to produce random MIDI audio. It was really pretty
-simple, conceptually, but also geeky and cool.&lt;/p&gt;
-&lt;p&gt;I wanted to revisit the idea now that browsers are starting to implement the
-&lt;a href=&#34;http://webaudio.github.io/web-audio-api/&#34;&gt;Web Audio API&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;The new version is called
-&lt;a href=&#34;http://aronatkins.github.io/pixels2015/&#34;&gt;pixels2015&lt;/a&gt;. The source is in a
-&lt;a href=&#34;https://github.com&#34;&gt;GitHub&lt;/a&gt;
-&lt;a href=&#34;https://github.com/aronatkins/pixels2015/tree/gh-pages&#34;&gt;repository&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;Update (2016-09-16): The video of my presentation at BarCampBoston2 is now
-available on &lt;a href=&#34;https://youtu.be/xpEw14P6pIQ&#34;&gt;YouTube&lt;/a&gt;.&lt;/p&gt;
-&lt;iframe width=&#34;640&#34; height=&#34;360&#34; src=&#34;https://www.youtube.com/embed/xpEw14P6pIQ&#34; frameborder=&#34;0&#34; allowfullscreen&gt;&lt;/iframe&gt;
-</description>
+      <description>&lt;p&gt;A million years ago, I mashed-up the Flickr search API and an ASCII-art&#xA;version of Tux the penguin. I called it &amp;ldquo;Pixels to Penguins&amp;rdquo;. The images from&#xA;the search were mapped onto the ASCII image and gradually made visible. The&#xA;results were also used to produce random MIDI audio. It was really pretty&#xA;simple, conceptually, but also geeky and cool.&lt;/p&gt;&#xA;&lt;p&gt;I wanted to revisit the idea now that browsers are starting to implement the&#xA;&lt;a href=&#34;http://webaudio.github.io/web-audio-api/&#34;&gt;Web Audio API&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;p&gt;The new version is called&#xA;&lt;a href=&#34;http://aronatkins.github.io/pixels2015/&#34;&gt;pixels2015&lt;/a&gt;. The source is in a&#xA;&lt;a href=&#34;https://github.com&#34;&gt;GitHub&lt;/a&gt;&#xA;&lt;a href=&#34;https://github.com/aronatkins/pixels2015/tree/gh-pages&#34;&gt;repository&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;p&gt;Update (2016-09-16): The video of my presentation at BarCampBoston2 is now&#xA;available on &lt;a href=&#34;https://youtu.be/xpEw14P6pIQ&#34;&gt;YouTube&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;iframe width=&#34;640&#34; height=&#34;360&#34; src=&#34;https://www.youtube.com/embed/xpEw14P6pIQ&#34; frameborder=&#34;0&#34; allowfullscreen&gt;&lt;/iframe&gt;&#xA;</description>
     </item>
-    
   </channel>
 </rss>

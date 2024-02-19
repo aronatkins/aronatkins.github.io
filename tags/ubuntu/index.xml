@@ -10,47 +10,13 @@
     <webMaster>aron.atkins@gmail.com (Aron Atkins)</webMaster>
     <lastBuildDate>Wed, 12 Oct 2016 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://aronatkins.github.io/tags/ubuntu/index.xml" rel="self" type="application/rss+xml" />
-    
     <item>
       <title>Installing RStudio daily builds (Ubuntu)</title>
       <link>https://aronatkins.github.io/posts/2016-10-12-installing-rstudio-daily-ubuntu-builds/</link>
       <pubDate>Wed, 12 Oct 2016 00:00:00 +0000</pubDate>
       <author>aron.atkins@gmail.com (Aron Atkins)</author>
       <guid>https://aronatkins.github.io/posts/2016-10-12-installing-rstudio-daily-ubuntu-builds/</guid>
-      <description>&lt;p&gt;The
-&lt;a href=&#34;https://aronatkins.github.io/posts/2015-06-03-installing-rstudio-daily-builds/&#34;&gt;script that I previously published&lt;/a&gt; to
-handle OSX installs has been updated to also handle installing RStudio daily
-desktop builds on Ubuntu Linux hosts.&lt;/p&gt;
-&lt;p&gt;You need to install either &lt;code&gt;curl&lt;/code&gt; or &lt;code&gt;wget&lt;/code&gt; in order to use this script. It
-only understands Ubuntu installation and uses &lt;code&gt;dpkg&lt;/code&gt; to perform the install.
-If run as a non-&lt;code&gt;root&lt;/code&gt; user, &lt;code&gt;sudo&lt;/code&gt; is used when running &lt;code&gt;dpkg&lt;/code&gt;.&lt;/p&gt;
-&lt;p&gt;You may need to follow this script with a &lt;code&gt;apt-get install -f&lt;/code&gt; to install
-RStudio package dependencies (using &lt;code&gt;sudo&lt;/code&gt; if appropriate).&lt;/p&gt;
-&lt;p&gt;You can always find the latest version &lt;a href=&#34;https://gist.github.com/aronatkins/ac3934e08d2961285bef&#34;&gt;as a GitHub Gist&lt;/a&gt;
-and embedded below (the embed will not appear in RSS or in non-Javascript
-viewers). It fetches the latest daily RStudio IDE build from our download
-site, replacing any existing install.&lt;/p&gt;
-&lt;p&gt;To use this script, download it to your own machine, make it executable, and
-run it. Use it every day!&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;# Mark executable after downloading.
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ chmod +x install-rstudio-daily.sh
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;# Every day!
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ ./install-rstudio-daily.sh
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Downloading daily build from: https://www.rstudio.org/download/latest/daily/desktop/ubuntu64/rstudio-latest-amd64.deb
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                                 Dload  Upload   Total   Spent    Left  Speed
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;100   335  100   335    0     0    642      0 --:--:-- --:--:-- --:--:--   642
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;100 94.1M  100 94.1M    0     0  3383k      0  0:00:28  0:00:28 --:--:-- 3599k
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Installing /tmp/rstudio-latest-amd64.deb
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Selecting previously unselected package rstudio.
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;(Reading database ... 8837 files and directories currently installed.)
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Preparing to unpack /tmp/rstudio-latest-amd64.deb ...
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Unpacking rstudio (1.0.39) ...
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Setting up rstudio (1.0.39) ...
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Processing triggers for shared-mime-info (1.5-2ubuntu0.1) ...
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;script src=&#34;https://gist.github.com/aronatkins/ac3934e08d2961285bef.js&#34;&gt;&lt;/script&gt;
-</description>
+      <description>&lt;p&gt;The&#xA;&lt;a href=&#34;https://aronatkins.github.io/posts/2015-06-03-installing-rstudio-daily-builds/&#34;&gt;script that I previously published&lt;/a&gt; to&#xA;handle OSX installs has been updated to also handle installing RStudio daily&#xA;desktop builds on Ubuntu Linux hosts.&lt;/p&gt;&#xA;&lt;p&gt;You need to install either &lt;code&gt;curl&lt;/code&gt; or &lt;code&gt;wget&lt;/code&gt; in order to use this script. It&#xA;only understands Ubuntu installation and uses &lt;code&gt;dpkg&lt;/code&gt; to perform the install.&#xA;If run as a non-&lt;code&gt;root&lt;/code&gt; user, &lt;code&gt;sudo&lt;/code&gt; is used when running &lt;code&gt;dpkg&lt;/code&gt;.&lt;/p&gt;&#xA;&lt;p&gt;You may need to follow this script with a &lt;code&gt;apt-get install -f&lt;/code&gt; to install&#xA;RStudio package dependencies (using &lt;code&gt;sudo&lt;/code&gt; if appropriate).&lt;/p&gt;&#xA;&lt;p&gt;You can always find the latest version &lt;a href=&#34;https://gist.github.com/aronatkins/ac3934e08d2961285bef&#34;&gt;as a GitHub Gist&lt;/a&gt;&#xA;and embedded below (the embed will not appear in RSS or in non-Javascript&#xA;viewers). It fetches the latest daily RStudio IDE build from our download&#xA;site, replacing any existing install.&lt;/p&gt;&#xA;&lt;p&gt;To use this script, download it to your own machine, make it executable, and&#xA;run it. Use it every day!&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;# Mark executable after downloading.&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ chmod +x install-rstudio-daily.sh&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;# Every day!&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ ./install-rstudio-daily.sh&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Downloading daily build from: https://www.rstudio.org/download/latest/daily/desktop/ubuntu64/rstudio-latest-amd64.deb&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                                 Dload  Upload   Total   Spent    Left  Speed&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;100   335  100   335    0     0    642      0 --:--:-- --:--:-- --:--:--   642&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;100 94.1M  100 94.1M    0     0  3383k      0  0:00:28  0:00:28 --:--:-- 3599k&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Installing /tmp/rstudio-latest-amd64.deb&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Selecting previously unselected package rstudio.&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;(Reading database ... 8837 files and directories currently installed.)&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Preparing to unpack /tmp/rstudio-latest-amd64.deb ...&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Unpacking rstudio (1.0.39) ...&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Setting up rstudio (1.0.39) ...&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Processing triggers for shared-mime-info (1.5-2ubuntu0.1) ...&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;script src=&#34;https://gist.github.com/aronatkins/ac3934e08d2961285bef.js&#34;&gt;&lt;/script&gt;&#xA;</description>
     </item>
-    
   </channel>
 </rss>
